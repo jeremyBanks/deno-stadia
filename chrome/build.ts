@@ -79,7 +79,9 @@ const cryptoWasmTsLines = [
 import init, * as mod from "./target/wasm_pkg/crypto.js";//
 export const aesGcm256DecryptAndVerifyAsUtf8 =          //
   mod.aes_gcm_256_decrypt_and_verify_as_utf8;          //
-await init(new Uint8Array([                           ///////////// OFFSET`,
+export const sha512trunc256Hex =                      //
+  mod.sha_512_trunc_256_hex;                         //
+await init(new Uint8Array([                         /////////////// OFFSET`,
 ];
 for (let i = 0; i < cryptoWasm.length; i += 16) {
   cryptoWasmTsLines.push(

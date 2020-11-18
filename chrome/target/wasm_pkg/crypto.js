@@ -64,6 +64,26 @@ function getStringFromWasm0(ptr, len) {
   return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
 /**
+* @param {Uint8Array} input
+* @returns {string}
+*/
+export function sha_512_trunc_256_hex(input) {
+  try {
+    const retptr = wasm.__wbindgen_export_0.value - 16;
+    wasm.__wbindgen_export_0.value = retptr;
+    var ptr0 = passArray8ToWasm0(input, wasm.__wbindgen_malloc);
+    var len0 = WASM_VECTOR_LEN;
+    wasm.sha_512_trunc_256_hex(retptr, ptr0, len0);
+    var r0 = getInt32Memory0()[retptr / 4 + 0];
+    var r1 = getInt32Memory0()[retptr / 4 + 1];
+    return getStringFromWasm0(r0, r1);
+  } finally {
+    wasm.__wbindgen_export_0.value += 16;
+    wasm.__wbindgen_free(r0, r1);
+  }
+}
+
+/**
 * @param {Uint8Array} key
 * @param {Uint8Array} nonce
 * @param {Uint8Array} ciphertext

@@ -1,6 +1,11 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
+* @param {Uint8Array} input
+* @returns {string}
+*/
+export function sha_512_trunc_256_hex(input: Uint8Array): string;
+/**
 * @param {Uint8Array} key
 * @param {Uint8Array} nonce
 * @param {Uint8Array} ciphertext
@@ -21,6 +26,7 @@ export type InitInput =
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
+  readonly sha_512_trunc_256_hex: (a: number, b: number, c: number) => void;
   readonly aes_gcm_256_decrypt_and_verify_as_utf8: (
     a: number,
     b: number,

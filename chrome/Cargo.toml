@@ -19,6 +19,7 @@ console_error_panic_hook = "0.1.6"
 wee_alloc = "0.4.5" 
 aes-gcm = "0.8.0"
 winapi = { version = "0.3.9", features = ["wincrypt", "dpapi", "impl-default", "impl-debug", "debug"] }
+sha2 = "0.9.2"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.13"
