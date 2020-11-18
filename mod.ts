@@ -2,15 +2,16 @@
 import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
 import { assert } from "https://deno.land/std@0.78.0/testing/asserts.ts";
 
-import * as clui from "./_common/clui.ts";
 import { throttled } from "./_common/async.ts";
+import * as clui from "./_common/clui.ts";
 
 import { discoverProfiles } from "./chrome/mod.ts";
+import {} from "./stadia/mod.ts";
 
 let logLevel: log.LevelName;
 try {
   // If we have permission to check log level, default to INFO.
-  logLevel = Deno.env.get("DENO_LOG") as log.LevelName || "INFO";
+  logLevel = Deno.env.get("DENO_STADIA_LOG_LEVEL") as log.LevelName || "INFO";
 } catch {
   // If we don't have permission to check, include everything.
   logLevel = "DEBUG";
@@ -154,16 +155,20 @@ for (const chromeProfile of chromeProfiles) {
   const gamerId = shallowUserInfo?.[5];
   assert(gamerId && typeof gamerId === "string");
 
-  const stadiaProfile = {
-    gamerId,
-    gamerTag,
-    gamerTagName,
-    gamerTagNumber,
-    avatarId,
-    avatarUrl,
-    chromeProfile,
-    toString: () => `${gamerTag} (${chromeProfile.googleEmail})`,
-  };
+  const stadiaProfile = Object.assign(
+    Object.create({
+      toString: () => `${gamerTag} (${chromeProfile.googleEmail})`,
+    }),
+    {
+      gamerId,
+      gamerTag,
+      gamerTagName,
+      gamerTagNumber,
+      avatarId,
+      avatarUrl,
+      chromeProfile,
+    },
+  );
 
   log.info(
     `${chromeProfile.googleEmail} is logged in to Stadia as ${gamerTag}.`,

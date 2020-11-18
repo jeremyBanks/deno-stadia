@@ -1,6 +1,7 @@
 import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
 
 import { sha512trunc256Hex } from "./crypto.ts";
+import { getTempDir } from "../_common/paths.ts";
 
 const expectedDigest =
   "0081c7274f20500de453d0a92b0b8b8d7236c3d396e2aadd82c24485a01a5d91";
@@ -39,7 +40,9 @@ const getLocalPath = async () =>
     let localPath;
     if (new URL(import.meta.url).protocol !== "file:") {
       localPath = new URL(
-        `file:///tmp/deno-stadia-windows-${expectedDigest.slice(0, 4)}.exe`,
+        `file://${getTempDir()}/deno-stadia-windows-${
+          expectedDigest.slice(0, 4)
+        }.exe`,
       );
 
       let existingDigest;

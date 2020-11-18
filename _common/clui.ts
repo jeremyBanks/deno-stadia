@@ -1,6 +1,6 @@
 import { BufReader } from "https://deno.land/std@0.78.0/io/bufio.ts";
 
-type NotUndefined = string | number | boolean | symbol | object | null;
+type NotUndefined = string | number | boolean | symbol | object | null | bigint;
 
 /**
  * Prompts the user to select an item from an array, and returns it.
@@ -40,13 +40,13 @@ export const choose = async <T extends NotUndefined>(
       prompt = "Enter the number of your choice:\n> ";
     }
     const input = (await readLineFromStdIn(prompt) || "").trim();
-    const isNaturalNumber = /^[0-9]\.?$/.test(input);
+    const isNaturalNumber = /^[0-9]+\.?$/.test(input);
 
     if (!input) {
       choice = defaultChoice;
     } else if (!isNaturalNumber) {
       throw new Error(
-        `input (${JSON.stringify(input)}) must be a positive number`,
+        `input (${JSON.stringify(input)}) must be a positive whole number`,
       );
     } else {
       const number = parseInt(input, 10);
