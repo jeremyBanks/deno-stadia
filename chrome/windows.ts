@@ -1,21 +1,23 @@
-import { dirname } from "https://deno.land/std@0.78.0/path/mod.ts";
+import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
 
-let dir: string | Error;
-if (new URL(import.meta.url).protocol === "file:") {
-  dir = dirname(new URL(import.meta.url).pathname);
+const canonicalPath = new URL(`./target/x86_64-pc-windows-gnu/debug/windows.exe`, import.meta.url);
+let localPath: URL;
+
+if (new URL(import.meta.url).protocol !== "file:") {
+  log.warning(`Downloading windows.exe from ${canonicalPath}, but verification and caching haven't been implemented yet.`);
+  const response = await fetch(canonicalPath);
+  const data = new Uint8Array(await response.arrayBuffer());
+  localPath = new URL(`file://${await Deno.makeTempDir()}/windows.exe`);
+  await Deno.writeFile(localPath, data, {mode: 0o555});
 } else {
-  dir = new Error("windows.ts can only be used locally (from a file: URL).");
+  localPath = canonicalPath;
 }
 
 export const cryptUnprotectData = async (
   ciphertext: Uint8Array,
 ): Promise<Uint8Array> => {
-  if (dir instanceof Error) {
-    throw dir;
-  }
-
   const p = Deno.run({
-    cmd: [`${dir}/target/x86_64-pc-windows-gnu/debug/windows.exe`],
+    cmd: [localPath],
     stdin: "piped",
     stdout: "piped",
   });

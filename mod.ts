@@ -30,7 +30,7 @@ const fetch = throttled(420 / 69, globalThis.fetch);
 
 const chromeProfiles = await discoverProfiles();
 
-log.debug(`Discovered ${chromeProfiles.length} Chrome chromeProfiles.`);
+log.debug(`Discovered ${chromeProfiles.length} Chrome profiles.`);
 
 const stadiaProfiles = [];
 
