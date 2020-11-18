@@ -1,9 +1,7 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
-import { dirname } from "https://deno.land/std@0.78.0/path/mod.ts";
-
 if (new URL(import.meta.url).protocol === "file:") {
   // Operate in the same directory as this script.
-  Deno.chdir(dirname(new URL(import.meta.url).pathname));
+  Deno.chdir(new URL(".", import.meta.url).pathname);
 } else {
   console.error("build-rust.ts can only be run locally (from a file: URL).");
   Deno.exit(1);
@@ -38,7 +36,7 @@ for (
 ) {
   if (!await ran(...cmd)) {
     console.log(`
-Possible fix:
+Suggestion:
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 `);
     Deno.exit(1);
@@ -47,7 +45,7 @@ Possible fix:
 
 if (!await ran("cargo", "build", "--lib", "--target=wasm32-unknown-unknown")) {
   console.log(`
-Possible fix:
+Suggestion:
   rustup target add wasm32-unknown-unknown
 `);
   throw Deno.exit(1);
@@ -63,7 +61,7 @@ if (
   )
 ) {
   console.log(`
-Possible fix:
+Suggestion:
   sudo apt install gcc-mingw-w64-x86-64
   rustup toolchain install stable-x86_64-pc-windows-gnu
   rustup target add x86_64-pc-windows-gnu
@@ -96,7 +94,6 @@ for (let i = 0; i < cryptoWasm.length; i += 16) {
       }`,
   );
 }
-
 cryptoWasmTsLines.push(
   `] as any).buffer); /*//-//////////////////////////////////////////  OFFSET
 ///////////////////*//-/
@@ -108,12 +105,13 @@ if (
   !await ran(
     "wasm-pack",
     "build",
+    // TODO: switch to new "deno" target in next version of wasm-pack.
     "--target=web",
     "--out-dir=target/wasm_pkg",
   )
 ) {
   console.log(`
-Possible solution:
+Suggestion:
   curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 `);
   throw Deno.exit(1);

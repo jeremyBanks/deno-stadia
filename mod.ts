@@ -2,8 +2,10 @@
 import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
 import { assert } from "https://deno.land/std@0.78.0/testing/asserts.ts";
 
+import * as clui from "./_common/clui.ts";
+import { throttled } from "./_common/async.ts";
+
 import { discoverProfiles } from "./chrome/mod.ts";
-import { throttled } from "./_util.ts";
 
 let logLevel: log.LevelName;
 try {
@@ -26,7 +28,7 @@ await log.setup({
   },
 });
 
-const fetch = throttled(420 / 69, globalThis.fetch);
+const fetch = throttled(69 / 42, globalThis.fetch);
 
 const chromeProfiles = await discoverProfiles();
 
@@ -160,6 +162,7 @@ for (const chromeProfile of chromeProfiles) {
     avatarId,
     avatarUrl,
     chromeProfile,
+    toString: () => `${gamerTag} (${chromeProfile.googleEmail})`,
   };
 
   log.info(
@@ -169,4 +172,6 @@ for (const chromeProfile of chromeProfiles) {
   stadiaProfiles.push(stadiaProfile);
 }
 
-console.log(stadiaProfiles);
+const profile = await clui.choose(stadiaProfiles, stadiaProfiles[0]);
+
+console.log(profile);

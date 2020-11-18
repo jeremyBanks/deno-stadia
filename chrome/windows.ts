@@ -39,7 +39,7 @@ const getLocalPath = async () =>
     let localPath;
     if (new URL(import.meta.url).protocol !== "file:") {
       localPath = new URL(
-        `file:///tmp/deno-stadia-windows-${expectedDigest}.exe`,
+        `file:///tmp/deno-stadia-windows-${expectedDigest.slice(0, 4)}.exe`,
       );
 
       let existingDigest;
