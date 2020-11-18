@@ -1,11 +1,11 @@
-/** @generated deno-fmt-ignore-file deno-lint-ignore-file */
-import init, * as mod from "./target/wasm_pkg/crypto.js";//
-
-export const aesGcm256DecryptAndVerifyAsUtf8 =          //
-  mod.aes_gcm_256_decrypt_and_verify_as_utf8;          //
-export const sha512trunc256Hex =                      //
-  mod.sha_512_trunc_256_hex;                         //
-await init(new Uint8Array([                         /////////////// OFFSET
+/** @generated deno-fmt-ignore-file deno-lint-ignore-file //-//*/
+import init from "./target/wasm_pkg/crypto.js"; export { //-//*/
+  aes_gcm_256_decrypt_and_verify_as_utf8 as //////////////
+    aesGcm256DecryptAndVerifyAsUtf8,     ////
+  sha_512_trunc_256_hex as              //
+    sha512trunc256Hex,                 //
+} from "./target/wasm_pkg/crypto.js"; //
+await init(new Uint8Array([          ////////////////////////////// OFFSET
   0, 97,115,109,  1,  0,  0,  0,  1,253,128,128,128,  0, 18, 96, //      0
   0,  0, 96,  0,  1,127, 96,  1,127,  0, 96,  1,127,  1,127, 96, //     16
   1,127,  1,126, 96,  2,127,127,  0, 96,  2,127,127,  1,127, 96, //     32
