@@ -1,0 +1,31 @@
+[package]
+name = "rust-modules"
+version = "0.0.0"
+edition = "2018"
+
+[lib]
+name = "crypto"
+path = "./crypto.rs"
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "windows"
+path = "./windows.rs"
+
+[dependencies]
+wasm-bindgen = "0.2.63"
+
+console_error_panic_hook = "0.1.6"
+wee_alloc = "0.4.5" 
+aes-gcm = "0.8.0"
+winapi = { version = "0.3.9", features = ["wincrypt", "dpapi", "impl-default", "impl-debug", "debug"] }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.13"
+
+[package.metadata.wasm-pack.profile.release]
+# Disabled because it crashes on something in the crypto code.
+wasm-opt = false
+
+[profile.release]
+opt-level = "s"
