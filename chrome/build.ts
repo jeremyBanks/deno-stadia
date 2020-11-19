@@ -69,13 +69,13 @@ const main = async () => {
   );
 
   await inlineBytes(
-    await Deno.readFile("./target/wasm_pkg/crypto_bg.wasm"),
     "./_crypto_wasm.js",
+    await Deno.readFile("./target/wasm_pkg/crypto_bg.wasm"),
   );
 
   await inlineBytes(
-    await Deno.readFile("./target/x86_64-pc-windows-gnu/release/windows.exe"),
     "./_windows_exe.js",
+    await Deno.readFile("./target/x86_64-pc-windows-gnu/release/windows.exe"),
   );
 
   await run("deno", "fmt");
@@ -101,13 +101,13 @@ const run = async (...cmd: string[]) => {
 };
 
 /** Writes a Uint8Array to an importable JS file. */
-const inlineBytes = async (bytes: Uint8Array, path: string | URL) => {
-  const compressed = bytes.length > 1_000_000;
+const inlineBytes = async (path: string | URL, bytes: Uint8Array) => {
+  const compressed = bytes.length > 131_072;
   if (compressed) {
     bytes = compress(
       bytes,
       undefined,
-      11,
+      9,
     );
   }
 
@@ -115,14 +115,14 @@ const inlineBytes = async (bytes: Uint8Array, path: string | URL) => {
   const bytesPerLine = 16;
   if (!compressed) {
     lines.push(`\
-// @ts-nocheck deno-fmt-ignore-file deno-lint-ignore-file
-export default new Uint8Array([/************************************************
+/* deno-fmt-ignore-file deno-lint-ignore-file */ export default new Uint8Array([
+/*******************************************************************************
 *  OFFSET  *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
 ********************************************************************************\
 `);
   } else {
     lines.push(`\
-// @ts-nocheck deno-fmt-ignore-file deno-lint-ignore-file
+// deno-fmt-ignore-file deno-lint-ignore-file
 import { decompress } from "https://deno.land/x/brotli@v0.1.4/mod.ts";
 export default decompress(new Uint8Array([\
 `);
@@ -145,25 +145,8 @@ export default decompress(new Uint8Array([\
       }
     }
 
-    const zeroLines = Math.min(Math.floor(zeroes / bytesPerLine), 4);
-
-    if (zeroLines > 1) {
-      let encodedBytes;
-      if (zeroLines === 2) {
-        encodedBytes = " , ,".repeat(bytesPerLine);
-      } else if (zeroLines === 3) {
-        encodedBytes = ", ,,".repeat(bytesPerLine);
-      } else {
-        encodedBytes = ",,,,".repeat(bytesPerLine);
-      }
-      lines.push(`* ${formattedOffset} */ ${encodedBytes}/*`);
-
-      offset += (zeroLines - 1) * bytesPerLine;
-      continue;
-    }
-
     const encodedBytes = [...bytes.slice(offset, offset + bytesPerLine)].map(
-      (b) => `${b ? b.toString().padStart(3) : "   "},`,
+      (b) => `${b.toString().padStart(3)},`,
     ).join("");
 
     if (!compressed) {
