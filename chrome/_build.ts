@@ -6,7 +6,7 @@ const main = async () => {
     // Operate in the same directory as this script.
     Deno.chdir(new URL(".", import.meta.url).pathname);
   } else {
-    console.error("build-rust.ts can only be run locally (from a file: URL).");
+    console.error("_build.ts can only be run locally (from a file: URL).");
     Deno.exit(1);
   }
 
@@ -64,17 +64,17 @@ const main = async () => {
   }
 
   await Deno.writeFile(
-    "./_crypto.js",
+    "./_generated/crypto_bindings.js",
     await Deno.readFile("./target/wasm_pkg/crypto.js"),
   );
 
   await inlineBytes(
-    "./_crypto_wasm.js",
+    "./_generated/crypto.wasm.js",
     await Deno.readFile("./target/wasm_pkg/crypto_bg.wasm"),
   );
 
   await inlineBytes(
-    "./_windows_exe.js",
+    "./_generated/windows.exe.js",
     await Deno.readFile("./target/x86_64-pc-windows-gnu/release/windows.exe"),
   );
 
@@ -102,8 +102,9 @@ const run = async (...cmd: string[]) => {
 
 /** Writes a Uint8Array to an importable JS file. */
 const inlineBytes = async (path: string | URL, bytes: Uint8Array) => {
-  const compressed = bytes.length > 131_072;
-  if (compressed) {
+  const compressedAndUgly = bytes.length > 131_072;
+
+  if (compressedAndUgly) {
     bytes = compress(
       bytes,
       undefined,
@@ -113,7 +114,7 @@ const inlineBytes = async (path: string | URL, bytes: Uint8Array) => {
 
   const lines = [];
   const bytesPerLine = 16;
-  if (!compressed) {
+  if (!compressedAndUgly) {
     lines.push(`\
 /* deno-fmt-ignore-file deno-lint-ignore-file */ export default new Uint8Array([
 /*******************************************************************************
@@ -149,14 +150,14 @@ export default decompress(new Uint8Array([\
       (b) => `${b.toString().padStart(3)},`,
     ).join("");
 
-    if (!compressed) {
+    if (!compressedAndUgly) {
       lines.push(`* ${formattedOffset} */ ${encodedBytes.padEnd(64)}/*`);
     } else {
       lines.push(encodedBytes);
     }
   }
 
-  if (!compressed) {
+  if (!compressedAndUgly) {
     lines.push(`\
 ********************************************************************************
 *  OFFSET  *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *

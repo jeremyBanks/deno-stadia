@@ -4,7 +4,7 @@ import { getTempDir } from "../_common/paths.ts";
 
 import { sha512trunc256Hex } from "./crypto.ts";
 
-import exe from "./_windows_exe.js";
+import exe from "./_generated/windows.exe.js";
 
 export const cryptUnprotectData = async (
   ciphertext: Uint8Array,
