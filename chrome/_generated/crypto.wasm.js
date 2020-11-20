@@ -1,6 +1,11 @@
-/* deno-fmt-ignore-file deno-lint-ignore-file */ export default new Uint8Array([
-/*******************************************************************************
-*  OFFSET  *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
+// @generated deno-fmt-ignore-file
+export const
+  size = 79_373,
+  type = "application/wasm",
+  hash = "efe4b5020ef88f39743dcf100431eaab316a503c44cb98c575c4db5aaf1370ef";
+export default new Uint8Array
+([/*****************************************************************************
+*   OFFSET *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
 ********************************************************************************
 * 0x000000 */   0, 97,115,109,  1,  0,  0,  0,  1,253,128,128,128,  0, 18, 96,/*
 * 0x000010 */   0,  0, 96,  0,  1,127, 96,  1,127,  0, 96,  1,127,  1,127, 96,/*

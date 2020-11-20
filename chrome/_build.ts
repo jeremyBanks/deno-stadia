@@ -1,6 +1,10 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
 import { compress } from "https://deno.land/x/brotli@v0.1.4/mod.ts";
 
+// XXX: This is a dependency on a file this script may delete and replace.
+// XXX: If something breaks, you may need to restore it from source control.
+import { sha512trunc256Hex } from "./crypto.ts";
+
 const main = async () => {
   if (new URL(import.meta.url).protocol === "file:") {
     // Operate in the same directory as this script.
@@ -63,19 +67,23 @@ const main = async () => {
     throw Deno.exit(1);
   }
 
-  await Deno.writeFile(
+  await Deno.writeTextFile(
     "./_generated/crypto_bindings.js",
-    await Deno.readFile("./target/wasm_pkg/crypto.js"),
+    `// deno-lint-ignore-file\n${await Deno.readTextFile(
+      "./target/wasm_pkg/crypto.js",
+    )}`,
   );
 
   await inlineBytes(
     "./_generated/crypto.wasm.js",
     await Deno.readFile("./target/wasm_pkg/crypto_bg.wasm"),
+    "application/wasm",
   );
 
   await inlineBytes(
     "./_generated/windows.exe.js",
     await Deno.readFile("./target/x86_64-pc-windows-gnu/release/windows.exe"),
+    "application/vnd.microsoft.portable-executable",
   );
 
   await run("deno", "fmt");
@@ -101,50 +109,56 @@ const run = async (...cmd: string[]) => {
 };
 
 /** Writes a Uint8Array to an importable JS file. */
-const inlineBytes = async (path: string | URL, bytes: Uint8Array) => {
-  const compressedAndUgly = bytes.length > 131_072;
+const inlineBytes = async (
+  path: string | URL,
+  bytes: Uint8Array,
+  type = "application/octet-stream",
+) => {
+  const originalBytes = bytes;
+  const compressedAndUgly = originalBytes.length > 131_072;
 
   if (compressedAndUgly) {
     bytes = compress(
-      bytes,
+      originalBytes,
       undefined,
       9,
     );
   }
 
+  const bytesPerLine = !compressedAndUgly ? 16 : (80 / 4);
+
   const lines = [];
-  const bytesPerLine = 16;
+
+  const hash = sha512trunc256Hex(originalBytes);
+  const size = originalBytes.length.toString().padStart(
+    Math.ceil(originalBytes.length.toString().length / 3) * 3,
+  ).replace(/...\B/g, "$&_").trim();
+
   if (!compressedAndUgly) {
     lines.push(`\
-/* deno-fmt-ignore-file deno-lint-ignore-file */ export default new Uint8Array([
-/*******************************************************************************
-*  OFFSET  *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
-********************************************************************************\
-`);
+// @generated deno-fmt-ignore-file
+export const
+  size = ${size},
+  type = ${JSON.stringify(type)},
+  hash = ${JSON.stringify(hash)};
+export default new Uint8Array
+([/*****************************************************************************
+*   OFFSET *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
+********************************************************************************`);
   } else {
     lines.push(`\
-// deno-fmt-ignore-file deno-lint-ignore-file
-import { decompress } from "https://deno.land/x/brotli@v0.1.4/mod.ts";
-export default decompress(new Uint8Array([\
-`);
+// @generated deno-fmt-ignore-file
+import brotli from "https://deno.land/x/brotli@v0.1.4/mod.ts";
+export const
+  size = ${size},
+  type = ${JSON.stringify(type)},
+  hash = ${JSON.stringify(hash)};
+export default brotli.decompress(new Uint8Array([`);
   }
   for (let offset = 0; offset < bytes.length; offset += bytesPerLine) {
     const formattedOffset = `0x${
       offset.toString(16).toUpperCase().padStart(6, "0")
     }`;
-
-    let zeroes = 0;
-    for (
-      let probeOffset = offset;
-      probeOffset < bytes.length;
-      probeOffset += 1
-    ) {
-      if (bytes[probeOffset] === 0x00) {
-        zeroes += 1;
-      } else {
-        break;
-      }
-    }
 
     const encodedBytes = [...bytes.slice(offset, offset + bytesPerLine)].map(
       (b) => `${b.toString().padStart(3)},`,
@@ -161,10 +175,13 @@ export default decompress(new Uint8Array([\
     lines.push(`\
 ********************************************************************************
 *  OFFSET  *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
-****************************************************************************/]);\
-`);
+****************************************************************************/]);`);
   } else {
-    lines.push(`]));\n`);
+    if (lines[lines.length - 1].length <= 76) {
+      lines.push(lines.pop()!.padEnd(76) + `]));\n`);
+    } else {
+      lines.push(`]));\n`);
+    }
   }
   await Deno.writeTextFile(path, lines.join("\n"));
 };

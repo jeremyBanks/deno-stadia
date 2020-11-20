@@ -21,6 +21,7 @@ class ChromeProfile {
   readonly googleAvatarUrl?: string;
   readonly googleOrganization?: string;
 
+  // deno-lint-ignore no-explicit-any
   constructor(opts: ChromeProfile | any) {
     this.path = opts.path;
     this.encryptionKey = opts.encryptionKey;
@@ -93,6 +94,7 @@ class ChromeProfile {
     `)).filter(({ encrypted_value }) =>
       (encrypted_value as unknown as Uint8Array).slice(0, 3).toString() ===
         "118,49,48"
+      // deno-lint-ignore no-explicit-any
     ).map((row: any) => ({
       host: row.host_key,
       name: row.name,
@@ -187,6 +189,7 @@ export const discoverProfiles = async (): Promise<Array<ChromeProfile>> => {
       for (
         const [name, meta] of Object.entries(
           profiles,
+          // deno-lint-ignore no-explicit-any
         ) as any
       ) {
         const profilePath = `${profileRoot}/${name}`;

@@ -1,5 +1,6 @@
 import { BufReader } from "https://deno.land/std@0.78.0/io/bufio.ts";
 
+// deno-lint-ignore ban-types
 type NotUndefined = string | number | boolean | symbol | object | null | bigint;
 
 /**
