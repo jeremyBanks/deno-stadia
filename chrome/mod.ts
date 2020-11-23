@@ -1,5 +1,5 @@
 import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
-import { assert } from "https://deno.land/std@0.78.0/testing/asserts.ts";
+import { assert } from "../_common/assertions.ts";
 
 import SQL from "https://deno.land/x/lite@0.0.9/sql.ts";
 

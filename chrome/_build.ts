@@ -143,12 +143,12 @@ export const
   hash = ${JSON.stringify(hash)};
 export default new Uint8Array
 ([/*****************************************************************************
-*   OFFSET *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
+*  OFFSET  *  0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF  *
 ********************************************************************************`);
   } else {
     lines.push(`\
 // @generated deno-fmt-ignore-file
-import brotli from "https://deno.land/x/brotli@v0.1.4/mod.ts";
+import * as brotli from "https://deno.land/x/brotli@v0.1.4/mod.ts";
 export const
   size = ${size},
   type = ${JSON.stringify(type)},

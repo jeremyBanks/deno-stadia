@@ -18,6 +18,11 @@ export const choose = async <T extends NotUndefined>(
 
   if (options.length === 0) {
     choice = defaultChoice;
+  } else if (
+    options.length === 1 &&
+    (defaultChoice === undefined || defaultChoice === options[0])
+  ) {
+    choice = options[0];
   } else {
     const maxDigits = options.length.toString().length;
     for (const [i, option] of options.entries()) {
