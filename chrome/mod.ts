@@ -109,9 +109,9 @@ class ChromeProfile {
   }
 
   toString() {
-    return `ChromeProfile { label: ${
-      JSON.stringify(this.label)
-    }, googleEmail: ${JSON.stringify(this.googleEmail)}, ... }`;
+    return `ChromeProfile { label: ${JSON.stringify(this.name)}, googleEmail: ${
+      JSON.stringify(this.googleEmail)
+    }, ... }`;
   }
 }
 

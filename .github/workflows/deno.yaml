@@ -31,7 +31,8 @@ jobs:
           echo "DENO_INSTALL=${DENO_INSTALL}" >> $GITHUB_ENV
           echo "PATH=${PATH}" >> $GITHUB_ENV
 
-      - run: |
+      - name: fetch any uncached dependencies
+        run: |
           deno cache --reload=file: ./mod.ts
 
       - run: |
@@ -40,10 +41,21 @@ jobs:
       - run: |
           deno test --allow-none
 
-      - run: |
+      - name: check lint
+        continue-on-error: true
+        run: |
           deno --unstable lint
-        continue-on-error: true
 
-      - run: |
-          deno fmt --check
+      - name: check formatting
         continue-on-error: true
+        run: |
+          deno fmt --check
+
+      - name: check lock file
+        continue-on-error: true
+        run: |
+        if [[ -f lock.json ]]; then
+          deno cache --lock=lock.json --cached-only ./mod.ts
+        fi
+        deno cache --lock-write --lock=lock.json ./mod.ts
+        cat lock.json
