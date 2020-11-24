@@ -78,7 +78,11 @@ export class Client extends ResponsesClient {
     const view = {
       stadiaGoogleId,
       gamerId,
+      gamerTagName,
+      gamerTagNumber,
       gamerTag,
+      avatarId,
+      avatarUrl,
     } as unknown as StadiaWebView;
     const row = null as unknown;
 
