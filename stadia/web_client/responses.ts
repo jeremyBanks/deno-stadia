@@ -1,7 +1,7 @@
 /** Requests and responses for Stadia pages. */
 import SQL, { Database } from "https://deno.land/x/lite@0.0.9/sql.ts";
 import { assert } from "../../_common/assertions.ts";
-import { safeEvalThroughJson } from "../../_common/sandbox.ts";
+import { safeEval } from "../../_common/sandbox.ts";
 import { Json } from "../../_common/types.ts";
 
 import { Client as RequestsClient, StadiaWebRequest } from "./requests.ts";
@@ -65,14 +65,14 @@ export class Client extends RequestsClient {
     if (httpResponse.status === 200) {
       const html = await httpResponse.text();
 
-      wizGlobalData = await safeEvalThroughJson(
+      wizGlobalData = await safeEval(
         "(" +
           (html.match(/WIZ_global_data =(.+?);<\/script>/s)
             ?.[1] ?? "null") +
           ")",
       ) as Record<string, Json>;
 
-      ijValues = await safeEvalThroughJson(
+      ijValues = await safeEval(
         "(" +
           (html.match(/IJ_values =(.+?); window.IJ_valuesCb<\/script>/s)
             ?.[1] ?? "null") +
@@ -81,7 +81,7 @@ export class Client extends RequestsClient {
 
       assert(wizGlobalData instanceof Object);
 
-      const preloadRequests = await safeEvalThroughJson(
+      const preloadRequests = await safeEval(
         "(" +
           (html.match(
             /AF_dataServiceRequests =(.+?); var AF_initDataChunkQueue =/s,
@@ -93,7 +93,7 @@ export class Client extends RequestsClient {
       const preloadResponses = await Promise.all([
         ...html.matchAll(/>AF_initDataCallback(\(\{.*?\}\))\;<\/script>/gs),
       ].map((x: any) => {
-        return safeEvalThroughJson(x[1]);
+        return safeEval(x[1]);
       }));
 
       afPreloadData = {};

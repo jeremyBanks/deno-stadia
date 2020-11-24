@@ -14,6 +14,9 @@ export const throttled = <F extends Function>(
   }) as unknown as F;
 };
 
-export const sleep = async (seconds: number) => {
-  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+export const sleep = async (seconds: number, abort?: AbortSignal) => {
+  return new Promise((resolve) => {
+    const timeoutId = setTimeout(resolve, seconds * 1000);
+    abort?.addEventListener("abort", () => clearTimeout(timeoutId));
+  });
 };

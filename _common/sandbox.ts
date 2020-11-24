@@ -1,7 +1,7 @@
 import { sleep } from "./async.ts";
 import { Json } from "./types.ts";
 
-export const safeEvalThroughJson = async (
+export const safeEval = async (
   javaScript: string,
 ): Promise<Json> => {
   const process = Deno.run({
@@ -9,6 +9,7 @@ export const safeEvalThroughJson = async (
     stdin: "piped",
     stdout: "piped",
   });
+  const abortTimeout = new AbortController();
 
   return await Promise.race([
     (async () => {
@@ -28,6 +29,7 @@ export const safeEvalThroughJson = async (
       );
       process.stdin.close();
       const output = await process.output();
+      Promise.resolve().then(() => abortTimeout.abort());
       if ((await process.status()).success) {
         return JSON.parse((new TextDecoder()).decode(output));
       } else {
@@ -35,7 +37,7 @@ export const safeEvalThroughJson = async (
       }
     })(),
     (async () => {
-      await sleep(4.0);
+      await sleep(16, abortTimeout.signal);
       process.close();
       throw new Error("eval timed out");
     })(),
