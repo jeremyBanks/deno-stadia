@@ -1,0 +1,115 @@
+name: workflow
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 4 * * SAT'
+
+jobs:
+  job:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: cache deno installation and deno.land dependencies
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/*') }}
+          restore-keys: ${{ runner.os }}-deno-
+          path: |
+            /home/runner/.deno
+            /home/runner/.cache/deno/deps/https/deno.land
+
+      - name: install or update deno installation
+        run: |
+          export DENO_INSTALL="/home/runner/.deno"
+          export PATH="${DENO_INSTALL}/bin:${PATH}"
+          mkdir -p "${DENO_INSTALL}"
+          deno upgrade || (
+            curl -fsSL https://deno.land/x/install/install.sh > "${DENO_INSTALL}/.sh";
+            sh "${DENO_INSTALL}/.sh"
+          )
+          deno --version
+          deno info
+          echo "DENO_INSTALL=${DENO_INSTALL}" >> $GITHUB_ENV
+          echo "PATH=${PATH}" >> $GITHUB_ENV
+
+      - name: install run toolchain build dependencies
+        run: sudo apt install gcc-mingw-w64-x86-64
+
+      - name: install rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: x86_64-pc-windows-gnu
+
+      - name: install wasm pack
+        uses: jetli/wasm-pack-action@v0.3.0
+        with:
+          version: latest
+
+      - name: build generated files
+        id: build
+        continue-on-error: false
+        run: |
+          ./_build.ts
+          git status
+          declare had_changes="$(
+            [[ -n "$(git status --porcelain)" ]] && echo true || echo false
+          )"
+          echo "::set-output name=had-changes::${had_changes}"
+
+      - name: configure git write access
+        if: success() && steps.build.outputs.had-changes == 'true' && github.event_name == 'push'
+        id: git
+        run: |
+          declare git_branch="$(echo ${GITHUB_REF#refs/heads/})"
+          git remote rm origin
+          git remote add origin "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          git checkout "${git_branch}"
+          git config user.name "$(git log -1 --pretty=format:'%an')"
+          git config user.email "$(git log -1 --pretty=format:'%ae')"
+          echo "::set-output name=date::$(git log -1 --pretty=format:'%ad')"
+          echo "::set-output name=branch::${git_branch}"
+
+      - name: commit and push generated files
+        if: success() && steps.build.outputs.had-changes == 'true' && github.event_name == 'push'
+        run: |
+          git add .
+          git commit -m "$(printf 'Rebuild generated files\nhttps://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
+          git push --set-upstream origin "${{ steps.git.outputs.branch }}"
+        env:
+          # We lock the date so the generated commit's hash won't needlessly
+          # vary if the action is run multiple times.
+          GIT_COMMITTER_DATE: "${{ steps.git.outputs.date }}"
+          GIT_AUTHOR_DATE: "${{ steps.git.outputs.date }}"
+
+      - name: fail if generated files are out-of-date and we can't push
+        if: success() && steps.build.outputs.had-changes == 'true' && github.event_name != 'push'
+        run: |
+          echo "Generated files are out-of-date!"
+          git status
+          exit 1
+
+      - name: fetch any uncached dependencies
+        run: |
+          deno cache --reload=file: ./mod.ts
+
+      - run: |
+          deno info ./mod.ts
+
+      - run: |
+          deno test --allow-none
+
+      - name: check lint
+        continue-on-error: true
+        run: |
+          deno --unstable lint
+
+      - name: check formatting
+        continue-on-error: true
+        run: |
+          deno fmt --check
+

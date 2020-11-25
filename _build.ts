@@ -110,7 +110,7 @@ allowed.
 
 \`\`\`sh
 curl -fsSL https://deno.land/x/install/install.sh | sh
- #or see https://deno.land/manual/getting_started/installation
+# or see https://deno.land/manual/getting_started/installation
  \`\`\`
 
 ## invocation or installation
@@ -136,6 +136,11 @@ ${usage}
 `;
 
   await Deno.writeTextFile("../README.md", readme);
+
+  if (!await run("deno", "cache", "--lock-write", "--lock=lock.json", "./mod.ts")) {
+    console.log("failed to generate lock file");
+    throw Deno.exit(1);
+  }
 };
 
 /** Runs a command, logging any error, returning a boolean indicating success. */
