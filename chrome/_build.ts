@@ -1,5 +1,5 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
-import { compress } from "https://deno.land/x/brotli@v0.1.4/mod.ts";
+import { brotli } from "../deps.ts";
 
 // XXX: This is a dependency on a file this script may delete and replace.
 // XXX: If something breaks, you may need to restore it from source control.
@@ -118,7 +118,7 @@ const inlineBytes = async (
   const compressedAndUgly = originalBytes.length > 131_072;
 
   if (compressedAndUgly) {
-    bytes = compress(
+    bytes = brotli.compress(
       originalBytes,
       undefined,
       9,
@@ -148,7 +148,7 @@ export default new Uint8Array
   } else {
     lines.push(`\
 // @generated deno-fmt-ignore-file
-import * as brotli from "https://deno.land/x/brotli@v0.1.4/mod.ts";
+import { brotli } from "../../deps.ts";
 export const
   size = ${size},
   type = ${JSON.stringify(type)},

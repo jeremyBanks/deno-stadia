@@ -1,6 +1,5 @@
 /** Loosely-structured view models parsed from Stadia page responses. */
-
-import SQL, { Database } from "https://deno.land/x/lite@0.0.9/sql.ts";
+import { SQL, Database } from "../../deps.ts";
 import { assert, notImplemented } from "../../_common/assertions.ts";
 import { Json } from "../../_common/types.ts";
 

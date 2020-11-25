@@ -1,7 +1,5 @@
-import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
+import { log, SQL } from "../deps.ts";
 import { assert } from "../_common/assertions.ts";
-
-import SQL from "https://deno.land/x/lite@0.0.9/sql.ts";
 
 import { aesGcm256DecryptAndVerifyAsUtf8 } from "./crypto.ts";
 import { cryptUnprotectData } from "./windows.ts";

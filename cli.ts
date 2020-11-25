@@ -1,6 +1,4 @@
-import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
-import SQL, { Database } from "https://deno.land/x/lite@0.0.9/sql.ts";
-import * as stdFlags from "https://deno.land/std@0.79.0/flags/mod.ts";
+import { log, SQL, Database, flags as stdFlags } from "./deps.ts";
 
 import * as clui from "./_common/clui.ts";
 

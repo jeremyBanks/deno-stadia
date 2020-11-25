@@ -1,5 +1,5 @@
 // @generated deno-fmt-ignore-file
-import * as brotli from "https://deno.land/x/brotli@v0.1.4/mod.ts";
+import { brotli } from "../../deps.ts";
 export const
   size = 1_720_305,
   type = "application/vnd.microsoft.portable-executable",

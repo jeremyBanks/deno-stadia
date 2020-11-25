@@ -1,4 +1,4 @@
-import SQL from "https://deno.land/x/lite@0.0.9/sql.ts";
+import { SQL } from "../deps.ts";
 
 export const schema = SQL`
   create table Player (

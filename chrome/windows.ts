@@ -1,4 +1,4 @@
-import * as log from "https://deno.land/std@0.78.0/log/mod.ts";
+import { log } from "../deps.ts";
 
 import { getTempDir } from "../_common/paths.ts";
 
