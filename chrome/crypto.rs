@@ -2,18 +2,9 @@ use wasm_bindgen::prelude::*;
 
 use aes_gcm::aead::{generic_array::GenericArray, Aead, NewAead};
 use aes_gcm::Aes256Gcm;
-use sha2::{Digest, Sha512Trunc256};
 
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
-
-#[wasm_bindgen]
-pub fn sha_512_trunc_256_hex(input: &[u8]) -> String {
-    Sha512Trunc256::digest(input)
-        .into_iter()
-        .map(|byte| format!("{:02x}", byte))
-        .collect()
-}
 
 #[wasm_bindgen]
 pub fn aes_gcm_256_decrypt_and_verify_as_utf8(

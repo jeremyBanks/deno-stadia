@@ -1,5 +1,5 @@
 /** Requests and responses for Stadia pages. */
-import { SQL, Database } from "../../deps.ts";
+import { Database, SQL } from "../../deps.ts";
 import { assert } from "../../_common/assertions.ts";
 import { safeEval } from "../../_common/sandbox.ts";
 import { Json } from "../../_common/types.ts";

@@ -1,4 +1,4 @@
-import { log, SQL, Database, flags as stdFlags } from "./deps.ts";
+import { Database, flags as stdFlags, log, SQL } from "./deps.ts";
 
 import * as clui from "./_common/clui.ts";
 

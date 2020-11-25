@@ -28,6 +28,8 @@ jobs:
             curl -fsSL https://deno.land/x/install/install.sh > "${DENO_INSTALL}/.sh";
             sh "${DENO_INSTALL}/.sh"
           )
+          deno --version
+          deno info
           echo "DENO_INSTALL=${DENO_INSTALL}" >> $GITHUB_ENV
           echo "PATH=${PATH}" >> $GITHUB_ENV
 
@@ -54,8 +56,8 @@ jobs:
       - name: check lock file
         continue-on-error: true
         run: |
-        if [[ -f lock.json ]]; then
-          deno cache --lock=lock.json --cached-only ./mod.ts
-        fi
-        deno cache --lock-write --lock=lock.json ./mod.ts
-        cat lock.json
+          if [[ -f lock.json ]]; then
+            deno cache --lock=lock.json --cached-only ./mod.ts
+          fi
+          deno cache --lock-write --lock=lock.json ./mod.ts
+          cat lock.json

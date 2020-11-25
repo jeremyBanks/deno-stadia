@@ -1,9 +1,5 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
-import { brotli } from "../deps.ts";
-
-// XXX: This is a dependency on a file this script may delete and replace.
-// XXX: If something breaks, you may need to restore it from source control.
-import { sha512trunc256Hex } from "./crypto.ts";
+import { brotli, Sha3_256 } from "../deps.ts";
 
 const main = async () => {
   if (new URL(import.meta.url).protocol === "file:") {
@@ -129,7 +125,7 @@ const inlineBytes = async (
 
   const lines = [];
 
-  const hash = sha512trunc256Hex(originalBytes);
+  const hash = new Sha3_256().update(originalBytes).toString("hex");
   const size = originalBytes.length.toString().padStart(
     Math.ceil(originalBytes.length.toString().length / 3) * 3,
   ).replace(/...\B/g, "$&_").trim();

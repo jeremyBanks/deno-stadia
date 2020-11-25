@@ -1,5 +1,5 @@
 /** Stadia web site client. */
-import { log, SQL, Database } from "../../deps.ts";
+import { Database, log, SQL } from "../../deps.ts";
 
 import { throttled } from "../../_common/async.ts";
 
