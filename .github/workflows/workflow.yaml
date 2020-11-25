@@ -37,7 +37,7 @@ jobs:
           echo "PATH=${PATH}" >> $GITHUB_ENV
 
       - name: install run toolchain build dependencies
-        run: sudo apt install gcc-mingw-w64-x86-64
+        run: sudo apt-get install gcc-mingw-w64-x86-64
 
       - name: install rust
         uses: actions-rs/toolchain@v1

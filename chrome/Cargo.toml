@@ -27,6 +27,9 @@ wasm-bindgen-test = "0.3.13"
 # our WASM size and performance are not a problem.
 wasm-opt = false
 
+[target.gcc-mingw-w64-x86-64]
+rustflags = "-Clink-arg=-Wl,--no-insert-timestamp"
+
 [profile.release]
 lto = true
 opt-level = "s"
