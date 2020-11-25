@@ -30,6 +30,6 @@ stadia ...<args>
 ## usage
 
 ```sh
-error: Cannot resolve module "file:///home/runner/work/deno-stadia/mod.ts".
+usage: stadia [--d] <command> [<args>]
 
 ```
