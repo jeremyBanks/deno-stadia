@@ -92,13 +92,6 @@ jobs:
           GIT_COMMITTER_DATE: "${{ steps.git.outputs.date }}"
           GIT_AUTHOR_DATE: "${{ steps.git.outputs.date }}"
 
-      - name: fail if generated files are out-of-date and we can't push
-        if: success() && steps.build.outputs.had-changes == 'true' && github.event_name != 'push'
-        run: |
-          echo "Generated files are out-of-date!"
-          git status
-          exit 1
-
       - name: fetch any uncached dependencies
         run: |
           deno cache --reload=file: ./mod.ts
@@ -114,8 +107,9 @@ jobs:
         run: |
           deno --unstable lint
 
-      - name: check formatting
-        continue-on-error: true
+      - name: fail if generated files are out-of-date and we can't push
+        if: success() && steps.build.outputs.had-changes == 'true' && github.event_name != 'push'
         run: |
-          deno fmt --check
-
+          echo "Generated files are out-of-date!"
+          git status
+          exit 1
