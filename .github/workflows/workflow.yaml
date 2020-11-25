@@ -33,8 +33,9 @@ jobs:
           )
           deno --version
           deno info
-          echo "DENO_INSTALL=${DENO_INSTALL}" >> $GITHUB_ENV
-          echo "PATH=${PATH}" >> $GITHUB_ENV
+          echo "DENO_INSTALL=${DENO_INSTALL}" >> "${GITHUB_ENV}"
+          echo "PATH=${PATH}" >> "${GITHUB_ENV}"
+          echo "SOURCE_DATE_EPOCH=1577836800" >> "${GITHUB_ENV}"
 
       - name: install run toolchain build dependencies
         run: sudo apt-get install gcc-mingw-w64-x86-64
