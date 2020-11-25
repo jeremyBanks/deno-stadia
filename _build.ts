@@ -1,4 +1,5 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
+/** Rebuilds generated files. */
 import { brotli, Sha3d256 } from "./deps.ts";
 
 const main = async () => {
@@ -96,7 +97,7 @@ const main = async () => {
         "NO_COLOR": "NO_COLOR",
       },
     }).stderrOutput(),
-  );
+  ).replace(/\n\n$/, "\n");
 
   const readme = `\
 This is an unofficial in-progress/unstable/pre-1.0 library/CLI tool for

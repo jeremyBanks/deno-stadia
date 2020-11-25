@@ -13,7 +13,65 @@ export const main = async (
   self = "stadia",
 ) => {
   const usage = `\
-usage: ${self} [--d] <command> [<args>]
+Unofficial Stadia CLI
+
+${color.cyan("USAGE:")}
+
+    ${color.bold(self)} ${
+    color.italic(
+      `[--google-email=${color.yellow(`<email>`)} | --google-cookies=${
+        color.yellow(`<cookies>`)
+      } | --offline]`,
+    )
+  } ${color.bold("<command>")} ${color.italic(`[${color.yellow(`<args>...`)}]`)}
+
+${color.cyan("AUTHENTICATION:")}
+
+    You must authenticate with Google Stadia in one of the following ways:
+
+    The ${
+    color.italic(`--google-cookie=`)
+  } parameter may be set with a header-style semicolon-
+    delimited Cookie string containing at least the three Google authentication
+    cookies "SID", "SSID", and "HSID".
+
+    If using Google Chrome on Windows 10 and running this command within
+    Windows Subsystem for Linux, it will be able to automatically detect any
+    Chrome Profiles that are synced with a Google account and load their
+    authentication cookies for you. If there are multiple synced profiles, you
+    may specify one to use with the ${
+    color.italic(`--google-email=`)
+  } parameter.
+
+    You may specify ${color.italic(`--offline`)} to disable authentication, but
+    any command that requires data that is not already saved locally will fail.
+
+${color.cyan("COMMANDS:")}
+
+    ${color.bold(`${self} auth`)}
+
+        Prints information about the authenticated user.
+
+    ${color.bold(`${self} run`)} ${color.yellow(`<game_name | game_id>`)}
+
+        Launch a Stadia game in Chrome, specified by name or ID.
+
+    ${color.bold(`${self} captures list`)}
+
+        Lists captured images and video.
+
+    ${color.bold(`${self} users profile`)} ${color.yellow(`<user_id>`)}
+
+        Displays basic profile information for the user with the given ID.
+
+    ${color.bold(`${self} store update`)}
+
+        Updates the local Stadia store catalogue.
+
+    ${color.bold(`${self} store search`)} ${color.yellow(`<name>`)}
+
+        Search the local Stadia store catalogue.
+
 `;
 
   if (logLevel !== null) {
