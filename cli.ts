@@ -20,7 +20,11 @@ usage: ${self} [--d] <command> [<args>]
     await initLogger(logLevel);
   }
 
-  if (args.length === 0) {
+  if (
+    args.length === 0 ||
+    (args.length === 1 &&
+      ["-h", "--help", "help", "-?", "-help"].includes(args[0].toLowerCase()))
+  ) {
     eprint(usage);
     Deno.exit(0);
   }
