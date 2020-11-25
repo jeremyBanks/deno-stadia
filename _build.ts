@@ -137,7 +137,9 @@ ${usage}
 
   await Deno.writeTextFile("../README.md", readme);
 
-  if (!await run("deno", "cache", "--lock-write", "--lock=lock.json", "./mod.ts")) {
+  if (
+    !await run("deno", "cache", "--lock-write", "--lock=lock.json", "./mod.ts")
+  ) {
     console.log("failed to generate lock file");
     throw Deno.exit(1);
   }
