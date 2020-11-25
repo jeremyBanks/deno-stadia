@@ -1,6 +1,7 @@
-import { Database, flags as stdFlags, log, SQL } from "./deps.ts";
+import { color, Database, flags as stdFlags, log, SQL } from "./deps.ts";
 
 import * as clui from "./_common/clui.ts";
+import { eprint } from "./_common/io.ts";
 
 import { discoverProfiles } from "./chrome/mod.ts";
 import { Client } from "./stadia/web_client/views.ts";
@@ -9,13 +10,36 @@ import { GoogleCookies } from "./stadia/web_client/requests.ts";
 export const main = async (
   args: string[] = Deno.args,
   logLevel?: log.LevelName | null,
+  self = "stadia",
 ) => {
+  const usage = `\
+usage: ${self} [--d] <command> [<args>]
+`;
+
   if (logLevel !== null) {
     await initLogger(logLevel);
   }
 
-  const flags = stdFlags.parse(args, {});
+  if (args.length === 0) {
+    eprint(usage);
+    Deno.exit(0);
+  }
 
+  const rootFlags = stdFlags.parse(args, {
+    stopEarly: true,
+    unknown: (arg: string) => {
+      eprint(color.red(`unknown argument: ${arg}\n\n`));
+      eprint(usage);
+      Deno.exit(64);
+    },
+  });
+
+  const command = rootFlags["_"];
+
+  await doThings();
+};
+
+const doThings = async () => {
   const chromeProfiles = await discoverProfiles();
 
   log.debug(`Discovered ${chromeProfiles.length} Chrome profiles.`);
@@ -80,7 +104,8 @@ const initLogger = async (logLevel?: log.LevelName) => {
   if (logLevel === undefined) {
     try {
       // If we have permission to check log level, default to INFO.
-      logLevel = Deno.env.get("DENO_STADIA_LOG_LEVEL") as log.LevelName ||
+      logLevel =
+        Deno.env.get("DENO_STADIA_LOG_LEVEL")?.toUpperCase() as log.LevelName ||
         "INFO";
     } catch {
       // If we don't have permission to check, include everything.

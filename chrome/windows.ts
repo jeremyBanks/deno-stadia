@@ -1,4 +1,4 @@
-import { log, Sha3_256 } from "../deps.ts";
+import { log, Sha3d256 } from "../deps.ts";
 
 import { getTempDir } from "../_common/paths.ts";
 
@@ -31,7 +31,7 @@ let localPath: Promise<URL> | undefined;
 
 const getLocalPath = async () =>
   localPath ??= (async () => {
-    const expectedDigest = new Sha3_256().update(exe).toString("hex");
+    const expectedDigest = new Sha3d256().update(exe).toString("hex");
 
     const localPath = new URL(
       `file://${getTempDir()}/deno-stadia-windows-${
@@ -41,7 +41,7 @@ const getLocalPath = async () =>
 
     let existingDigest;
     try {
-      existingDigest = new Sha3_256().update(await Deno.readFile(localPath))
+      existingDigest = new Sha3d256().update(await Deno.readFile(localPath))
         .toString("hex");
     } catch (error) {
       log.debug(`There appears to be no existing ${localPath}: ${error}.`);
