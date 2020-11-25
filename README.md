@@ -10,8 +10,8 @@ allowed.
 
 ```sh
 curl -fsSL https://deno.land/x/install/install.sh | sh
- #or see https://deno.land/manual/getting_started/installation
- ```
+# or see https://deno.land/manual/getting_started/installation
+```
 
 ## invocation or installation
 
