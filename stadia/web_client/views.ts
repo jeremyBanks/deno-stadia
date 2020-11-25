@@ -44,9 +44,9 @@ export class Client extends ResponsesClient {
     const ijValues = response.ijValues as Record<string, Json>;
     const afPreloadData = response.afPreloadData;
 
-    const stadiaGoogleId = wizGlobalData?.["W3Yyqf"];
+    const googleId = wizGlobalData?.["W3Yyqf"];
 
-    if (stadiaGoogleId !== this.googleId) {
+    if (googleId !== this.googleId) {
       throw new Error("Google ID in response did not match credentials");
     }
 
@@ -76,7 +76,7 @@ export class Client extends ResponsesClient {
     assert(gamerId && typeof gamerId === "string");
 
     const view = {
-      stadiaGoogleId,
+      googleId,
       gamerId,
       gamerTagName,
       gamerTagNumber,
