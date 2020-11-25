@@ -35,6 +35,9 @@ jobs:
           deno info
           echo "DENO_INSTALL=${DENO_INSTALL}" >> "${GITHUB_ENV}"
           echo "PATH=${PATH}" >> "${GITHUB_ENV}"
+
+      - name: set reproducible build environment
+        run: |
           echo "SOURCE_DATE_EPOCH=1577836800" >> "${GITHUB_ENV}"
           echo "TZ=UTC" >> "${GITHUB_ENV}"
           echo "LC_ALL=C" >> "${GITHUB_ENV}"
