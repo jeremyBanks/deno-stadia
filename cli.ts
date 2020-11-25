@@ -13,8 +13,6 @@ export const main = async (
   self = "stadia",
 ) => {
   const usage = `\
-Unofficial Stadia CLI
-
 ${color.cyan("USAGE:")}
 
     ${color.bold(self)} ${
