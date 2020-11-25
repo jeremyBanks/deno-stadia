@@ -135,7 +135,7 @@ ${usage}
 \`\`\`
 `;
 
-  await Deno.writeTextFile("../README.md", readme);
+  await Deno.writeTextFile("./README.md", readme);
 
   if (
     !await run("deno", "cache", "--lock-write", "--lock=lock.json", "./mod.ts")

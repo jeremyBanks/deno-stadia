@@ -42,7 +42,7 @@ jobs:
           echo "TZ=UTC" >> "${GITHUB_ENV}"
           echo "LC_ALL=C" >> "${GITHUB_ENV}"
 
-      - name: install run toolchain build dependencies
+      - name: install rust toolchain build dependencies
         run: sudo apt-get install gcc-mingw-w64-x86-64
 
       - name: install rust
