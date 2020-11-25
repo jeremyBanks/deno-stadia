@@ -105,6 +105,7 @@ jobs:
       - name: check lint
         continue-on-error: true
         run: |
+          git clean -xdf
           deno --unstable lint
 
       - name: fail if generated files are out-of-date and we can't push
