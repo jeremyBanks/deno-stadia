@@ -15,6 +15,13 @@ import { Client } from "../stadia/web_client/views.ts";
 import { GoogleCookies } from "../stadia/web_client/requests.ts";
 import { notImplemented } from "../_common/assertions.ts";
 
+import authCommand from "./auth.ts";
+import capturesCommand from "./captures.ts";
+import friendsCommand from "./friends.ts";
+import profileCommand from "./profile.ts";
+import runCommand from "./run.ts";
+import storeCommand from "./store.ts";
+
 const { yellow, italic, bold, cyan, red, brightRed, underline, dim } = color;
 
 export const main = async (
@@ -58,9 +65,10 @@ ${cyan("AUTHENTICATION:")}
 ${cyan("LOCAL STATE:")}
 
     Local state is persisted in a SQLite database named "./deno-stadia.sqlite"
-    in the current working directory. This may contain the Google ID and
-    Google Email of the current user, but it will never include authentication
-    credentials, so you can share it without compromising your Google account.
+    in the current working directory. It may contain personal information such
+    as your Google ID, your email address, and the list of games you own on
+    Stadia, but it will never include any of your credentials, so you can share
+    it without worrying about giving others access to your Google account.
 
 ${cyan("COMMANDS:")}
 
@@ -87,6 +95,11 @@ ${cyan("COMMANDS:")}
     ${bold(`${self} store search`)} ${yellow(`<name>`)}
 
         Search the local Stadia store catalogue.
+
+    ${bold(`${self} debug fetch`)} ${yellow(`<stadia_url>`)}
+
+        Fetches a Stadia URL and displays our internal representation of the
+        response.
 
 `;
 
@@ -140,18 +153,19 @@ ${cyan("COMMANDS:")}
 
   if (command === "auth") {
     if (commandArgs.length > 0) {
-      eprint(red(`expected no arguments but got: ${commandArgs.join(" ")}`));
+      eprint(
+        red(`expected no arguments but got: ${commandArgs.join(" ")}\n\n`),
+      );
+      eprint(usage);
       Deno.exit(66);
     }
 
     await authCommand();
   } else {
-    eprint(red(`unknown command: ${command}`));
+    eprint(red(`unknown command: ${command}\n\n`));
+    eprint(usage);
     Deno.exit(65);
   }
-};
-
-const authCommand = async () => {
 };
 
 const doThings = async (database: Database) => {
