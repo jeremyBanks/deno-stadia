@@ -1,13 +1,21 @@
-import { color, Database, flags as stdFlags, log, SQL } from "./deps.ts";
+import {
+  color,
+  Database,
+  flags,
+  flags as stdFlags,
+  log,
+  SQL,
+} from "../deps.ts";
 
-import * as clui from "./_common/clui.ts";
-import { eprint } from "./_common/io.ts";
+import * as clui from "../_common/clui.ts";
+import { eprint } from "../_common/io.ts";
 
-import { discoverProfiles } from "./chrome/mod.ts";
-import { Client } from "./stadia/web_client/views.ts";
-import { GoogleCookies } from "./stadia/web_client/requests.ts";
+import { discoverProfiles } from "../chrome/mod.ts";
+import { Client } from "../stadia/web_client/views.ts";
+import { GoogleCookies } from "../stadia/web_client/requests.ts";
+import { notImplemented } from "../_common/assertions.ts";
 
-const { yellow, italic, bold, cyan, red } = color;
+const { yellow, italic, bold, cyan, red, brightRed, underline, dim } = color;
 
 export const main = async (
   args: string[] = Deno.args,
@@ -15,6 +23,10 @@ export const main = async (
   self = "stadia",
 ) => {
   const usage = `\
+${underline(`Unofficial ${brightRed(`Stadia`)} CLI`)} ${
+    dim(`(https://deno.land/x/stadia)`)
+  }
+
 ${cyan("USAGE:")}
 
     ${bold(self)} ${italic(`[${yellow("<authentication>")}]`)} ${
@@ -91,21 +103,58 @@ ${cyan("COMMANDS:")}
     Deno.exit(0);
   }
 
-  const rootFlags = stdFlags.parse(args, {
-    stopEarly: true,
-    unknown: (arg: string) => {
-      eprint(red(`unknown argument: ${arg}\n\n`));
-      eprint(usage);
-      Deno.exit(64);
-    },
+  const parseFlags = (
+    args: string[],
+    options?: Partial<flags.ArgParsingOptions>,
+  ) =>
+    stdFlags.parse(args, {
+      stopEarly: true,
+      unknown: (arg, key, value) => {
+        if (key !== undefined) {
+          eprint(red(`unknown argument: ${arg}\n\n`));
+          eprint(usage);
+          Deno.exit(64);
+        }
+      },
+      ...options,
+    });
+
+  const rootFlags = parseFlags(args, {
+    string: ["google-email", "google-cookie"],
+    boolean: ["offline"],
   });
 
-  const command = rootFlags["_"];
+  const database = new Database("./deno-stadia.sqlite");
 
-  await doThings();
+  let client: Client;
+
+  if (rootFlags.offline) {
+    client = new Client("offline", notImplemented(), database);
+  } else if (rootFlags.googleCookies) {
+    client = new Client("unknown", notImplemented(), database);
+  } else {
+    0;
+  }
+
+  const [command, ...commandArgs] = rootFlags["_"];
+
+  if (command === "auth") {
+    if (commandArgs.length > 0) {
+      eprint(red(`expected no arguments but got: ${commandArgs.join(" ")}`));
+      Deno.exit(66);
+    }
+
+    await authCommand();
+  } else {
+    eprint(red(`unknown command: ${command}`));
+    Deno.exit(65);
+  }
 };
 
-const doThings = async () => {
+const authCommand = async () => {
+};
+
+const doThings = async (database: Database) => {
   const chromeProfiles = await discoverProfiles();
 
   log.debug(`Discovered ${chromeProfiles.length} Chrome profiles.`);
@@ -158,8 +207,6 @@ const doThings = async () => {
   }));
 
   const profile = (await clui.choose(choices, choices[0])).profile;
-
-  const database = new Database("./deno-stadia.sqlite");
 
   const client = new Client(profile.googleId!, profile.googleCookies, database);
 

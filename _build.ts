@@ -101,35 +101,29 @@ const main = async () => {
 
   const readme = `\
 This is an unofficial in-progress/unstable/pre-1.0 library/CLI tool for
-interacting with your Stadia account, using the Deno JavaScript runtime.
+interacting with your Stadia account. **⚠️ This tool is incomplete. Features
+may not be implemented or may not function as described. Come back later. ⚠️**
 
-⚠️ Features may not be implemented or may not function as describe, and this may
-only work on Windows 10 using WSL Ubuntu and Chrome, with all Deno permissions
-allowed.
-
-## install Deno runtime (dependency)
+You'll need to install [Deno, a secure runtime for TypeScript and
+JavaScript](https://deno.land/). On Linux, you may do so by running:
 
 \`\`\`
-curl -fsSL https://deno.land/x/install/install.sh | sh
-# or see https://deno.land/manual/getting_started/installation
+$ curl -fsSL https://deno.land/x/install/install.sh | sh
 \`\`\`
 
-## invocation or installation
-
-### run remotely
+You may run the latest release of this tool directly from Deno's module hosting:
 
 \`\`\`
-deno run --allow-all "https://deno.land/x/stadia/mod.ts" [...<args>]
+$ deno run --allow-all "https://deno.land/x/stadia/mod.ts"
 \`\`\`
 
-### install and run locally
+You may install this tool as a local \`stadia\` command:
 
 \`\`\`
-sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/stadia/mod.ts"
-stadia ...<args>
-\`\`\`
+$ sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/stadia/mod.ts"
 
-## usage
+$ stadia
+\`\`\`
 
 \`\`\`
 ${usage}
