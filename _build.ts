@@ -13,6 +13,8 @@ const main = async () => {
 
   Deno.chdir("chrome");
 
+  await Deno.mkdir("_generated", {recursive: true});
+
   for (
     const cmd of [
       ["rustup", "--version"],
