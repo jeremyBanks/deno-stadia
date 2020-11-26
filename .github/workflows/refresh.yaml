@@ -34,6 +34,6 @@ jobs:
           echo "DENO_INSTALL=${DENO_INSTALL}" >> "${GITHUB_ENV}"
           echo "PATH=${PATH}" >> "${GITHUB_ENV}"
 
-      - run: deno install --name stadia ./mod.ts
+      - run: deno install --force --name stadia ./mod.ts
 
-      - run: stadia
+      - run: stadia --google-cookie="${{ secrets.GOOGLE_COOKIE }}" auth
