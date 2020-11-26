@@ -12,50 +12,52 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 
 ## invocation or installation
 
-### run latest release remotely
+### run remotely
 
 ```sh
 deno run --allow-all "https://deno.land/x/stadia/mod.ts" [...<args>]
 ```
 
-### install and run latest release locally
+### install and run locally
 
 ```sh
 sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/stadia/mod.ts"
 stadia ...<args>
 ```
 
-### run trunk remotely
-
-```sh
-deno run --reload --allow-all "https://raw.githubusercontent.com/stadians/deno-stadia/trunk/mod.ts" [...<args>]
-```
-
 ## usage
 
 ```sh
-Unofficial Stadia CLI
-
 USAGE:
 
-    stadia [--google-email=<email> | --google-cookies=<cookies> | --offline] <command> [<args>...]
+    stadia [<authentication>] <command> [<arguments>...]
 
 AUTHENTICATION:
 
     You must authenticate with Google Stadia in one of the following ways:
 
-    The --google-cookie= parameter may be set with a header-style semicolon-
-    delimited Cookie string containing at least the three Google authentication
-    cookies "SID", "SSID", and "HSID".
+    (1) If using Google Chrome on Windows 10 and running this command within
+        Windows Subsystem for Linux, it will detect any Chrome Profiles that are
+        synced with a Google account and load their authentication cookies
+        automatically. If there are multiple synced profiles, you will be
+        prompted to pick one, or you may specify it with the
+        --google-email=<email> parameter.
 
-    If using Google Chrome on Windows 10 and running this command within
-    Windows Subsystem for Linux, it will be able to automatically detect any
-    Chrome Profiles that are synced with a Google account and load their
-    authentication cookies for you. If there are multiple synced profiles, you
-    may specify one to use with the --google-email= parameter.
+    (2) The --google-cookie=<cookies> parameter may be set to a header-style
+        semicolon-delimited Cookie string that will be used to authenticate with
+        Google. This should contain the Google authentication cookies "SID",
+        "SSID", and "HSID".
 
-    You may specify --offline to disable authentication, but
-    any command that requires data that is not already saved locally will fail.
+    (3) --offline will disable all authentication and network
+        operations. Operations that require data that isn't already saved
+        locally will fail.
+
+LOCAL STATE:
+
+    Local state is persisted in a SQLite database named "./deno-stadia.sqlite"
+    in the current working directory. This may contain the Google ID and
+    Google Email of the current user, but it will never include authentication
+    credentials, so you can share it without compromising your Google account.
 
 COMMANDS:
 
