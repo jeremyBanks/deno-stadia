@@ -113,7 +113,9 @@ jobs:
       - name: check lint
         run: |
           git clean -xdf
-          deno --unstable lint || echo "::warning ::lint failures"
+          echo "::add-matcher::.github/matchers/deno-lint.json"
+          NO_COLOR= deno --unstable lint **/*.ts || :
+          echo "::remove-matcher::.github/matchers/deno-lint.json"
 
       - name: fail if generated files are out-of-date and we can't push
         if: success() && steps.build.outputs.had-changes == 'true' && github.event_name != 'push'
