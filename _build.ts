@@ -109,7 +109,7 @@ allowed.
 
 ## install Deno runtime (dependency)
 
-\`\`\`sh
+\`\`\`
 curl -fsSL https://deno.land/x/install/install.sh | sh
 # or see https://deno.land/manual/getting_started/installation
 \`\`\`
@@ -118,20 +118,20 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 
 ### run remotely
 
-\`\`\`sh
+\`\`\`
 deno run --allow-all "https://deno.land/x/stadia/mod.ts" [...<args>]
 \`\`\`
 
 ### install and run locally
 
-\`\`\`sh
+\`\`\`
 sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/stadia/mod.ts"
 stadia ...<args>
 \`\`\`
 
 ## usage
 
-\`\`\`sh
+\`\`\`
 ${usage}
 \`\`\`
 `;

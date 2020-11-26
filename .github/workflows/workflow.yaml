@@ -71,10 +71,10 @@ jobs:
         id: git
         run: |
           declare git_branch="$(echo ${GITHUB_REF#refs/heads/})"
-          declare short_hash="$(git rev-parse --short HEAD)"
+          declare short_hash="$(git rev-parse --short=8 HEAD)"
           declare short_subject="$(git log -1 --pretty=format:'%s')"
-          if [[ ${#short_subject} -gt 40 ]]; then
-            short_subject="${short_subject::39}…"
+          if [[ ${#short_subject} -gt 29 ]]; then
+            short_subject="${short_subject:0:28}…"
           fi
 
           git remote rm origin
@@ -85,13 +85,13 @@ jobs:
           echo "::set-output name=date::$(git log -1 --pretty=format:'%ad')"
           echo "::set-output name=branch::${git_branch}"
           echo "::set-output name=short-hash::${short_hash}"
-          echo "::set-output name=short-subject:${short_subject}"
+          echo "::set-output name=short-subject::${short_subject}"
 
       - name: commit and push generated files
         if: success() && steps.build.outputs.had-changes == 'true' && github.event_name == 'push'
         run: |
           git add .
-          git commit -m "$(printf '⚙️ rebuild generated files for ${{ steps.git.outputs.short-hash }} ${{ steps.git.outputs.short-subject }}\n\nhttps://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
+          git commit -m "$(printf '⚙️ rebuild generated files for ${{ steps.git.outputs.short-hash }} (${{ steps.git.outputs.short-subject }})\n\nhttps://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
           git push --set-upstream origin "${{ steps.git.outputs.branch }}"
         env:
           # We lock the date so the generated commit's hash won't needlessly
