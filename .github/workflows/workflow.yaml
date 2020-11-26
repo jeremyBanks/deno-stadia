@@ -66,12 +66,17 @@ jobs:
             [[ -n "$(git status --porcelain)" ]] && echo true || echo false
           )"
           echo "::set-output name=had-changes::${had_changes}"
-
       - name: configure git write access
         if: success() && steps.build.outputs.had-changes == 'true' && github.event_name == 'push'
         id: git
         run: |
           declare git_branch="$(echo ${GITHUB_REF#refs/heads/})"
+          declare short_hash="$(git rev-parse --short HEAD)"
+          declare short_subject="$(git log -1 --pretty=format:'%s') )"
+          if [[ ${#short_subject} -gt 40 ]]; then
+            short_subject="${short_subject::39}…"
+          fi
+
           git remote rm origin
           git remote add origin "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
           git checkout "${git_branch}"
@@ -79,12 +84,14 @@ jobs:
           git config user.email "$(git log -1 --pretty=format:'%ae')"
           echo "::set-output name=date::$(git log -1 --pretty=format:'%ad')"
           echo "::set-output name=branch::${git_branch}"
+          echo "::set-output name=short-hash::${short_hash}"
+          echo "::set-output name=short-subject:${short_subject}"
 
       - name: commit and push generated files
         if: success() && steps.build.outputs.had-changes == 'true' && github.event_name == 'push'
         run: |
           git add .
-          git commit -m "$(printf 'Rebuild generated files\nhttps://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
+          git commit -m "$(printf '⚙️ rebuild generated files for: ${{ steps.git.outputs.short-hash }} ${{ steps.git.outputs.short-subject }}\n\nhttps://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
           git push --set-upstream origin "${{ steps.git.outputs.branch }}"
         env:
           # We lock the date so the generated commit's hash won't needlessly
