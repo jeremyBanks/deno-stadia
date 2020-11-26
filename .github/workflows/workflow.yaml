@@ -72,7 +72,7 @@ jobs:
         run: |
           declare git_branch="$(echo ${GITHUB_REF#refs/heads/})"
           declare short_hash="$(git rev-parse --short HEAD)"
-          declare short_subject="$(git log -1 --pretty=format:'%s') )"
+          declare short_subject="$(git log -1 --pretty=format:'%s')"
           if [[ ${#short_subject} -gt 40 ]]; then
             short_subject="${short_subject::39}…"
           fi
@@ -91,7 +91,7 @@ jobs:
         if: success() && steps.build.outputs.had-changes == 'true' && github.event_name == 'push'
         run: |
           git add .
-          git commit -m "$(printf '⚙️ rebuild generated files for: ${{ steps.git.outputs.short-hash }} ${{ steps.git.outputs.short-subject }}\n\nhttps://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
+          git commit -m "$(printf '⚙️ rebuild generated files for ${{ steps.git.outputs.short-hash }} ${{ steps.git.outputs.short-subject }}\n\nhttps://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
           git push --set-upstream origin "${{ steps.git.outputs.branch }}"
         env:
           # We lock the date so the generated commit's hash won't needlessly

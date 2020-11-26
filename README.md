@@ -1,9 +1,7 @@
 This is an unofficial in-progress/unstable/pre-1.0 library/CLI tool for
 interacting with your Stadia account, using the Deno JavaScript runtime.
 
-⚠️ Features may not be implemented or may not function as describe, and this may
-only work on Windows 10 using WSL Ubuntu and Chrome, with all Deno permissions
-allowed.
+# ⚠️ NOT COMPLETE. DOCUMENTATION IS ASPIRATIONAL. FEATURES MAY NOT FUNCTION AS DESCRIBED, OR MAY NOT BE IMPLEMENTED AT ALL. ⚠️
 
 ## install Deno runtime (dependency)
 
