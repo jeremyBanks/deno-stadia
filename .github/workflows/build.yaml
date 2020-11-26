@@ -59,7 +59,6 @@ jobs:
 
       - name: build generated files
         id: build
-        continue-on-error: false
         run: |
           ./_build.ts
           git status
@@ -112,10 +111,9 @@ jobs:
           deno test --allow-none
 
       - name: check lint
-        continue-on-error: true
         run: |
           git clean -xdf
-          deno --unstable lint
+          deno --unstable lint || echo "::warning ::lint failures"
 
       - name: fail if generated files are out-of-date and we can't push
         if: success() && steps.build.outputs.had-changes == 'true' && github.event_name != 'push'
