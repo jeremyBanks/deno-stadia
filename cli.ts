@@ -7,66 +7,72 @@ import { discoverProfiles } from "./chrome/mod.ts";
 import { Client } from "./stadia/web_client/views.ts";
 import { GoogleCookies } from "./stadia/web_client/requests.ts";
 
+const { yellow, italic, bold, cyan, red } = color;
+
 export const main = async (
   args: string[] = Deno.args,
   logLevel?: log.LevelName | null,
   self = "stadia",
 ) => {
   const usage = `\
-${color.cyan("USAGE:")}
+${cyan("USAGE:")}
 
-    ${color.bold(self)} ${
-    color.italic(
-      `[--google-email=${color.yellow(`<email>`)} | --google-cookies=${
-        color.yellow(`<cookies>`)
-      } | --offline]`,
-    )
-  } ${color.bold("<command>")} ${color.italic(`[${color.yellow(`<args>...`)}]`)}
+    ${bold(self)} ${italic(`[${yellow("<authentication>")}]`)} ${
+    bold("<command>")
+  } ${italic(`[${yellow(`<arguments>...`)}]`)}
 
-${color.cyan("AUTHENTICATION:")}
+${cyan("AUTHENTICATION:")}
 
     You must authenticate with Google Stadia in one of the following ways:
 
-    The ${
-    color.italic(`--google-cookie=`)
-  } parameter may be set with a header-style semicolon-
-    delimited Cookie string containing at least the three Google authentication
-    cookies "SID", "SSID", and "HSID".
+    (1) If using Google Chrome on Windows 10 and running this command within
+        Windows Subsystem for Linux, it will detect any Chrome Profiles that are
+        synced with a Google account and load their authentication cookies
+        automatically. If there are multiple synced profiles, you will be
+        prompted to pick one, or you may specify it with the
+        ${italic(`--google-email=${yellow(`<email>`)}`)} parameter.
 
-    If using Google Chrome on Windows 10 and running this command within
-    Windows Subsystem for Linux, it will be able to automatically detect any
-    Chrome Profiles that are synced with a Google account and load their
-    authentication cookies for you. If there are multiple synced profiles, you
-    may specify one to use with the ${
-    color.italic(`--google-email=`)
-  } parameter.
+    (2) The ${
+    italic(`--google-cookie=${yellow(`<cookies>`)}`)
+  } parameter may be set to a header-style
+        semicolon-delimited Cookie string that will be used to authenticate with
+        Google. This should contain the Google authentication cookies "SID",
+        "SSID", and "HSID".
 
-    You may specify ${color.italic(`--offline`)} to disable authentication, but
-    any command that requires data that is not already saved locally will fail.
+    (3) ${italic(`--offline`)} will disable all authentication and network
+        operations. Operations that require data that isn't already saved
+        locally will fail.
 
-${color.cyan("COMMANDS:")}
+${cyan("LOCAL STATE:")}
 
-    ${color.bold(`${self} auth`)}
+    Local state is persisted in a SQLite database named "./deno-stadia.sqlite"
+    in the current working directory. This may contain the Google ID and
+    Google Email of the current user, but it will never include authentication
+    credentials, so you can share it without compromising your Google account.
+
+${cyan("COMMANDS:")}
+
+    ${bold(`${self} auth`)}
 
         Prints information about the authenticated user.
 
-    ${color.bold(`${self} run`)} ${color.yellow(`<game_name | game_id>`)}
+    ${bold(`${self} run`)} ${yellow(`<game_name | game_id>`)}
 
         Launch a Stadia game in Chrome, specified by name or ID.
 
-    ${color.bold(`${self} captures list`)}
+    ${bold(`${self} captures list`)}
 
         Lists captured images and video.
 
-    ${color.bold(`${self} users profile`)} ${color.yellow(`<user_id>`)}
+    ${bold(`${self} users profile`)} ${yellow(`<user_id>`)}
 
         Displays basic profile information for the user with the given ID.
 
-    ${color.bold(`${self} store update`)}
+    ${bold(`${self} store update`)}
 
         Updates the local Stadia store catalogue.
 
-    ${color.bold(`${self} store search`)} ${color.yellow(`<name>`)}
+    ${bold(`${self} store search`)} ${yellow(`<name>`)}
 
         Search the local Stadia store catalogue.
 
@@ -88,7 +94,7 @@ ${color.cyan("COMMANDS:")}
   const rootFlags = stdFlags.parse(args, {
     stopEarly: true,
     unknown: (arg: string) => {
-      eprint(color.red(`unknown argument: ${arg}\n\n`));
+      eprint(red(`unknown argument: ${arg}\n\n`));
       eprint(usage);
       Deno.exit(64);
     },
@@ -153,7 +159,7 @@ const doThings = async () => {
 
   const profile = (await clui.choose(choices, choices[0])).profile;
 
-  const database = new Database("./data.sqlite");
+  const database = new Database("./deno-stadia.sqlite");
 
   const client = new Client(profile.googleId!, profile.googleCookies, database);
 

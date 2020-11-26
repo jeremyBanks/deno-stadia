@@ -14,17 +14,23 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 
 ## invocation or installation
 
-### run remotely
+### run latest release remotely
 
 ```sh
 deno run --allow-all "https://deno.land/x/stadia/mod.ts" [...<args>]
 ```
 
-### install and run locally
+### install and run latest release locally
 
 ```sh
 sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/stadia/mod.ts"
 stadia ...<args>
+```
+
+### run trunk remotely
+
+```sh
+deno run --reload --allow-all "https://raw.githubusercontent.com/stadians/deno-stadia/trunk/mod.ts" [...<args>]
 ```
 
 ## usage
