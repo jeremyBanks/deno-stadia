@@ -15,12 +15,7 @@ import { Client } from "../stadia/web_client/views.ts";
 import { GoogleCookies } from "../stadia/web_client/requests.ts";
 import { notImplemented } from "../_common/assertions.ts";
 
-import authCommand from "./auth.ts";
-import capturesCommand from "./captures.ts";
-import friendsCommand from "./friends.ts";
-import profileCommand from "./profile.ts";
-import runCommand from "./run.ts";
-import storeCommand from "./store.ts";
+import commands from "./commands/mod.ts";
 
 const { yellow, italic, bold, cyan, red, brightRed, underline, dim } = color;
 
@@ -126,6 +121,7 @@ ${cyan("COMMANDS:")}
         if (key !== undefined) {
           eprint(red(`unknown argument: ${arg}\n\n`));
           eprint(usage);
+          eprint(red(`unknown argument: ${arg}\n\n`));
           Deno.exit(64);
         }
       },
@@ -137,34 +133,31 @@ ${cyan("COMMANDS:")}
     boolean: ["offline"],
   });
 
-  const database = new Database("./deno-stadia.sqlite");
+  const client = await configureClient(rootFlags);
 
-  let client: Client;
+  const [commandName, ...commandArgs] = rootFlags["_"].map(String);
 
-  if (rootFlags.offline) {
-    client = new Client("offline", notImplemented(), database);
-  } else if (rootFlags.googleCookies) {
-    client = new Client("unknown", notImplemented(), database);
+  const commandMatch = commands[commandName];
+
+  if (commandMatch) {
+    const { command, flags: flagConfig } = commandMatch;
+    const flags = parseFlags(commandArgs, flagConfig);
+    await command(client, flags);
   } else {
-    0;
-  }
-
-  const [command, ...commandArgs] = rootFlags["_"];
-
-  if (command === "auth") {
-    if (commandArgs.length > 0) {
-      eprint(
-        red(`expected no arguments but got: ${commandArgs.join(" ")}\n\n`),
-      );
-      eprint(usage);
-      Deno.exit(66);
-    }
-
-    await authCommand();
-  } else {
-    eprint(red(`unknown command: ${command}\n\n`));
+    eprint(red(`unknown command: ${commandName}\n\n`));
     eprint(usage);
     Deno.exit(65);
+  }
+};
+
+const configureClient = async (flags: flags.Args): Promise<Client> => {
+  const database = new Database("./deno-stadia.sqlite");
+  if (flags.offline) {
+    return new Client("offline", notImplemented(), database);
+  } else if (flags.googleCookies) {
+    return new Client("unknown", notImplemented(), database);
+  } else {
+    return notImplemented();
   }
 };
 
