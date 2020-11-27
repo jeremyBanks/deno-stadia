@@ -64,29 +64,10 @@ COMMANDS:
 
         Prints information about the authenticated user.
 
-    stadia run <game_name | game_id>
-
-        Launch a Stadia game in Chrome, specified by name or ID.
-
-    stadia captures list
-
-        Lists captured images and video.
-
-    stadia users profile <user_id>
-
-        Displays basic profile information for the user with the given ID.
-
-    stadia store update
-
-        Updates the local Stadia store catalogue.
-
-    stadia store search <name>
-
-        Search the local Stadia store catalogue.
-
-    stadia debug fetch <stadia_url>
+    stadia fetch [--json] <stadia_url>
 
         Fetches a Stadia URL and displays our internal representation of the
-        response.
+        response. The default output is meant for humans. The [--json] flag
+        adds more detail for machines.
 
 ```
