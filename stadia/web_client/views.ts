@@ -44,8 +44,9 @@ export class Client extends ResponsesClient {
     const afPreloadData = response.afPreloadData;
 
     const googleId = wizGlobalData?.["W3Yyqf"];
+    const googleEmail = wizGlobalData?.["oPEP7c"];
 
-    if (googleId !== this.googleId) {
+    if (this.googleId && googleId !== this.googleId) {
       throw new Error("Google ID in response did not match credentials");
     }
 
@@ -76,13 +77,14 @@ export class Client extends ResponsesClient {
 
     const view = {
       googleId,
+      googleEmail,
       gamerId,
       gamerTagName,
       gamerTagNumber,
       gamerTag,
       avatarId,
       avatarUrl,
-    } as unknown as StadiaWebView;
+    };
     const row = null as unknown;
 
     return { row, request, httpResponse, response, view };

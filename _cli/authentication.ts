@@ -8,11 +8,11 @@ import { notImplemented } from "../_common/assertions.ts";
 export const makeClient = async (flags: flags.Args): Promise<Client> => {
   const database = new Database("./deno-stadia.sqlite");
   if (flags.offline) {
-    return new Client("offline", GoogleCookies.fromString("offline"), database);
-  } else if (flags.googleCookies) {
+    return new Client("", GoogleCookies.fromString(""), database);
+  } else if (flags['google-cookie']) {
     return new Client(
-      "unknown",
-      GoogleCookies.fromString(flags.googleCookies),
+      "",
+      GoogleCookies.fromString(flags['google-cookie']),
       database,
     );
   } else {
@@ -81,7 +81,7 @@ export const makeClient = async (flags: flags.Args): Promise<Client> => {
 
     const profile = (await clui.choose(choices, choices[0])).profile;
 
-    log.info(`Using ${profile}`);
+    log.info(`Using ${profile.chromeProfile}`);
 
     return new Client(profile.googleId!, profile.googleCookies, database);
   }

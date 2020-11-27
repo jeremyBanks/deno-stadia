@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --quiet --allow-read=/ --allow-write=/ --allow-net=stadia.google.com --allow-run
+#!/usr/bin/env -S deno run --quiet --allow-read=/ --allow-write=/ --allow-net=stadia.google.com --allow-run --allow-env
 import { main } from "./_cli/mod.ts";
 
 if (import.meta.main) {
