@@ -30,11 +30,30 @@ export interface StadiaWebRequest {
 
 type NewStadiaWebRequest = Omit<StadiaWebRequest, "requestId">;
 
-export type GoogleCookies = {
-  readonly SID: string;
-  readonly SSID: string;
-  readonly HSID: string;
-};
+export class GoogleCookies {
+  constructor(
+    readonly SID: string,
+    readonly SSID: string,
+    readonly HSID: string,
+  ) {}
+
+  static fromString(cookieString: string) {
+    const cookies = Object.fromEntries(
+      cookieString.split(/;[; ]*/g).filter(Boolean).map((s) =>
+        s.trim().split(/=/)
+      ),
+    );
+    return new GoogleCookies(
+      cookies["SID"] ?? "",
+      cookies["SSID"] ?? "",
+      cookies["HSID"] ?? "",
+    );
+  }
+
+  toString() {
+    return `SID=${this.SID};SSID=${this.SSID};HSID=${this.HSID}`;
+  }
+}
 
 export class Client {
   public readonly googleId: string;

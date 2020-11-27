@@ -16,6 +16,7 @@ import { GoogleCookies } from "../stadia/web_client/requests.ts";
 import { notImplemented } from "../_common/assertions.ts";
 
 import commands from "./commands/mod.ts";
+import { makeClient } from "./authentication.ts";
 
 const { yellow, italic, bold, cyan, red, brightRed, underline, dim } = color;
 
@@ -133,7 +134,7 @@ ${cyan("COMMANDS:")}
     boolean: ["offline"],
   });
 
-  const client = await configureClient(rootFlags);
+  const client = await makeClient(rootFlags);
 
   const [commandName, ...commandArgs] = rootFlags["_"].map(String);
 
@@ -148,76 +149,6 @@ ${cyan("COMMANDS:")}
     eprint(usage);
     Deno.exit(65);
   }
-};
-
-const configureClient = async (flags: flags.Args): Promise<Client> => {
-  const database = new Database("./deno-stadia.sqlite");
-  if (flags.offline) {
-    return new Client("offline", notImplemented(), database);
-  } else if (flags.googleCookies) {
-    return new Client("unknown", notImplemented(), database);
-  } else {
-    return notImplemented();
-  }
-};
-
-const doThings = async (database: Database) => {
-  const chromeProfiles = await discoverProfiles();
-
-  log.debug(`Discovered ${chromeProfiles.length} Chrome profiles.`);
-
-  const stadiaProfiles = [];
-
-  for (const chromeProfile of chromeProfiles) {
-    const cookies = await chromeProfile.cookies();
-    const hasStadiaCookies = undefined !== cookies.find((c) =>
-      c.host === ".stadia.google.com"
-    );
-
-    if (!hasStadiaCookies) {
-      log.debug(`${chromeProfile} has no Stadia cookies.`);
-      continue;
-    }
-
-    const googleCookies = Object.fromEntries(
-      cookies.filter((c) => c.host === ".google.com").flatMap((c) =>
-        ["SID", "SSID", "HSID"].includes(c.name) ? [[c.name, c.value]] : []
-      ),
-    ) as GoogleCookies;
-
-    if (Object.keys(googleCookies).length < 3) {
-      log.debug(
-        `${chromeProfile} does not have Google authentication cookies.`,
-      );
-      continue;
-    }
-
-    stadiaProfiles.push({
-      googleId: chromeProfile.googleId,
-      googleCookies,
-      chromeProfile,
-    });
-  }
-
-  log.info(
-    `Discovered ${stadiaProfiles.length} synched Chrome profiles with Stadia cookies.`,
-  );
-
-  const choices = stadiaProfiles.map((profile) => ({
-    profile,
-    toString() {
-      return [
-        profile.chromeProfile.name,
-        `<${profile.chromeProfile.googleEmail}>`,
-      ].join(" ");
-    },
-  }));
-
-  const profile = (await clui.choose(choices, choices[0])).profile;
-
-  const client = new Client(profile.googleId!, profile.googleCookies, database);
-
-  console.log(await client.fetchView("/profile"));
 };
 
 const initLogger = async (logLevel?: log.LevelName) => {

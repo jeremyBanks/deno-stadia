@@ -195,10 +195,6 @@ export const discoverProfiles = async (): Promise<Array<ChromeProfile>> => {
         try {
           assert(Deno.statSync(profilePath).isDirectory);
           assert(Deno.statSync(`${profilePath}/Cookies`).isFile);
-          assert(Deno.statSync(`${profilePath}/History`).isFile);
-          assert(Deno.statSync(`${profilePath}/Bookmarks`).isFile);
-          assert(Deno.statSync(`${profilePath}/Favicons`).isFile);
-          assert(Deno.statSync(`${profilePath}/Accounts`).isDirectory);
         } catch (error) {
           log.warning(
             `Chrome profile directory ${profilePath} had unexpected structure: ${error}`,
