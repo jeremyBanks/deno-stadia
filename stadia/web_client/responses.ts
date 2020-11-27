@@ -6,15 +6,6 @@ import { Json } from "../../_common/types.ts";
 
 import { Client as RequestsClient, StadiaWebRequest } from "./requests.ts";
 
-export const StadiaWebResponse = SQL`StadiaWebResponse`;
-
-export const schema = SQL`
-  create table if not exists ${StadiaWebResponse} (
-    [requestId] integer primary key references ${StadiaWebRequest}(requestId),
-    [response] brotli json blob
-  );
-`;
-
 type StadiaWebResponse = {
   requestId: bigint;
   /** Timestamp at which the response was completely received */
@@ -51,7 +42,6 @@ type StadiaWebResponse = {
 export class Client extends RequestsClient {
   protected async initializeDatabase(database: Database) {
     await super.initializeDatabase(database);
-    await database.query(schema);
   }
 
   public async fetchResponse(path: string) {
@@ -118,8 +108,7 @@ export class Client extends RequestsClient {
       };
     }
 
-    const insertValue: StadiaWebResponse = {
-      requestId: request.requestId,
+    const response = {
       status: httpResponse.status,
       timestamp: Date.now(),
       error,
@@ -127,19 +116,6 @@ export class Client extends RequestsClient {
       wizGlobalData,
       afPreloadData,
     };
-
-    // XXX: lock database or eliminate async operations
-    await (await this.database).query(
-      SQL
-        `insert into ${StadiaWebResponse}(requestId, response) values (${insertValue.requestId}, ${insertValue as any});`,
-    );
-    const [row] = await (await this.database).query(
-      SQL`select * from ${StadiaWebResponse} order by requestId desc limit 1`,
-    );
-    const response = {
-      requestId: row.requestId,
-      ...JSON.parse(row.response as string),
-    } as StadiaWebResponse;
 
     if (error) {
       throw new Error(JSON.stringify(error));

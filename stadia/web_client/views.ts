@@ -5,15 +5,6 @@ import { Json } from "../../_common/types.ts";
 
 import { Client as ResponsesClient } from "./responses.ts";
 
-export const StadiaWebView = SQL`StadiaWebView`;
-
-export const schema = SQL`
-create table if not exists StadiaWebView (
-    [requestId] integer primary key references StadiaWebResponse(requestId),
-    [view] json text
-  );
-`;
-
 export type StadiaWebView =
   & Page
   & (
@@ -33,7 +24,6 @@ export type StadiaWebView =
 export class Client extends ResponsesClient {
   protected async initializeDatabase(database: Database) {
     await super.initializeDatabase(database);
-    await database.query(schema);
   }
 
   public async fetchView(path: string) {

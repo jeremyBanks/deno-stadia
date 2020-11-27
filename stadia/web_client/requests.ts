@@ -8,15 +8,6 @@ const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
 
 const stadiaRoot = new URL("https://stadia.google.com/");
 
-export const StadiaWebRequest = SQL`StadiaWebRequest`;
-
-export const schema = SQL`
-  create table if not exists StadiaWebRequest (
-    [requestId] integer primary key,
-    [request] json text
-  );
-`;
-
 export interface StadiaWebRequest {
   /** Local ID for this request. */
   requestId: bigint;
@@ -72,7 +63,6 @@ export class Client {
 
   /** Performs any database initialization required for this class. */
   protected async initializeDatabase(database: Database): Promise<void> {
-    await database.query(schema);
   }
 
   public async fetchHttp(path: string) {
@@ -94,24 +84,11 @@ export class Client {
         .join(" "),
     };
 
-    const insertValue: NewStadiaWebRequest = {
+    const request: NewStadiaWebRequest = {
       googleId: this.googleId,
       timestamp: Date.now(),
       path,
     };
-
-    // XXX: lock database or eliminate async operations
-    await (await this.database).query(
-      SQL`insert into ${StadiaWebRequest}(request) values (${insertValue});`,
-    );
-    const [row] = await (await this.database).query(
-      SQL`select * from ${StadiaWebRequest} order by requestId desc limit 1`,
-    ) as unknown as any;
-
-    const request = {
-      requestId: row.requestId,
-      ...JSON.parse(row.request as string),
-    } as StadiaWebRequest;
 
     log.debug(`fetching ${url} for ${this.googleId}`);
     const httpResponse = await fetch(url, { headers });
