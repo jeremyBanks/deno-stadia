@@ -1,24 +1,10 @@
-import {
-  color,
-  Database,
-  flags,
-  flags as stdFlags,
-  log,
-  SQL,
-} from "../deps.ts";
+import { color, flags, flags as stdFlags, log } from "../deps.ts";
 
-import * as clui from "../_common/clui.ts";
 import { eprint } from "../_common/io.ts";
-
-import { discoverProfiles } from "../chrome/mod.ts";
-import { Client } from "../stadia/web_client/views.ts";
-import { GoogleCookies } from "../stadia/web_client/requests.ts";
-import { notImplemented } from "../_common/assertions.ts";
-
 import commands from "./commands/mod.ts";
 import { makeClient } from "./authentication.ts";
 
-const { yellow, italic, bold, cyan, red, brightRed, underline, dim } = color;
+const { yellow, italic, bold, cyan, red, underline, dim } = color;
 
 export const main = async (
   args: string[] = Deno.args,
@@ -26,9 +12,7 @@ export const main = async (
   self = "stadia",
 ) => {
   const usage = `\
-${underline(`Unofficial ${brightRed(`Stadia`)} CLI`)} ${
-    dim(`(https://deno.land/x/stadia)`)
-  }
+${underline(`Unofficial Stadia CLI`)} ${dim(`(https://deno.land/x/stadia)`)}
 
 ${cyan("USAGE:")}
 
@@ -71,6 +55,14 @@ ${cyan("COMMANDS:")}
     ${bold(`${self} auth`)}
 
         Prints information about the authenticated user.
+
+    ${bold(`${self} fetch`)} ${italic(`[--json]`)} ${yellow(`<stadia_url>`)}
+
+        Fetches a Stadia URL and displays our internal representation of the
+        response. The default output is meant for humans. The ${
+    italic(`[--json]`)
+  } flag
+        adds more detail for machines.
 
 `;
 

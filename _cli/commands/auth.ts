@@ -4,6 +4,30 @@ import { color } from "../../deps.ts";
 
 export const flags = {};
 
+export const command = async (client: Client) => {
+  const view = (await client.fetchView("/profile"));
+
+  const { googleId, googleEmail, gamerId, gamerTagName, gamerTagNumber } =
+    view.view;
+
+  let gamerTagPretty;
+  if (gamerTagNumber === "0000") {
+    gamerTagPretty = `${color.bold(gamerTagName)} ✨`;
+  } else {
+    gamerTagPretty = `${color.bold(gamerTagName)}${
+      color.dim(`#${gamerTagNumber}`)
+    }`;
+  }
+
+  println();
+  println(`  ${google}  email:  ${color.bold(String(googleEmail))}`);
+  println(`               id:  ${googleId}`);
+  println();
+  println(`  ${stadia}   name:  ${gamerTagPretty}`);
+  println(`               id:  ${gamerId}`);
+  println();
+};
+
 const google = color.bold(color.bgRgb24(
   [
     " ",
@@ -31,27 +55,3 @@ const stadia = color.bold(color.bgRgb24(
   ].join(""),
   0x000000,
 ));
-
-export const command = async (client: Client) => {
-  const view = (await client.fetchView("/profile"));
-
-  const { googleId, googleEmail, gamerId, gamerTagName, gamerTagNumber } =
-    view.view;
-
-  let gamerTagPretty;
-  if (gamerTagNumber === "0000") {
-    gamerTagPretty = `${color.bold(gamerTagName)} ✨`;
-  } else {
-    gamerTagPretty = `${color.bold(gamerTagName)}${
-      color.dim(`#${gamerTagNumber}`)
-    }`;
-  }
-
-  println();
-  println(`  ${google}  email:  ${color.bold(String(googleEmail))}`);
-  println(`               id:  ${googleId}`);
-  println();
-  println(`  ${stadia}   name:  ${gamerTagPretty}`);
-  println(`               id:  ${gamerId}`);
-  println();
-};

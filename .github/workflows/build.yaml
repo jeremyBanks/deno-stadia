@@ -4,9 +4,9 @@ on:
   push:
   create:
   pull_request:
-  workflow_dispatch:
   schedule:
-    - cron: '20 4 * * SAT'
+    - cron: '20 4 * * *'
+  workflow_dispatch:
 
 jobs:
   job:
@@ -77,8 +77,8 @@ jobs:
           declare short_hash="$(git rev-parse --short=8 HEAD)"
           declare short_subject="$(git log -1 --pretty=format:'%s')"
           declare short_subject="$(git log -1 --pretty=format:'%s')"
-          if [[ ${#short_subject} -gt 29 ]]; then
-            short_subject="${short_subject:0:28}…"
+          if [[ ${#short_subject} -gt 50 ]]; then
+            short_subject="${short_subject:0:49}…"
           fi
           declare author_name="$(git log -1 --pretty=format:'%an')"
           declare author_email="$(git log -1 --pretty=format:'%ae')"
@@ -97,7 +97,7 @@ jobs:
           git checkout "${branch}"
 
           git add .
-          git commit -m "⚙️ rebuild generated files for ${short_hash} (${short_subject})${br}${br}${current_action_url}"
+          git commit -m "⚙️ rebuild ${short_hash} (${short_subject})${br}${br}${current_action_url}"
           git push --set-upstream origin "${branch}"
 
       - name: fetch any uncached dependencies

@@ -140,6 +140,11 @@ export class Client extends RequestsClient {
       requestId: row.requestId,
       ...JSON.parse(row.response as string),
     } as StadiaWebResponse;
+
+    if (error) {
+      throw new Error(JSON.stringify(error));
+    }
+
     return { request, httpResponse, response };
   }
 }

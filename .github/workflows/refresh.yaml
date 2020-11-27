@@ -1,9 +1,11 @@
 name: refresh data
 
 on:
-  workflow_dispatch:
+  release:
+    types: [published]
   schedule:
     - cron: '9 18 * * *'
+  workflow_dispatch:
 
 jobs:
   job:
