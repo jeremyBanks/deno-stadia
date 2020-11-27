@@ -2,43 +2,56 @@ import { Client } from "../../stadia/web_client/views.ts";
 import { println } from "../../_common/io.ts";
 import { color } from "../../deps.ts";
 
-const { rgb24, bold, underline } = color;
-
 export const flags = {};
 
-const google = bold([
-  rgb24("G", 0x156aeb),
-  rgb24("o", 0xd6412d),
-  rgb24("o", 0xffbc09),
-  rgb24("g", 0x156aeb),
-  rgb24("l", 0x009752),
-  rgb24("e", 0xd6412d),
-].join(""));
+const google = color.bold(color.bgRgb24(
+  [
+    " ",
+    color.rgb24("G", 0x4286f3),
+    color.rgb24("o", 0xea4333),
+    color.rgb24("o", 0xfbbe04),
+    color.rgb24("g", 0x4286f3),
+    color.rgb24("l", 0x33a951),
+    color.rgb24("e", 0xea4333),
+    " ",
+  ].join(""),
+  0xFFFFFF,
+));
 
-const stadia = [
-  bold(rgb24("S", 0xff4c1d)),
-  bold(rgb24("t", 0xf74622)),
-  bold(rgb24("a", 0xe5382f)),
-  bold(rgb24("d", 0xd32b3c)),
-  bold(rgb24("i", 0xc01c49)),
-  bold(rgb24("a", 0x9b0063)),
-].join("");
+const stadia = color.bold(color.bgRgb24(
+  [
+    " ",
+    color.rgb24("S", 0xff4c1d),
+    color.rgb24("t", 0xf74622),
+    color.rgb24("a", 0xe5382f),
+    color.rgb24("d", 0xd32b3c),
+    color.rgb24("i", 0xc01c49),
+    color.rgb24("a", 0x9b0063),
+    " ",
+  ].join(""),
+  0x000000,
+));
 
 export const command = async (client: Client) => {
   const view = (await client.fetchView("/profile"));
 
-  const { googleId, googleEmail, gamerId, gamerTag } = view.view;
+  const { googleId, googleEmail, gamerId, gamerTagName, gamerTagNumber } =
+    view.view;
+
+  let gamerTagPretty;
+  if (gamerTagNumber === "0000") {
+    gamerTagPretty = `${color.bold(gamerTagName)} ✨`;
+  } else {
+    gamerTagPretty = `${color.bold(gamerTagName)}${
+      color.dim(`#${gamerTagNumber}`)
+    }`;
+  }
 
   println();
-  println(`  ${google} email:   ${googleEmail}`);
-  println(`         id:      ${googleId}`);
+  println(`  ${google}  email:  ${color.bold(String(googleEmail))}`);
+  println(`               id:  ${googleId}`);
   println();
-  println(`  ${stadia} name:    ${gamerTag}`);
-  println(`         id:      ${gamerId}`);
-  println(
-    `         profile: ${
-      underline(`https://stadia.google.com/profile/${gamerId}`)
-    }`,
-  );
+  println(`  ${stadia}   name:  ${gamerTagPretty}`);
+  println(`               id:  ${gamerId}`);
   println();
 };

@@ -5,26 +5,6 @@
     },
     "remote.WSL.fileWatcher.polling": true,
     "files.exclude": {
-        "*.sqlite": true,
-        "*.sqlite-*": true,
-        "*.swp": true
-    },
-    "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#871133",
-        "activityBar.activeBorder": "#000000",
-        "activityBar.background": "#871133",
-        "activityBar.foreground": "#e7e7e7",
-        "activityBar.inactiveForeground": "#e7e7e799",
-        "activityBarBadge.background": "#000000",
-        "activityBarBadge.foreground": "#e7e7e7",
-        "statusBar.background": "#5a0b22",
-        "statusBar.foreground": "#e7e7e7",
-        "statusBarItem.hoverBackground": "#871133",
-        "titleBar.activeBackground": "#5a0b22",
-        "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#5a0b2299",
-        "titleBar.inactiveForeground": "#e7e7e799"
-    },
-    "peacock.remoteColor": "#5a0b22",
-    "peacock.color": "#5a0b22"
+        "*.sqlite-*": true
+    }
 }

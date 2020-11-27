@@ -9,10 +9,10 @@ export const makeClient = async (flags: flags.Args): Promise<Client> => {
   const database = new Database("./deno-stadia.sqlite");
   if (flags.offline) {
     return new Client("", GoogleCookies.fromString(""), database);
-  } else if (flags['google-cookie']) {
+  } else if (flags["google-cookie"]) {
     return new Client(
       "",
-      GoogleCookies.fromString(flags['google-cookie']),
+      GoogleCookies.fromString(flags["google-cookie"]),
       database,
     );
   } else {
