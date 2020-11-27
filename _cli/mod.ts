@@ -72,31 +72,6 @@ ${cyan("COMMANDS:")}
 
         Prints information about the authenticated user.
 
-    ${bold(`${self} run`)} ${yellow(`<game_name | game_id>`)}
-
-        Launch a Stadia game in Chrome, specified by name or ID.
-
-    ${bold(`${self} captures list`)}
-
-        Lists captured images and video.
-
-    ${bold(`${self} users profile`)} ${yellow(`<user_id>`)}
-
-        Displays basic profile information for the user with the given ID.
-
-    ${bold(`${self} store update`)}
-
-        Updates the local Stadia store catalogue.
-
-    ${bold(`${self} store search`)} ${yellow(`<name>`)}
-
-        Search the local Stadia store catalogue.
-
-    ${bold(`${self} debug fetch`)} ${yellow(`<stadia_url>`)}
-
-        Fetches a Stadia URL and displays our internal representation of the
-        response.
-
 `;
 
   if (logLevel !== null) {
