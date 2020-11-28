@@ -39,6 +39,6 @@ jobs:
 
       - run: deno install --force --allow-all --name stadia ./mod.ts
 
-      - run: stadia auth
+      - run: stadia auth 2>&1
 
-      - run: stadia fetch / /profile /store/list
+      - run: stadia fetch / /profile /store/list 2>&1
