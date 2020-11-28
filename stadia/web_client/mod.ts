@@ -77,7 +77,8 @@ class Page extends ViewModel {
     this.userGoogleId = wizGlobalData["W3Yyqf"] as any;
     this.userGoogleEmail = wizGlobalData["oPEP7c"] as any;
     this.userPlayer = Player.fromProto(
-      afPreloadData["D0Amud"].find((x: any) => undefined === x.arguments[4])!.value as any,
+      afPreloadData["D0Amud"].find((x: any) => undefined === x.arguments[4])!
+        .value as any,
     );
   }
 }
@@ -94,7 +95,8 @@ class PlayerProfile extends Page {
   ) {
     super(wizGlobalData, ijValues, afPreloadData);
     this.profilePlayer = Player.fromProto(
-      afPreloadData["D0Amud"].find((x: any) => undefined !== x.arguments[4])!.value as any,
+      afPreloadData["D0Amud"].find((x: any) => undefined !== x.arguments[4])!
+        .value as any,
     );
   }
 }
