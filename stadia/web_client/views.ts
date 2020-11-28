@@ -33,6 +33,14 @@ export class Client extends ResponsesClient {
     const ijValues = response.ijValues as Record<string, Json>;
     const afPreloadData = response.afPreloadData;
 
+    let type = "UnknownPage";
+
+    if (/^\$/.test(request.path)) {
+      type = "HomePage";
+    } else if (/^\/profile$/.test(request.path)) {
+      type = "UserProfilePage";
+    }
+
     const googleId = wizGlobalData?.["W3Yyqf"];
     const googleEmail = wizGlobalData?.["oPEP7c"];
 
@@ -66,6 +74,7 @@ export class Client extends ResponsesClient {
     assert(gamerId && typeof gamerId === "string");
 
     const view = {
+      type,
       googleId,
       googleEmail,
       gamerId,

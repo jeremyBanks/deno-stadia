@@ -3,7 +3,7 @@ import { Database, log, SQL } from "../../deps.ts";
 
 import { throttled } from "../../_common/async.ts";
 
-const minRequestIntervalSeconds = 69 / 42;
+const minRequestIntervalSeconds = 420 / 69;
 const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
 
 const stadiaRoot = new URL("https://stadia.google.com/");
@@ -87,7 +87,7 @@ export class Client {
     const request: NewStadiaWebRequest = {
       googleId: this.googleId,
       timestamp: Date.now(),
-      path,
+      path: url.pathname,
     };
 
     log.debug(`fetching ${url} for ${this.googleId}`);

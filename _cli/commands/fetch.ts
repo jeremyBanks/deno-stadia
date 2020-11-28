@@ -14,6 +14,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
     Deno.exit(70);
   }
   for (const url of urls) {
+    eprintln(`${color.underline(url)}`);
+
     const result = (await client.fetchView(url));
     const { request, response, view } = result;
 
@@ -22,6 +24,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
       return;
     }
 
-    print(json.encode(result.view));
+    println(json.encode(result.view));
+    eprintln();
   }
 };

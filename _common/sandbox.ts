@@ -1,11 +1,12 @@
-import { sleep } from "./async.ts";
+import { log } from "../deps.ts";
+import { sleep, throttled } from "./async.ts";
 import { Json } from "./types.ts";
 
-export const safeEval = async (
+export const safeEval = throttled(0.125, async (
   javaScript: string,
 ): Promise<Json> => {
   const process = Deno.run({
-    cmd: ["deno", "run", "-", javaScript],
+    cmd: ["deno", "run", "--quiet", "-"],
     stdin: "piped",
     stdout: "piped",
   });
@@ -15,23 +16,21 @@ export const safeEval = async (
     (async () => {
       await Deno.writeAll(
         process.stdin,
-        // XXX: This code is stringified and passed to the subprocess,
-        // XXX: it is NOT executed actually executed in the scope where
-        // XXX: it appears declared below.
-        (new TextEncoder()).encode(`(${async () => {
-          const [javaScript] = Deno.args;
-          const value = await eval(javaScript);
+        (new TextEncoder()).encode(`(async () => {
+          const value = await (async () => (
+            ${javaScript}
+          ))();
           Deno.writeAll(
             Deno.stdout,
             ((new TextEncoder()).encode(JSON.stringify(value))),
           );
-        }})();`),
+        })();`),
       );
       process.stdin.close();
-      const output = await process.output();
+      const output = (new TextDecoder()).decode(await process.output());
       Promise.resolve().then(() => abortTimeout.abort());
       if ((await process.status()).success) {
-        return JSON.parse((new TextDecoder()).decode(output));
+        return JSON.parse(output);
       } else {
         throw new SyntaxError("eval failed");
       }
@@ -42,4 +41,4 @@ export const safeEval = async (
       throw new Error("eval timed out");
     })(),
   ]);
-};
+});
