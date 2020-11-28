@@ -1,4 +1,4 @@
-import { Client } from "../../stadia/web_client/views.ts";
+import { Client } from "../../stadia/web_client/mod.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
 import { color, FlagArgs, FlagOpts } from "../../deps.ts";
 import * as json from "../../_common/json.ts";
@@ -17,14 +17,14 @@ export const command = async (client: Client, flags: FlagArgs) => {
     eprintln(`${color.underline(url)}`);
 
     const result = (await client.fetchView(url));
-    const { request, response, view } = result;
+    const { request, response, page } = result;
 
     if (flags.json) {
-      println(json.encode({ request, response, view }));
+      println(json.encode({ request, response, page }));
       return;
     }
 
-    println(json.encode(result.view));
+    println(json.encode(result.page));
     eprintln();
   }
 };

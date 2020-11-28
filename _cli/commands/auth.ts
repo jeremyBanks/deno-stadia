@@ -1,4 +1,4 @@
-import { Client } from "../../stadia/web_client/views.ts";
+import { Client } from "../../stadia/web_client/mod.ts";
 import { println } from "../../_common/io.ts";
 import { color } from "../../deps.ts";
 
@@ -7,24 +7,23 @@ export const flags = {};
 export const command = async (client: Client) => {
   const view = (await client.fetchView("/profile"));
 
-  const { googleId, googleEmail, gamerId, gamerTagName, gamerTagNumber } =
-    view.view;
+  const { userGoogleId, userGoogleEmail, userPlayer } = view.page;
 
   let gamerTagPretty;
-  if (gamerTagNumber === "0000") {
-    gamerTagPretty = `${color.bold(gamerTagName)} ✨`;
+  if (userPlayer.gamerNumber === "0000") {
+    gamerTagPretty = `${color.bold(userPlayer.gamerName)} ✨`;
   } else {
-    gamerTagPretty = `${color.bold(gamerTagName)}${
-      color.dim(`#${gamerTagNumber}`)
+    gamerTagPretty = `${color.bold(userPlayer.gamerName)}${
+      color.dim(`#${userPlayer.gamerNumber}`)
     }`;
   }
 
   println();
-  println(`  ${google}  email:  ${color.bold(String(googleEmail))}`);
-  println(`               id:  ${googleId}`);
+  println(`  ${google}  email:  ${color.bold(String(userGoogleEmail))}`);
+  println(`               id:  ${userGoogleId}`);
   println();
   println(`  ${stadia}   name:  ${gamerTagPretty}`);
-  println(`               id:  ${gamerId}`);
+  println(`               id:  ${userPlayer.gamerId}`);
   println();
 };
 

@@ -1,12 +1,22 @@
 import { discoverProfiles } from "../chrome/mod.ts";
 import { Database, flags, log } from "../deps.ts";
 import * as clui from "../_common/clui.ts";
-import { GoogleCookies } from "../stadia/web_client/requests.ts";
-import { Client } from "../stadia/web_client/views.ts";
-import { notImplemented } from "../_common/assertions.ts";
+import { GoogleCookies } from "../stadia/web_client/_requests.ts";
+import { Client } from "../stadia/web_client/mod.ts";
 
 export const makeClient = async (flags: flags.Args): Promise<Client> => {
   const database = new Database("./deno-stadia.sqlite");
+  let env;
+  try {
+    env = Deno.env.toObject();
+  } catch {
+    env = {};
+  }
+
+  flags.offline ??= env["DENO_STADIA_OFFLINE"];
+  flags["google-cookie"] ??= env["DENO_STADIA_GOOGLE_COOKIE"];
+  flags["google-email"] ??= env["DENO_STADIA_GOOGLE_EMAIL"];
+
   if (flags.offline) {
     return new Client("", GoogleCookies.fromString(""), database);
   } else if (flags["google-cookie"]) {

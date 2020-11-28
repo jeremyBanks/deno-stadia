@@ -1,4 +1,3 @@
-import { log } from "../deps.ts";
 import { sleep, throttled } from "./async.ts";
 import { Json } from "./types.ts";
 
@@ -6,7 +5,7 @@ export const safeEval = throttled(0.125, async (
   javaScript: string,
 ): Promise<Json> => {
   const process = Deno.run({
-    cmd: ["deno", "run", "--quiet", "-"],
+    cmd: ["deno", "run", "--no-check", "--quiet", "-"],
     stdin: "piped",
     stdout: "piped",
   });
@@ -28,15 +27,18 @@ export const safeEval = throttled(0.125, async (
       );
       process.stdin.close();
       const output = (new TextDecoder()).decode(await process.output());
-      Promise.resolve().then(() => abortTimeout.abort());
-      if ((await process.status()).success) {
-        return JSON.parse(output);
-      } else {
-        throw new SyntaxError("eval failed");
+      try {
+        if ((await process.status()).success) {
+          return JSON.parse(output);
+        } else {
+          throw new SyntaxError("eval failed");
+        }
+      } finally {
+        Promise.resolve().then(() => abortTimeout.abort());
       }
     })(),
     (async () => {
-      await sleep(16, abortTimeout.signal);
+      await sleep(4, abortTimeout.signal);
       process.close();
       throw new Error("eval timed out");
     })(),

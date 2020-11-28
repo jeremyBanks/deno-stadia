@@ -1,12 +1,11 @@
 /** Requests and responses for Stadia pages. */
-import { Database, SQL } from "../../deps.ts";
 import { assert } from "../../_common/assertions.ts";
 import { safeEval } from "../../_common/sandbox.ts";
 import { Json } from "../../_common/types.ts";
 
-import { Client as RequestsClient, StadiaWebRequest } from "./requests.ts";
+import { Client as RequestsClient } from "./_requests.ts";
 
-type StadiaWebResponse = {
+export type StadiaWebResponse = {
   requestId: bigint;
   /** Timestamp at which the response was completely received */
   timestamp: number;
@@ -23,34 +22,28 @@ type StadiaWebResponse = {
   wizGlobalData: Json;
   /** Collects `AF_dataServiceRequests` entries and `AF_initDataCallbacks`
     * calls in the document by RPC method ID. */
-  afPreloadData:
-    | null
-    | Record<
-      string,
-      Array<
-        & {
-          arguments: JsProtoArray;
-        }
-        & (
-          | { value: JsProtoArray; error: void }
-          | { error: JsProtoArray; value: void }
-        )
-      >
-    >;
+  afPreloadData: Record<
+    string,
+    Array<
+      & {
+        arguments: JsProtoArray;
+      }
+      & (
+        | { value: JsProtoArray; error: void }
+        | { error: JsProtoArray; value: void }
+      )
+    >
+  >;
 };
 
 export class Client extends RequestsClient {
-  protected async initializeDatabase(database: Database) {
-    await super.initializeDatabase(database);
-  }
-
   public async fetchResponse(path: string) {
     const { request, httpResponse } = await super.fetchHttp(path);
 
     let error: Json = null;
-    let ijValues: Json = null;
-    let wizGlobalData: Json & (null | Record<string, Json>) = null;
-    let afPreloadData: StadiaWebResponse["afPreloadData"] = null;
+    let ijValues: Json = {};
+    let wizGlobalData: Json & (Record<string, Json>) = {};
+    let afPreloadData: StadiaWebResponse["afPreloadData"] = {};
 
     if (httpResponse.status === 200) {
       const html = await httpResponse.text();
