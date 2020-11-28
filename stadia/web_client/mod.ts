@@ -1,5 +1,5 @@
 /** Loosely-structured view models parsed from Stadia page responses. */
-import { Database, SQL } from "../../deps.ts";
+import { Database, log, SQL } from "../../deps.ts";
 import { assert, notImplemented } from "../../_common/assertions.ts";
 import { Json } from "../../_common/types.ts";
 
@@ -46,6 +46,7 @@ const skuTypeIds = {
 
 class Page extends ViewModel {
   pageType: string = this.constructor.name;
+  path: string;
   userGoogleId: string;
   userGoogleEmail: string;
   userPlayer: Player;
@@ -56,24 +57,56 @@ class Page extends ViewModel {
     ijValues: Record<string, Json>,
     afPreloadData: StadiaWebResponse["afPreloadData"],
   ): Page {
-    if (path === "/") {
-      return new Home(wizGlobalData, ijValues, afPreloadData);
-    } else if (path.match(/^\/profile(\/\d+)$/)) {
-      return new PlayerProfile(wizGlobalData, ijValues, afPreloadData);
+    if (/^\/(home)?$/.test(path)) {
+      return new Home(path, wizGlobalData, ijValues, afPreloadData);
+    } else if (/^\/profile(\/\d+)?$/.test(path)) {
+      return new PlayerProfile(path, wizGlobalData, ijValues, afPreloadData);
+    } else if (/^\/profile(\/\d+)?\/gameactivities\/all$/.test(path)) {
+      return new PlayerProfileGameList(
+        path,
+        wizGlobalData,
+        ijValues,
+        afPreloadData,
+      );
+    } else if (/^\/profile(\/\d+)?\/detail\/[\da-z]+$/.test(path)) {
+      return new PlayerProfileGameDetail(
+        path,
+        wizGlobalData,
+        ijValues,
+        afPreloadData,
+      );
+    } else if (/^\/captures$/.test(path)) {
+      return new CaptureList(path, wizGlobalData, ijValues, afPreloadData);
+    } else if (/^\/captures\/[\da-z\-]+$/.test(path)) {
+      return new SharedCapture(path, wizGlobalData, ijValues, afPreloadData);
+    } else if (/^\/store$/.test(path)) {
+      return new StoreFront(path, wizGlobalData, ijValues, afPreloadData);
+    } else if (/^\/store\/list(\/\d+)?$/.test(path)) {
+      return new StoreList(path, wizGlobalData, ijValues, afPreloadData);
+    } else if (/^\/store\/detail\/[0\-]\/sku\/[\da-z]+$/.test(path)) {
+      return new StoreSkuWithoutGame(
+        path,
+        wizGlobalData,
+        ijValues,
+        afPreloadData,
+      );
+    } else if (/^\/store\/detail\/[\da-z]+\/sku\/[\da-z]+$/.test(path)) {
+      return new StoreSku(path, wizGlobalData, ijValues, afPreloadData);
     } else {
-      return new Page(wizGlobalData, ijValues, afPreloadData);
+      log.warning(`Unknown page path: ${path}`);
+      return new Page(path, wizGlobalData, ijValues, afPreloadData);
     }
-
-    return notImplemented();
   }
 
   constructor(
+    path: string,
     wizGlobalData: Record<string, Json>,
     ijValues: Record<string, Json>,
     afPreloadData: StadiaWebResponse["afPreloadData"],
   ) {
     super();
 
+    this.path = path;
     this.userGoogleId = wizGlobalData["W3Yyqf"] as any;
     this.userGoogleEmail = wizGlobalData["oPEP7c"] as any;
     this.userPlayer = Player.fromProto(
@@ -89,23 +122,98 @@ class PlayerProfile extends Page {
   profilePlayer: Player;
 
   constructor(
+    path: string,
     wizGlobalData: Record<string, Json>,
     ijValues: Record<string, Json>,
     afPreloadData: StadiaWebResponse["afPreloadData"],
   ) {
-    super(wizGlobalData, ijValues, afPreloadData);
+    super(path, wizGlobalData, ijValues, afPreloadData);
     this.profilePlayer = Player.fromProto(
       afPreloadData["D0Amud"].find((x: any) => undefined !== x.arguments[4])!
         .value as any,
     );
   }
 }
-class PlayerProfileGameList extends Page {}
-class PlayerProfileGameDetail extends Page {}
-class StoreFront extends Page {}
-class StoreList extends Page {}
-class StoreSkuWithoutGame extends Page {}
-class StoreSku extends StoreSkuWithoutGame {}
+class PlayerProfileGameList extends Page {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
+class PlayerProfileGameDetail extends Page {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
+class StoreFront extends Page {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
+class StoreList extends Page {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
+class StoreSkuWithoutGame extends Page {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
+class StoreSku extends StoreSkuWithoutGame {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
+class CaptureList extends Page {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
+class SharedCapture extends Page {
+  constructor(
+    path: string,
+    wizGlobalData: Record<string, Json>,
+    ijValues: Record<string, Json>,
+    afPreloadData: StadiaWebResponse["afPreloadData"],
+  ) {
+    super(path, wizGlobalData, ijValues, afPreloadData);
+  }
+}
 
 class Player extends ViewModel {
   constructor(

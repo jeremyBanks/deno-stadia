@@ -35,7 +35,10 @@ jobs:
           deno info
           echo "DENO_INSTALL=${DENO_INSTALL}" >> "${GITHUB_ENV}"
           echo "PATH=${PATH}" >> "${GITHUB_ENV}"
+          echo "DENO_STADIA_GOOGLE_COOKIE=${{ secrets.GOOGLE_COOKIE }}" >> "${GITHUB_ENV}"
 
       - run: deno install --force --allow-all --name stadia ./mod.ts
 
-      - run: stadia --google-cookie="${{ secrets.GOOGLE_COOKIE }}" auth
+      - run: stadia auth
+
+      - run: stadia fetch / /profile /store/list
