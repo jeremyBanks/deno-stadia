@@ -41,4 +41,4 @@ jobs:
 
       - run: stadia auth 2>&1
 
-      - run: stadia fetch / /profile /store/list 2>&1
+      - run: stadia fetch / /profile /store/list /store/details/c911998e4f8d4c6ea6712c5ad33e4a54rcp1/sku/68fb07a7c4ac41f1afb21d742c717538 2>&1

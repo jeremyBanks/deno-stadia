@@ -2,16 +2,17 @@
 import { Database, log, SQL } from "../../deps.ts";
 import { assert, notImplemented } from "../../_common/assertions.ts";
 import { Json } from "../../_common/types.ts";
+import { eprintln, println } from "../../_common/io.ts";
 
 import {
   Client as ResponsesClient,
-  JsProtoArray,
+  JsProto,
   StadiaWebResponse,
 } from "./_responses.ts";
 
 export class Client extends ResponsesClient {
   public async fetchHome(): Promise<Home> {
-    return (await this.fetchView('/')).page as Home;
+    return (await this.fetchView("/")).page as Home;
   }
 
   public async fetchPlayerProfile(gamerId?: string): Promise<PlayerProfile> {
@@ -19,12 +20,17 @@ export class Client extends ResponsesClient {
     return (await this.fetchView(path)).page as PlayerProfile;
   }
 
-  public async fetchPlayerProfileGameList(gamerId?: string): Promise<PlayerProfileGameList> {
+  public async fetchPlayerProfileGameList(
+    gamerId?: string,
+  ): Promise<PlayerProfileGameList> {
     let path = `/profile${gamerId ? `/${gamerId}` : ``}/gameactivities/all`;
     return (await this.fetchView(path)).page as PlayerProfileGameList;
   }
 
-  public async fetchPlayerProfileGameDetails(gameId: string, gamerId?: string): Promise<PlayerProfileGameDetails> {
+  public async fetchPlayerProfileGameDetails(
+    gameId: string,
+    gamerId?: string,
+  ): Promise<PlayerProfileGameDetails> {
     let path = `/profile${gamerId ? `/${gamerId}` : ``}/detail/${gameId}`;
     return (await this.fetchView(path)).page as PlayerProfileGameDetails;
   }
@@ -53,15 +59,6 @@ export class Client extends ResponsesClient {
 
 abstract class ViewModel {
 }
-
-const skuTypeIds = {
-  1: "game",
-  2: "addon",
-  3: "bundle",
-  5: "bundle-subscription",
-  6: "addon-subscription",
-  10: "preorder",
-};
 
 class Page extends ViewModel {
   pageType: string = this.constructor.name;
@@ -198,6 +195,8 @@ class StoreList extends Page {
 }
 class StoreSkuWithoutGame extends Page {
   sku: Sku;
+  parentBundles: Sku[];
+  parentSubscriptions: Sku[];
 
   constructor(
     path: string,
@@ -207,12 +206,20 @@ class StoreSkuWithoutGame extends Page {
   ) {
     super(path, wizGlobalData, ijValues, afPreloadData);
 
-    const skuProto = afPreloadData["FWhQV"][0].value as JsProtoArray;
-    this.sku = Sku.fromProto(skuProto);
+    const skuProto = afPreloadData["FWhQV"][0].value as JsProto[];
+    this.sku = SkuWrapper.fromProto(skuProto).sku;
+    this.parentBundles =
+      ((afPreloadData["SYcsTd"] as any)?.[0]?.value[1].map((p: any) =>
+        Sku.fromProto(p[9])
+      ) || []) as Sku[];
+    this.parentSubscriptions =
+      ((afPreloadData["SYcsTd"]?.[0] as any)?.value[2].map(
+        Sku.fromProto,
+      ) || []) as Sku[];
   }
 }
 class StoreSku extends StoreSkuWithoutGame {
-  game: Game;
+  addons: Sku[];
 
   constructor(
     path: string,
@@ -221,6 +228,10 @@ class StoreSku extends StoreSkuWithoutGame {
     afPreloadData: StadiaWebResponse["afPreloadData"],
   ) {
     super(path, wizGlobalData, ijValues, afPreloadData);
+    this.addons =
+      ((afPreloadData["ZAm7We"] as any)?.[0]?.value[0].map((p: any) =>
+        Sku.fromProto(p[9])
+      ) || []) as Sku[];
   }
 }
 class CaptureList extends Page {
@@ -260,7 +271,7 @@ class Player extends ViewModel {
       : `${this.gamerName}#${this.gamerNumber}`;
   }
 
-  static fromProto(proto: JsProtoArray): Player {
+  static fromProto(proto: JsProto): Player {
     const shallowUserInfo = (proto as any)[5];
     assert(shallowUserInfo instanceof Array);
 
@@ -281,13 +292,90 @@ class Player extends ViewModel {
 }
 
 class Game extends ViewModel {
-  static fromProto(proto: JsProtoArray): Game {
+  static fromProto(proto: JsProto): Game {
     return notImplemented();
   }
 }
 
+const skuTypeIds = {
+  1: "game",
+  2: "addon",
+  3: "bundle",
+  5: "subscription-bundle",
+  6: "subscription-addon",
+  10: "preorder",
+};
+
+class SkuWrapper extends ViewModel {
+  protected constructor(
+    readonly sku: Sku,
+  ) {
+    super();
+  }
+
+  static fromProto(proto: Array<JsProto>): SkuWrapper {
+    const sku = Sku.fromProto(proto[16] as Array<JsProto>);
+
+    return new SkuWrapper(sku);
+  }
+}
+
 class Sku extends ViewModel {
-  static fromProto(proto: JsProtoArray): Sku {
-    return notImplemented();
+  protected constructor(
+    readonly typeId: number,
+    readonly type: string,
+    readonly skuId: string,
+    readonly gameId: string | undefined,
+    readonly name: string,
+    readonly coverImageUrl: string,
+    readonly description: string,
+    readonly timestampA: number,
+    readonly timestampB: number,
+    readonly publisherOrganizationId: string,
+    readonly developerOrganizationIds: string[],
+    readonly languages: string[],
+    readonly countries: string[],
+    readonly internalName: string,
+  ) {
+    super();
+  }
+
+  static fromProto(proto: Array<JsProto>): Sku {
+    const typeId = proto[6] as keyof typeof skuTypeIds;
+    const type = skuTypeIds[typeId] || `-unknown-type-${typeId}`;
+    const skuId = proto[0] as string;
+    const gameId = (proto[4] ?? undefined) as string | undefined;
+    const name = proto[1] as string;
+    const description = proto[9] as string;
+    const languages = proto[24] as string[];
+    const countries = proto[25] as string[];
+
+    const coverImageUrl = (proto as any)[2][1][0][0][1]?.split(
+      /=/,
+    )[0] as string;
+    const timestampA = (proto as any)[10][0] as number;
+    const timestampB = (proto as any)[26][0] as number;
+
+    const publisherOrganizationId = proto[15] as string;
+    const developerOrganizationIds = proto[16] as string[];
+
+    const internalName = proto[5] as string;
+
+    return new Sku(
+      typeId,
+      type,
+      skuId,
+      gameId,
+      name,
+      coverImageUrl,
+      description,
+      timestampA,
+      timestampB,
+      publisherOrganizationId,
+      developerOrganizationIds,
+      languages,
+      countries,
+      internalName,
+    );
   }
 }

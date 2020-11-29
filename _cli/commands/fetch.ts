@@ -24,7 +24,6 @@ export const command = async (client: Client, flags: FlagArgs) => {
       return;
     }
 
-    println(json.encode(result.page));
     eprintln();
   }
 };

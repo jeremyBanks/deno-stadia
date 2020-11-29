@@ -1,12 +1,15 @@
 import { Json } from "./types.ts";
 
 export const encode = (value: unknown): string => {
+  const fudge = 4;
   const mini = toCanonicalJson(value);
   const pretty = JSON.stringify(value, null, 2);
   const prettyLines = pretty.split(/\n/g);
   const prettyRows = prettyLines.length;
   const prettyColumns = Math.max(...prettyLines.map((l) => l.length));
-  return (prettyRows <= 24 && prettyColumns <= 160) ? pretty : mini;
+  return (prettyRows <= 24 * fudge && prettyColumns <= 80 * fudge)
+    ? pretty
+    : mini;
 };
 
 export const decode = (value: string): Json => {

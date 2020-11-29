@@ -26,11 +26,11 @@ export type StadiaWebResponse = {
     string,
     Array<
       & {
-        arguments: JsProtoArray;
+        arguments: JsProto;
       }
       & (
-        | { value: JsProtoArray; error: void }
-        | { error: JsProtoArray; value: void }
+        | { value: JsProto; error: void }
+        | { error: JsProto; value: void }
       )
     >
   >;
@@ -118,4 +118,4 @@ export class Client extends RequestsClient {
   }
 }
 
-export type JsProtoArray = null | number | string | boolean | JsProtoArray[];
+export type JsProto = null | number | string | boolean | JsProto[];
