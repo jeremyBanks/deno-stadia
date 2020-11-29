@@ -110,6 +110,21 @@ jobs:
       - run: |
           deno test --allow-none
 
+      - run: |
+          deno run mod.ts
+
+      - run: |
+          deno run ./mod.ts -?
+
+      - run: |
+        deno install --force --allow-all --name stadia ./mod.ts
+        stadia --help
+
+      - run: |
+          deno bundle mod.ts dist/bundle.js
+          deno run dist/bundle.js
+        continue-on-error: true
+
       - name: check lint
         run: |
           git clean -xdf
