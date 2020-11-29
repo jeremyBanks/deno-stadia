@@ -78,8 +78,8 @@ COMMANDS:
 
 ## License
 
-Copyright Jeremy Banks
-and [contributors](https://github.com/stadians/deno-stadia/graphs/contributors).
+Copyright Jeremy Banks and
+[contributors](https://github.com/jeremyBanks/deno-stadia/graphs/contributors).
 
 Licensed under either of
 
