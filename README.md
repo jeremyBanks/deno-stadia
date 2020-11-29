@@ -76,6 +76,12 @@ COMMANDS:
 
 ```
 
+## Disclaimer
+
+deno-stadia is an unofficial fan project and is not affiliated with Google. The
+name "Stadia" is a trademark of Google LLC, and is used here for informational
+purposes, not to imply affiliation or endorsement.
+
 ## License
 
 Copyright Jeremy Banks and
