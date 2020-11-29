@@ -102,12 +102,16 @@ const main = async () => {
   ).replace(/\n\n$/, "\n");
 
   const readme = `\
-This is an unofficial in-progress/unstable/pre-1.0 library/CLI tool for
-interacting with your Stadia account. **⚠️ This tool is incomplete. Features
-may not be implemented or may not function as described. Come back later. ⚠️**
+# [deno-stadia](https://deno.land/x/stadia)
 
-You'll need to install [Deno, a secure runtime for TypeScript and
-JavaScript](https://deno.land/). On Linux, you may do so by running:
+An Unofficial CLI tool and Deno TypeScript library for interacting with your
+Google Stadia account.
+
+**⚠️ This tool is incomplete. Features may not be implemented or may not
+function as described. Come back later. ⚠️**
+
+To use this tool you'll need to install [Deno, a secure runtime for TypeScript
+and JavaScript](https://deno.land/). On Linux, you may do so by running:
 
 \`\`\`
 $ curl -fsSL https://deno.land/x/install/install.sh | sh
@@ -130,6 +134,24 @@ $ stadia
 \`\`\`
 ${usage}
 \`\`\`
+
+## License
+
+Copyright Jeremy Banks
+and [contributors](https://github.com/stadians/deno-stadia/graphs/contributors).
+
+Licensed under either of
+
+ * [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+ * [MIT license](http://opensource.org/licenses/MIT)
+
+at your option.
+
+### Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
+dual licensed as above, without any additional terms or conditions.
 `;
 
   await Deno.writeTextFile("./README.md", readme);
