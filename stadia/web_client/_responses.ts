@@ -1,9 +1,10 @@
 /** Requests and responses for Stadia pages. */
 import { assert } from "../../_common/assertions.ts";
 import { safeEval } from "../../_common/sandbox.ts";
-import { Json } from "../../_common/types.ts";
+import { Json } from "../../_common/json.ts";
 
 import { Client as RequestsClient } from "./_requests.ts";
+import { z } from "../../deps.ts";
 
 export type StadiaWebResponse = {
   requestId: bigint;
@@ -119,3 +120,9 @@ export class Client extends RequestsClient {
 }
 
 export type JsProto = null | number | string | boolean | JsProto[];
+export const JsProto: z.ZodSchema<JsProto> = z.union([
+  z.null(),
+  z.number(),
+  z.string(),
+  z.array(z.lazy(() => JsProto)),
+]);

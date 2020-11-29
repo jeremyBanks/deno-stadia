@@ -1,4 +1,15 @@
-import { Json } from "./types.ts";
+import { z } from "../deps.ts";
+
+export type Json = null | number | string | boolean | Json[] | {
+  [key: string]: Json;
+};
+export const Json: z.ZodSchema<Json> = z.union([
+  z.null(),
+  z.number(),
+  z.string(),
+  z.array(z.lazy(() => Json)),
+  z.record(z.lazy(() => Json)),
+]);
 
 export const encode = (value: unknown): string => {
   const fudge = 4;

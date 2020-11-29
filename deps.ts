@@ -16,3 +16,6 @@ export {
   default as SQL,
   SQLExpression,
 } from "https://deno.land/x/lite@0.0.9/sql.ts";
+
+// TODO: use official Deno release once it exists: https://github.com/colinhacks/zod/pull/209
+export * as z from "https://cdn.jsdelivr.net/gh/jeremyBanks/zod@421560fd8cea/mod.ts";

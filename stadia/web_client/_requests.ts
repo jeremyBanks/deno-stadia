@@ -1,5 +1,5 @@
 /** Stadia web site client. */
-import { Database, log, SQL } from "../../deps.ts";
+import { Database, log, SQL, z } from "../../deps.ts";
 
 import { throttled } from "../../_common/async.ts";
 
@@ -8,18 +8,20 @@ const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
 
 const stadiaRoot = new URL("https://stadia.google.com/");
 
-export interface StadiaWebRequest {
+export const StadiaWebRequest = z.object({
   /** Local ID for this request. */
-  requestId: bigint;
+  requestId: z.bigint(),
   /** Google ID of account whose credentials were used for this request */
-  googleId: string;
+  googleId: z.string(),
   /** Requested path, relative to https://stadia.google.com/ */
-  path: string;
+  path: z.string(),
   /** Timestamp at which the request was completely sent */
-  timestamp: number;
-}
+  timestamp: z.number(),
+});
+export type StadiaWebRequest = z.infer<typeof StadiaWebRequest>;
 
-type NewStadiaWebRequest = Omit<StadiaWebRequest, "requestId">;
+export const NewStadiaWebRequest = StadiaWebRequest.omit({ requestId: true });
+export type NewStadiaWebRequest = z.infer<typeof NewStadiaWebRequest>;
 
 export class GoogleCookies {
   constructor(
@@ -84,11 +86,11 @@ export class Client {
         .join(" "),
     };
 
-    const request: NewStadiaWebRequest = {
+    const request = NewStadiaWebRequest.parse({
       googleId: this.googleId,
       timestamp: Date.now(),
       path: url.pathname,
-    };
+    });
 
     log.debug(`fetching ${url} for ${this.googleId}`);
     const httpResponse = await fetch(url, { headers });

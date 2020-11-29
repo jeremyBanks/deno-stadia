@@ -1,7 +1,7 @@
 /** Loosely-structured view models parsed from Stadia page responses. */
 import { Database, log, SQL } from "../../deps.ts";
 import { assert, notImplemented } from "../../_common/assertions.ts";
-import { Json } from "../../_common/types.ts";
+import { Json } from "../../_common/json.ts";
 import { eprintln, println } from "../../_common/io.ts";
 
 import {

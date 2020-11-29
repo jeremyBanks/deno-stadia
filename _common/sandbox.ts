@@ -1,5 +1,5 @@
 import { sleep, throttled } from "./async.ts";
-import { Json } from "./types.ts";
+import { Json } from "./json.ts";
 
 export const safeEval = throttled(0.125, async (
   javaScript: string,
