@@ -117,8 +117,8 @@ jobs:
           deno run ./mod.ts -?
 
       - run: |
-        deno install --force --allow-all --name stadia ./mod.ts
-        stadia --help
+          deno install --force --allow-all --name stadia ./mod.ts
+          stadia --help
 
       - run: |
           deno bundle mod.ts dist/bundle.js
