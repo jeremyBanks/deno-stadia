@@ -1,6 +1,6 @@
 import { color, flags, flags as stdFlags, log } from "../deps.ts";
 
-import { eprint } from "../_common/io.ts";
+import { eprint, eprintln } from "../_common/io.ts";
 import commands from "./commands/mod.ts";
 import { makeClient } from "./authentication.ts";
 
@@ -133,7 +133,14 @@ const initLogger = async (logLevel?: log.LevelName) => {
 
   await log.setup({
     handlers: {
-      console: new log.handlers.ConsoleHandler("DEBUG"),
+      console: new class extends log.handlers.ConsoleHandler {
+        constructor() {
+          super("DEBUG");
+        }
+        log(msg: string): void {
+          eprintln(msg);
+        }
+      }(),
     },
     loggers: {
       default: {

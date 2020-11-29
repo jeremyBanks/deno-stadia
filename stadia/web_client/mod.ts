@@ -10,6 +10,25 @@ import {
 } from "./_responses.ts";
 
 export class Client extends ResponsesClient {
+  public async fetchHome(): Promise<Home> {
+    return (await this.fetchView('/')).page as Home;
+  }
+
+  public async fetchPlayerProfile(gamerId?: string): Promise<PlayerProfile> {
+    let path = `/profile${gamerId ? `/${gamerId}` : ``}`;
+    return (await this.fetchView(path)).page as PlayerProfile;
+  }
+
+  public async fetchPlayerProfileGameList(gamerId?: string): Promise<PlayerProfileGameList> {
+    let path = `/profile${gamerId ? `/${gamerId}` : ``}/gameactivities/all`;
+    return (await this.fetchView(path)).page as PlayerProfileGameList;
+  }
+
+  public async fetchPlayerProfileGameDetails(gameId: string, gamerId?: string): Promise<PlayerProfileGameDetails> {
+    let path = `/profile${gamerId ? `/${gamerId}` : ``}/detail/${gameId}`;
+    return (await this.fetchView(path)).page as PlayerProfileGameDetails;
+  }
+
   public async fetchView(path: string) {
     const { request, httpResponse, response } = await this.fetchResponse(path);
 
@@ -69,7 +88,7 @@ class Page extends ViewModel {
         afPreloadData,
       );
     } else if (/^\/profile(\/\d+)?\/detail\/[\da-z]+$/.test(path)) {
-      return new PlayerProfileGameDetail(
+      return new PlayerProfileGameDetails(
         path,
         wizGlobalData,
         ijValues,
@@ -83,16 +102,19 @@ class Page extends ViewModel {
       return new StoreFront(path, wizGlobalData, ijValues, afPreloadData);
     } else if (/^\/store\/list(\/\d+)?$/.test(path)) {
       return new StoreList(path, wizGlobalData, ijValues, afPreloadData);
-    } else if (/^\/store\/detail\/[0\-]\/sku\/[\da-z]+$/.test(path)) {
+    } else if (/^\/store\/details\/[0\-]\/sku\/[\da-z]+$/.test(path)) {
       return new StoreSkuWithoutGame(
         path,
         wizGlobalData,
         ijValues,
         afPreloadData,
       );
-    } else if (/^\/store\/detail\/[\da-z]+\/sku\/[\da-z]+$/.test(path)) {
+    } else if (/^\/store\/details\/[\da-z]+\/sku\/[\da-z]+$/.test(path)) {
       return new StoreSku(path, wizGlobalData, ijValues, afPreloadData);
     } else {
+      if (/^readonlystoredetails/.test(path)) {
+        log.error(`/readonlystoredetails is weird and unsupported`);
+      }
       log.warning(`Unknown page path: ${path}`);
       return new Page(path, wizGlobalData, ijValues, afPreloadData);
     }
@@ -144,7 +166,7 @@ class PlayerProfileGameList extends Page {
     super(path, wizGlobalData, ijValues, afPreloadData);
   }
 }
-class PlayerProfileGameDetail extends Page {
+class PlayerProfileGameDetails extends Page {
   constructor(
     path: string,
     wizGlobalData: Record<string, Json>,
@@ -175,6 +197,8 @@ class StoreList extends Page {
   }
 }
 class StoreSkuWithoutGame extends Page {
+  sku: Sku;
+
   constructor(
     path: string,
     wizGlobalData: Record<string, Json>,
@@ -182,9 +206,14 @@ class StoreSkuWithoutGame extends Page {
     afPreloadData: StadiaWebResponse["afPreloadData"],
   ) {
     super(path, wizGlobalData, ijValues, afPreloadData);
+
+    const skuProto = afPreloadData["FWhQV"][0].value as JsProtoArray;
+    this.sku = Sku.fromProto(skuProto);
   }
 }
 class StoreSku extends StoreSkuWithoutGame {
+  game: Game;
+
   constructor(
     path: string,
     wizGlobalData: Record<string, Json>,

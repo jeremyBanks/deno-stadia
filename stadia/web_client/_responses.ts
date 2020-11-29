@@ -37,7 +37,7 @@ export type StadiaWebResponse = {
 };
 
 export class Client extends RequestsClient {
-  public async fetchResponse(path: string) {
+  protected async fetchResponse(path: string) {
     const { request, httpResponse } = await super.fetchHttp(path);
 
     let error: Json = null;
