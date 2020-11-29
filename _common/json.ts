@@ -11,23 +11,11 @@ export const Json: z.ZodSchema<Json> = z.union([
   z.record(z.lazy(() => Json)),
 ]);
 
-export const encode = (value: unknown): string => {
-  const fudge = 4;
-  const mini = toCanonicalJson(value);
-  const pretty = JSON.stringify(value, null, 2);
-  const prettyLines = pretty.split(/\n/g);
-  const prettyRows = prettyLines.length;
-  const prettyColumns = Math.max(...prettyLines.map((l) => l.length));
-  return (prettyRows <= 24 * fudge && prettyColumns <= 80 * fudge)
-    ? pretty
-    : mini;
-};
-
 export const decode = (value: string): Json => {
   return JSON.parse(value) ?? null;
 };
 
-const toCanonicalJson = (tree: unknown, indent?: number): string => {
+export const encode = (root: unknown, indent: number = 2): string => {
   const transform = (
     node: unknown,
     ancestors: unknown[] = [],
@@ -65,5 +53,11 @@ const toCanonicalJson = (tree: unknown, indent?: number): string => {
       return node;
     }
   };
-  return JSON.stringify(transform(tree), null, indent) ?? "null";
+  return JSON.stringify(transform(root), null, indent) ?? "null";
+};
+
+export default {
+  Json,
+  encode,
+  decode,
 };

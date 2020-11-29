@@ -1,4 +1,5 @@
-import { log, SQL } from "../deps.ts";
+import { log, sqlite } from "../deps.ts";
+import SQL from "../_common/sql.ts";
 import { assert } from "../_common/assertions.ts";
 
 import { aesGcm256DecryptAndVerifyAsUtf8 } from "./crypto.ts";
@@ -85,11 +86,11 @@ class ChromeProfile {
     }>
   > {
     // TODO: open database read-only (not currently possible)
-    return (await SQL(`${this.path}/Cookies`)(SQL`
+    return [...(new sqlite.DB(`${this.path}/Cookies`).query(...SQL`
       SELECT *, encrypted_value
       from cookies
       order by last_access_utc desc, creation_utc desc, expires_utc desc, host_key desc
-    `)).filter(({ encrypted_value }) =>
+    `.args)).asObjects()].filter(({ encrypted_value }) =>
       (encrypted_value as unknown as Uint8Array).slice(0, 3).toString() ===
         "118,49,48"
       // deno-lint-ignore no-explicit-any

@@ -1,5 +1,5 @@
 /** Stadia web site client. */
-import { Database, log, SQL, z } from "../../deps.ts";
+import { log, sqlite, z } from "../../deps.ts";
 
 import { throttled } from "../../_common/async.ts";
 
@@ -51,20 +51,21 @@ export class GoogleCookies {
 export class Client {
   public readonly googleId: string;
   private readonly googleCookies: GoogleCookies;
-  protected readonly database: Promise<Database>;
+  protected readonly database: sqlite.DB;
 
   public constructor(
     googleId: string,
     googleCookies: GoogleCookies,
-    database: Database = new Database(),
+    database = new sqlite.DB(),
   ) {
     this.googleId = googleId;
     this.googleCookies = googleCookies;
-    this.database = this.initializeDatabase(database).then(() => database);
+    this.database = database;
+    this.initializeDatabase();
   }
 
   /** Performs any database initialization required for this class. */
-  protected async initializeDatabase(database: Database): Promise<void> {
+  protected initializeDatabase() {
   }
 
   public async fetchHttp(path: string) {

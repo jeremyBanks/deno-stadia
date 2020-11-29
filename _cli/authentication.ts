@@ -1,11 +1,11 @@
 import { discoverProfiles } from "../chrome/mod.ts";
-import { Database, flags, log } from "../deps.ts";
+import { sqlite, flags, log } from "../deps.ts";
 import * as clui from "../_common/clui.ts";
 import { GoogleCookies } from "../stadia/web_client/_requests.ts";
 import { Client } from "../stadia/web_client/mod.ts";
 
 export const makeClient = async (flags: flags.Args): Promise<Client> => {
-  const database = new Database("./deno-stadia.sqlite");
+  const database = new sqlite.DB("./deno-stadia.sqlite");
   let env;
   try {
     env = Deno.env.toObject();
