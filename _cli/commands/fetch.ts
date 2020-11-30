@@ -24,6 +24,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
       return;
     }
 
+    println(Deno.inspect(page))
     eprintln();
   }
 };

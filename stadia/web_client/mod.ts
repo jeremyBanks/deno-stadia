@@ -35,6 +35,13 @@ export class Client extends ResponsesClient {
     return (await this.fetchView(path)).page as PlayerProfileGameDetails;
   }
 
+  public async fetchStoreList(
+    listId?: string
+  ): Promise<StoreList> {
+    let path = `/store/list${listId ? `/${listId}` : ``}`;
+    return (await this.fetchView(path)).page as StoreList;
+  }
+
   public async fetchView(path: string) {
     const { request, httpResponse, response } = await this.fetchResponse(path);
 
@@ -184,6 +191,8 @@ class StoreFront extends Page {
   }
 }
 class StoreList extends Page {
+  skus: Sku[];
+
   constructor(
     path: string,
     wizGlobalData: Record<string, Json>,
@@ -191,6 +200,10 @@ class StoreList extends Page {
     afPreloadData: StadiaWebResponse["afPreloadData"],
   ) {
     super(path, wizGlobalData, ijValues, afPreloadData);
+
+    this.skus = ((afPreloadData["WwD3rb"] as any)?.[0]?.value[2].map((p: any) =>
+        Sku.fromProto(p[9])
+      ) || []);
   }
 }
 class StoreSkuWithoutGame extends Page {

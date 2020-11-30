@@ -55,14 +55,15 @@ export class SQLExpression {
   constructor(
     readonly strings: string[] = [""],
     readonly values: Json[] = [],
+    readonly args = [strings.join('?'), values] as const
   ) {
     if (strings.length !== values.length + 1) {
       throw new TypeError("strings.length !== values.length + 1");
     }
   }
 
-  get args() {
-    return [this.strings.join('?'), this.values] as const;
+  [Symbol.iterator]() {
+    return this.args[Symbol.iterator]();
   }
 }
 
