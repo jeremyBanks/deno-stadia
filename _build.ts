@@ -46,7 +46,7 @@ const main = async () => {
     rustup target add wasm32-unknown-unknown
     curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
   `);
-    throw Deno.exit(1);
+    Deno.exit(1);
   }
 
   if (
@@ -65,7 +65,7 @@ const main = async () => {
     rustup toolchain install stable-x86_64-pc-windows-gnu
     rustup target add x86_64-pc-windows-gnu
   `);
-    throw Deno.exit(1);
+    Deno.exit(1);
   }
 
   await Deno.writeTextFile(
@@ -166,7 +166,21 @@ dual licensed as above, without any additional terms or conditions.
     !await run("deno", "cache", "--lock-write", "--lock=lock.json", "./mod.ts")
   ) {
     console.log("failed to generate lock file");
-    throw Deno.exit(1);
+    Deno.exit(1);
+  }
+
+  if (
+    !await run(
+      "deno",
+      "run",
+      "--allow-all",
+      "--lock=lock.json",
+      "./mod.ts",
+      "stadia.run",
+    )
+  ) {
+    console.log("failed to generate stadia.run");
+    Deno.exit(1);
   }
 };
 

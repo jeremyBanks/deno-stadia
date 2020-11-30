@@ -1,0 +1,185 @@
+{
+  "background_color": "#202020",
+  "description": "a lightning-fast launcher for Stadia",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "560x560",
+      "src": "/-/pwa.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "420x420",
+      "src": "/-/icon.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "stadia.run",
+  "short_name": "stadia.run",
+  "shortcuts": [
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/6HvkX4mV-LMUf7qL338sLn2Ss7NZeA2UD8iC2QYLBVY7Sz5U7yALebd2D6N9dlI8bg66VgtuLiRzzBvTAGEKn1sJe8K_jSf1lGmx3tQeeqKW-Dw1m1MN0l07iQ=s192-p-rp"
+        }
+      ],
+      "name": "Hello Neighbor: Hide and Seek",
+      "url": "/hello-neighbor-hide-and-seek"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/vxoexA1rhd2GJrcPrZWeFJGMZT8GlF8GFl7zLCv6kCKmIh2NI3rb8SjF4B0NX2-_WSI1o1d98VcozI_lpskYF9vMxU4nLG9NjJbrfDxY8l27Od5NZ-1pa4uzXQ=s192-p-rp"
+        }
+      ],
+      "name": "Sniper Elite 4",
+      "url": "/sniper-elite-4"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/S5gxNJIiaF9Oab3dV-u4F8dj2sy6gY6umtugNKfRzWlCoUeOIslqBpDrZAXVSE6OPr3NJc0BVRuWICa5k-aK8MixvT6a4qg3jAMPNXHglRG-WSU-atH-juJznj8=s192-p-rp"
+        }
+      ],
+      "name": "The Gardens Between",
+      "url": "/the-gardens-between"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/IZzT-SmnEmNDlOSmU-ctGffYh_wI7Or6Z8I4z4H3I9L2f5OOo0iseBZhnrBuMTp2ZIWnIo0T6kVL60lRUL7em__bapRBWJkjvOcqjehqhCvL_Y6hIAjGywu8Oak=s192-p-rp"
+        }
+      ],
+      "name": "Dead by Daylight",
+      "url": "/dead-by-daylight"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/Gw4F5Rql1NSmlx7v7HS0QjYiZlReSiiI-i2eHmyzi9xQtTk0W21NJb1LVG8hnsI1oi79OobGC2WnTX2SeHP8faP9luwONHpiRSoTeBkS_fGKGHGyhUaj2WHYo3I=s192-p-rp"
+        }
+      ],
+      "name": "Human: Fall Flat",
+      "url": "/human-fall-flat"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/FZdjBJ1ygbaXNw74RNTLvwTB9cNsSRzPvlC_kzT7wFqda9GYCqkbubf-3TpH-lrt09yFrKz9Um5S8BTXP5u2KhIUkccdctWna18_RNjUEL7_KecjNB-4XsM8EUtE=s192-p-rp"
+        }
+      ],
+      "name": "Risk of Rain 2",
+      "url": "/risk-of-rain-2"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/w9BxPN6zb77lscIMjHKTGPchYdGvIG0hZcmByW3gGr-3nefc1sAhiVJtmHtPwMDoPTUNwqxiMEQltkLudRZMBU1XiMdtVu2Ya4oooZGWuBQ_8nJAVBUzOa9KEoY=s192-p-rp"
+        }
+      ],
+      "name": "République",
+      "url": "/republique"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/gxv80OCxjy_Xt_nAisCgH1gpC8-5UlfOu2Sbmp-r9qrwDoff31XfX0vvf6axEX4Txo_v2yTZoX0Ub_x2j_gu_tYOsG_6pVWUVYCm9sKlj0IsRQfm2pu56lPYb8Pj=s192-p-rp"
+        }
+      ],
+      "name": "SUPER BOMBERMAN R ONLINE",
+      "url": "/super-bomberman-r-online"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/zfsydWTNY5gbUIVUu_dwfFHn9Vl_iSTJ9PgJD5HfcpWjZNZmwqbwZfuf_ztv99ZMfKVKoivyBHimi8CDcuHwyDC-g24cXQJ8nkwecKwhmxfs9mU0Z1w6ZQESxA=s192-p-rp"
+        }
+      ],
+      "name": "Hello Neighbor",
+      "url": "/hello-neighbor"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/K4cdZyCNR-LtN8LtkHCuvcoc3QC7LEFBY8y9OjJxGkYRtStskmqamLFS2kFG1tcDgtkHwMnKX2Oq5iGXoNdXiCfuJMqKuD_gE9ABbHIZUorFDOFOSRzNPbDQlg=s192-p-rp"
+        }
+      ],
+      "name": "HITMAN - World of Assassination",
+      "url": "/hitman"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/YLArj_wo5ZtpqIZmUqKEweGc21TJDPirzXMofM8-AMG1GPFWGKBsxIQGDsv3Uf_qUnkOgZdH274jfPNqX5DGp41LxoSp__YCj3BjN2RyZt-T3PeTxtDTKh7K_g=s192-p-rp"
+        }
+      ],
+      "name": "Gunsport",
+      "url": "/gunsport"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/_qlVtqDeSrF3YVsP_oicwIUoWZR1w12EInvbS8U-1q4HHCm5QzGM7b_QF3M0Zd_VvPSVMQKIeQ_euRCudu6lDiOWkPIpBa-85aeYaONeRTPOgY5T7G3GVxVwgvQ=s192-p-rp"
+        }
+      ],
+      "name": "SUPERHOT: MIND CONTROL DELETE",
+      "url": "/superhot-mcd"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/UbwaBTbb-pXJXkYHP2n8J5SrZLjd5MfXst1d7e6KErPsiqzJfD9iazLQAokmJoKW03KpnfFOuthXsnGxg3I1WP5ZYS_d1Zf-xM_BvyQ9Rvrwp1koJ6MXWtTOPw=s192-p-rp"
+        }
+      ],
+      "name": "Rock of Ages 3: Make & Break",
+      "url": "/rock-of-ages-3"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/7GTAoubUX43W_zaFkEvQoqAkruysGSkQygrV0DYkVzA7qsIcsboF4n1Kq0mejQIGdlSQxeh4-ZuNQWqMjJ55u0GCR3aBnY1MsMwrULT1-J73Rs3fc3bFO8YjT20=s192-p-rp"
+        }
+      ],
+      "name": "Celeste",
+      "url": "/celeste"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/5SLIiiPbwGuKqbjNqAsBSeBnBIT70gipNFcRB6pWUgNHfwnmG_njj98iJEX7Vn88Z8tKKhSEF21sE8Cy2ntOglHWHrgQk4wUbMgL-D1jz3Ieh1w-5lkhTdDfqaU=s192-p-rp"
+        }
+      ],
+      "name": "Lara Croft and the Temple of Osiris",
+      "url": "/lara-croft-and-the-temple-of-osiris"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/2hTIWZCyMesKIpb-P8Iw5f3P6B7aoz9XaiQfXId7SQm3Yy_CS7OP67ZsOo1i7XJ_APv73F0YEbFfjP8L6tL0oWrkNL6pCxddsCq4tug0RMKYcP470KDV9x9tCg=s192-p-rp"
+        }
+      ],
+      "name": "Orcs Must Die! 3",
+      "url": "/orcs-must-die-3"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#202020"
+}

@@ -26,5 +26,5 @@ export const command = async (client: Client, flags: FlagArgs) => {
     Deno.exit(0);
   }));
 
-  console.log(listPage.skus.filter(x => x.type === "game"));
+  console.log(games);
 };

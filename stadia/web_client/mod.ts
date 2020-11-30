@@ -36,7 +36,7 @@ export class Client extends ResponsesClient {
   }
 
   public async fetchStoreList(
-    listId?: string
+    listId?: string,
   ): Promise<StoreList> {
     let path = `/store/list${listId ? `/${listId}` : ``}`;
     return (await this.fetchView(path)).page as StoreList;
@@ -201,7 +201,8 @@ class StoreList extends Page {
   ) {
     super(path, wizGlobalData, ijValues, afPreloadData);
 
-    this.skus = ((afPreloadData["WwD3rb"] as any)?.[0]?.value[2].map((p: any) =>
+    this.skus =
+      ((afPreloadData["WwD3rb"] as any)?.[0]?.value[2].map((p: any) =>
         Sku.fromProto(p[9])
       ) || []);
   }

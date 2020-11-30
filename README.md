@@ -28,51 +28,11 @@ $ stadia
 ```
 
 ```
-Unofficial Stadia CLI (https://deno.land/x/stadia)
-
-USAGE:
-
-    stadia [<authentication>] <command> [<arguments>...]
-
-AUTHENTICATION:
-
-    You must authenticate with Google Stadia in one of the following ways:
-
-    (1) If using Google Chrome on Windows 10 and running this command within
-        Windows Subsystem for Linux, it will detect any Chrome Profiles that are
-        synced with a Google account and load their authentication cookies
-        automatically. If there are multiple synced profiles, you will be
-        prompted to pick one, or you may specify it with the
-        --google-email=<email> parameter.
-
-    (2) The --google-cookie=<cookies> parameter may be set to a header-style
-        semicolon-delimited Cookie string that will be used to authenticate with
-        Google. This should contain the Google authentication cookies "SID",
-        "SSID", and "HSID".
-
-    (3) --offline will disable all authentication and network
-        operations. Operations that require data that isn't already saved
-        locally will fail.
-
-LOCAL STATE:
-
-    Local state is persisted in a SQLite database named "./deno-stadia.sqlite"
-    in the current working directory. It may contain personal information such
-    as your Google ID, your email address, and the list of games you own on
-    Stadia, but it will never include any of your credentials, so you can share
-    it without worrying about giving others access to your Google account.
-
-COMMANDS:
-
-    stadia auth
-
-        Prints information about the authenticated user.
-
-    stadia fetch [--json] <stadia_url>
-
-        Fetches a Stadia URL and displays our internal representation of the
-        response. The default output is meant for humans. The [--json] flag
-        adds more detail for machines.
+error: Uncaught (in promise) PermissionDenied: network access to "https://raw.githubusercontent.com/DjDeveloperr/deno-canvas/master/canvaskit.wasm", run again with the --allow-net flag
+    at processResponse (core.js:223:11)
+    at Object.jsonOpAsync (core.js:240:12)
+    at async fetch (deno:op_crates/fetch/26_fetch.js:1274:29)
+    at async https://deno.land/x/canvas@v1.0.4/lib.js:6:14
 
 ```
 
