@@ -168,20 +168,6 @@ dual licensed as above, without any additional terms or conditions.
     console.log("failed to generate lock file");
     Deno.exit(1);
   }
-
-  if (
-    !await run(
-      "deno",
-      "run",
-      "--allow-all",
-      "--lock=lock.json",
-      "./mod.ts",
-      "stadia.run",
-    )
-  ) {
-    console.log("failed to generate stadia.run");
-    Deno.exit(1);
-  }
 };
 
 /** Runs a command, logging any error, returning a boolean indicating success. */
