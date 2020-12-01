@@ -1,18 +1,31 @@
-import { Client } from "../../stadia/web_client/mod.ts";
-import { eprintln, print, println } from "../../_common/io.ts";
-import { color, FlagArgs, FlagOpts } from "../../deps.ts";
-import * as json from "../../_common/json.ts";
+import { Client } from "../../../stadia/web_client/mod.ts";
+import { eprintln, print, println } from "../../../_common/io.ts";
+import { color, FlagArgs, FlagOpts, types } from "../../../deps.ts";
+import * as json from "../../../_common/json.ts";
+
+import index from "./index.html.ts";
+import manifest from "./manifest.json.ts";
+
+import { throttled } from "../../../_common/async.ts";
+
+export const flags: FlagOpts = {
+  string: ["name"],
+  default: {
+    "name": "stadia.run"
+  }
+};
 
 // this is a huge import, so we put it here instead of ./deps since it's not
 // required for the library, only this command.
-import Canvas, * as canvas from "https://deno.land/x/canvas@v1.0.4/mod.ts";
-import { throttled } from "../../_common/async.ts";
+const loadImage = throttled(Math.PI, async (s: string) => (await import("https://deno.land/x/canvas@v1.0.4/mod.ts")).loadImage(s));
 
-export const flags: FlagOpts = {};
-
-const loadImage = throttled(2.4, canvas.loadImage);
+export type Games = types.ThenType<ReturnType<typeof command>>;
 
 export const command = async (client: Client, flags: FlagArgs) => {
+  const Canvas = (await import("https://deno.land/x/canvas@v1.0.4/mod.ts")).default;
+
+  const name = flags.name;
+
   const listPage = await client.fetchStoreList();
 
   const games = await Promise.all(
@@ -38,25 +51,36 @@ export const command = async (client: Client, flags: FlagArgs) => {
           name,
           description,
           coverImageUrl,
-          skuCreated,
+          skuPublished,
           skuUpdated,
         } = game;
+
+        const slug = slugify(name);
+
+        const pro = true; // TODO
 
         return {
           gameId,
           skuId,
           name,
+          slug,
+          pro,
           description,
           coverThumbnailData,
           coverImageUrl,
-          skuCreated,
+          skuPublished,
           skuUpdated,
         };
       },
     ),
   );
 
+  Deno.writeTextFile('./stadia.run/index.html', index.html({games, name}));
+  Deno.writeTextFile('./stadia.run/-/manifest.json', manifest.json({games, name}));
+
   console.log(games);
+
+  return games;
 };
 
 const digits =
@@ -76,7 +100,7 @@ const cleanName = (name: string) =>
 const slugify = (name: string, separator = "-") =>
   cleanName(name)
     .normalize("NFKD")
-    .replace(/\p{Mark}/gu, "")
+    .replace(/[\u0300-\u0362]/gu, "")
     .toLowerCase()
     .replace(/'/g, "")
     .replace(/[^a-z0-9]+/g, "-")

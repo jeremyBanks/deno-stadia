@@ -2,7 +2,7 @@ import { flags } from "../../deps.ts";
 import { Client } from "../../stadia/web_client/mod.ts";
 import * as auth from "./auth.ts";
 import * as fetch from "./fetch.ts";
-import * as stadiaDotRun from "./stadia.run.ts";
+import * as stadiaDotRun from "./stadia.run/mod.ts";
 
 const commands: Record<
   string,

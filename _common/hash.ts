@@ -1,22 +1,22 @@
 import { Shake256 } from "https://deno.land/std@0.79.0/hash/sha3.ts";
 
-import * as base64url  from "https://deno.land/std@0.74.0/encoding/base64url.ts";
+import * as base64url from "https://deno.land/std@0.74.0/encoding/base64url.ts";
 
 const multihashes = {
   // https://github.com/multiformats/multicodec/blob/master/table.csv#L16
   shake256d256: {
     new: () => new Shake256(256),
     prefix: new Uint8Array([0x19, 256 / 8]),
-  }
+  },
 };
 
 const multibases = {
   // https://github.com/multiformats/multibase/blob/master/multibase.csv#L23
   u: {
     encode: (bytes: Uint8Array) => base64url.encode(bytes.buffer),
-    prefix: 'u'
-  }
-}
+    prefix: "u",
+  },
+};
 
 const hash = multihashes.shake256d256;
 const base = multibases.u;

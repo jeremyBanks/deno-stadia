@@ -1,5 +1,5 @@
 import { discoverProfiles } from "../chrome/mod.ts";
-import { sqlite, flags, log } from "../deps.ts";
+import { flags, log, sqlite } from "../deps.ts";
 import * as clui from "../_common/clui.ts";
 import { GoogleCookies } from "../stadia/web_client/_requests.ts";
 import { Client } from "../stadia/web_client/mod.ts";

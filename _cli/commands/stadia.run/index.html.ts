@@ -1,9 +1,15 @@
+import { escape } from "../../../_common/html.ts";
+
+import type { Games } from "./mod.ts";
+
+export const html = ({games, name}: {games: Games, name: string}): string => {
+  return `\
 <!doctype html><meta charset="utf-8">
 
-<title>stadia.run</title>
+<title>${escape(name)}</title>
 
 <link rel="icon" href="/-/icon.png">
-<meta property="og:title" content="stadia.run">
+<meta property="og:title" content="${escape(name)}">
 <meta property="og:image" content="/-/icon.png">
 <link rel="apple-touch-icon" href="/-/pwa.png">
 <meta property="og:description" content="a lightning-fast launcher for Stadia">
@@ -1485,23 +1491,23 @@ export const cleanName = name =>
   name
         .replace(/™/g, " ")
         .replace(/®/g, " ")
-        .replace(/[:-]? Early Access$/g, " ")
-        .replace(/[:-]? w+ Edition$/g, " ")
-        .replace(/(w+ Ver(.|sion))$/g, " ")
+        .replace(/[\:\-]? Early Access$/g, " ")
+        .replace(/[\:\-]? \w+ Edition$/g, " ")
+        .replace(/\(\w+ Ver(\.|sion)\)$/g, " ")
         .replace(/™/g, " ")
-        .replace(/s{2,}/g, " ")
-        .replace(/^s+|s+$/g, "");
+        .replace(/\s{2,}/g, " ")
+        .replace(/^\s+|\s+$/g, "");
 
 
 export const slugify = (name, separator = "-") =>
     cleanName(name)
     .normalize('NFKD')
-    .replace(/p{Mark}/gu, '')
+    .replace(/\p{Mark}/gu, '')
     .toLowerCase()
     .replace(/'/g, "")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-/g, separator);
+    .replace(/^\-+|\-+$/g, "")
+    .replace(/\-/g, separator);
 
 export const loadedImage = async (/** @type string */ url) => {
   const image = new Image();
@@ -1524,9 +1530,9 @@ export const unpackMicroCovers = async () => {
       micro.hidden = true;
     } else {
       micro.classList.add("rendered");
-      micro.style.backgroundImage = `url(${microImageToURL(
+      micro.style.backgroundImage = \`url(\${microImageToURL(
         micro.getAttribute("data"),
-      )})`;
+      )})\`;
       full.hidden = true;
       micro.hidden = false;
     }
@@ -1595,7 +1601,7 @@ const filterElements = async () => {
       child.firstElementChild.hidden = true;
 
       let name = child.querySelector("st-name").textContent.toLowerCase();
-      let slug = child.querySelector("st-slug").textContent.replace(//+/, '');
+      let slug = child.querySelector("st-slug").textContent.replace(/\/+/, '');
 
       if (query === slug) {
         exactMatches.push(child);
@@ -1652,3 +1658,8 @@ const checkUrl = (first = false) => {
   }
 };
 </script>
+`
+};
+
+export default { html };
+

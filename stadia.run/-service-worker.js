@@ -1,4 +1,4 @@
-const cacheId = "stadia.run/cache/v1";
+const cacheId = "stadia.run/cache/v2";
 
 self.addEventListener("fetch", (/** @type {any} */ event) => {
   const fetchEvent = /** @type {FetchEvent} */ (event);
