@@ -68,13 +68,13 @@ jobs:
           echo "::set-output name=had-changes::${had_changes}"
 
       - name: refresh published pages if running on schedule
-        if: github.event_name == "schedule" || github.event_name == "workflow_dispatch"
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
           echo "DENO_STADIA_GOOGLE_COOKIE=${{ secrets.GOOGLE_COOKIE }}" >> "${GITHUB_ENV}"
           ./mod.ts stadia.run
 
       - name: commit and push generated files
-        if: success() && steps.build.outputs.had-changes == 'true' && (github.event_name == 'push' || github.event_name == "schedule" || github.event_name == "workflow_dispatch")
+        if: success() && steps.build.outputs.had-changes == 'true' && (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
         run: |
           declare br="
           "
@@ -139,7 +139,7 @@ jobs:
           echo "::remove-matcher::.github/matchers/deno-lint.json"
 
       - name: fail if generated files are out-of-date and we can't push
-        if: success() && steps.build.outputs.had-changes == 'true' && !(github.event_name == "push" || github.event_name == "schedule" || github.event_name == "workflow_dispatch")
+        if: success() && steps.build.outputs.had-changes == 'true' && !(github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
         run: |
           echo "Generated files are out-of-date!"
           git status
