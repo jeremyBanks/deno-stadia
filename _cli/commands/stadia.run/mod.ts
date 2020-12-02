@@ -11,25 +11,39 @@ import { throttled } from "../../../_common/async.ts";
 export const flags: FlagOpts = {
   string: ["name"],
   default: {
-    "name": "stadia.run"
-  }
+    "name": "stadia.run",
+  },
 };
+
+let canvas: any;
+try {
+  // urgsgrgaegahgeioghaoigh;e/e;gouaigel.a
+  canvas = await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
+} catch (error) {
+  // this is bad but this is only for my use so
+  let { proxy, revoke } = Proxy.revocable({}, {});
+  revoke();
+  canvas = proxy;
+}
 
 // this is a huge import, so we put it here instead of ./deps since it's not
 // required for the library, only this command.
-const loadImage = throttled(Math.PI, async (s: string) => (await import("https://deno.land/x/canvas@v1.0.4/mod.ts")).loadImage(s));
+const loadImage = throttled(
+  Math.PI,
+  async (s: string) => canvas.loadImage(s),
+);
 
 export type Games = types.ThenType<ReturnType<typeof command>>;
 
 export const command = async (client: Client, flags: FlagArgs) => {
-  const Canvas = (await import("https://deno.land/x/canvas@v1.0.4/mod.ts")).default;
+  const Canvas = canvas.default;
 
   const name = flags.name;
 
   const listPage = await client.fetchStoreList();
 
   const games = await Promise.all(
-    listPage.skus.filter((x) => x.type === "game").slice(0, 1).map(
+    listPage.skus.filter((x) => x.type === "game").map(
       async (game) => {
         const image = await loadImage(game.coverImageUrl);
         const canvas = Canvas.MakeCanvas(8, 8);
@@ -75,8 +89,12 @@ export const command = async (client: Client, flags: FlagArgs) => {
     ),
   );
 
-  Deno.writeTextFile('./stadia.run/index.html', index.html({games, name}));
-  Deno.writeTextFile('./stadia.run/-/manifest.json', manifest.json({games, name}));
+  Deno.writeTextFile("./stadia.run/index.json", json.encode({ games, name }));
+  Deno.writeTextFile("./stadia.run/index.html", index.html({ games, name }));
+  Deno.writeTextFile(
+    "./stadia.run/manifest.json",
+    manifest.json({ games, name }),
+  );
 
   console.log(games);
 

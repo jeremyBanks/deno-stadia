@@ -93,7 +93,7 @@ const main = async () => {
 
   const usage = (new TextDecoder()).decode(
     await Deno.run({
-      cmd: ["deno", "run", "--quiet", "./mod.ts"],
+      cmd: ["deno", "run", "--quiet", "--allow-all", "./mod.ts"],
       stderr: "piped",
       env: {
         "NO_COLOR": "NO_COLOR",

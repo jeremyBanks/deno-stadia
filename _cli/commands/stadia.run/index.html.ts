@@ -2,25 +2,27 @@ import { escape } from "../../../_common/html.ts";
 
 import type { Games } from "./mod.ts";
 
-export const html = ({games, name}: {games: Games, name: string}): string => {
+export const html = (
+  { games, name }: { games: Games; name: string },
+): string => {
   return `\
 <!doctype html><meta charset="utf-8">
 
 <title>${escape(name)}</title>
 
-<link rel="icon" href="/-/icon.png">
+<link rel="icon" href="/icon.png">
 <meta property="og:title" content="${escape(name)}">
-<meta property="og:image" content="/-/icon.png">
-<link rel="apple-touch-icon" href="/-/pwa.png">
+<meta property="og:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/pwa.png">
 <meta property="og:description" content="a lightning-fast launcher for Stadia">
 
 <meta name="viewport" content="width=770">
-<link rel="manifest" href="/-/manifest.json">
+<link rel="manifest" href="/manifest.json">
 <base>
 
-<link rel="preload" as="image" href="/-/squirrel.png">
-<link rel="preload" as="image" href="/-/stadian.png">
-<link rel="preload" as="image" href="/-/ghost.png">
+<link rel="preload" as="image" href="/squirrel.png">
+<link rel="preload" as="image" href="/stadian.png">
+<link rel="preload" as="image" href="/ghost.png">
 
 <style>
   * {
@@ -42,9 +44,9 @@ export const html = ({games, name}: {games: Games, name: string}): string => {
     --background-color: #202020;
     --body-color: #FFFFFF;
     --theme-color: #D72D30;
-    --mascot-url: url(/-/stadian.png);
-    --mascot-disabled-url: url(/-/ghost.png);
-    --mascot-generic-url: url(/-/squirrel.png);
+    --mascot-url: url(/stadian.png);
+    --mascot-disabled-url: url(/ghost.png);
+    --mascot-generic-url: url(/squirrel.png);
     --primary-font-size: 14px;
     --small-margin: 8px;
     --large-margin: calc(4.0 * var(--small-margin));
@@ -1653,13 +1655,12 @@ const checkUrl = (first = false) => {
     searchInput.value = query;
     onInput();
   } else if (slug) {
-    searchInput.value = slug.replace(/-/g, " ");
+    searchInput.value = slug.replace(/g, " ");
     onSubmit({ first });
   }
 };
 </script>
-`
+`;
 };
 
 export default { html };
-
