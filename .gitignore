@@ -1,5 +1,5 @@
 /chrome/target
-/canvaskit.wasm
 *.sqlite
 *.sqlite-*
 *.swp
+*.wasm

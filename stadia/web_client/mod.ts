@@ -3,6 +3,7 @@ import { log } from "../../deps.ts";
 import { assert, notImplemented } from "../../_common/assertions.ts";
 import { Json } from "../../_common/json.ts";
 import { eprintln, println } from "../../_common/io.ts";
+import * as protos from "../web/protos.ts";
 
 import {
   Client as ResponsesClient,
@@ -354,21 +355,22 @@ class Sku extends ViewModel {
     super();
   }
 
-  static fromProto(proto: Array<JsProto>): Sku {
+  static fromProto(proto_: Array<JsProto>): Sku {
+    const proto = protos.Sku.parse(proto_);
     const typeId = proto[6] as keyof typeof skuTypeIds;
     const type = skuTypeIds[typeId] || `-unknown-type-${typeId}`;
-    const skuId = proto[0] as string;
-    const gameId = (proto[4] ?? undefined) as string | undefined;
-    const name = proto[1] as string;
-    const description = proto[9] as string;
-    const languages = proto[24] as string[];
-    const countries = proto[25] as string[];
+    const skuId = proto[0];
+    const gameId = proto[4] ?? undefined;
+    const name = proto[1];
+    const description = proto[9];
+    const languages = proto[24];
+    const countries = proto[25];
 
     const coverImageUrl = (proto as any)[2][1][0][0][1]?.split(
       /=/,
     )[0] as string;
-    const skuPublished = (proto as any)[10][0] as number;
-    const skuUpdated = ((proto as any)[26]?.[0] as number) || undefined;
+    const skuPublished = proto[10][0];
+    const skuUpdated = proto[26]?.[0] ?? undefined;
 
     const publisherOrganizationId = proto[15] as string;
     const developerOrganizationIds = proto[16] as string[];
