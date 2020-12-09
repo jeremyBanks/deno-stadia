@@ -70,8 +70,12 @@ export const PlayerId = z.string().regex(/^\d+$/);
 export const AvatarId = z.string().regex(/^s000\d\d$/);
 export const AvatarUrl = z.string().url();
 export const PlayerName = z.string().min(3).max(15);
-export const PlayerNumber = z.string().length(4).regex(/^(0000|[1-9][0-9]{3})$/);
-export const PlayerCanonicalName = z.string().regex(/^[A-Z0-9]{3,15}(_[1-9][0-9]{3})?$/)
+export const PlayerNumber = z.string().length(4).regex(
+  /^(0000|[1-9][0-9]{3})$/,
+);
+export const PlayerCanonicalName = z.string().regex(
+  /^[A-Z0-9]{3,15}(_[1-9][0-9]{3})?$/,
+);
 export const Player = z.tuple([
   z.null(),
   z.null(),
@@ -98,5 +102,5 @@ export const Player = z.tuple([
     UNKNOWN,
   ]),
   UNKNOWN,
-  UNKNOWN
+  UNKNOWN,
 ]);
