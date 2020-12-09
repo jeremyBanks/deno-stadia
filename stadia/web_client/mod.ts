@@ -286,21 +286,18 @@ class Player extends ViewModel {
       : `${this.gamerName}#${this.gamerNumber}`;
   }
 
-  static fromProto(proto: JsProto): Player {
-    const shallowUserInfo = (proto as any)[5];
-    assert(shallowUserInfo instanceof Array);
+  static fromProto(proto_: JsProto): Player {
+    console.log(proto_);
+    const proto = protos.Player.parse(proto_);
+    const shallowUserInfo = proto[5];
 
-    const gamerName = shallowUserInfo?.[0]?.[0];
-    assert(gamerName && typeof gamerName === "string");
+    const gamerName = shallowUserInfo[0][0];
 
-    const gamerNumber = shallowUserInfo?.[0]?.[1];
-    assert(gamerNumber && typeof gamerNumber === "string");
+    const gamerNumber = shallowUserInfo[0][1];
 
-    const avatarId = parseInt(shallowUserInfo?.[1]?.[0]?.slice(1), 10);
-    assert(Number.isSafeInteger(avatarId));
+    const avatarId = parseInt(shallowUserInfo[1][0].slice(1), 10);
 
-    const gamerId = shallowUserInfo?.[5];
-    assert(gamerId && typeof gamerId === "string");
+    const gamerId = shallowUserInfo[5];
 
     return new Player(gamerId, gamerName, gamerNumber, avatarId);
   }
