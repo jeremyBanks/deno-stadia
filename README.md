@@ -1,5 +1,3 @@
-# https://deno.land/x/gaming
-
 An Unofficial CLI tool and Deno TypeScript library for interacting with your
 Google Stadia account.
 
@@ -28,7 +26,7 @@ $ stadia
 ```
 
 ```
-Unofficial Stadia CLI
+Unofficial Stadia CLI (https://deno.land/x/stadia)
 
 USAGE:
 
@@ -78,14 +76,14 @@ COMMANDS:
 
 ## Disclaimer
 
-deno-stadia is an unofficial fan project and is not affiliated with Google. The
-name "Stadia" is a trademark of Google LLC, and is used here for informational
+This is an unofficial fan project and is not affiliated with Google. The name
+"Stadia" is a trademark of Google LLC, and is used here for informational
 purposes, not to imply affiliation or endorsement.
 
 ## License
 
 Copyright Jeremy Banks and
-[contributors](https://github.com/jeremyBanks/deno-stadia/graphs/contributors).
+[contributors](https://github.com/jeremyBanks/gaming/graphs/contributors).
 
 Licensed under either of
 

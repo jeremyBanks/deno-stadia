@@ -161,7 +161,13 @@ dual licensed as above, without any additional terms or conditions.
   await Deno.writeTextFile("./README.md", readme);
 
   if (
-    !await run("deno", "cache", "--lock-write", "--lock=lock.json", "./stadia.ts")
+    !await run(
+      "deno",
+      "cache",
+      "--lock-write",
+      "--lock=lock.json",
+      "./stadia.ts",
+    )
   ) {
     console.log("failed to generate lock file");
     Deno.exit(1);
