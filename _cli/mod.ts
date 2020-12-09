@@ -12,7 +12,7 @@ export const main = async (
   self = "stadia",
 ) => {
   const usage = `\
-${underline(`Unofficial Stadia CLI`)} ${dim(`(https://deno.land/x/stadia)`)}
+${underline(`Unofficial Stadia CLI`)}
 
 ${cyan("USAGE:")}
 

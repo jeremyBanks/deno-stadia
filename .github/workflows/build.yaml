@@ -117,10 +117,10 @@ jobs:
           deno test --allow-none
 
       - run: |
-          deno run stadia.ts
+          deno run --allow-all stadia.ts
 
       - run: |
-          deno run ./stadia.ts -?
+          deno run --allow-all ./stadia.ts -?
 
       - run: |
           deno install --force --allow-all --name stadia ./stadia.ts
@@ -128,7 +128,7 @@ jobs:
 
       - run: |
           deno bundle stadia.ts dist/bundle.js
-          deno run dist/bundle.js
+          deno run --allow-all dist/bundle.js
         continue-on-error: true
 
       - name: check lint
