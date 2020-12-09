@@ -26,7 +26,7 @@ $ stadia
 ```
 
 ```
-Unofficial Stadia CLI (https://deno.land/x/stadia)
+Unofficial Stadia CLI
 
 USAGE:
 
