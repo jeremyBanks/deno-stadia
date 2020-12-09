@@ -54,11 +54,11 @@ AUTHENTICATION:
 
 LOCAL STATE:
 
-    Local state is persisted in a SQLite database named "./deno-stadia.sqlite"
-    in the current working directory. It may contain personal information such
-    as your Google ID, your email address, and the list of games you own on
-    Stadia, but it will never include any of your credentials, so you can share
-    it without worrying about giving others access to your Google account.
+    Local state is persisted in a SQLite database named "./stadia.sqlite" in
+    the current working directory. It may contain personal information such as
+    your Google ID, your email address, and the list of games you own on Stadia,
+    but it will never include any of your credentials, so you can share it
+    without worrying about giving others access to your Google account.
 
 COMMANDS:
 

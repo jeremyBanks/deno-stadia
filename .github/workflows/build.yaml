@@ -95,8 +95,8 @@ jobs:
           export GIT_AUTHOR_EMAIL="${author_email}"
 
           export GIT_COMMITTER_DATE="${date}"
-          export GIT_COMMITTER_NAME="deno-stadia"
-          export GIT_COMMITTER_EMAIL="deno-stadia@stadians.dev"
+          export GIT_COMMITTER_NAME="github-actions"
+          export GIT_COMMITTER_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
 
           git remote rm origin
           git remote add origin "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"

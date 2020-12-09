@@ -5,7 +5,7 @@ import { GoogleCookies } from "../stadia/web_client/_requests.ts";
 import { Client } from "../stadia/web_client/mod.ts";
 
 export const makeClient = async (flags: flags.Args): Promise<Client> => {
-  const database = new sqlite.DB("./deno-stadia.sqlite");
+  const database = new sqlite.DB("./stadia.sqlite");
   let env;
   try {
     env = Deno.env.toObject();

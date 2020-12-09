@@ -34,7 +34,7 @@ const getLocalPath = async () =>
     const expectedDigest = new Sha3d256().update(exe).toString("hex");
 
     const localPath = new URL(
-      `file://${getTempDir()}/deno-stadia-windows-${
+      `file://${getTempDir()}/deno-x-gaming-windows-${
         expectedDigest.slice(0, 4)
       }.exe`,
     );
