@@ -93,7 +93,7 @@ const main = async () => {
 
   const usage = (new TextDecoder()).decode(
     await Deno.run({
-      cmd: ["deno", "run", "--quiet", "--allow-all", "./mod.ts"],
+      cmd: ["deno", "run", "--quiet", "--allow-all", "./stadia.ts"],
       stderr: "piped",
       env: {
         "NO_COLOR": "NO_COLOR",
@@ -102,8 +102,6 @@ const main = async () => {
   ).replace(/\n\n$/, "\n");
 
   const readme = `\
-# [deno-stadia](https://deno.land/x/stadia)
-
 An Unofficial CLI tool and Deno TypeScript library for interacting with your
 Google Stadia account.
 
@@ -120,13 +118,13 @@ $ curl -fsSL https://deno.land/x/install/install.sh | sh
 You may run the latest release of this tool directly from Deno's module hosting:
 
 \`\`\`
-$ deno run --allow-all "https://deno.land/x/stadia/mod.ts"
+$ deno run --allow-all "https://deno.land/x/gaming/stadia.ts"
 \`\`\`
 
 You may install this tool as a local \`stadia\` command:
 
 \`\`\`
-$ sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/stadia/mod.ts"
+$ sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/gaming/stadia.ts"
 
 $ stadia
 \`\`\`
@@ -137,14 +135,14 @@ ${usage}
 
 ## Disclaimer
 
-deno-stadia is an unofficial fan project and is not affiliated with Google. The
-name "Stadia" is a trademark of Google LLC, and is used here for informational
+This is an unofficial fan project and is not affiliated with Google. The name
+"Stadia" is a trademark of Google LLC, and is used here for informational
 purposes, not to imply affiliation or endorsement.
 
 ## License
 
 Copyright Jeremy Banks and
-[contributors](https://github.com/jeremyBanks/deno-stadia/graphs/contributors).
+[contributors](https://github.com/jeremyBanks/gaming/graphs/contributors).
 
 Licensed under either of
 
@@ -163,7 +161,7 @@ dual licensed as above, without any additional terms or conditions.
   await Deno.writeTextFile("./README.md", readme);
 
   if (
-    !await run("deno", "cache", "--lock-write", "--lock=lock.json", "./mod.ts")
+    !await run("deno", "cache", "--lock-write", "--lock=lock.json", "./stadia.ts")
   ) {
     console.log("failed to generate lock file");
     Deno.exit(1);

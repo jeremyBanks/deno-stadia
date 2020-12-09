@@ -71,7 +71,7 @@ jobs:
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
           echo "DENO_STADIA_GOOGLE_COOKIE=${{ secrets.GOOGLE_COOKIE }}" >> "${GITHUB_ENV}"
-          ./mod.ts stadia.run
+          ./stadia.ts stadia.run
 
       - name: commit and push generated files
         if: success() && steps.build.outputs.had-changes == 'true' && (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
@@ -108,26 +108,26 @@ jobs:
 
       - name: fetch any uncached dependencies
         run: |
-          deno cache --reload=file: ./mod.ts
+          deno cache --reload=file: ./stadia.ts
 
       - run: |
-          deno info ./mod.ts
+          deno info ./stadia.ts
 
       - run: |
           deno test --allow-none
 
       - run: |
-          deno run mod.ts
+          deno run stadia.ts
 
       - run: |
-          deno run ./mod.ts -?
+          deno run ./stadia.ts -?
 
       - run: |
-          deno install --force --allow-all --name stadia ./mod.ts
+          deno install --force --allow-all --name stadia ./stadia.ts
           stadia --help
 
       - run: |
-          deno bundle mod.ts dist/bundle.js
+          deno bundle stadia.ts dist/bundle.js
           deno run dist/bundle.js
         continue-on-error: true
 

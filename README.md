@@ -1,4 +1,4 @@
-# [deno-stadia](https://deno.land/x/stadia)
+# https://deno.land/x/gaming
 
 An Unofficial CLI tool and Deno TypeScript library for interacting with your
 Google Stadia account.
@@ -16,19 +16,19 @@ $ curl -fsSL https://deno.land/x/install/install.sh | sh
 You may run the latest release of this tool directly from Deno's module hosting:
 
 ```
-$ deno run --allow-all "https://deno.land/x/stadia/mod.ts"
+$ deno run --allow-all "https://deno.land/x/gaming/stadia.ts"
 ```
 
 You may install this tool as a local `stadia` command:
 
 ```
-$ sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/stadia/mod.ts"
+$ sudo deno install --reload --allow-all --force --root "/usr/local" "https://deno.land/x/gaming/stadia.ts"
 
 $ stadia
 ```
 
 ```
-Unofficial Stadia CLI (https://deno.land/x/stadia)
+Unofficial Stadia CLI
 
 USAGE:
 
