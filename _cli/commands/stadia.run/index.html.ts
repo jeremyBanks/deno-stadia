@@ -455,7 +455,7 @@ export const html = (
       `
       <st-game><a href="https://stadia.google.com/player/${escape(gameId!)}">
         <st-cover-full>
-          <img src="${escape(coverImageUrl)}">
+          <img src="${escape(coverImageUrl)}=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="${escape(coverThumbnailData)}">
           <st-name>${escape(name)}</st-name>

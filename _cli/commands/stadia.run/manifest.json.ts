@@ -3,7 +3,7 @@ import { encode as jsonEncode } from "../../../_common/json.ts";
 import type { Games } from "./mod.ts";
 
 export const json = ({ games, name }: { games: Games; name: string }) => {
-  const latestProGames = games.filter((g) => g.pro).sort((a, b) =>
+  const latestProGames = games.filter((g) => g.pro || true).sort((a, b) =>
     (a.skuPublished ?? 0) - (b.skuPublished ?? 0)
   ).slice(0, 16);
 

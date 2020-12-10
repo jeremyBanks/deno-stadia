@@ -1,10 +1,10 @@
 import { Client } from "../../../stadia/web_client/mod.ts";
-import { eprintln, print, println } from "../../../_common/io.ts";
-import { color, FlagArgs, FlagOpts, log, types } from "../../../deps.ts";
+import { FlagArgs, FlagOpts, log, types } from "../../../deps.ts";
 import * as json from "../../../_common/json.ts";
 
 import index from "./index.html.ts";
 import manifest from "./manifest.json.ts";
+import vercel from "./vercel.json.ts";
 
 import { throttled } from "../../../_common/async.ts";
 
@@ -28,7 +28,7 @@ try {
 }
 
 const loadImage = throttled(
-  Math.PI,
+  Math.E,
   async (s: string) => canvas.loadImage(s),
 );
 
@@ -44,7 +44,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
   log.debug("Loaded game list, processing and generating thumbnails...");
 
   // TODO: just use async iteration, this is a weird mess:
-  const games = await Promise.all(
+  const games = (await Promise.all(
     listPage.skus.filter((x) => x.type === "game").map(
       async (game) => {
         const image = await loadImage(game.coverImageUrl);
@@ -93,7 +93,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
         };
       },
     ),
-  );
+  )).sort((a, b) => ((b.skuPublished ?? 0) - (a.skuPublished ?? 0)) || ((b.skuUpdated ?? 0) - (a.skuUpdated ?? 0)));
 
   log.debug("Games processed, rendering page.");
 
@@ -102,6 +102,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
   Deno.writeTextFile(
     "./stadia.run/manifest.json",
     manifest.json({ games, name }),
+  );
+  Deno.writeTextFile(
+    "./stadia.run/vercel.json",
+    vercel.json({ games }),
   );
 
   log.debug("Done");

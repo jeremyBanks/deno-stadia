@@ -18,7 +18,168 @@
   ],
   "name": "stadia.run",
   "short_name": "stadia.run",
-  "shortcuts": [],
+  "shortcuts": [
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/QNGa9YH5S9nU2Q7Bh8kxjKszTQ_4KJ9_WbvQMnpIfmE2zKOo3PgzRUptWMqqgpaWp41ymK7cxCGxRl1xtVUqNCopHPuFxED_jg8UhFXEflq0B6dlvkJkcuTzjSI=s192-p-rp"
+        }
+      ],
+      "name": "The Turing Test",
+      "url": "/the-turing-test"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/2f9y7BvYG9RnFuEMBmCXbRbwdbG8g9AVQbMNx4m8M3bdIcIjVNz8MsY3jm6KTwGqsPa2XtHQ-y2gn0Yrtqf1UMwuYf1I2OeMHlHxQLlgdfkUzHr8xsjh7DWcpSg=s192-p-rp"
+        }
+      ],
+      "name": "DOOM 64",
+      "url": "/doom-64"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/UHWCaasl8h-oq-DfmJxN1IghKfii4CaqVYcQ6Xk7mKLzxSTjlnaIUMEw-o1WGpHL66sSC_QW8FlL4-WbQDLCbGwWcSuafVcTvtGmUODXpXkST8LPs43R-hXBv_ia=s192-p-rp"
+        }
+      ],
+      "name": "Hotline Miami",
+      "url": "/hotline-miami"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/ItdfhlmZlO02nwB2DXVUYjI9No4a8YneGd89WAtsQWQxIfuQtaNHNao7gA5ctMHgC-WTtPGjuuyK64Sv4nhEUYf6gwGELlxDePAdoKo1dGRhb9d64jyzPV4kQg=s192-p-rp"
+        }
+      ],
+      "name": "Tomb Raider",
+      "url": "/tomb-raider"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/LXYqwgAVSfrtwMdb04QwU_jZ1H1etEdIoMbrFyBYdg3ZVXOSjAWuk-1pzGGhYcKaUeCxZbOGJiEFqBnV1AU5utIyqhouCoKLzZ9cQVyNEFKWNPGra9Nvah3VLg=s192-p-rp"
+        }
+      ],
+      "name": "Metro Last Light Redux",
+      "url": "/metro-last-light-redux"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/EDJXmZlwYp3nr2gjMYhSKPw8vsxpTkxi-VlUMAI0NrrQWp01mOeuLnRbQYunW_34-E0tQpFF3ANnIZf0dMh2ca2YbUjgvI0pMjWDJfexaow-HlB4PqiOcYf7o9Z7=s192-p-rp"
+        }
+      ],
+      "name": "SteamWorld Dig",
+      "url": "/steamworld-dig"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/w9BxPN6zb77lscIMjHKTGPchYdGvIG0hZcmByW3gGr-3nefc1sAhiVJtmHtPwMDoPTUNwqxiMEQltkLudRZMBU1XiMdtVu2Ya4oooZGWuBQ_8nJAVBUzOa9KEoY=s192-p-rp"
+        }
+      ],
+      "name": "République",
+      "url": "/r-publique"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/PUCpqPZn0NzwxkIyMkdRZ484BrgatrN-E_6l9b-hMFqbDziPEFaPopkCS1Ow4LMpXKQO0b57bIOtrc1Y2Nxz57G5pCOvwoj1BbI0x2XpgjP6my6T5U4MxQ9WgsM=s192-p-rp"
+        }
+      ],
+      "name": "The Elder Scrolls Online: Tamriel Unlimited",
+      "url": "/the-elder-scrolls-online-tamriel-unlimited"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/FAruJebLGBG2KxqCWX89wGh3qrhZS6490CkjtVGtt4YlFa3zd4g58gmp7lPcb4Ye29pPXKxoZ6VZ7K1eA27mJLilUKYiPBdTzs5q7SGodzcU6KcTSpWIklN_dAs=s192-p-rp"
+        }
+      ],
+      "name": "WATCH_DOGS STANDARD EDITION",
+      "url": "/watch-dogs-standard-edition"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/EEYUoZm0h6ZK0DXdbMz2Y44OuIkHyjvMbNvS4-RRttgkkD192zYV1hWrnb8g01a1nSivbR_H6Uh_IE_a9H8Rgj2z48_iKsrtarK3IhATtJajyQZGpCmvjWCYYMmX=s192-p-rp"
+        }
+      ],
+      "name": "Metro 2033 Redux",
+      "url": "/metro-2033-redux"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/5SLIiiPbwGuKqbjNqAsBSeBnBIT70gipNFcRB6pWUgNHfwnmG_njj98iJEX7Vn88Z8tKKhSEF21sE8Cy2ntOglHWHrgQk4wUbMgL-D1jz3Ieh1w-5lkhTdDfqaU=s192-p-rp"
+        }
+      ],
+      "name": "Lara Croft and the Temple of Osiris",
+      "url": "/lara-croft-and-the-temple-of-osiris"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/AErmZ5XaVGSBvutxVrGzuiTQ3A40HS2Xxu5ALCouor0amFt8IJxnB3U9wnibceKslS15NA1dZgkycLG5Ygl6K25-w2o6TvNYbQtF6Ee2hE2tBewZq_dZvuCacA=s192-p-rp"
+        }
+      ],
+      "name": "Hotline Miami 2:Wrong Number",
+      "url": "/hotline-miami-2-wrong-number"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/H9mlv416K3WjSOMnV-9YbWP-YD9QmE0BdatE9xlcojeyVE06qkyWYMEryWiPsUlOAKAtmMcjY5nOo7YX6u25eq4kkKNqjD__Hx3hBPAiKthYeR7DORDMoUexUw=s192-p-rp"
+        }
+      ],
+      "name": "Jotun",
+      "url": "/jotun"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/1BZb1p7JVXbv2jSjaUNYebDdUZhv9Rrnsm_feiKDwpzBFkEMmt-QOxXDR_Ae9KfD-aIB4Mx8oW1RKOQ6-gkOx90IHQjjgzxeaazXB2oE6UWocJ4IUvy6PEPSUg=s192-p-rp"
+        }
+      ],
+      "name": "Rise of the Tomb Raider: 20 Year Celebration",
+      "url": "/rise-of-the-tomb-raider-20-year-celebration"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/BmKVT4vYHvmpJBWzzQ_aks7pgL8bzk-ZFT242a9h6t41mQiOyJl91aY3zKa0oPEnQsmdb1RgfTv1UdhB7IUlpZdIkuaB9e_QY_dk1o6ENkr-_uVAn4-x05hdwA=s192-p-rp"
+        }
+      ],
+      "name": "SteamWorld Heist",
+      "url": "/steamworld-heist"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/5FpdmuacZhWJWU4SvnUxMAbhYI0NAL4AhO5bpRC72huqkNZvkZF_bJ4sTv8K_fotzPNG4P5SBf88JoJ-m8nTOSJ3MvXpeSFrtserJ8UNH2D5Hgj1HFdT94zPOfU=s192-p-rp"
+        }
+      ],
+      "name": "SUPERHOT",
+      "url": "/superhot"
+    }
+  ],
   "start_url": "/",
   "theme_color": "#202020"
 }

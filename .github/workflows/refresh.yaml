@@ -39,8 +39,6 @@ jobs:
 
       - run: deno install --force --allow-all --name stadia ./stadia.ts
 
-      - run: stadia auth 2>&1
-
       - name: build stadia.run
         id: build
         run: |
