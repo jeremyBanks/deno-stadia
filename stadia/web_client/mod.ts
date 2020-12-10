@@ -36,10 +36,14 @@ export class Client extends ResponsesClient {
     return (await this.fetchView(path)).page as PlayerProfileGameDetails;
   }
 
+  public async fetchAllGames() {
+    return this.fetchStoreList("3");
+  }
+
   public async fetchStoreList(
-    listId?: string,
+    listId: string,
   ): Promise<StoreList> {
-    let path = `/store/list${listId ? `/${listId}` : ``}`;
+    let path = `/store/list/${listId}`;
     return (await this.fetchView(path)).page as StoreList;
   }
 
@@ -287,7 +291,6 @@ class Player extends ViewModel {
   }
 
   static fromProto(proto_: JsProto): Player {
-    console.log(proto_);
     const proto = protos.Player.parse(proto_);
     const shallowUserInfo = proto[5];
 
@@ -341,7 +344,7 @@ class Sku extends ViewModel {
     readonly name: string,
     readonly coverImageUrl: string,
     readonly description: string,
-    readonly skuPublished: number,
+    readonly skuPublished: number | undefined,
     readonly skuUpdated: number | undefined,
     readonly publisherOrganizationId: string,
     readonly developerOrganizationIds: string[],
@@ -353,6 +356,9 @@ class Sku extends ViewModel {
   }
 
   static fromProto(proto_: Array<JsProto>): Sku {
+    if (proto_.length < 38) {
+      proto_.length = 38; // pad out optional trailing elements
+    }
     const proto = protos.Sku.parse(proto_);
     const typeId = proto[6] as keyof typeof skuTypeIds;
     const type = skuTypeIds[typeId] || `-unknown-type-${typeId}`;
@@ -366,7 +372,7 @@ class Sku extends ViewModel {
     const coverImageUrl = (proto as any)[2][1][0][0][1]?.split(
       /=/,
     )[0] as string;
-    const skuPublished = proto[10][0];
+    const skuPublished = proto[10]?.[0] ?? undefined;
     const skuUpdated = proto[26]?.[0] ?? undefined;
 
     const publisherOrganizationId = proto[15] as string;

@@ -1,6 +1,6 @@
 import { Client } from "../../../stadia/web_client/mod.ts";
 import { eprintln, print, println } from "../../../_common/io.ts";
-import { color, FlagArgs, FlagOpts, types } from "../../../deps.ts";
+import { color, FlagArgs, FlagOpts, types, log } from "../../../deps.ts";
 import * as json from "../../../_common/json.ts";
 
 import index from "./index.html.ts";
@@ -17,7 +17,8 @@ export const flags: FlagOpts = {
 
 let canvas: any;
 try {
-  // urgsgrgaegahgeioghaoigh;e/e;gouaigel.a
+  // this is a huge import, so we put it here instead of ./deps since it's not
+  // required for the library, only this command.
   canvas = await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
 } catch (error) {
   // this is bad but this is only for my use so
@@ -26,8 +27,6 @@ try {
   canvas = proxy;
 }
 
-// this is a huge import, so we put it here instead of ./deps since it's not
-// required for the library, only this command.
 const loadImage = throttled(
   Math.PI,
   async (s: string) => canvas.loadImage(s),
@@ -40,8 +39,11 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   const name = flags.name;
 
-  const listPage = await client.fetchStoreList();
+  const listPage = await client.fetchAllGames();
 
+  log.debug("Loaded game list, processing and generating thumbnails...");
+
+  // TODO: just use async iteration, this is a weird mess:
   const games = await Promise.all(
     listPage.skus.filter((x) => x.type === "game").map(
       async (game) => {
@@ -59,7 +61,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
         }
         const coverThumbnailData = pixelDigits.join("");
 
-        const {
+        let {
           gameId,
           skuId,
           name,
@@ -69,9 +71,13 @@ export const command = async (client: Client, flags: FlagArgs) => {
           skuUpdated,
         } = game;
 
+        name = cleanName(name);
+
         const slug = slugify(name);
 
-        const pro = true; // TODO
+        const pro = false; // TODO -- requires more data to resolve bundles
+
+        log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
 
         return {
           gameId,
@@ -89,6 +95,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
     ),
   );
 
+  log.debug("Games processed, rendering page.");
+
   Deno.writeTextFile("./stadia.run/index.json", json.encode({ games, name }));
   Deno.writeTextFile("./stadia.run/index.html", index.html({ games, name }));
   Deno.writeTextFile(
@@ -96,7 +104,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
     manifest.json({ games, name }),
   );
 
-  console.log(games);
+  log.debug("Done");
 
   return games;
 };
@@ -111,6 +119,7 @@ const cleanName = (name: string) =>
     .replace(/[\:\-]? Early Access$/g, " ")
     .replace(/[\:\-]? \w+ Edition$/g, " ")
     .replace(/\(\w+ Ver(\.|sion)\)$/g, " ")
+    .replace(/\(\w+MODE\)$/g, " ")
     .replace(/™/g, " ")
     .replace(/\s{2,}/g, " ")
     .replace(/^\s+|\s+$/g, "");

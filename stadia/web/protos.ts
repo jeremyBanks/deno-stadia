@@ -14,19 +14,24 @@ export const GameId = z.string().regex(/^[0-9a-f]+(rcp1)$/);
 export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
 export const OrganizationId = z.string().regex(/^[0-9a-f]+(pup1)$/);
 
-export const Timestamp = z.tuple([z.number().int().positive()]);
+export const NullableTimestamp = z.union([
+  z.tuple([z.number().int().positive()]),
+  z.tuple([]),
+]).nullable();
 export const SkuName = z.string().nonempty();
 export const SkuImages = z.unknown();
 export const SkuInternalName = z.string().nonempty();
 export const SkuTypeId = z.number().positive().int();
 export const SkuDescription = z.string().nonempty();
-export const SkuPublicationDate = Timestamp;
-export const SkuUpdateDate = Timestamp.nullable();
+export const SkuPublicationDate = NullableTimestamp;
+export const SkuUpdateDate = NullableTimestamp;
 export const SkuLanguages = z.string().nonempty().array().nonempty();
 export const SkuCountries = z.string().nonempty().array().nonempty();
 export const SkuPublisher = OrganizationId;
 export const SkuDevelopers = OrganizationId.array().nonempty();
-export const Sku = z.tuple([
+export const SkuFullVersion = z.tuple([z.tuple([z.tuple([z.tuple([z.tuple([SkuId, GameId])])])])]);
+
+export let Sku = z.tuple([
   /*  0 */ SkuId,
   /*  1 */ SkuName,
   /*  2 */ SkuImages,
@@ -64,6 +69,7 @@ export const Sku = z.tuple([
   /* 34 */ UNKNOWN,
   /* 35 */ UNKNOWN,
   /* 36 */ UNKNOWN,
+  /* 37 */ UNKNOWN,
 ]);
 
 export const PlayerId = z.string().regex(/^\d+$/);
