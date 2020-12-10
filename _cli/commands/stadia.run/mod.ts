@@ -93,7 +93,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
         };
       },
     ),
-  )).sort((a, b) => ((b.skuPublished ?? 0) - (a.skuPublished ?? 0)) || ((b.skuUpdated ?? 0) - (a.skuUpdated ?? 0)));
+  )).sort((a, b) =>
+    ((b.skuPublished ?? 0) - (a.skuPublished ?? 0)) ||
+    ((b.skuUpdated ?? 0) - (a.skuUpdated ?? 0))
+  );
 
   log.debug("Games processed, rendering page.");
 
