@@ -29,7 +29,9 @@ export const SkuLanguages = z.string().nonempty().array().nonempty();
 export const SkuCountries = z.string().nonempty().array().nonempty();
 export const SkuPublisher = OrganizationId;
 export const SkuDevelopers = OrganizationId.array().nonempty();
-export const SkuFullVersion = z.tuple([z.tuple([z.tuple([z.tuple([z.tuple([SkuId, GameId])])])])]);
+export const SkuFullVersion = z.tuple(
+  [z.tuple([z.tuple([z.tuple([z.tuple([SkuId, GameId])])])])],
+);
 
 export let Sku = z.tuple([
   /*  0 */ SkuId,

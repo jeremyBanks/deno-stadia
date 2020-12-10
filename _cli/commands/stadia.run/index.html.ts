@@ -450,7 +450,9 @@ export const html = (
   </st-search>
 
   <st-games>
-    ${games.map(({gameId, coverImageUrl, coverThumbnailData, name, slug}) => `
+    ${
+    games.map(({ gameId, coverImageUrl, coverThumbnailData, name, slug }) =>
+      `
       <st-game><a href="https://stadia.google.com/player/${escape(gameId!)}">
         <st-cover-full>
           <img src="${escape(coverImageUrl)}">
@@ -460,7 +462,9 @@ export const html = (
         </st-cover-micro>
         <st-slug>/${escape(slug)}</st-slug>
       </a></st-game>
-    `).join('\n')}
+    `
+    ).join("\n")
+  }
   </st-games>
 </main>
 

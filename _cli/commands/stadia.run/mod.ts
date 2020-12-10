@@ -1,6 +1,6 @@
 import { Client } from "../../../stadia/web_client/mod.ts";
 import { eprintln, print, println } from "../../../_common/io.ts";
-import { color, FlagArgs, FlagOpts, types, log } from "../../../deps.ts";
+import { color, FlagArgs, FlagOpts, log, types } from "../../../deps.ts";
 import * as json from "../../../_common/json.ts";
 
 import index from "./index.html.ts";
