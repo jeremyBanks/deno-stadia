@@ -1875,7 +1875,7 @@ Promise.resolve().then(async () => {
 
   // Offline fallback (required for PWA installation).
   if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/-service-worker.js', {scope: '/'});
+    navigator.serviceWorker.register('/service-worker.js', {scope: '/'});
   }
 });
 

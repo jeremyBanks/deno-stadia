@@ -7,6 +7,12 @@ export const json = ({ games }: { games: Games }) => {
     github: {
       silent: true,
     },
+    rewrites: [
+      {
+        source: "/([a-z0-9\-]+)",
+        destination: "/index.html"
+      }
+    ],
     redirects: games.map((game) => ({
       statusCode: 301,
       source: `/${game.slug}`,

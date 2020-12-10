@@ -72,10 +72,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
         } = game;
 
         name = cleanName(name);
+        skuPublished ??= 0;
+        skuUpdated ??= 0;
 
         const slug = slugify(name);
-
-        const pro = false; // TODO -- requires more data to resolve bundles
 
         log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
 
@@ -84,7 +84,6 @@ export const command = async (client: Client, flags: FlagArgs) => {
           skuId,
           name,
           slug,
-          pro,
           description,
           coverThumbnailData,
           coverImageUrl,
@@ -94,8 +93,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
       },
     ),
   )).sort((a, b) =>
-    ((b.skuPublished ?? 0) - (a.skuPublished ?? 0)) ||
-    ((b.skuUpdated ?? 0) - (a.skuUpdated ?? 0))
+    ((b.skuPublished) - (a.skuPublished)) ||
+    ((b.skuUpdated) - (a.skuUpdated))
   );
 
   log.debug("Games processed, rendering page.");

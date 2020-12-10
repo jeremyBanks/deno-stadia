@@ -14,6 +14,7 @@ export const html = (
 <meta property="og:title" content="${escape(name)}">
 <meta property="og:image" content="/stadian.png">
 <link rel="apple-touch-icon" href="/pwa.png">
+<link rel="canonical" href="/">
 <meta property="og:description" content="a lightning-fast launcher for Stadia">
 
 <meta name="viewport" content="width=770">
@@ -501,7 +502,7 @@ Promise.resolve().then(async () => {
 
   // Offline fallback (required for PWA installation).
   if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/-service-worker.js', {scope: '/'});
+    navigator.serviceWorker.register('/service-worker.js', {scope: '/'});
   }
 });
 
