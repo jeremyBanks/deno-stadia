@@ -3,10 +3,6 @@ import { encode as jsonEncode } from "../../../_common/json.ts";
 import type { Games } from "./mod.ts";
 
 export const json = ({ games, name }: { games: Games; name: string }) => {
-  const latestProGames = games.filter((g) => g.pro || true).sort((a, b) =>
-    (a.skuPublished ?? 0) - (b.skuPublished ?? 0)
-  ).slice(0, 16);
-
   return jsonEncode({
     "background_color": "#202020",
     "description": "a lightning-fast launcher for Stadia",
@@ -27,7 +23,7 @@ export const json = ({ games, name }: { games: Games; name: string }) => {
     ],
     "name": name,
     "short_name": name,
-    "shortcuts": latestProGames.map((game) => ({
+    "shortcuts": games.slice(0, 16).map((game) => ({
       "icons": [
         {
           "sizes": "192x192",
