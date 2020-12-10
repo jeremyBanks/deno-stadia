@@ -10,8 +10,8 @@ export const json = ({ games }: { games: Games }) => {
     rewrites: [
       {
         source: "/([a-z0-9\-]+)",
-        destination: "/index.html"
-      }
+        destination: "/index.html",
+      },
     ],
     redirects: games.map((game) => ({
       statusCode: 301,
