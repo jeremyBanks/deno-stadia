@@ -10,9 +10,9 @@ export const html = (
 
 <title>${escape(name)}</title>
 
-<link rel="icon" href="/icon.png">
+<link rel="icon" href="/stadian.png">
 <meta property="og:title" content="${escape(name)}">
-<meta property="og:image" content="/icon.png">
+<meta property="og:image" content="/stadian.png">
 <link rel="apple-touch-icon" href="/pwa.png">
 <meta property="og:description" content="a lightning-fast launcher for Stadia">
 
