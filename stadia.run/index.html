@@ -3,19 +3,20 @@
 <title>stadia.run</title>
 
 <link rel="icon" href="/stadian.png">
+<link rel="apple-touch-icon" href="/pwa.png">
 <meta property="og:title" content="stadia.run">
 <meta property="og:image" content="/stadian.png">
-<link rel="apple-touch-icon" href="/pwa.png">
-<link rel="canonical" href="/">
 <meta property="og:description" content="a lightning-fast launcher for Stadia">
 
-<meta name="viewport" content="width=770">
+<link rel="canonical" href="/">
 <link rel="manifest" href="/manifest.json">
-<base>
+<meta name="referrer" content="no-referrer">
 
 <link rel="preload" as="image" href="/squirrel.png">
 <link rel="preload" as="image" href="/stadian.png">
 <link rel="preload" as="image" href="/ghost.png">
+
+<meta name="viewport" content="width=770">
 
 <style>
   * {
@@ -79,25 +80,6 @@
   code {
     display: contents;
     font-family: monospace;
-  }
-
-  s {
-    display: contents;
-    text-decoration: line-through;
-    text-decoration-color: rgba(128, 0, 0, 0.5);
-    text-decoration-style: wavy;
-    text-shadow:
-      1px 0 2px rgba(0, 0, 0, 0.25),
-      0 0 2px rgba(0, 0, 0, 0.25),
-      0 0 3px rgba(0, 0, 0, 0.25),
-      -1px 0 2px rgba(0, 0, 0, 0.25);
-    color: rgba(0, 0, 0, 0.125);
-    user-select: none;
-    cursor: not-allowed;
-  }
-
-  *[hidden] {
-    display: none;
   }
 
   button:enabled {
@@ -388,15 +370,10 @@
           main st-games st-game st-cover-micro {
             image-rendering: pixelated;
             background-size: 100% 100%;
-            display: none;
-          }
-
-          main st-games st-game st-cover-micro.rendered:not([hidden]) {
             display: grid;
           }
 
           main st-games st-game st-slug {
-            display: span;
             position: absolute;
             z-index: 3000;
             border-radius: 4px;
@@ -417,19 +394,32 @@
           }
 
           main st-games st-game st-cover-micro st-name {
-            backdrop-filter: blur(calc(180px/8));
             width: 100%;
             height: 100%;
             text-align: center;
             padding: 16px;
             justify-items: center;
             align-items: center;
-            -webkit-text-stroke: 1px black;
-            text-shadow: 0 0 2px black;
             font-size: 36px;
             font-weight: bold;
-            color: #FFFFFF;
             font-family: sans-serif;
+          }
+
+          main st-games st-game st-cover-micro:not([hidden]) st-name {
+            -webkit-text-stroke: 1px black;
+            text-shadow: 0 0 2px black;
+            color: #FFFFFF;
+            backdrop-filter: blur(calc(180px/8));
+          }
+
+          main st-games st-game st-cover-micro[hidden] st-name {
+            color: transparent;
+            z-index: 1000;
+          }
+
+          main st-games st-game st-cover-micro[hidden] st-name::selection {
+            color: default;
+            background: default;
           }
 </style>
 
@@ -443,1403 +433,1149 @@
   </st-search>
 
   <st-games>
-    
-      <st-game><a href="https://stadia.google.com/player/49697e672bc34e7d8a5f73f78cb580d0rcp1">
+    <st-game><a href="https://stadia.google.com/player/49697e672bc34e7d8a5f73f78cb580d0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/kKi1PEgpzBMdLEkBAfr9Ah2CZy8IjJkDG2DsvWEKkDIZxaFbgBrScyOJLYSzC9sWjE0Rm-QLhexmx13B4cNADc7V7r2mVh55X265SOP1MDqaPKALCNagHly-VA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/kKi1PEgpzBMdLEkBAfr9Ah2CZy8IjJkDG2DsvWEKkDIZxaFbgBrScyOJLYSzC9sWjE0Rm-QLhexmx13B4cNADc7V7r2mVh55X265SOP1MDqaPKALCNagHly-VA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="EEEEKEAEEEePLEEEEE4-KEEAEEK-P-EAEE--K-EAEE----EEEEE--0EAE9A---E9">
           <st-name>Cyberpunk 2077</st-name>
         </st-cover-micro>
         <st-slug>/cyberpunk-2077</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/a089691b36254f77bc66a75052fc7cf6rcp1">
+<st-game><a href="https://stadia.google.com/player/a089691b36254f77bc66a75052fc7cf6rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Le1q52MYQpiGvXtuWkxE1-Lb3n3XkozkfmRbKKpkU-0h9BvBgB2Uoog3q3fC_-dMwN5vyh1VEwoW7Ed7pO1M4X6yZRutbnQ_wIkggkYpZW6gL1spdwAz8t_7UQg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Le1q52MYQpiGvXtuWkxE1-Lb3n3XkozkfmRbKKpkU-0h9BvBgB2Uoog3q3fC_-dMwN5vyh1VEwoW7Ed7pO1M4X6yZRutbnQ_wIkggkYpZW6gL1spdwAz8t_7UQg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--LLLLL--zzLLLL--zzLLLe--LLLPLL--LLfKL--0-L--L0------0----------">
           <st-name>Unto The End</st-name>
         </st-cover-micro>
         <st-slug>/unto-the-end</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/e6005e58d6d3458abd01bcf68e264ccercp1">
+<st-game><a href="https://stadia.google.com/player/e6005e58d6d3458abd01bcf68e264ccercp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/fHICh6G6MC1CmWfw9Phs1MG0UUZiOEDKX_2pA5_k_oCAHifcN65hPif3yUnKW-cuvzt-57aWGFBJH4ZpFiewdnWnENSepo8LtCo3h_iRfVqhp2LKs_stCchnyl6B=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/fHICh6G6MC1CmWfw9Phs1MG0UUZiOEDKX_2pA5_k_oCAHifcN65hPif3yUnKW-cuvzt-57aWGFBJH4ZpFiewdnWnENSepo8LtCo3h_iRfVqhp2LKs_stCchnyl6B=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="Z_zzZ_zZdzdzdzzcujyyKtttdezeKdzKKKeKKKKjK0e4KKKeK_eKeKJKJOe-KeJe">
           <st-name>Watch_Dogs 2</st-name>
         </st-cover-micro>
         <st-slug>/watch-dogs-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b7503867ccbc4ac7be7093fe3ba1523crcp1">
+<st-game><a href="https://stadia.google.com/player/b7503867ccbc4ac7be7093fe3ba1523crcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/AUY3ERUj4WlbXQ_dbQ59Q3UM2kJGvJatCgFV1k_yFucOdxQ2divkGZJuzLwBr8kLjT5kc1kVybZm2U9qw4H2mgs-IvF-PGqgATnmTwHGkEcm6viIskZOVD0Ksl8=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/AUY3ERUj4WlbXQ_dbQ59Q3UM2kJGvJatCgFV1k_yFucOdxQ2divkGZJuzLwBr8kLjT5kc1kVybZm2U9qw4H2mgs-IvF-PGqgATnmTwHGkEcm6viIskZOVD0Ksl8=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="Keeee-zeKyeK-eyeKeK-Kueeeez--zzzee-KKeeee--Keeeee-KKKyeKKK-K4KdK">
-          <st-name>WATCH_DOGS STANDARD EDITION</st-name>
+          <st-name>WATCH_DOGS</st-name>
         </st-cover-micro>
-        <st-slug>/watch-dogs-standard-edition</st-slug>
+        <st-slug>/watch-dogs</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/0fd3103549b54c7e89afd6eed83672cercp1">
+<st-game><a href="https://stadia.google.com/player/0fd3103549b54c7e89afd6eed83672cercp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/B-Q8yML3LIUhHqa4DEpIoa5ePHfBiPlsLNFxraEMliQcN_DtfAGVbwf8hvK71j-CuTDjYfketP4G_D2I7nhwmCtgSFROjZiKW6pB2KOA99gP0X-TRXApk6eJnZE=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/B-Q8yML3LIUhHqa4DEpIoa5ePHfBiPlsLNFxraEMliQcN_DtfAGVbwf8hvK71j-CuTDjYfketP4G_D2I7nhwmCtgSFROjZiKW6pB2KOA99gP0X-TRXApk6eJnZE=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="50LKKAL554JAAA5550KALA5004KuKKL-00KKdtK-40KKjK4-50KKQL4040-KKK4-">
           <st-name>Destroy All Humans!</st-name>
         </st-cover-micro>
         <st-slug>/destroy-all-humans</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/7183914d07034cb1bbb8a511779bc1efrcp1">
+<st-game><a href="https://stadia.google.com/player/7183914d07034cb1bbb8a511779bc1efrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/s8X-0BCYqwybicQDTu43tvqV5BCXaDJ_AwLOAEmIT5jmsrSuPy9rUCNh-nOmpNVeKRFNFOdCVs6ulxOuOaH7UA0Q5Zo2hlvpZ7yZKymvefrj56uFML4M64t0vJYf=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/s8X-0BCYqwybicQDTu43tvqV5BCXaDJ_AwLOAEmIT5jmsrSuPy9rUCNh-nOmpNVeKRFNFOdCVs6ulxOuOaH7UA0Q5Zo2hlvpZ7yZKymvefrj56uFML4M64t0vJYf=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-JF--FKKK3FA9J3K-KOKQKdKK3KJd_d-GK_JjdK4JJKjJdK--JJKKK4J-KKJJKKJ">
           <st-name>Figment</st-name>
         </st-cover-micro>
         <st-slug>/figment</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/53bd183291e340dda697167108d3dc6brcp1">
+<st-game><a href="https://stadia.google.com/player/53bd183291e340dda697167108d3dc6brcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Zx1M8H4czFmxCqaC66dI8WKrqJV-i5u5KmYO-F6uqb_T0f8DyL5D4c1Dufqpk-ou90fiOusdFKvSu-wKKO6sS-wEs6lMRoLXeUtIaHC0Zc0-WuUdNqp5HKoe_aaS=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Zx1M8H4czFmxCqaC66dI8WKrqJV-i5u5KmYO-F6uqb_T0f8DyL5D4c1Dufqpk-ou90fiOusdFKvSu-wKKO6sS-wEs6lMRoLXeUtIaHC0Zc0-WuUdNqp5HKoe_aaS=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="dddcedddcddeJJddZZdeeedJdddjjetLtddLzeK_MKKKzfPLeLeKKKfKFFFGK3FK">
-          <st-name>SpongeBobSquarePants:Battle for Bikini BottomRehydrated</st-name>
+          <st-name>SpongeBob SquarePants: Battle for Bikini Bottom –</st-name>
         </st-cover-micro>
-        <st-slug>/spongebobsquarepants-battle-for-bikini-bottomrehydrated</st-slug>
+        <st-slug>/spongebob-squarepants-battle-for-bikini-bottom</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b00e2f20b91e43c8a0597b07fc80ca84rcp1">
+<st-game><a href="https://stadia.google.com/player/b00e2f20b91e43c8a0597b07fc80ca84rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/YObt8lSJkHDKIyQLz3IgOfQ4b4iFQziWyPuExp34UOsRg0HTbsYajUyv7n4xqqpYLS6THMWAY1PP_ulGw9pw3fxISvIv6y0r56YgCcDH1H_BsDa5caPjIcIEng=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/YObt8lSJkHDKIyQLz3IgOfQ4b4iFQziWyPuExp34UOsRg0HTbsYajUyv7n4xqqpYLS6THMWAY1PP_ulGw9pw3fxISvIv6y0r56YgCcDH1H_BsDa5caPjIcIEng=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="LPLPKLKLezzzLLPePKzzeeeeQLLLKLLeQPPL0K4KPLPePKKKLLPPeJKKLLLLeKP-">
           <st-name>Valkyria Chronicles 4</st-name>
         </st-cover-micro>
         <st-slug>/valkyria-chronicles-4</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/d46f9c2d858d41d6ae4cc12d186657f0rcp1">
+<st-game><a href="https://stadia.google.com/player/d46f9c2d858d41d6ae4cc12d186657f0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/rdaqhyknGU1Kzph6wbqcJtrrbyDwx_WgqT5w6-msWNHxfSBiz4mTjpoTgjEoPv2p6mluNYJdjUefJN055BwPN2wTlEz7BBYm8V5V4k1EqbL6kCndrL6FwjsbZqkY=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/rdaqhyknGU1Kzph6wbqcJtrrbyDwx_WgqT5w6-msWNHxfSBiz4mTjpoTgjEoPv2p6mluNYJdjUefJN055BwPN2wTlEz7BBYm8V5V4k1EqbL6kCndrL6FwjsbZqkY=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="ZJZJZJGGFJJjj_ZGGJZQPZ-FGFZZZcL0KFFJccQF0G00_JM0KGKKK10GKLLLLLLK">
           <st-name>El Hijo - A Wild West Tale</st-name>
         </st-cover-micro>
         <st-slug>/el-hijo-a-wild-west-tale</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/8533fb04b9174c3f8dce10a2fec7b062rcp1">
+<st-game><a href="https://stadia.google.com/player/8533fb04b9174c3f8dce10a2fec7b062rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/I9Y4umEKbc5Zu4C9vZW628S-pPazBrx3UKNUtm2AWUgrWL_veaAvNvyI9pqQ6f-sUwWQWIcREZkjAZUhV_L5XrYycqKFZ8fCS1Aj__6IGH1nWBQaK8agfXMiTbA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/I9Y4umEKbc5Zu4C9vZW628S-pPazBrx3UKNUtm2AWUgrWL_veaAvNvyI9pqQ6f-sUwWQWIcREZkjAZUhV_L5XrYycqKFZ8fCS1Aj__6IGH1nWBQaK8agfXMiTbA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="JJeccvcZcJPszczJsxcKMfcdJcc5MejicZddZZdJwuKL-K5JJVZeeeKZZdJOdePZ">
           <st-name>Outcasters</st-name>
         </st-cover-micro>
         <st-slug>/outcasters</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/05b9db9b9b5b489995568afd930a9db3rcp1">
+<st-game><a href="https://stadia.google.com/player/05b9db9b9b5b489995568afd930a9db3rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/GnTDBD8WMbX9NZCdGv-Q1VTp3Y89A2d2TCiSEgNAjUEj06wr9s6ToeYZrJx7FHlULGDj9EAB98odF1J_p8xdnCiu0WvhhWmJh1_nAPkIoh_DYgSOel53psJX5Mgo=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/GnTDBD8WMbX9NZCdGv-Q1VTp3Y89A2d2TCiSEgNAjUEj06wr9s6ToeYZrJx7FHlULGDj9EAB98odF1J_p8xdnCiu0WvhhWmJh1_nAPkIoh_DYgSOel53psJX5Mgo=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="quzfquuuaqqQzvyLlqQuuufLlvfAbQfMlzMjQQPQaqjQfzLjaqzzjzUL_dpUzQja">
           <st-name>PHOGS!</st-name>
         </st-cover-micro>
         <st-slug>/phogs</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/3c39a33bbc064308941f9276c38c30e7rcp1">
+<st-game><a href="https://stadia.google.com/player/3c39a33bbc064308941f9276c38c30e7rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/TkF9Z6r4pFKGm4ED_F-cwzBrecXJrLgmuT-A2jJmMorUiYAOYUB5X1-pHuhUrdlCl4r4OvRW2qU_DzJ03LqcgYjTP2wZsuoFb8khAeUBZ8mPL9lMrwC-Yp7gfmk=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/TkF9Z6r4pFKGm4ED_F-cwzBrecXJrLgmuT-A2jJmMorUiYAOYUB5X1-pHuhUrdlCl4r4OvRW2qU_DzJ03LqcgYjTP2wZsuoFb8khAeUBZ8mPL9lMrwC-Yp7gfmk=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KPyd-yeiKeuKKzKeKuyeKyeePKdeyyeKeedeyKOKyedOLfOKe-PddydKJJedKdJJ">
           <st-name>Submerged: Hidden Depths</st-name>
         </st-cover-micro>
         <st-slug>/submerged-hidden-depths</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/161f276db10947a199cd0260ed4dc248rcp1">
+<st-game><a href="https://stadia.google.com/player/161f276db10947a199cd0260ed4dc248rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Wxwi0K3UvVZcVW15OabXp5FPAyL02BfinO4Qki1sFeG6Iz0POnDFi0uO5qnJWGZLeCLYCejbFqxmroGKn46eOk4riUpBa1HIjJbFwLQTftyEOFldPuvy-ys78WY=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Wxwi0K3UvVZcVW15OabXp5FPAyL02BfinO4Qki1sFeG6Iz0POnDFi0uO5qnJWGZLeCLYCejbFqxmroGKn46eOk4riUpBa1HIjJbFwLQTftyEOFldPuvy-ys78WY=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="_ieddKeyKPetP5esK_eeKKKuzKzKt0eeKeejeKyy-dKejKLe3_j9eeeK3Keee_JK">
           <st-name>Immortals Fenyx Rising Stadia</st-name>
         </st-cover-micro>
         <st-slug>/immortals-fenyx-rising-stadia</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/44752f1774ca4508a2c45e57121d7e8frcp1">
+<st-game><a href="https://stadia.google.com/player/44752f1774ca4508a2c45e57121d7e8frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/fGWg_nvR9ZlrUyk0TJlezFKellUnsJD84yoDsY8NpsFpXezCcEPvJjEanp0dCPp3UTi2t1r6V5dLlEYPEknz2Qb8ZfzZJFODX6XxaMh0KjhoEtAxk5jDdA189bxI=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/fGWg_nvR9ZlrUyk0TJlezFKellUnsJD84yoDsY8NpsFpXezCcEPvJjEanp0dCPp3UTi2t1r6V5dLlEYPEknz2Qb8ZfzZJFODX6XxaMh0KjhoEtAxk5jDdA189bxI=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="LfPPKK_JeKKzzGKJKQfeaK5KKLefKK5KKLffK-KJKLLLQKJFKKLQLKJFKKajKKKF">
           <st-name>EVERSPACE</st-name>
         </st-cover-micro>
         <st-slug>/everspace</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/1a871cfe8a7d4ebc8592c2ad4bc07150rcp1">
+<st-game><a href="https://stadia.google.com/player/1a871cfe8a7d4ebc8592c2ad4bc07150rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/susg4Yh08577wi055hdwdwlDF1JWd11g2UFTsuvwi-Y0mfCoikYLXgOGyLsyl5P5D2H86f1fBF7OjdsgcRdNMe8qZOnTPgmmPL1lObmh2YQ-aPfcty70MoF_kxw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/susg4Yh08577wi055hdwdwlDF1JWd11g2UFTsuvwi-Y0mfCoikYLXgOGyLsyl5P5D2H86f1fBF7OjdsgcRdNMe8qZOnTPgmmPL1lObmh2YQ-aPfcty70MoF_kxw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="GGGGGGGGG_KGKezGKKKKKKKKaKKKKKKK______F_KKKK__-KKKK__K-GGGGGG-G-">
           <st-name>Into the Breach</st-name>
         </st-cover-micro>
         <st-slug>/into-the-breach</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/8f8d583a2ae843e0b31fa653cea5d27drcp1">
+<st-game><a href="https://stadia.google.com/player/8f8d583a2ae843e0b31fa653cea5d27drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/UF5uwY0LnoEaP4mK28Pgc4Ldu2der5HvhaiJovNYRizUjVCmA5ID_52BbHvBLjf62IAFFr_hI8odcu5VIPj3EDVgOBOMU1ZMPycm-2OPpjNA6B3-ALqPr3vCCZw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/UF5uwY0LnoEaP4mK28Pgc4Ldu2der5HvhaiJovNYRizUjVCmA5ID_52BbHvBLjf62IAFFr_hI8odcu5VIPj3EDVgOBOMU1ZMPycm-2OPpjNA6B3-ALqPr3vCCZw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="ZZJJFJF-cfcZZJe-tfJcccZ-JL-tcJc-ddxytJcF_zdJxxcKJjJdzcd-JJJJcJ50">
           <st-name>Secret Neighbor</st-name>
         </st-cover-micro>
         <st-slug>/secret-neighbor</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/3f94b62fa50c4202be10472947478f8frcp1">
+<st-game><a href="https://stadia.google.com/player/3f94b62fa50c4202be10472947478f8frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/IZxMR8xMWH3-ZGkFZRRh684yOTM-S9kDcWoMoafNbcVPc0sImI0DcwWciFHWkNvMUDLWUi6tJ5sTrZ15CdESm5B8MfggBYcS25QMDpUOoA-Bg7yATF_3PP8GmA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/IZxMR8xMWH3-ZGkFZRRh684yOTM-S9kDcWoMoafNbcVPc0sImI0DcwWciFHWkNvMUDLWUi6tJ5sTrZ15CdESm5B8MfggBYcS25QMDpUOoA-Bg7yATF_3PP8GmA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--FK_J---K-__K---0JddKJ---JeJdJ---_KKJJKJKKKee-K---JeeJK--KK-KK-">
           <st-name>Chronos: Before the Ashes</st-name>
         </st-cover-micro>
         <st-slug>/chronos-before-the-ashes</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/e7506ec75c8046dfa7879fe604505ca7rcp1">
+<st-game><a href="https://stadia.google.com/player/e7506ec75c8046dfa7879fe604505ca7rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/pUtjyjm4X9aP18HzCvpkyqk922sHYN3l04Ians4t68BSmlN5zZlagXqVD88RGBbb2-ea_fyFpS4Vr1gOsEVX1VazeoJ90dY5haB0Bk-5pXCFWvcF1E3bVpJvodQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/pUtjyjm4X9aP18HzCvpkyqk922sHYN3l04Ians4t68BSmlN5zZlagXqVD88RGBbb2-ea_fyFpS4Vr1gOsEVX1VazeoJ90dY5haB0Bk-5pXCFWvcF1E3bVpJvodQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="tttdddddeFeutzzeuzLGKKeLuz00LOKQeeeK-O0-04KLK-400440K0-0--------">
           <st-name>Monster Jam Steel Titans</st-name>
         </st-cover-micro>
         <st-slug>/monster-jam-steel-titans</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/8185df0ce9d74d61aab58a12d4bf21a0rcp1">
+<st-game><a href="https://stadia.google.com/player/8185df0ce9d74d61aab58a12d4bf21a0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/0L30Lgw5FVX3tv8uXiNIwp4wjHU--rcVhNZvmHdnPMl7uVu1S1QcywrRoE2Ds6P9E241eEPKrDnC51-KJMum3FZx8n8d6OviRtWbJwuSnEv6TXfgHugzfAzEPZ4=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/0L30Lgw5FVX3tv8uXiNIwp4wjHU--rcVhNZvmHdnPMl7uVu1S1QcywrRoE2Ds6P9E241eEPKrDnC51-KJMum3FZx8n8d6OviRtWbJwuSnEv6TXfgHugzfAzEPZ4=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="JKJJK_K---KLLa---KKKKK4-KJFKKKK4KKK44K0---KPK-K-_-K-4KL-KK4KKM--">
           <st-name>Outward</st-name>
         </st-cover-micro>
         <st-slug>/outward</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/36c01626f21f428e8d5ae35ce19c774brcp1">
+<st-game><a href="https://stadia.google.com/player/36c01626f21f428e8d5ae35ce19c774brcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/JOiIVo_118QFfttGv1BVbt4Kb4-EH-WNppUwe3r5CkG-VsVel68z6wZ5lQbb_-TaZV-CZZTUHcc8-eOlTHdgsFjaaToO_P8Lqploi8amyuFjdoDu1rAHMN5VwiU=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/JOiIVo_118QFfttGv1BVbt4Kb4-EH-WNppUwe3r5CkG-VsVel68z6wZ5lQbb_-TaZV-CZZTUHcc8-eOlTHdgsFjaaToO_P8Lqploi8amyuFjdoDu1rAHMN5VwiU=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="uK-J_KF-zK0KKKJ-yu0J----ueuaF-e-yueK----eeJ-L---yezKK---eze--F--">
           <st-name>STAR WARS Jedi: Fallen Order</st-name>
         </st-cover-micro>
         <st-slug>/star-wars-jedi-fallen-order</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/a1ce1274a83244f1a099bebef7ae1233rcp1">
+<st-game><a href="https://stadia.google.com/player/a1ce1274a83244f1a099bebef7ae1233rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/xsoeWu7TElTV7s1_N8ElA2IF1pOQhmzVU0WQpxDjN2CwA5SmcIKrRJt3sT9-MRhbV-a4WnMtnDltqjdumLl_qAEZLkiX2GfiPAzVLuRc9C_vY8N35wMNo8ug3l8=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/xsoeWu7TElTV7s1_N8ElA2IF1pOQhmzVU0WQpxDjN2CwA5SmcIKrRJt3sT9-MRhbV-a4WnMtnDltqjdumLl_qAEZLkiX2GfiPAzVLuRc9C_vY8N35wMNo8ug3l8=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="uue-___KzezK-eedjjj0-edeKKee-eKKLe0K-PK4Kee--eeL-KKeePKK-4L4--4-">
-          <st-name>Tom Clancy’s Ghost Recon Wildlands</st-name>
+          <st-name>Tom Clancy’s Ghost Recon Wildlands -</st-name>
         </st-cover-micro>
         <st-slug>/tom-clancy-s-ghost-recon-wildlands</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/deb490c166544813bf2ab73f4c6e2aa0rcp1">
+<st-game><a href="https://stadia.google.com/player/deb490c166544813bf2ab73f4c6e2aa0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/X2sAjsIYZAH9P2b9AvcO9dnQErCP2QeJQ0HVt1d9cure9H_CVf5HDzgUxRzWWIkuxfCjLX6qjg3FAMapc_LuB3EAElNn6ObmXuPxSW13ih_rRDSKuSyBBysFxQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/X2sAjsIYZAH9P2b9AvcO9dnQErCP2QeJQ0HVt1d9cure9H_CVf5HDzgUxRzWWIkuxfCjLX6qjg3FAMapc_LuB3EAElNn6ObmXuPxSW13ih_rRDSKuSyBBysFxQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="J-zzzz--eF-2eFFGfKKMFFFFeKF_J_JJKLLF_FK_aLKx-JJdae_0KGFKJGK-GGFz">
           <st-name>Watch Dogs: Legion</st-name>
         </st-cover-micro>
         <st-slug>/watch-dogs-legion</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/9affbc684aeb422086bfb5d0c8bf2f55rcp1">
+<st-game><a href="https://stadia.google.com/player/9affbc684aeb422086bfb5d0c8bf2f55rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/vVXfKq1LCFJ9viVNS8FGoWL9XBPQOI5ktvq1cb3Bb8NomCFxEAYENh5Ija5SQUWKISHwlomiAuIm_e8V0F_ppZIKwQ20_KgfF-ae8UfEI037f1An8Zzf6uytFg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/vVXfKq1LCFJ9viVNS8FGoWL9XBPQOI5ktvq1cb3Bb8NomCFxEAYENh5Ija5SQUWKISHwlomiAuIm_e8V0F_ppZIKwQ20_KgfF-ae8UfEI037f1An8Zzf6uytFg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="FttttttF-F9QAQFFFFFFFFKFF0FUUFGFF0FPU-GFF0F4UFGF-0-4UFFFGHFG_GGF">
           <st-name>PAC-MAN Mega Tunnel Battle</st-name>
         </st-cover-micro>
         <st-slug>/pac-man-mega-tunnel-battle</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/5ba98de70c8c4b64bf56ca9009d60e62rcp1">
+<st-game><a href="https://stadia.google.com/player/5ba98de70c8c4b64bf56ca9009d60e62rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Rl7xBLgSOz1pAJzIh6cQKs5p0wKMdxFAd_VJs7U9N3wsRHucaljF_WRCx8HAd5IJ5eB5VL1P1c2xfInBpybM66ucBVAk5XOZVThzROoE7Lyo-EklnFJo273u-_M=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Rl7xBLgSOz1pAJzIh6cQKs5p0wKMdxFAd_VJs7U9N3wsRHucaljF_WRCx8HAd5IJ5eB5VL1P1c2xfInBpybM66ucBVAk5XOZVThzROoE7Lyo-EklnFJo273u-_M=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KGUZt4GLoo9fz_foL_A_E9_LLL1fQ4LLLLKLdKLL66-2K466soG-JKooG-JKeF-L">
           <st-name>Family Feud</st-name>
         </st-cover-micro>
         <st-slug>/family-feud</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b87ca389d6454546af28dff82898406arcp1">
+<st-game><a href="https://stadia.google.com/player/b87ca389d6454546af28dff82898406arcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/ClHPsFqXXMRSBcEZJFI0eEeCT_aDUc35TQI--Ji5LFqzPyaL35VqQIPfai1rOjzCLpqotSo3YisKy8SpBHDoPgPCiU2MVzTa01CKYcFhRjgggdVaky9jOB0ivEmd=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/ClHPsFqXXMRSBcEZJFI0eEeCT_aDUc35TQI--Ji5LFqzPyaL35VqQIPfai1rOjzCLpqotSo3YisKy8SpBHDoPgPCiU2MVzTa01CKYcFhRjgggdVaky9jOB0ivEmd=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="WIfIIoIzzzzeI8IiAEzzKeJzAzxzzIAzAAGAeeAzzSAAPKxQAr_oo0xgqEGvq2xg">
           <st-name>Just Dance 2021</st-name>
         </st-cover-micro>
         <st-slug>/just-dance-2021</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/377f50584071472096bcda89b0839bc3rcp1">
+<st-game><a href="https://stadia.google.com/player/377f50584071472096bcda89b0839bc3rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/DjkuZG6McXYD2YUgrKVVFbwWUEzuE7Rx23j3Y3H7kETtHzhN7npF1WK9ap43SaKIrndjxmhhJxPCvLuOlC-YRfrsJko9iSoJFH7q7WGAD_SQRMNSBSaynnkUexuy=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/DjkuZG6McXYD2YUgrKVVFbwWUEzuE7Rx23j3Y3H7kETtHzhN7npF1WK9ap43SaKIrndjxmhhJxPCvLuOlC-YRfrsJko9iSoJFH7q7WGAD_SQRMNSBSaynnkUexuy=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eeyzzzzzezyzz-zzzeKzzKKzezzzzKezeeeee0-zeeezz-GzeeeKy0-K_eeKKeKu">
           <st-name>Assassin&#39;s Creed Valhalla</st-name>
         </st-cover-micro>
         <st-slug>/assassins-creed-valhalla</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/016636d5f49f4862be3ff8cbcf6c7adercp1">
+<st-game><a href="https://stadia.google.com/player/016636d5f49f4862be3ff8cbcf6c7adercp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/CIsqhClRxS2rWiRtHBrkHHJhhnogvQBA8WnD-4h8KhHG_qtQFj-h87mPjeBEckyiGnjZ3MK0GyUuRTRa4sJYcnfvNQMxbwkSnW7e9KAVdUJKkEN3bZpQS6vSero=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/CIsqhClRxS2rWiRtHBrkHHJhhnogvQBA8WnD-4h8KhHG_qtQFj-h87mPjeBEckyiGnjZ3MK0GyUuRTRa4sJYcnfvNQMxbwkSnW7e9KAVdUJKkEN3bZpQS6vSero=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="3Zc0_t_eKJK0z_JzKK_-ue_uzFK-zzKzKLaJL_uuFKKFzzyueeK4zzueLeeFfP_F">
           <st-name>Ary and the Secret of Seasons</st-name>
         </st-cover-micro>
         <st-slug>/ary-and-the-secret-of-seasons</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/e4e8f5e5bc744270a644c554ba3f2962rcp1">
+<st-game><a href="https://stadia.google.com/player/e4e8f5e5bc744270a644c554ba3f2962rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/5jiDJ_5XhkGVpXN06cBFq38byDD1XIkYSBkvpBKTIOtuGS_jbSgWmOFa_5wxJKqM3ZdJIwuuKpsnbCoOftVL356ADDM1a0r3ESqZE_eSRWINwBNDMzCAdQs8XVoJ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/5jiDJ_5XhkGVpXN06cBFq38byDD1XIkYSBkvpBKTIOtuGS_jbSgWmOFa_5wxJKqM3ZdJIwuuKpsnbCoOftVL356ADDM1a0r3ESqZE_eSRWINwBNDMzCAdQs8XVoJ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eeyJ_eKddeLK0L40dejKLLd0deeJJd4d4eLKeL04yKLHKJKeyKJzeKeeueadOL55">
           <st-name>Little Big Workshop</st-name>
         </st-cover-micro>
         <st-slug>/little-big-workshop</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/a2a4ff75e249404a975db7ae5f77e536rcp1">
+<st-game><a href="https://stadia.google.com/player/a2a4ff75e249404a975db7ae5f77e536rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/pWpjJMOBrsJ3jnelmHn-Uo0Bl3Zrhc7Vsz2ZLTNadHIFaSTYfnzf43KbzR4sstzi79Pt_rqEEgbZt0BEfZt0ork5mgP4DSUvjXdXPScCySduYn_H4QvwcSK_Ma77=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/pWpjJMOBrsJ3jnelmHn-Uo0Bl3Zrhc7Vsz2ZLTNadHIFaSTYfnzf43KbzR4sstzi79Pt_rqEEgbZt0BEfZt0ork5mgP4DSUvjXdXPScCySduYn_H4QvwcSK_Ma77=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="uuuzueutzzzvyyyyKzzzzPyzPPKedKe-eePKeJe-KfeKKKfK4LjKKKKPf4LKKKaL">
           <st-name>Far Cry New Dawn</st-name>
         </st-cover-micro>
         <st-slug>/far-cry-new-dawn</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/7d9beb13648d44839b9aeea7555c37c0rcp1">
+<st-game><a href="https://stadia.google.com/player/7d9beb13648d44839b9aeea7555c37c0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/b5fW4qH23yWdf34EO__w7fkQg2JxlMjwHU3ZzQfsE0GemtiOMgEwQee1GY1WI3x3QWxRKflJW3nDmhrWo2uGoKaQTKs0xzhGBrfsHa2Xssxy1WRdBIfjZmouALbw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/b5fW4qH23yWdf34EO__w7fkQg2JxlMjwHU3ZzQfsE0GemtiOMgEwQee1GY1WI3x3QWxRKflJW3nDmhrWo2uGoKaQTKs0xzhGBrfsHa2Xssxy1WRdBIfjZmouALbw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eydzedJeuyudzeeeKKeedOPKLLKKfPeK---PeeL0KKPFeKK---L-KK-4-------K">
           <st-name>Far Cry 5</st-name>
         </st-cover-micro>
         <st-slug>/far-cry-5</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cf784a0f4c554ce68a2880cb461bd903rcp1">
+<st-game><a href="https://stadia.google.com/player/cf784a0f4c554ce68a2880cb461bd903rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/6HvkX4mV-LMUf7qL338sLn2Ss7NZeA2UD8iC2QYLBVY7Sz5U7yALebd2D6N9dlI8bg66VgtuLiRzzBvTAGEKn1sJe8K_jSf1lGmx3tQeeqKW-Dw1m1MN0l07iQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/6HvkX4mV-LMUf7qL338sLn2Ss7NZeA2UD8iC2QYLBVY7Sz5U7yALebd2D6N9dlI8bg66VgtuLiRzzBvTAGEKn1sJe8K_jSf1lGmx3tQeeqKW-Dw1m1MN0l07iQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="JJKddK0Jj4ddzd0OK0PfPK0OPLe-zd0QO5Q--Q0QQ-KQQQ0QQ-KAMK06KKKKOK0K">
           <st-name>Hello Neighbor: Hide and Seek</st-name>
         </st-cover-micro>
         <st-slug>/hello-neighbor-hide-and-seek</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/1376a179ca87458b85acd44341854772rcp1">
+<st-game><a href="https://stadia.google.com/player/1376a179ca87458b85acd44341854772rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/whkXXypLDhhRjfTnoj6FvOkkmeGphAM2kmeYmac8nqWuDqQkZFbPZTi4MuHO4MATV5YDmMtSohOGOih5U4_Zm7nWPtTFd-Z2qt5-DeVcWRws2SGGEkJvDG2emQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/whkXXypLDhhRjfTnoj6FvOkkmeGphAM2kmeYmac8nqWuDqQkZFbPZTi4MuHO4MATV5YDmMtSohOGOih5U4_Zm7nWPtTFd-Z2qt5-DeVcWRws2SGGEkJvDG2emQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzdPKZ_Zzzje-__KeePezzePe0-4dzeKKj--eePKe-K-eKKKee--eKKKee--KeKe">
           <st-name>Sniper Elite 4</st-name>
         </st-cover-micro>
         <st-slug>/sniper-elite-4</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cf65dc95d523465493d6fbc482452227rcp1">
+<st-game><a href="https://stadia.google.com/player/cf65dc95d523465493d6fbc482452227rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/S5gxNJIiaF9Oab3dV-u4F8dj2sy6gY6umtugNKfRzWlCoUeOIslqBpDrZAXVSE6OPr3NJc0BVRuWICa5k-aK8MixvT6a4qg3jAMPNXHglRG-WSU-atH-juJznj8=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/S5gxNJIiaF9Oab3dV-u4F8dj2sy6gY6umtugNKfRzWlCoUeOIslqBpDrZAXVSE6OPr3NJc0BVRuWICa5k-aK8MixvT6a4qg3jAMPNXHglRG-WSU-atH-juJznj8=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="FFFFFFFFJJFFFKKFFJJFKJJFJJJJ_KJaJJJJJe-_JJeJL-0FJJFFKKKJFFFFFFJK">
           <st-name>The Gardens Between</st-name>
         </st-cover-micro>
         <st-slug>/the-gardens-between</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cc3f233990754f77a5819a583594f399rcp1">
+<st-game><a href="https://stadia.google.com/player/cc3f233990754f77a5819a583594f399rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/7PI2LCXtqmseh1eDK-z7LRabcRxrEFjK94qr2IYEXvAsBTdTG0yIfUp88rqWmxX1niTzYnhEk7CJs8qVxaLIYlKnkRwzG-1gV7joHkOsUrBp2v0EMC3ExZMfY08=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/7PI2LCXtqmseh1eDK-z7LRabcRxrEFjK94qr2IYEXvAsBTdTG0yIfUp88rqWmxX1niTzYnhEk7CJs8qVxaLIYlKnkRwzG-1gV7joHkOsUrBp2v0EMC3ExZMfY08=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-----KKK-----dKK----4K-_---j--KK---L4-KK-----JKK-------K--K-J-K-">
           <st-name>Sekiro : Shadows Die Twice</st-name>
         </st-cover-micro>
         <st-slug>/sekiro-shadows-die-twice</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/6363b82d1cc442f5af9c3ce98ceb731drcp1">
+<st-game><a href="https://stadia.google.com/player/6363b82d1cc442f5af9c3ce98ceb731drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/aGmGBQNUXpUHl8grv2eDhsy6ce4zwLa3qgyG8Zp5hDGrXklYq5wRODMBqIDeLw7vuNmF7nh-VRep8KDjU-9ggkC6PhHIndG_WwJwJKx6e270YfbD2Eil5_wouw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/aGmGBQNUXpUHl8grv2eDhsy6ce4zwLa3qgyG8Zp5hDGrXklYq5wRODMBqIDeLw7vuNmF7nh-VRep8KDjU-9ggkC6PhHIndG_WwJwJKx6e270YfbD2Eil5_wouw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="_yeddKeyKPetP5esKuezKKKuzKzdt0eeKeejeKyy-dKejKPe3_j9eeeK3Keee_JK">
           <st-name>Immortals Fenyx Rising Demo</st-name>
         </st-cover-micro>
         <st-slug>/immortals-fenyx-rising-demo</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/19efd5fa36794d7b8bc87de68124e705rcp1">
+<st-game><a href="https://stadia.google.com/player/19efd5fa36794d7b8bc87de68124e705rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/bpqyXvDB0mEppRpNnNJifmiyxa6erFTI8CSndYKwfd6a0nc7ALV0EOqOcW0tHf5EInKWcFvUbfyaJRPX6Nc-zOT6FbcGEg2I2V072eOQKY-jRKHD8ic5E_zYcQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/bpqyXvDB0mEppRpNnNJifmiyxa6erFTI8CSndYKwfd6a0nc7ALV0EOqOcW0tHf5EInKWcFvUbfyaJRPX6Nc-zOT6FbcGEg2I2V072eOQKY-jRKHD8ic5E_zYcQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zeLe_zeKjzzejeeejzQfzeKzfvfey4LfzzffjLLLfffQ-KffffQL-QQQffQQQQQQ">
           <st-name>Cake Bash</st-name>
         </st-cover-micro>
         <st-slug>/cake-bash</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/41de509cbdbb4a13828636099c57731arcp1">
+<st-game><a href="https://stadia.google.com/player/41de509cbdbb4a13828636099c57731arcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/vdwN_8DQShq_nSxDPfK1E1cFjkyjqnpfuTosUIb7Bi6N5y5XtLF9JLC1AFfRG0LWxvv2eTQlcDBsb1xuQ13UQ75cOTSUfqCB9R4JfwTOTYQkTaDnYDs4UFqdvJkc=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/vdwN_8DQShq_nSxDPfK1E1cFjkyjqnpfuTosUIb7Bi6N5y5XtLF9JLC1AFfRG0LWxvv2eTQlcDBsb1xuQ13UQ75cOTSUfqCB9R4JfwTOTYQkTaDnYDs4UFqdvJkc=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="FFJK-FFFKeKjF_LKK-K-K4KKeFKdK5-0K--5K-jGF--4P----J0---------F---">
           <st-name>Baldur&#39;s Gate 3</st-name>
         </st-cover-micro>
         <st-slug>/baldurs-gate-3</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b67e43f2b05f4ba7acc56a4b222568aarcp1">
+<st-game><a href="https://stadia.google.com/player/b67e43f2b05f4ba7acc56a4b222568aarcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/p50w55LRqB2vZ2NgICU6JyRObkU8ZFHNNOxvFnpHBAdUNcrDSP80fzx5icvg4ujD9s1vxqQs_YjSKzZhiNobrYiy2rBnOb2ZsjzLJH60ARuxbg1vHoCJlJ2xwY0=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/p50w55LRqB2vZ2NgICU6JyRObkU8ZFHNNOxvFnpHBAdUNcrDSP80fzx5icvg4ujD9s1vxqQs_YjSKzZhiNobrYiy2rBnOb2ZsjzLJH60ARuxbg1vHoCJlJ2xwY0=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--KKFJ----KKFLF--JK4-LKK-JKKFKKK-FKKKLK--KL--LKK-KK-0KK---Q--fK-">
           <st-name>Dead by Daylight</st-name>
         </st-cover-micro>
         <st-slug>/dead-by-daylight</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/16d98de80a3340ffa4129953ae4e3206rcp1">
+<st-game><a href="https://stadia.google.com/player/16d98de80a3340ffa4129953ae4e3206rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/D8M1nKt3uaXVqu5vsE6p9lIju6gSgRIxrjKgT1HzR-A3YWm-orcRdUyQ-BSprBwFlxXrTU4em3CzDTyotjGcXR_i7S5RylJaPabmu1TiIiaCk8BFSYrJ8DY_VS8=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/D8M1nKt3uaXVqu5vsE6p9lIju6gSgRIxrjKgT1HzR-A3YWm-orcRdUyQ-BSprBwFlxXrTU4em3CzDTyotjGcXR_i7S5RylJaPabmu1TiIiaCk8BFSYrJ8DY_VS8=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="utttttdduKt_ettet0tzdtytttKuutettt-KuudtPuuyyueJPPdyy5uPuudueduP">
           <st-name>Human: Fall Flat</st-name>
         </st-cover-micro>
         <st-slug>/human-fall-flat</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/7b6d79b833354dcaa9b2461086a7763crcp1">
+<st-game><a href="https://stadia.google.com/player/7b6d79b833354dcaa9b2461086a7763crcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/FZdjBJ1ygbaXNw74RNTLvwTB9cNsSRzPvlC_kzT7wFqda9GYCqkbubf-3TpH-lrt09yFrKz9Um5S8BTXP5u2KhIUkccdctWna18_RNjUEL7_KecjNB-4XsM8EUtE=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/FZdjBJ1ygbaXNw74RNTLvwTB9cNsSRzPvlC_kzT7wFqda9GYCqkbubf-3TpH-lrt09yFrKz9Um5S8BTXP5u2KhIUkccdctWna18_RNjUEL7_KecjNB-4XsM8EUtE=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzyzzzzzzzyyzzzzzyyyxzzzzyzxzKzzzyJzzKzzxzJezzz_zZJJzzzzz_JZzzzz">
           <st-name>Risk of Rain 2</st-name>
         </st-cover-micro>
         <st-slug>/risk-of-rain-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b3bd32ef05444a189dcdc88f8e85d7f2rcp1">
+<st-game><a href="https://stadia.google.com/player/b3bd32ef05444a189dcdc88f8e85d7f2rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Jba4Eu87WWleMn00Rl04O3AOxKDZ-drE79FVV6Czw_neoSEaQvbo6ZfiMoqdBc1qWEtCDYVeiM9nZF5SrMs7TcCTF7lClORq3yEyGZA4TN9mtE9czw1oKaeLKoc=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Jba4Eu87WWleMn00Rl04O3AOxKDZ-drE79FVV6Czw_neoSEaQvbo6ZfiMoqdBc1qWEtCDYVeiM9nZF5SrMs7TcCTF7lClORq3yEyGZA4TN9mtE9czw1oKaeLKoc=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="LPPLLePKKLPK4KLKPPPK4PQePKfQKLKLLL5jQP445Q6-jQ55PLLQQQQP445L444K">
           <st-name>Serious Sam 4</st-name>
         </st-cover-micro>
         <st-slug>/serious-sam-4</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/5f54e869de4441f8998e80d2c54fa74brcp1">
+<st-game><a href="https://stadia.google.com/player/5f54e869de4441f8998e80d2c54fa74brcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/UHWCaasl8h-oq-DfmJxN1IghKfii4CaqVYcQ6Xk7mKLzxSTjlnaIUMEw-o1WGpHL66sSC_QW8FlL4-WbQDLCbGwWcSuafVcTvtGmUODXpXkST8LPs43R-hXBv_ia=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/UHWCaasl8h-oq-DfmJxN1IghKfii4CaqVYcQ6Xk7mKLzxSTjlnaIUMEw-o1WGpHL66sSC_QW8FlL4-WbQDLCbGwWcSuafVcTvtGmUODXpXkST8LPs43R-hXBv_ia=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--Fjj-FF-KGLQG----GLLG-0-FG005400aLr0YFK-4HGG64G3-0teK-333---033">
           <st-name>Hotline Miami</st-name>
         </st-cover-micro>
         <st-slug>/hotline-miami</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/68add0d67fe3491f94cb439664b1ffc7rcp1">
+<st-game><a href="https://stadia.google.com/player/68add0d67fe3491f94cb439664b1ffc7rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/AErmZ5XaVGSBvutxVrGzuiTQ3A40HS2Xxu5ALCouor0amFt8IJxnB3U9wnibceKslS15NA1dZgkycLG5Ygl6K25-w2o6TvNYbQtF6Ee2hE2tBewZq_dZvuCacA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/AErmZ5XaVGSBvutxVrGzuiTQ3A40HS2Xxu5ALCouor0amFt8IJxnB3U9wnibceKslS15NA1dZgkycLG5Ygl6K25-w2o6TvNYbQtF6Ee2hE2tBewZq_dZvuCacA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="PI-5Q0L5Of0fT-Q6M-L-00MQML-L00QIQ51LL6AAMQ-1LZ6QM-F_SF6Q4Pe_M-A4">
           <st-name>Hotline Miami 2:Wrong Number</st-name>
         </st-cover-micro>
         <st-slug>/hotline-miami-2-wrong-number</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/f28e66bbd0984c77ac6a54e8cc3007bdrcp1">
+<st-game><a href="https://stadia.google.com/player/f28e66bbd0984c77ac6a54e8cc3007bdrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/vj6IcsC0qUdBCP62Yb4WBL6dBV3qlwJyFJlupJs5dZJg0y6bcoM48EZrSwrbLXIYtkPNwrj7yyqcs-lDt_J4uIkOAXgS1dbGxZf2Gih_OX05g-gYinx_8Kn9mQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/vj6IcsC0qUdBCP62Yb4WBL6dBV3qlwJyFJlupJs5dZJg0y6bcoM48EZrSwrbLXIYtkPNwrj7yyqcs-lDt_J4uIkOAXgS1dbGxZf2Gih_OX05g-gYinx_8Kn9mQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eaaK_eKKfeeL_OKK0efz2KKKKJPPLFKKKdKLfLK_Kdd-KeK-edeF0uK-dee-KueG">
           <st-name>WWE 2K Battlegrounds</st-name>
         </st-cover-micro>
         <st-slug>/wwe-2k-battlegrounds</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/1694aaa3968344228424092f180a3e0ercp1">
+<st-game><a href="https://stadia.google.com/player/1694aaa3968344228424092f180a3e0ercp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/0Za-v137JTw6smGBkI7fpfnnsp6GbqczSuaimtqcNqnHbpsZl1s6B361V77RqNBbO4DEIdsqsAR-eH4T7-9hgv0wBD2CnkgMLV1uOp13Qd27eoaIj5WobmzY-g=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/0Za-v137JTw6smGBkI7fpfnnsp6GbqczSuaimtqcNqnHbpsZl1s6B361V77RqNBbO4DEIdsqsAR-eH4T7-9hgv0wBD2CnkgMLV1uOp13Qd27eoaIj5WobmzY-g=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="016LzA910P6z2A610Le2EA61016EjAA5116-5jA10166Az6101M66A6101666661">
           <st-name>UNO</st-name>
         </st-cover-micro>
         <st-slug>/uno</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/65864a95f9e74129845bda0467486413rcp1">
+<st-game><a href="https://stadia.google.com/player/65864a95f9e74129845bda0467486413rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/w9BxPN6zb77lscIMjHKTGPchYdGvIG0hZcmByW3gGr-3nefc1sAhiVJtmHtPwMDoPTUNwqxiMEQltkLudRZMBU1XiMdtVu2Ya4oooZGWuBQ_8nJAVBUzOa9KEoY=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/w9BxPN6zb77lscIMjHKTGPchYdGvIG0hZcmByW3gGr-3nefc1sAhiVJtmHtPwMDoPTUNwqxiMEQltkLudRZMBU1XiMdtVu2Ya4oooZGWuBQ_8nJAVBUzOa9KEoY=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--zK_z---FzK_z-FGJ-KKKGKGKF_GK_KFd-KKKKK-KKKKKKG-FKK_K-K-FFKKKKK">
           <st-name>République</st-name>
         </st-cover-micro>
         <st-slug>/r-publique</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b0a2ab7cdc194582bc4d111c07c2e30drcp1">
+<st-game><a href="https://stadia.google.com/player/b0a2ab7cdc194582bc4d111c07c2e30drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/2FW6vbDDDOU43DRG0xpEQ6qyKFh_7ZftTEzHdJp8LCNkN_ySnuXXzUsSVf56GTQarc2ur9CUYEc4zpuiN6LFtj_EFfkfWSFWYNJkbaHJPanVKFuirwZ8_eB6c24=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/2FW6vbDDDOU43DRG0xpEQ6qyKFh_7ZftTEzHdJp8LCNkN_ySnuXXzUsSVf56GTQarc2ur9CUYEc4zpuiN6LFtj_EFfkfWSFWYNJkbaHJPanVKFuirwZ8_eB6c24=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzzzzzfzzzzz1z4zzzzzzzezZ-2zzzzzzzzzzeazzzzzezvzzzzzzzzzzzzz2zzz">
           <st-name>NBA 2K21</st-name>
         </st-cover-micro>
         <st-slug>/nba-2k21</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/232ff8abc7f74421a477e9e09dbf487drcp1">
+<st-game><a href="https://stadia.google.com/player/232ff8abc7f74421a477e9e09dbf487drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/RV7lEfqDoBummiz6FkDxL5dCvq59bHuxsx7ALOOY5REbHjDhhWhqbiOT3nmdZjVLXjL6-dLATTkBWzTNCh2QoTzp9RnCyg0zkNxpWwJE1QgwzpEh0uOFdyO7QmVX=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/RV7lEfqDoBummiz6FkDxL5dCvq59bHuxsx7ALOOY5REbHjDhhWhqbiOT3nmdZjVLXjL6-dLATTkBWzTNCh2QoTzp9RnCyg0zkNxpWwJE1QgwzpEh0uOFdyO7QmVX=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eezKeeeKejeef0feeKeKf4ejjKKeLGKKeKJFKKKKetF--F-KKe-F---KKK---LKJ">
           <st-name>Marvel&#39;s Avengers</st-name>
         </st-cover-micro>
         <st-slug>/marvels-avengers</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/2847419bbb5146ed877a308d9884f504rcp1">
+<st-game><a href="https://stadia.google.com/player/2847419bbb5146ed877a308d9884f504rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/qSIBrH9k3LiSa44vXcMiGZ_Sypr_V_M2i2NtDS-vpGKMnK-ddrTULOEpqhlk4zQ8re3w5Viu4KnqVvocS6cRXEOe9lEMixTpEoYlwi9EQw5HhUIplvzR7xf3g3oO=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/qSIBrH9k3LiSa44vXcMiGZ_Sypr_V_M2i2NtDS-vpGKMnK-ddrTULOEpqhlk4zQ8re3w5Viu4KnqVvocS6cRXEOe9lEMixTpEoYlwi9EQw5HhUIplvzR7xf3g3oO=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zKfKIjzzLzzPzzz-zKKF_F-QjzAEFK2-4Ufeab-KjUGGFzMOPzjzyMzPzz-d_jdz">
           <st-name>SUPER BOMBERMAN R ONLINE</st-name>
         </st-cover-micro>
         <st-slug>/super-bomberman-r-online</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/9dc548a191914b419cc80802ca64788frcp1">
+<st-game><a href="https://stadia.google.com/player/9dc548a191914b419cc80802ca64788frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/3w9DlWrP-PJrMJjW4_DzODxd80liGLRKByfJJ2M0UdRwVC7cbBdyrEiLysYsby_x3rV8GumLrEQnKRChCwfmtryeR2j3-nwMoAaYi2VF8_bXsVWV3H5DDbby4g=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/3w9DlWrP-PJrMJjW4_DzODxd80liGLRKByfJJ2M0UdRwVC7cbBdyrEiLysYsby_x3rV8GumLrEQnKRChCwfmtryeR2j3-nwMoAaYi2VF8_bXsVWV3H5DDbby4g=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="QQQQA651---QU01UjjjQUjAfQ5jjLAU5AU1LLQQ0QQ6LHAA0AAALL65015611555">
           <st-name>Hello Neighbor</st-name>
         </st-cover-micro>
         <st-slug>/hello-neighbor</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/990ec302c2cd4ba7817cedcf633ab20frcp1">
+<st-game><a href="https://stadia.google.com/player/990ec302c2cd4ba7817cedcf633ab20frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/K4cdZyCNR-LtN8LtkHCuvcoc3QC7LEFBY8y9OjJxGkYRtStskmqamLFS2kFG1tcDgtkHwMnKX2Oq5iGXoNdXiCfuJMqKuD_gE9ABbHIZUorFDOFOSRzNPbDQlg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/K4cdZyCNR-LtN8LtkHCuvcoc3QC7LEFBY8y9OjJxGkYRtStskmqamLFS2kFG1tcDgtkHwMnKX2Oq5iGXoNdXiCfuJMqKuD_gE9ABbHIZUorFDOFOSRzNPbDQlg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="GaL11111aLF1aKK0---GK00G--G-000G-G-F0zzG-a-FGLeeau--GGHLvu-GGGLL">
           <st-name>HITMAN - World of Assassination</st-name>
         </st-cover-micro>
         <st-slug>/hitman-world-of-assassination</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/16330bd770134d85b5bef3cc6b1407ffrcp1">
+<st-game><a href="https://stadia.google.com/player/16330bd770134d85b5bef3cc6b1407ffrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/YLArj_wo5ZtpqIZmUqKEweGc21TJDPirzXMofM8-AMG1GPFWGKBsxIQGDsv3Uf_qUnkOgZdH274jfPNqX5DGp41LxoSp__YCj3BjN2RyZt-T3PeTxtDTKh7K_g=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/YLArj_wo5ZtpqIZmUqKEweGc21TJDPirzXMofM8-AMG1GPFWGKBsxIQGDsv3Uf_qUnkOgZdH274jfPNqX5DGp41LxoSp__YCj3BjN2RyZt-T3PeTxtDTKh7K_g=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--------FF-FFF--VFVV-FJ4-FFFFJ4--4---J-------J------FJJ-----FJJ-">
           <st-name>Gunsport</st-name>
         </st-cover-micro>
         <st-slug>/gunsport</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/657210fe20ad402b85bda8f816b80d98rcp1">
+<st-game><a href="https://stadia.google.com/player/657210fe20ad402b85bda8f816b80d98rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/o99nUkSgXlc6Xv4_yrgLRwd2mezYkwUeCpp0PS8KPTLmUjjLzZ6xXGwNdyMiPqlurS4rGtRneZMDZ7QB1wvwS_-Jxu4woHkfFCiCQJ6OpTWHbE0zNSGAIgRr97s=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/o99nUkSgXlc6Xv4_yrgLRwd2mezYkwUeCpp0PS8KPTLmUjjLzZ6xXGwNdyMiPqlurS4rGtRneZMDZ7QB1wvwS_-Jxu4woHkfFCiCQJ6OpTWHbE0zNSGAIgRr97s=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="6zzeufjf1uzeffez1ufeeeddKeaKddddKL0PuuuuKeuFyd__J_zZu_cJdeeuJJJJ">
           <st-name>Windbound</st-name>
         </st-cover-micro>
         <st-slug>/windbound</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/430bbe284fb7482c9afe8e877b119269rcp1">
+<st-game><a href="https://stadia.google.com/player/430bbe284fb7482c9afe8e877b119269rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/lFo7cvPbHFYhmc434VUUWeq8TDBJTTdtNleOMAQU3iWjshBqeffBfdNxCPm5CVaTKq8MVHrIOBeNEJjtVcdsikyFPMMF83HDBl0tyhc93DKm2VQdAd8F0r2N3K0=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/lFo7cvPbHFYhmc434VUUWeq8TDBJTTdtNleOMAQU3iWjshBqeffBfdNxCPm5CVaTKq8MVHrIOBeNEJjtVcdsikyFPMMF83HDBl0tyhc93DKm2VQdAd8F0r2N3K0=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eeuuuuuyuuuyJiyyuyeiezyyuyezyzzyuuzzyzzyuijzzzzdedzeee_JJJJ_dJJJ">
           <st-name>Spiritfarer</st-name>
         </st-cover-micro>
         <st-slug>/spiritfarer</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/6a2ac2fc8e684c41b5c14981dcb454fdrcp1">
+<st-game><a href="https://stadia.google.com/player/6a2ac2fc8e684c41b5c14981dcb454fdrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/pGQboi60jhx6FQkbf1bHEdE7OJ70cERWgcqshD5g_Zc8srTyfkCufqblHObG-iqKJqCotTT-6N5rxuNZffppKKK3kDtb2FENJxrQdYbyKwqVzYX9R7rvv30iNbA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/pGQboi60jhx6FQkbf1bHEdE7OJ70cERWgcqshD5g_Zc8srTyfkCufqblHObG-iqKJqCotTT-6N5rxuNZffppKKK3kDtb2FENJxrQdYbyKwqVzYX9R7rvv30iNbA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zyyyy_yyzyzyzJyzzyzyy_izzzJ22-PzyOzfOJezK334Ko3-3-4KKeee343OdKKK">
           <st-name>PGA TOUR 2K21</st-name>
         </st-cover-micro>
         <st-slug>/pga-tour-2k21</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cc1a8e0e94d54f15a22149fed93bbd7arcp1">
+<st-game><a href="https://stadia.google.com/player/cc1a8e0e94d54f15a22149fed93bbd7arcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Oiriurt7C92GiV2J5jXi2WuRouqvFXCSrRvZevSJfbSiSAhjfSw2C-pVjLOK_xi8d0sTkNFGVM-hItmkW7_CtJM3xno1EBjJcmDmuIBRTy3IyEFCJKDHP5Gx1w=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Oiriurt7C92GiV2J5jXi2WuRouqvFXCSrRvZevSJfbSiSAhjfSw2C-pVjLOK_xi8d0sTkNFGVM-hItmkW7_CtJM3xno1EBjJcmDmuIBRTy3IyEFCJKDHP5Gx1w=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="111zz010111zz0116511110151060Q01010Q5A-011LQ10-0QQ011000Q0002500">
           <st-name>DOOM</st-name>
         </st-cover-micro>
         <st-slug>/doom</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/382fe14629e148449e7b8f94e8aecb38rcp1">
+<st-game><a href="https://stadia.google.com/player/382fe14629e148449e7b8f94e8aecb38rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/AQgF-jStsi643muPSSCTAu5o3YCNUi9BubewYzLyoQNa1tIaDVtdPZbYdloPEdy6FpWfWehXWwVk1UH7Swrr937-LWwl5qE9frHMUgnLqcqPWd8TNpVymCuXxx8=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/AQgF-jStsi643muPSSCTAu5o3YCNUi9BubewYzLyoQNa1tIaDVtdPZbYdloPEdy6FpWfWehXWwVk1UH7Swrr937-LWwl5qE9frHMUgnLqcqPWd8TNpVymCuXxx8=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzzzzzzzzzzzvzzzzzzezzzzzzLLzzzzzzKzfMzzzzKLLLzzzzzLLLzzzzzLLMzz">
           <st-name>SUPERHOT: MIND CONTROL DELETE</st-name>
         </st-cover-micro>
         <st-slug>/superhot-mind-control-delete</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/d3d8e467203d401387857d5b6cc27263rcp1">
+<st-game><a href="https://stadia.google.com/player/d3d8e467203d401387857d5b6cc27263rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/e6LSULWu7uLIaoVSJRVlx5EHa2GauXpBCIQ5bGuya7ws8fEqIln1enwmXp77GZ27EEIpcze2vkXkX9320dY0FysL0MAzag7ckJypoNAcGFNKsPXNLf0z9BNSCQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/e6LSULWu7uLIaoVSJRVlx5EHa2GauXpBCIQ5bGuya7ws8fEqIln1enwmXp77GZ27EEIpcze2vkXkX9320dY0FysL0MAzag7ckJypoNAcGFNKsPXNLf0z9BNSCQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="yuezzzPzuKezeeezPeKeeKPe4PK4eeLLzOQLP-ejeP4P-0P444e0eK5494444445">
-          <st-name>Rock of Ages 3: Make &amp; Break</st-name>
+          <st-name>Rock of Ages 3: Make and Break</st-name>
         </st-cover-micro>
-        <st-slug>/rock-of-ages-3-make-break</st-slug>
+        <st-slug>/rock-of-ages-3-make-and-break</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/ed05d9df2ec4452594b07336e360a1aarcp1">
+<st-game><a href="https://stadia.google.com/player/ed05d9df2ec4452594b07336e360a1aarcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/N0zOQ_NWBD7V3Jk8KnEwsx6DaFmqoTx7DwTsRimPz1680tcFFavq6jctSBOQCfRhmEfQDGDjc2oH4SywCz5b_HWImcwQ45b_tlYHHSvVaRryez255PxiNNmAIA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/N0zOQ_NWBD7V3Jk8KnEwsx6DaFmqoTx7DwTsRimPz1680tcFFavq6jctSBOQCfRhmEfQDGDjc2oH4SywCz5b_HWImcwQ45b_tlYHHSvVaRryez255PxiNNmAIA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KeK_d____e_e_ede_FeeddeeKJzzeddK0K___euKGKKK_ezX__-ddFeavFGdKKKa">
           <st-name>Relicta</st-name>
         </st-cover-micro>
         <st-slug>/relicta</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/f5f9708a422a44cc876c240cfa07221drcp1">
+<st-game><a href="https://stadia.google.com/player/f5f9708a422a44cc876c240cfa07221drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/lSAl-AfUY-zFwLWjoHnXE7v2OjY6kCTZwRVQmXaEBR5oS3pkkzmb4UjpaZ_xmIHe4QgrwA7eswJJmkkIGvAjevgDjbtggpwwyEwpITL70CzxhwtplCnHBt512Q=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/lSAl-AfUY-zFwLWjoHnXE7v2OjY6kCTZwRVQmXaEBR5oS3pkkzmb4UjpaZ_xmIHe4QgrwA7eswJJmkkIGvAjevgDjbtggpwwyEwpITL70CzxhwtplCnHBt512Q=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzzzzz-zzzzzzz-zz-zAAz-zzF4AAz-zzz4AAz-zzzzzKz-zzzzzzF-zzzzzzzzz">
           <st-name>Kona</st-name>
         </st-cover-micro>
         <st-slug>/kona</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/8e77c7a4368944589b4c9d8179d2eb4crcp1">
+<st-game><a href="https://stadia.google.com/player/8e77c7a4368944589b4c9d8179d2eb4crcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/3O4TSLomARrLlHKKXT_GwyFZ3NjqF3XO1B36OkjJbR3Xm_qG2F3QaHwqAIT6RqTBWWVgDoMHeItCQZm-7EWXqe3namAwYpcN67E8DmLac-pu-_bVUYTR9P8lfcw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/3O4TSLomARrLlHKKXT_GwyFZ3NjqF3XO1B36OkjJbR3Xm_qG2F3QaHwqAIT6RqTBWWVgDoMHeItCQZm-7EWXqe3namAwYpcN67E8DmLac-pu-_bVUYTR9P8lfcw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--------------K-Pf-f-JJ-efffFJF-KeKK--K-----eee----K--KK--------">
           <st-name>Strange Brigade</st-name>
         </st-cover-micro>
         <st-slug>/strange-brigade</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/c911998e4f8d4c6ea6712c5ad33e4a54rcp1">
+<st-game><a href="https://stadia.google.com/player/c911998e4f8d4c6ea6712c5ad33e4a54rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/hCYpaTnJV_5kh9A_b7mHk7Irczsa-9D1IvSCfZu6qOqqNq0kHRAKfIYqDwhfgjLDIxvIVFlB2SxnudgH4fZuQMPtgijDEhdOpD0YTRN4jan2MRVLpTdnZaK5zOg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/hCYpaTnJV_5kh9A_b7mHk7Irczsa-9D1IvSCfZu6qOqqNq0kHRAKfIYqDwhfgjLDIxvIVFlB2SxnudgH4fZuQMPtgijDEhdOpD0YTRN4jan2MRVLpTdnZaK5zOg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KKKKKKK3KKKKOKK-KKjueKJ-KPPaaKJ3KK--KK-KMeKJJJK_eLLJJJKJGH-dKKKJ">
           <st-name>Celeste</st-name>
         </st-cover-micro>
         <st-slug>/celeste</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/6d0d865669774338b3ce888a84da6cdercp1">
+<st-game><a href="https://stadia.google.com/player/6d0d865669774338b3ce888a84da6cdercp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/5SLIiiPbwGuKqbjNqAsBSeBnBIT70gipNFcRB6pWUgNHfwnmG_njj98iJEX7Vn88Z8tKKhSEF21sE8Cy2ntOglHWHrgQk4wUbMgL-D1jz3Ieh1w-5lkhTdDfqaU=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/5SLIiiPbwGuKqbjNqAsBSeBnBIT70gipNFcRB6pWUgNHfwnmG_njj98iJEX7Vn88Z8tKKhSEF21sE8Cy2ntOglHWHrgQk4wUbMgL-D1jz3Ieh1w-5lkhTdDfqaU=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="K3K-F---K----O0-K4-j9KLK-K-Le0_d-KK-JK_tKee0JKKdPKeLKeKKeeKeKeKK">
           <st-name>Lara Croft and the Temple of Osiris</st-name>
         </st-cover-micro>
         <st-slug>/lara-croft-and-the-temple-of-osiris</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/76309b9f2f294b07b410e8b6aa879273rcp1">
+<st-game><a href="https://stadia.google.com/player/76309b9f2f294b07b410e8b6aa879273rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/FR-WpQKqruHCpYpUwTg0R4EaEndVTF_T44C90jVqtCQOnLKxiG--q-LYA2m9Gec1e5FT9lXwF_oRbUei9VO8RJRwJm1PFEXlUBmZK4S-AuDZ-6soO-rqd5Wivw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/FR-WpQKqruHCpYpUwTg0R4EaEndVTF_T44C90jVqtCQOnLKxiG--q-LYA2m9Gec1e5FT9lXwF_oRbUei9VO8RJRwJm1PFEXlUBmZK4S-AuDZ-6soO-rqd5Wivw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="_vvvffzu_vvvzvvz_vvfKvffavvjqvufajvzuvuQKazfeuffK__zavffFK_jjffF">
           <st-name>One Hand Clapping</st-name>
         </st-cover-micro>
         <st-slug>/one-hand-clapping</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/c1928530515748da9f55afc7243fd3e1rcp1">
+<st-game><a href="https://stadia.google.com/player/c1928530515748da9f55afc7243fd3e1rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/9aZmCcciNKTOtfNFQYBkdbyrKcrhskMp2BGnBJv09DjNaaeEtJ9yFBYv4AObqWuGL9YEqEGL7AMcQRdgTargjKNGMlyKHiST9BSC81t59mGDTx-J1ISAFZlyVQ=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/9aZmCcciNKTOtfNFQYBkdbyrKcrhskMp2BGnBJv09DjNaaeEtJ9yFBYv4AObqWuGL9YEqEGL7AMcQRdgTargjKNGMlyKHiST9BSC81t59mGDTx-J1ISAFZlyVQ=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-e_KFatZ-afGGa_WJKLGtG_eF_KFayKF--K_FaJFQ4GFFFF--A-GGFF--F----F-">
           <st-name>Orcs Must Die! 3</st-name>
         </st-cover-micro>
         <st-slug>/orcs-must-die-3</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/f3519f3dc3d74fbb8086520577b832e0rcp1">
+<st-game><a href="https://stadia.google.com/player/f3519f3dc3d74fbb8086520577b832e0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/vhqaoiurp5nmNe2yrMHiCzRGpBE0cXJ5yzNPUwDKLCqfHWq4v0NZnG6BwyQ73QAUCzRveOSxSHvk4AXXJbyIN_Tsi0_2IBzAK-CRmPucn25ZZqzuYjDINAeR-w=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/vhqaoiurp5nmNe2yrMHiCzRGpBE0cXJ5yzNPUwDKLCqfHWq4v0NZnG6BwyQ73QAUCzRveOSxSHvk4AXXJbyIN_Tsi0_2IBzAK-CRmPucn25ZZqzuYjDINAeR-w=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="1120-21111Lff4f111GzeP1112-KeFM11-eKze-111ee0-1L120Ke-111f-Ke-11">
           <st-name>F1 2020</st-name>
         </st-cover-micro>
         <st-slug>/f1-2020</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/05f66a46027747a08b930ea70374ac7frcp1">
+<st-game><a href="https://stadia.google.com/player/05f66a46027747a08b930ea70374ac7frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/tiy7lGcnSadgxZLcqGkAh8TIkcKF7KpjuCc7Yb7zsVt0_YPnlkSyXar00xYfy4IEnkK-xOBS0o4sMS2AeoRS75Q8061nL48NqVppZGj9HMTcjYQ53eRhkbLy6nE3=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/tiy7lGcnSadgxZLcqGkAh8TIkcKF7KpjuCc7Yb7zsVt0_YPnlkSyXar00xYfy4IEnkK-xOBS0o4sMS2AeoRS75Q8061nL48NqVppZGj9HMTcjYQ53eRhkbLy6nE3=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KrJZZJwaavascZZaacdttdzeuKduuduHae_KGJtGGGbLdeK__zzjJ-ad_e_eefzK">
           <st-name>Crayta</st-name>
         </st-cover-micro>
         <st-slug>/crayta</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/0a60fff637b445a797623d0c69433a9crcp1">
+<st-game><a href="https://stadia.google.com/player/0a60fff637b445a797623d0c69433a9crcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/QuBR4RrvtnhJYHCPbDrqzHK-sHj-CiJ5mTorBwuuKV97T3vvDpgNEwu9ccvsDZ0CqzNUvPGfgUgA3moELPFqL2Vt2BFUTlDa1xyXWgAEVzY7pgUIhoGzPuShBe47=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/QuBR4RrvtnhJYHCPbDrqzHK-sHj-CiJ5mTorBwuuKV97T3vvDpgNEwu9ccvsDZ0CqzNUvPGfgUgA3moELPFqL2Vt2BFUTlDa1xyXWgAEVzY7pgUIhoGzPuShBe47=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzzzzzzzzzz-zz--zzzzzzzzzzzzzzzzzzKezezKzzzzzz-zzzzzzzzzzzzzzzzz">
           <st-name>West of Loathing</st-name>
         </st-cover-micro>
         <st-slug>/west-of-loathing</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/ef14fb2f692c4b42b4b092d3e7864cd8rcp1">
+<st-game><a href="https://stadia.google.com/player/ef14fb2f692c4b42b4b092d3e7864cd8rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/emo8OMg2WrCCR231iyr96DXKOnMjck4ACiklQ2MIUxb1sk-4CRriIHHirCqhqnwUuHdtFAAivwbk_XIzLcnl8BTmhEDm26bG_yftFUiGcmoxLfNqHaqSYDqzag=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/emo8OMg2WrCCR231iyr96DXKOnMjck4ACiklQ2MIUxb1sk-4CRriIHHirCqhqnwUuHdtFAAivwbk_XIzLcnl8BTmhEDm26bG_yftFUiGcmoxLfNqHaqSYDqzag=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="pZcssytztjjttzyzssssyLHzyedLZfLztzezzTQzyd1HQPLztLHH0j1zzHILKHPy">
           <st-name>Monster Boy and the Cursed Kingdom</st-name>
         </st-cover-micro>
         <st-slug>/monster-boy-and-the-cursed-kingdom</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/6b43cecd79734ba28cef5894985c65f1rcp1">
+<st-game><a href="https://stadia.google.com/player/6b43cecd79734ba28cef5894985c65f1rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/4PB-AwkBss_SSWOTl7jVq_oxCK_pgOjZp86koLjoX-Sm4ABdgFOrR_-EKJeI_g0EFBHZZPGeJ64yJdI_8sUTQ1eLt6EslTeQ8R9g8Y9SvhnPD_ElF5IaritDpg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/4PB-AwkBss_SSWOTl7jVq_oxCK_pgOjZp86koLjoX-Sm4ABdgFOrR_-EKJeI_g0EFBHZZPGeJ64yJdI_8sUTQ1eLt6EslTeQ8R9g8Y9SvhnPD_ElF5IaritDpg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="---------------------H---H----H---ezzz0--HxJww-----JdK----------">
-          <st-name>Just Shapes &amp; Beats</st-name>
+          <st-name>Just Shapes and Beats</st-name>
         </st-cover-micro>
-        <st-slug>/just-shapes-beats</st-slug>
+        <st-slug>/just-shapes-and-beats</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/9b3ea6519cac48d68ca821f07b1a6a3drcp1">
+<st-game><a href="https://stadia.google.com/player/9b3ea6519cac48d68ca821f07b1a6a3drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/EEYUoZm0h6ZK0DXdbMz2Y44OuIkHyjvMbNvS4-RRttgkkD192zYV1hWrnb8g01a1nSivbR_H6Uh_IE_a9H8Rgj2z48_iKsrtarK3IhATtJajyQZGpCmvjWCYYMmX=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/EEYUoZm0h6ZK0DXdbMz2Y44OuIkHyjvMbNvS4-RRttgkkD192zYV1hWrnb8g01a1nSivbR_H6Uh_IE_a9H8Rgj2z48_iKsrtarK3IhATtJajyQZGpCmvjWCYYMmX=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="_zzKzzeeFeeKKeeKKKK-KeKKdyLzzeKFKeLKKd--KK4-KK--JK0---K-KKK--K--">
-          <st-name>Metro 2033 Redux</st-name>
+          <st-name>Metro 2033</st-name>
         </st-cover-micro>
-        <st-slug>/metro-2033-redux</st-slug>
+        <st-slug>/metro-2033</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b65c1c4dcdf24446bcecda190c6a2fe7rcp1">
+<st-game><a href="https://stadia.google.com/player/b65c1c4dcdf24446bcecda190c6a2fe7rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/LXYqwgAVSfrtwMdb04QwU_jZ1H1etEdIoMbrFyBYdg3ZVXOSjAWuk-1pzGGhYcKaUeCxZbOGJiEFqBnV1AU5utIyqhouCoKLzZ9cQVyNEFKWNPGra9Nvah3VLg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/LXYqwgAVSfrtwMdb04QwU_jZ1H1etEdIoMbrFyBYdg3ZVXOSjAWuk-1pzGGhYcKaUeCxZbOGJiEFqBnV1AU5utIyqhouCoKLzZ9cQVyNEFKWNPGra9Nvah3VLg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eezeLeeKKezPK-KKPeLP4-K-KKPzz---KK5-L-K-KK5---K-KK4--KK--4-F----">
-          <st-name>Metro Last Light Redux</st-name>
+          <st-name>Metro Last Light</st-name>
         </st-cover-micro>
-        <st-slug>/metro-last-light-redux</st-slug>
+        <st-slug>/metro-last-light</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/3e7b24085e704c10ab03f93a19947c14rcp1">
+<st-game><a href="https://stadia.google.com/player/3e7b24085e704c10ab03f93a19947c14rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Ymi7fRq9rqDF5UNVX3LULeL4RyqiQfeovNl0pKRcnvtUMoECxas8ODJq9SLKPcNd8xcAV3cuNOp-1wM4f6BYmn_6abjt3tw0-2W_ewQfIV9DcqUPq2alChNcWbM=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Ymi7fRq9rqDF5UNVX3LULeL4RyqiQfeovNl0pKRcnvtUMoECxas8ODJq9SLKPcNd8xcAV3cuNOp-1wM4f6BYmn_6abjt3tw0-2W_ewQfIV9DcqUPq2alChNcWbM=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="FFGGG_GFWWWQQXWGbb0GzfbaefaznHFfFGFGKFFGa_fe_aaavvvduHvvuuvuvuuu">
           <st-name>Wave Break</st-name>
         </st-cover-micro>
         <st-slug>/wave-break</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b17f16d4a4f94c0a85e07f54dbdedbb6rcp1">
+<st-game><a href="https://stadia.google.com/player/b17f16d4a4f94c0a85e07f54dbdedbb6rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/PUCpqPZn0NzwxkIyMkdRZ484BrgatrN-E_6l9b-hMFqbDziPEFaPopkCS1Ow4LMpXKQO0b57bIOtrc1Y2Nxz57G5pCOvwoj1BbI0x2XpgjP6my6T5U4MxQ9WgsM=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/PUCpqPZn0NzwxkIyMkdRZ484BrgatrN-E_6l9b-hMFqbDziPEFaPopkCS1Ow4LMpXKQO0b57bIOtrc1Y2Nxz57G5pCOvwoj1BbI0x2XpgjP6my6T5U4MxQ9WgsM=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KejzjeeKKLeeeeLK3PeKPeLKKKP4-KK-KKK-0KKK-4K0KK----K--K---K------">
-          <st-name>The Elder Scrolls Online: Tamriel Unlimited</st-name>
+          <st-name>The Elder Scrolls Online:</st-name>
         </st-cover-micro>
-        <st-slug>/the-elder-scrolls-online-tamriel-unlimited</st-slug>
+        <st-slug>/the-elder-scrolls-online</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/ffda0b7e397243f8956f92f89b6902c4rcp1">
+<st-game><a href="https://stadia.google.com/player/ffda0b7e397243f8956f92f89b6902c4rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Zgc_LRE8t-tIE0TMk3rfvmNdiLSoiV5jxcuLlsGIwu71FLZfqhqV9ALMlwean7POJAKuOtsGPz0BYwSLzIXJwcyO6NGx9pPhCC388yvgF6rNvaPtG0o7yVYVhw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Zgc_LRE8t-tIE0TMk3rfvmNdiLSoiV5jxcuLlsGIwu71FLZfqhqV9ALMlwean7POJAKuOtsGPz0BYwSLzIXJwcyO6NGx9pPhCC388yvgF6rNvaPtG0o7yVYVhw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="ezee___ejefddeKeeePeeeeeKeeeLuezKeeeteKPKe_zjejuKKKzKyKJJjLPK___">
-          <st-name>Panzer Dragoon: Remake</st-name>
+          <st-name>Panzer Dragoon:</st-name>
         </st-cover-micro>
-        <st-slug>/panzer-dragoon-remake</st-slug>
+        <st-slug>/panzer-dragoon</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/3aed855f10b34f618e5f6c6f5467bcf9rcp1">
+<st-game><a href="https://stadia.google.com/player/3aed855f10b34f618e5f6c6f5467bcf9rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/i6ZIXQ9RKfAc_KpLAxNbLRzljAijoJttuGAqGwWaBaxdc2knx-v8x_i44bKMopt1PyqrMRkTLpIKSAz77v3A15BXUoSG0Uo2QOqGgouUFIHYNPtM_ti97M6omg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/i6ZIXQ9RKfAc_KpLAxNbLRzljAijoJttuGAqGwWaBaxdc2knx-v8x_i44bKMopt1PyqrMRkTLpIKSAz77v3A15BXUoSG0Uo2QOqGgouUFIHYNPtM_ti97M6omg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="---00------zL-----JPP0----KeK4----KPPK0---KPPK-----00-0---------">
           <st-name>Little Nightmares</st-name>
         </st-cover-micro>
         <st-slug>/little-nightmares</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/f7afcff709e74227a5648aacadf03815rcp1">
+<st-game><a href="https://stadia.google.com/player/f7afcff709e74227a5648aacadf03815rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/5FpdmuacZhWJWU4SvnUxMAbhYI0NAL4AhO5bpRC72huqkNZvkZF_bJ4sTv8K_fotzPNG4P5SBf88JoJ-m8nTOSJ3MvXpeSFrtserJ8UNH2D5Hgj1HFdT94zPOfU=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/5FpdmuacZhWJWU4SvnUxMAbhYI0NAL4AhO5bpRC72huqkNZvkZF_bJ4sTv8K_fotzPNG4P5SBf88JoJ-m8nTOSJ3MvXpeSFrtserJ8UNH2D5Hgj1HFdT94zPOfU=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="dedeeedeeeudzzeeeeeeedJuueeFuHyyuFu-11zzu1y111z_z1e00ezzz1-e0uzz">
           <st-name>SUPERHOT</st-name>
         </st-cover-micro>
         <st-slug>/superhot</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/bbb1a143aa3449a5a1f236a05c305c9frcp1">
+<st-game><a href="https://stadia.google.com/player/bbb1a143aa3449a5a1f236a05c305c9frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/MFtnP1yANZK-_tbna-x_R1zCQXSJy02Q3TGkVr-vkedKH0M7yEgD2_Vpu7X4L7OgiLLI6c5d2kxdcNetkLIs64wfHsRJNu1jHW6Pb7oYSyD48tdKIJNlfkPg5w=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/MFtnP1yANZK-_tbna-x_R1zCQXSJy02Q3TGkVr-vkedKH0M7yEgD2_Vpu7X4L7OgiLLI6c5d2kxdcNetkLIs64wfHsRJNu1jHW6Pb7oYSyD48tdKIJNlfkPg5w=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="4--10--34jFM1Fe3AeG21GQ1fKGK-Gz4L5WLLGQKK6e12veKK-KKLJKKF0FGJ---">
           <st-name>Power Rangers: Battle for the Grid</st-name>
         </st-cover-micro>
         <st-slug>/power-rangers-battle-for-the-grid</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/c727a9083ce649e5b1cc6999c4fa2e5frcp1">
+<st-game><a href="https://stadia.google.com/player/c727a9083ce649e5b1cc6999c4fa2e5frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/H9mlv416K3WjSOMnV-9YbWP-YD9QmE0BdatE9xlcojeyVE06qkyWYMEryWiPsUlOAKAtmMcjY5nOo7YX6u25eq4kkKNqjD__Hx3hBPAiKthYeR7DORDMoUexUw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/H9mlv416K3WjSOMnV-9YbWP-YD9QmE0BdatE9xlcojeyVE06qkyWYMEryWiPsUlOAKAtmMcjY5nOo7YX6u25eq4kkKNqjD__Hx3hBPAiKthYeR7DORDMoUexUw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zyKzKFyyKyKueKyyJyeeuu_K_z_ddeyKuze_d_yKzu_ed_KKzuedeezzzzz__zzz">
           <st-name>Jotun</st-name>
         </st-cover-micro>
         <st-slug>/jotun</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/5ec4424b963f44d18d0016322c19c9f0rcp1">
+<st-game><a href="https://stadia.google.com/player/5ec4424b963f44d18d0016322c19c9f0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/KUyOxg3UiP5RPvyUg9yJyPHdgeDJK4jecxI4Z-Z-atd6lUD3Ed7fbyXr9BErUnDCdOcfTKR_IcQNMTA90bVa75Eaf8jjyGpRDVdYf_RLFwzJiyX0eGjweJ5vTBI=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/KUyOxg3UiP5RPvyUg9yJyPHdgeDJK4jecxI4Z-Z-atd6lUD3Ed7fbyXr9BErUnDCdOcfTKR_IcQNMTA90bVa75Eaf8jjyGpRDVdYf_RLFwzJiyX0eGjweJ5vTBI=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="---GF-----FWW-----Fma-----F_bF-----F------Q5G-------------------">
           <st-name>Sundered</st-name>
         </st-cover-micro>
         <st-slug>/sundered</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/d599576cddfc400f804b889460e84cb3rcp1">
+<st-game><a href="https://stadia.google.com/player/d599576cddfc400f804b889460e84cb3rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/oOkJU1EWPj1a1YTtcXC-yjN2TY2o-U91V_7fLhQ3sQfygV2WNBj4-iz7DUHdh1Haa-EtE736z-vKlIPxjIkkMjkgW8zg_vj0GPfRrqocDwAfCCOoRmpTtG_eZcI=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/oOkJU1EWPj1a1YTtcXC-yjN2TY2o-U91V_7fLhQ3sQfygV2WNBj4-iz7DUHdh1Haa-EtE736z-vKlIPxjIkkMjkgW8zg_vj0GPfRrqocDwAfCCOoRmpTtG_eZcI=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="4K00KKK04Fz-jKP0F2zMKKQK0Q-MeZP001MKfAMK0LMQMQLK05PQ1PQKK0zj22KK">
           <st-name>Embr</st-name>
         </st-cover-micro>
         <st-slug>/embr</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/5a0e892c933c4f56b4d87976cb655ecfrcp1">
+<st-game><a href="https://stadia.google.com/player/5a0e892c933c4f56b4d87976cb655ecfrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/2f9y7BvYG9RnFuEMBmCXbRbwdbG8g9AVQbMNx4m8M3bdIcIjVNz8MsY3jm6KTwGqsPa2XtHQ-y2gn0Yrtqf1UMwuYf1I2OeMHlHxQLlgdfkUzHr8xsjh7DWcpSg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/2f9y7BvYG9RnFuEMBmCXbRbwdbG8g9AVQbMNx4m8M3bdIcIjVNz8MsY3jm6KTwGqsPa2XtHQ-y2gn0Yrtqf1UMwuYf1I2OeMHlHxQLlgdfkUzHr8xsjh7DWcpSg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="------------------P0JK----0455----AQEK-----AeP---000000-0000000-">
           <st-name>DOOM 64</st-name>
         </st-cover-micro>
         <st-slug>/doom-64</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cba537cccfe3470b8784f88660ea5f09rcp1">
+<st-game><a href="https://stadia.google.com/player/cba537cccfe3470b8784f88660ea5f09rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/CEn9QNz4gY90OkffAIyEz63oeNZAdYqZ77d3FqCgBcSfMC7jcf1i50ax-007dtT4uym3mYRUmWP6QLLD9l9UgHvVaVYlSEGTIoZ6KC5a-RTtWAM121MJ7nIgVA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/CEn9QNz4gY90OkffAIyEz63oeNZAdYqZ77d3FqCgBcSfMC7jcf1i50ax-007dtT4uym3mYRUmWP6QLLD9l9UgHvVaVYlSEGTIoZ6KC5a-RTtWAM121MJ7nIgVA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-------------Je-----JKJF-11-JAAJ---e_KKJ--FJ_dKJ----_J-F---KJ--J">
           <st-name>Zombie Army 4: Dead War</st-name>
         </st-cover-micro>
         <st-slug>/zombie-army-4-dead-war</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cfd2977e1b9f412387ca2f44848400acrcp1">
+<st-game><a href="https://stadia.google.com/player/cfd2977e1b9f412387ca2f44848400acrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/QNGa9YH5S9nU2Q7Bh8kxjKszTQ_4KJ9_WbvQMnpIfmE2zKOo3PgzRUptWMqqgpaWp41ymK7cxCGxRl1xtVUqNCopHPuFxED_jg8UhFXEflq0B6dlvkJkcuTzjSI=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/QNGa9YH5S9nU2Q7Bh8kxjKszTQ_4KJ9_WbvQMnpIfmE2zKOo3PgzRUptWMqqgpaWp41ymK7cxCGxRl1xtVUqNCopHPuFxED_jg8UhFXEflq0B6dlvkJkcuTzjSI=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-KKKe-Ku-KKKe--u-KK_KKKy-KKeeeez-KKeyKez-K_eeKzz-KKeu-_z-KK_KeJy">
           <st-name>The Turing Test</st-name>
         </st-cover-micro>
         <st-slug>/the-turing-test</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/48ead86182b14fe0afcc5f2927dbed51rcp1">
+<st-game><a href="https://stadia.google.com/player/48ead86182b14fe0afcc5f2927dbed51rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Y5bhR3kzAE7olMePHIUoiHk6fs7gIvpqZyL5U-IKBMhRQbL7JQHVivWS7SavfywrA4bG2sd3crQ48orttlRYA8rneM1C0lqo-sDeQmtNGzVCoM2lOiIGLyufKSc=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Y5bhR3kzAE7olMePHIUoiHk6fs7gIvpqZyL5U-IKBMhRQbL7JQHVivWS7SavfywrA4bG2sd3crQ48orttlRYA8rneM1C0lqo-sDeQmtNGzVCoM2lOiIGLyufKSc=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KeKeKPeeeePLPeeeePeLjPeeKKLKKKeePLOPPKeK4KK-zKKeKKz---KPKKK-00KK">
           <st-name>OCTOPATH TRAVELER</st-name>
         </st-cover-micro>
         <st-slug>/octopath-traveler</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/10b8a9cc8ec746f29afc1fc3c3ded28brcp1">
+<st-game><a href="https://stadia.google.com/player/10b8a9cc8ec746f29afc1fc3c3ded28brcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Al3QfOz25vWgOUrxSQU0-xl8bn3ti2NpBq0fAoOP7-79omCOQIT9fo90QIeMtp7q5SlcKjFEQxSbWZFC732WsgDrBh1nDdQULf-K4vdSH6N3A4Dt4zz8r7gQg-xV=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Al3QfOz25vWgOUrxSQU0-xl8bn3ti2NpBq0fAoOP7-79omCOQIT9fo90QIeMtp7q5SlcKjFEQxSbWZFC732WsgDrBh1nDdQULf-K4vdSH6N3A4Dt4zz8r7gQg-xV=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="uuuuuuF-uye11zZJLLfeKf_FPOLffQ3KKKdKfztJP5eJJdJKzzeJKuy_4yuLjKuF">
           <st-name>Monopoly</st-name>
         </st-cover-micro>
         <st-slug>/monopoly</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/73182869b2a644bdbef46984b96e1721rcp1">
+<st-game><a href="https://stadia.google.com/player/73182869b2a644bdbef46984b96e1721rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/1WP4Jx7dV5tM3ggITM7pAum4JuicTvzZ8NZYwb65gXs_y_bmSvpu-7ifv6o4bwRERxDTvaKlvgp6yCS5k4P7XXm4YAySWfXJb9LDzkxHtsu8dQSPBOnME2d9Dw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/1WP4Jx7dV5tM3ggITM7pAum4JuicTvzZ8NZYwb65gXs_y_bmSvpu-7ifv6o4bwRERxDTvaKlvgp6yCS5k4P7XXm4YAySWfXJb9LDzkxHtsu8dQSPBOnME2d9Dw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="ttysdtzsPuzFGzzeOKtMUzK8Oe941dJ4fKOL1KJ_e_ePJeKzeKeKKeKKKKKLaKKK">
           <st-name>Get Packed</st-name>
         </st-cover-micro>
         <st-slug>/get-packed</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/a4c5eb3f4e614b7fadbba64cba68f849rcp1">
+<st-game><a href="https://stadia.google.com/player/a4c5eb3f4e614b7fadbba64cba68f849rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/EChPoakpUO2FPUd_jMIRqHy7uKRy7QsfA2pvRNRAr9aUSjkbV3MDR7fQwqr5Lwm7fyNVI4a8i1LWPej2IS_KeyjH_Fobn8lH5wyoDXLI82_6g4poA-_SxxXwqSM=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/EChPoakpUO2FPUd_jMIRqHy7uKRy7QsfA2pvRNRAr9aUSjkbV3MDR7fQwqr5Lwm7fyNVI4a8i1LWPej2IS_KeyjH_Fobn8lH5wyoDXLI82_6g4poA-_SxxXwqSM=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="___zKdd_ddz_d_d_eztttutdKuuuzeuK44QeKQfKK5f6LQQ0-04K0400---KK0--">
           <st-name>PLAYERUNKNOWN&#39;S BATTLEGROUNDS</st-name>
         </st-cover-micro>
         <st-slug>/playerunknowns-battlegrounds</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/e465c4086aff4884990933d9f119f5f5rcp1">
+<st-game><a href="https://stadia.google.com/player/e465c4086aff4884990933d9f119f5f5rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/YbbBjXaJtWreW3nA5z2PvznMec3ySOLnAthRUdg7Q3Wr7BXSLMMuU6Enwyx5yLuB1G9ZpJqm1RD6zAm2ZzE8UaWU4GIMTeDb3-5tRLRBoEhNdbenKNAjPcdkmlg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/YbbBjXaJtWreW3nA5z2PvznMec3ySOLnAthRUdg7Q3Wr7BXSLMMuU6Enwyx5yLuB1G9ZpJqm1RD6zAm2ZzE8UaWU4GIMTeDb3-5tRLRBoEhNdbenKNAjPcdkmlg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="----KKec----e8eJ----F1KJ------Ke-----FK------42K-----5fK--------">
           <st-name>MotoGP 20</st-name>
         </st-cover-micro>
         <st-slug>/motogp-20</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/15a067411b8d4429b0954434d8f05d48rcp1">
+<st-game><a href="https://stadia.google.com/player/15a067411b8d4429b0954434d8f05d48rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/De6syL9EA97s1Exz56Jg_3YxLOy06Il2I6hg0Yk8MqummuD70ufL69NS7PiQt4WqueXpdhUXhDewEXmqV667tpbcnoADUgOOp_Zzp89OoG8kWuOmy-ZZJYZT2__2=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/De6syL9EA97s1Exz56Jg_3YxLOy06Il2I6hg0Yk8MqummuD70ufL69NS7PiQt4WqueXpdhUXhDewEXmqV667tpbcnoADUgOOp_Zzp89OoG8kWuOmy-ZZJYZT2__2=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="dadKauJFaQeUUuKFu4-PLUF0eXGUUP__KXLeKu__AdddKFQLA__EFFLL6_4A454e">
           <st-name>Stacks On Stacks (On Stacks)</st-name>
         </st-cover-micro>
         <st-slug>/stacks-on-stacks-on-stacks</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/d334bea27ee64ef5a3a9bb14b1d6a88ercp1">
+<st-game><a href="https://stadia.google.com/player/d334bea27ee64ef5a3a9bb14b1d6a88ercp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/1lhuwC0b8Lycp3LZ80XPcWN_rZHEIIqQl4Uv8MRr4CFO52DFFCn1cCJHSni2cLXgpyQAlOqAHkcQBj7XQXrjOr1IKaHmffXU5sg2F0DAjkOt5WD83mw3R-bYGTTh=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/1lhuwC0b8Lycp3LZ80XPcWN_rZHEIIqQl4Uv8MRr4CFO52DFFCn1cCJHSni2cLXgpyQAlOqAHkcQBj7XQXrjOr1IKaHmffXU5sg2F0DAjkOt5WD83mw3R-bYGTTh=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="JJzeKzcK-JcKzzKJ-J0zzzJJ-O--e4J--K-LeKK---KjjK4--POKUK5--4JKUK9-">
           <st-name>Lost Words: Beyond the Page</st-name>
         </st-cover-micro>
         <st-slug>/lost-words-beyond-the-page</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cc97434908874852a6705d255a605dc8rcp1">
+<st-game><a href="https://stadia.google.com/player/cc97434908874852a6705d255a605dc8rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/9peeSCYDErB4rveQliQXKbuv3HHHnDUKL06gjHB-XYIiNagxQip2etO-C_NYTbJ5FusM4-j5P7dENu6nATYCrnWC3E_JKbOhDv05ZLIF848wN1cI_CMtM0t5Rg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/9peeSCYDErB4rveQliQXKbuv3HHHnDUKL06gjHB-XYIiNagxQip2etO-C_NYTbJ5FusM4-j5P7dENu6nATYCrnWC3E_JKbOhDv05ZLIF848wN1cI_CMtM0t5Rg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="fjfffeyyfffKzEyy0QeeeeP0QjKeeK-y-KKM2K-KK-_--L4eKeeK4KKK--0-----">
           <st-name>The Crew 2</st-name>
         </st-cover-micro>
         <st-slug>/the-crew-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/632522c846a041ce801e47b96ba2e265rcp1">
+<st-game><a href="https://stadia.google.com/player/632522c846a041ce801e47b96ba2e265rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/1vl54YOtfynrMsbouyaNwO4X5aeGXSXKRfZZUsEKIeeCSKFpmpm2MklltCPBMlBV7QijWiF1d-okJWxLpR3Qr1HC2QdPt-HVrlzuwoR4Kb9AnaVWau_CNDupAyd9=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/1vl54YOtfynrMsbouyaNwO4X5aeGXSXKRfZZUsEKIeeCSKFpmpm2MklltCPBMlBV7QijWiF1d-okJWxLpR3Qr1HC2QdPt-HVrlzuwoR4Kb9AnaVWau_CNDupAyd9=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-00ze450-40zzK4K-40yLL40K-5Q05K4000AQ5KKKK505KK-0L0-Q00040K045-4">
           <st-name>DOOM Eternal</st-name>
         </st-cover-micro>
         <st-slug>/doom-eternal</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/d43cd46c81734ca48e1a615310d0237crcp1">
+<st-game><a href="https://stadia.google.com/player/d43cd46c81734ca48e1a615310d0237crcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Jt12hp4_SPL8dAUPWPb9a78a6_w9dqDki4Gnm-WNm1vc4t1KJzhNYHCfNHQBNqbSQ10wj6CCKLkJhJkzw2DbUP8YUvCY0JeD1MV2BuwUV6CSpL6OTAmfUeqj-g=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Jt12hp4_SPL8dAUPWPb9a78a6_w9dqDki4Gnm-WNm1vc4t1KJzhNYHCfNHQBNqbSQ10wj6CCKLkJhJkzw2DbUP8YUvCY0JeD1MV2BuwUV6CSpL6OTAmfUeqj-g=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="e-euuKKeu-eKLKKKz-efzLKez-KjeLKze0-PP-KPKK-zKKG4-0KeK0-0--KK----">
-          <st-name>The Division 2</st-name>
+          <st-name>The Division 2 -</st-name>
         </st-cover-micro>
         <st-slug>/the-division-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/c4898519ff254b969ede8bafdff927e8rcp1">
+<st-game><a href="https://stadia.google.com/player/c4898519ff254b969ede8bafdff927e8rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/EDJXmZlwYp3nr2gjMYhSKPw8vsxpTkxi-VlUMAI0NrrQWp01mOeuLnRbQYunW_34-E0tQpFF3ANnIZf0dMh2ca2YbUjgvI0pMjWDJfexaow-HlB4PqiOcYf7o9Z7=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/EDJXmZlwYp3nr2gjMYhSKPw8vsxpTkxi-VlUMAI0NrrQWp01mOeuLnRbQYunW_34-E0tQpFF3ANnIZf0dMh2ca2YbUjgvI0pMjWDJfexaow-HlB4PqiOcYf7o9Z7=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="---------5j--50---911-0-4-DD4-v-c4L-Q--030P-0-ze--4--00---------">
           <st-name>SteamWorld Dig</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-dig</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/819cdf4b7ff94947941106571ccf41e5rcp1">
+<st-game><a href="https://stadia.google.com/player/819cdf4b7ff94947941106571ccf41e5rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/BmKVT4vYHvmpJBWzzQ_aks7pgL8bzk-ZFT242a9h6t41mQiOyJl91aY3zKa0oPEnQsmdb1RgfTv1UdhB7IUlpZdIkuaB9e_QY_dk1o6ENkr-_uVAn4-x05hdwA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/BmKVT4vYHvmpJBWzzQ_aks7pgL8bzk-ZFT242a9h6t41mQiOyJl91aY3zKa0oPEnQsmdb1RgfTv1UdhB7IUlpZdIkuaB9e_QY_dk1o6ENkr-_uVAn4-x05hdwA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="----GG---f-H4L0---400MG---d-0-0--Gfe0M0--G040a---GGJ-------H----">
           <st-name>SteamWorld Heist</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-heist</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/cabec52b78264dafac69011aeacd5753rcp1">
+<st-game><a href="https://stadia.google.com/player/cabec52b78264dafac69011aeacd5753rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/ZHeKdW-PB3G9cBNdSXeAfgifG5W3Prdorbp2ls5sTcagawXgWrfkapPRWar8WQOi_5aMEVBQ8XDAeTt5m8vXyimQ4jl_-IGGdhwjRVXAqEThHMQA00zA8uu68DY=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/ZHeKdW-PB3G9cBNdSXeAfgifG5W3Prdorbp2ls5sTcagawXgWrfkapPRWar8WQOi_5aMEVBQ8XDAeTt5m8vXyimQ4jl_-IGGdhwjRVXAqEThHMQA00zA8uu68DY=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="PeeefPPPeef0zKeeefjL5jfffjj54jefePLKQzeeeL4Qjfeeeeffffeeeeeffeee">
           <st-name>Serious Sam Collection</st-name>
         </st-cover-micro>
         <st-slug>/serious-sam-collection</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b832835182124d4d83cb76a74a76a33frcp1">
+<st-game><a href="https://stadia.google.com/player/b832835182124d4d83cb76a74a76a33frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/7GuaGW36-UMWoS3B0fDQ9V3wTUFpYAx22adiUN162c7SR3JfX8EQn2czFuMWXVxk8QxK7IjNJHfaA80FGayemuVshQL0r1ogpaG0NSYhyYzvM5uYuF_K8X1Puhk=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/7GuaGW36-UMWoS3B0fDQ9V3wTUFpYAx22adiUN162c7SR3JfX8EQn2czFuMWXVxk8QxK7IjNJHfaA80FGayemuVshQL0r1ogpaG0NSYhyYzvM5uYuF_K8X1Puhk=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--10-----010-----0114-j--0Q0J-K--K-6J11---A6--J-F-_---e--3------">
           <st-name>SteamWorld Dig 2</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-dig-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/b845605f8eb447008f3f0d2295265ffdrcp1">
+<st-game><a href="https://stadia.google.com/player/b845605f8eb447008f3f0d2295265ffdrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/D-p90wJ-1PtYala--zX5dMmaFIHTZiwYudGB-AcVharTzcf9G2TO7zhC625TB4a1U09tl1X7ql4KzMEhr24KvD49PitMLxI9MP7C30LnIegr1XqLfhTnpg-Clfg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/D-p90wJ-1PtYala--zX5dMmaFIHTZiwYudGB-AcVharTzcf9G2TO7zhC625TB4a1U09tl1X7ql4KzMEhr24KvD49PitMLxI9MP7C30LnIegr1XqLfhTnpg-Clfg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-d-KK---KTU0K-KKF4KKjL0K-aL40j---K0Kj004-445Kj00--5K004---LK4044">
           <st-name>SteamWorld Quest: Hand of Gilgamech</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-quest-hand-of-gilgamech</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/921e9afe46aa478fb4aa929a7b1a6bd5rcp1">
+<st-game><a href="https://stadia.google.com/player/921e9afe46aa478fb4aa929a7b1a6bd5rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/IROLlHyXNBYlWTJnDC7XU5A7wXZdzexyXeeiiO0ZTAdFHIOeQpBfl8SKHrhrBYbynte895jfIWp5rCf10X8ucm6WI7GMpKqypJw5YcsGsAiED-NA3DTu07rbZ2I=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/IROLlHyXNBYlWTJnDC7XU5A7wXZdzexyXeeiiO0ZTAdFHIOeQpBfl8SKHrhrBYbynte895jfIWp5rCf10X8ucm6WI7GMpKqypJw5YcsGsAiED-NA3DTu07rbZ2I=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="FFKKK-FFFFK---FFFF-zzeFFFFKe_KFFFFKKJ-FFFGKzPaFFFG_MKa-FF-----FF">
           <st-name>Spitlings</st-name>
         </st-cover-micro>
         <st-slug>/spitlings</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/d50e1c1b61224bceb65da9406f3f4e8frcp1">
+<st-game><a href="https://stadia.google.com/player/d50e1c1b61224bceb65da9406f3f4e8frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/naMIrWahw0AhZWz4o2SZ3xRl6X8E_xMhOPfoCrHBWBgphrPnkWqFDqWSGKqqVD6IqlklxEuyAtRj1sr9v1-f9kygJkraPUYt_2-GjIQCcU7UY5BhDqkks_-NBg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/naMIrWahw0AhZWz4o2SZ3xRl6X8E_xMhOPfoCrHBWBgphrPnkWqFDqWSGKqqVD6IqlklxEuyAtRj1sr9v1-f9kygJkraPUYt_2-GjIQCcU7UY5BhDqkks_-NBg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eeeeze--eeeue---_eKdF---zKae-J-Fe3P4----------------------------">
-          <st-name>Monster Energy Supercross - The Official Videogame 3</st-name>
+          <st-name>Monster Energy Supercross - 3</st-name>
         </st-cover-micro>
-        <st-slug>/monster-energy-supercross-the-official-videogame-3</st-slug>
+        <st-slug>/monster-energy-supercross-3</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/11c9ece5b3a045908d77cf2b66adb010rcp1">
+<st-game><a href="https://stadia.google.com/player/11c9ece5b3a045908d77cf2b66adb010rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/lpXmNmCyMsINt174NtZdLgIr-naFvDt95y5LA_XGio91PbdMDTnm7Dp9HE5Q44eZHqCLNzeJJ51WWBNA3KZAg-WXgkE4K0UPMkrLSdawwmAEveV1ldSfDAARRyGL=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/lpXmNmCyMsINt174NtZdLgIr-naFvDt95y5LA_XGio91PbdMDTnm7Dp9HE5Q44eZHqCLNzeJJ51WWBNA3KZAg-WXgkE4K0UPMkrLSdawwmAEveV1ldSfDAARRyGL=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="eydd_dddKduKfeddKedKe4dtedzKzdzeLezKJddeJdK0uudKJKeKedJKJJdKdeKJ">
-          <st-name>Tom Clancy&#39;s Ghost Recon Breakpoint</st-name>
+          <st-name>Ghost Recon Breakpoint</st-name>
         </st-cover-micro>
-        <st-slug>/tom-clancys-ghost-recon-breakpoint</st-slug>
+        <st-slug>/ghost-recon-breakpoint</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/be080ad40b434ca289166031d3e88623rcp1">
+<st-game><a href="https://stadia.google.com/player/be080ad40b434ca289166031d3e88623rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/ZNrc7lBTvvPCn0l0ZaR2_mc7FjjCzM-3_Ed4vstxX3imVyiIQ1sTm5TSs7hEbQ3l_Zqv4r_G_78CDjrpyk5q-dHdGIi1obxIVdVVZzjJYU5rzSMN7vQ101mWqylh=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/ZNrc7lBTvvPCn0l0ZaR2_mc7FjjCzM-3_Ed4vstxX3imVyiIQ1sTm5TSs7hEbQ3l_Zqv4r_G_78CDjrpyk5q-dHdGIi1obxIVdVVZzjJYU5rzSMN7vQ101mWqylh=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="JZ__JZZJZ_AAKE_JZt-jj4_JJuujQutJZejdUvuJKyu50L_ZLdL0_Hu_1030L8O_">
           <st-name>Borderlands 3</st-name>
         </st-cover-micro>
         <st-slug>/borderlands-3</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/80a70c13987841b3a2aedbcac54784abrcp1">
+<st-game><a href="https://stadia.google.com/player/80a70c13987841b3a2aedbcac54784abrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/uD6WALL3-sc6mOhy2qtmXh_8ozAAOoc6sIjb4EaaU8c9c9S_VRs8pxpUmIqP_OkgzUfSBF2y7JsF_0tWk-2waf09-m0VqGt47JqWzBFF4_-oTq8-KUkUNkCWhnA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/uD6WALL3-sc6mOhy2qtmXh_8ozAAOoc6sIjb4EaaU8c9c9S_VRs8pxpUmIqP_OkgzUfSBF2y7JsF_0tWk-2waf09-m0VqGt47JqWzBFF4_-oTq8-KUkUNkCWhnA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="Kzzezzzz-zzzezzz-zze-zzz-ez4Q5zz-zz--ezzKK---zezeK--jMeze--4--ez">
           <st-name>DRAGON BALL XENOVERSE 2</st-name>
         </st-cover-micro>
         <st-slug>/dragon-ball-xenoverse-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/f39390395ed5444d8e9b23460c8f9152rcp1">
+<st-game><a href="https://stadia.google.com/player/f39390395ed5444d8e9b23460c8f9152rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/gxrZ7kbuRLS_p5KaZKqNK-JmE0lxQ8tvVrJ5eCYqNVzcnkqfMYaswKO7ctPiP_f8WYIrrDfcpi65KXJgDyQwGzr5vTXNRp98gsuyCfT5KwPBSGw8dPKnuclmwQo=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/gxrZ7kbuRLS_p5KaZKqNK-JmE0lxQ8tvVrJ5eCYqNVzcnkqfMYaswKO7ctPiP_f8WYIrrDfcpi65KXJgDyQwGzr5vTXNRp98gsuyCfT5KwPBSGw8dPKnuclmwQo=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzzLKzzzzzzzzKGzzzzzzKLKzzzzKKPezzzzFeeejzeKKPKKfjKGKKKKzeK--KKe">
           <st-name>Darksiders Genesis</st-name>
         </st-cover-micro>
         <st-slug>/darksiders-genesis</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/8b7e7f7036e5483eaa8745d46248536crcp1">
+<st-game><a href="https://stadia.google.com/player/8b7e7f7036e5483eaa8745d46248536crcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/-yVMpBzhUPohpKlazmJ4WwxCztfqFxTOAZPr28tmhvvbxsWJohHUA_XNEBiTpBB5iRZTq7-AO5asjjUkNUkJCCRtFNHMskctMRk1nz419phwp4zA4CSxcuN4ops=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/-yVMpBzhUPohpKlazmJ4WwxCztfqFxTOAZPr28tmhvvbxsWJohHUA_XNEBiTpBB5iRZTq7-AO5asjjUkNUkJCCRtFNHMskctMRk1nz419phwp4zA4CSxcuN4ops=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzzyefeKeezzudKKzKzzzLKKzzzzzKd4KzKKM-PPKeLeLKjLKKPeKeL444KPQ4e4">
           <st-name>Assassin&#39;s Creed Odyssey</st-name>
         </st-cover-micro>
         <st-slug>/assassins-creed-odyssey</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/a38d988fb142400c947bf0a7b37fd404rcp1">
+<st-game><a href="https://stadia.google.com/player/a38d988fb142400c947bf0a7b37fd404rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/eXP-01YmEHqfR_f4gkKS_-Apcgo8GS1QIgtRVw-71dif6VqU40nZuKedr0wKZi8S6oGF1ZTJCxc7FIKWLYJzgtCU7wAs7SWLCSbG3eJ_kakEVZ4oB9UE2C7RrjPW=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/eXP-01YmEHqfR_f4gkKS_-Apcgo8GS1QIgtRVw-71dif6VqU40nZuKedr0wKZi8S6oGF1ZTJCxc7FIKWLYJzgtCU7wAs7SWLCSbG3eJ_kakEVZ4oB9UE2C7RrjPW=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="44P5Q54PLL-0655L4401L55L5LL40KPQPKPK44KK0KL9PLLK4PLKPeP0P44ejKPP">
           <st-name>Attack on Titan 2: Final Battle</st-name>
         </st-cover-micro>
         <st-slug>/attack-on-titan-2-final-battle</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/20e792017ab34ad89b70dc17a5c72d68rcp1">
+<st-game><a href="https://stadia.google.com/player/20e792017ab34ad89b70dc17a5c72d68rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/fRIOG_nX5om1bPavFzFyuVQqctDWwxcSmVg7-lL4av64SMRPEDigssaLhaJPr53VlcTpwbCguL3pOiPZe1Mf52Hf51UXFhkDU_Cka_gpiSp4cPfffqM0hKZF8bI=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/fRIOG_nX5om1bPavFzFyuVQqctDWwxcSmVg7-lL4av64SMRPEDigssaLhaJPr53VlcTpwbCguL3pOiPZe1Mf52Hf51UXFhkDU_Cka_gpiSp4cPfffqM0hKZF8bI=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KKKKKKKFKKK_d_KKKKK_dt_KKK__dd_KK__KKd__KKdK___KKK__d_KKJKK__KKK">
           <st-name>Destiny 2</st-name>
         </st-cover-micro>
         <st-slug>/destiny-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/ebf235012b054269af70eee901bc85cfrcp1">
+<st-game><a href="https://stadia.google.com/player/ebf235012b054269af70eee901bc85cfrcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/ZNbVuFKt_OzcXIhGQ6HdMzdcZU0WLX_tJdpSSXDvFTXRBoE047FTMYTXBKA6CUppdIPyB60sf__kogVfjYGLiY48JKRtTConxNEBPM6WvJsda0X3hkUXTPEI5kk=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/ZNbVuFKt_OzcXIhGQ6HdMzdcZU0WLX_tJdpSSXDvFTXRBoE047FTMYTXBKA6CUppdIPyB60sf__kogVfjYGLiY48JKRtTConxNEBPM6WvJsda0X3hkUXTPEI5kk=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="uyyyyueuKPKPLee4zzzfzK4QezKeO3KQKeK4O3F0-0K4KKK0--KP4L4K44LKLPL4">
           <st-name>Farming Simulator 19</st-name>
         </st-cover-micro>
         <st-slug>/farming-simulator-19</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/a447622dbe084c3e9ace4f913a939afarcp1">
+<st-game><a href="https://stadia.google.com/player/a447622dbe084c3e9ace4f913a939afarcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/shHWB-5Z_PGMIvjqsGo7zPb4Xeo1OZX1bDgbis5tJuACtGxO7LcJsGZOVr0UdodTzP77KQuOw52t4bsFAUhVpLHVnSMnPrnVB2OgAI_A8zVLcQ2oII_VLAD1aPo=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/shHWB-5Z_PGMIvjqsGo7zPb4Xeo1OZX1bDgbis5tJuACtGxO7LcJsGZOVr0UdodTzP77KQuOw52t4bsFAUhVpLHVnSMnPrnVB2OgAI_A8zVLcQ2oII_VLAD1aPo=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="KK_dK__KKed_FKKKKjeeKKKKKK-fK--KKKK-K------KK-K----KFF-F-----F--">
           <st-name>FINAL FANTASY XV</st-name>
         </st-cover-micro>
         <st-slug>/final-fantasy-xv</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/8a3cc52ad2334b1e91ded77bc43644e0rcp1">
+<st-game><a href="https://stadia.google.com/player/8a3cc52ad2334b1e91ded77bc43644e0rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/bhTAE9AYFT9fsWHReXauJCbrg4wWx6JcnDllgHNjkF0VAZyxxSpqzldY7GW13GkY9XD2lJ-pE4fh9bdD3J4zhqgCHEyqVhg5jVnYf4DJe-HvYY-wmttKn3tp6bUP=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/bhTAE9AYFT9fsWHReXauJCbrg4wWx6JcnDllgHNjkF0VAZyxxSpqzldY7GW13GkY9XD2lJ-pE4fh9bdD3J4zhqgCHEyqVhg5jVnYf4DJe-HvYY-wmttKn3tp6bUP=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--KK-0--K0zKzzKe_eue-GKKe0KUKKeKKQGP_KKe-94_0KGe004KPK_3--5OOPe-">
           <st-name>Football Manager 2020</st-name>
         </st-cover-micro>
         <st-slug>/football-manager-2020</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/ca805d3d37404654a91d2ea62fad7bd4rcp1">
+<st-game><a href="https://stadia.google.com/player/ca805d3d37404654a91d2ea62fad7bd4rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/NkKnPjx5pf_KtpTBLWydLybhKzWh2s3qp_m2SzGZ4u5iDDb_PuALemMCdnGZYnCoVzI_BWHevf-W-MPYIWfKWYiXqm3hBWIgiFsdCmfSf0EiX8_0wv0spvRj-VA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/NkKnPjx5pf_KtpTBLWydLybhKzWh2s3qp_m2SzGZ4u5iDDb_PuALemMCdnGZYnCoVzI_BWHevf-W-MPYIWfKWYiXqm3hBWIgiFsdCmfSf0EiX8_0wv0spvRj-VA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="ejzzeeeL1z2zeefL1111Kzz-e-eKK1K-eFz0-0--9900--Ke4--KKKee-K0KKLPe">
           <st-name>GRID</st-name>
         </st-cover-micro>
         <st-slug>/grid</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/18a3cc2bb111419c8ac873086d04dfaarcp1">
+<st-game><a href="https://stadia.google.com/player/18a3cc2bb111419c8ac873086d04dfaarcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Kn2LsxzVn65aWLTjJwB_kXDzGusf_bhLijJ-1T47G-6AC2a4bxRsD-IvgmOKv5QeKIbKOTA9PC9209LoLthGjhykbxIJNxLWruyeeBZvMXLANLarBQb5ByC7SwM=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Kn2LsxzVn65aWLTjJwB_kXDzGusf_bhLijJ-1T47G-6AC2a4bxRsD-IvgmOKv5QeKIbKOTA9PC9209LoLthGjhykbxIJNxLWruyeeBZvMXLANLarBQb5ByC7SwM=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="FKKKJKKKFKKKFz__K-KKJeKKK0K0KzF-K0K_PKF---F-yF-F4FKJKF--JKKJKK--">
           <st-name>GYLT</st-name>
         </st-cover-micro>
         <st-slug>/gylt</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/4b7f307c37364d659118bf7d435733c7rcp1">
+<st-game><a href="https://stadia.google.com/player/4b7f307c37364d659118bf7d435733c7rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/TI1PWXCuH739YBSZev3xdW0gaCIKLxuMX77jGqIOMMgNMFL8gSeGbpbK7-txwqlUAyrYOLyAIkdlOQcCFy3mkEPDDhQ6T_I8d_ISPV6a3a3ObcnBX6VodClyh9M=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/TI1PWXCuH739YBSZev3xdW0gaCIKLxuMX77jGqIOMMgNMFL8gSeGbpbK7-txwqlUAyrYOLyAIkdlOQcCFy3mkEPDDhQ6T_I8d_ISPV6a3a3ObcnBX6VodClyh9M=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="HIMIQQQQIN4zQPQQHbbzfZQPaLazbdaaaaaabGaaaK__a___a_K____________K">
           <st-name>Just Dance 2020</st-name>
         </st-cover-micro>
         <st-slug>/just-dance-2020</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/da94f3aa88b24eb6ae6fdff798f73355rcp1">
+<st-game><a href="https://stadia.google.com/player/da94f3aa88b24eb6ae6fdff798f73355rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/AxTeMN7KoEfDyyIHZLs583DTjg0p76d1ZG5j6C132xKkUefj5YkTDvANslKFTu1cthegaR5HwVjhwUwQLsLOP0aWlPMDxR4SXaS9tRZPXOvitq8Y6JQdtu0VVM8=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/AxTeMN7KoEfDyyIHZLs583DTjg0p76d1ZG5j6C132xKkUefj5YkTDvANslKFTu1cthegaR5HwVjhwUwQLsLOP0aWlPMDxR4SXaS9tRZPXOvitq8Y6JQdtu0VVM8=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="--F-----FFFKFe-F_FFFFzzF_VFzG4U___za-Ke___aaue0v_aaabee_K_a__KKF">
           <st-name>Kine</st-name>
         </st-cover-micro>
         <st-slug>/kine</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/7bfbcba307114ab88ae4231da2ec85d3rcp1">
+<st-game><a href="https://stadia.google.com/player/7bfbcba307114ab88ae4231da2ec85d3rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/cuRqApB8QJxOWkDaaEzicgga13YPUKrEUROyhwqlVKwE1xH3PKF4STAbBYJET5rkCrp0Ob75-EHFFW7AFWdtEGjI9A3O3fDF8ALQmkXGOt80WhuD2MuSSkxfkw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/cuRqApB8QJxOWkDaaEzicgga13YPUKrEUROyhwqlVKwE1xH3PKF4STAbBYJET5rkCrp0Ob75-EHFFW7AFWdtEGjI9A3O3fDF8ALQmkXGOt80WhuD2MuSSkxfkw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="QQUz4UAAQQU4QUAAQQQ5QzQAAQQ-QQQAAAQ54QQAQAQ015AAAAQ44AA5AAAAA555">
           <st-name>Mortal Kombat 11</st-name>
         </st-cover-micro>
         <st-slug>/mortal-kombat-11</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/8615c857d7d54efebd94fe17e3f2896crcp1">
+<st-game><a href="https://stadia.google.com/player/8615c857d7d54efebd94fe17e3f2896crcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/FDx3Tizwpn5wxPiEkQWXjI5slQh9gSirhBrmMVUH4Vo5zcQzFvyENdXs8QWo56XKYjuYP1feYFIkYBGsj5xesJXcqttEoF4dI5AWdzhYI97fmjUKvJXHIeXyhoXj=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/FDx3Tizwpn5wxPiEkQWXjI5slQh9gSirhBrmMVUH4Vo5zcQzFvyENdXs8QWo56XKYjuYP1feYFIkYBGsj5xesJXcqttEoF4dI5AWdzhYI97fmjUKvJXHIeXyhoXj=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="z-zzfK-Yf0--Yz-L4--zYzPz-zfzGLQz4zfLK1Qa5ef-L00AF-b00--GG-AG00QE">
           <st-name>RAGE 2</st-name>
         </st-cover-micro>
         <st-slug>/rage-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/2152a1e96d5b47b18a5df7ca9bb0751frcp1">
+<st-game><a href="https://stadia.google.com/player/2152a1e96d5b47b18a5df7ca9bb0751frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/Zf3hS1-H7E_tjrDIxTQVIhvrldafYKFfZ-GZE5WaMehcfSKxaUab5euoRQBzi7lYbq-AUzMEC6MVbAJC7ze3olFz4Sx1Zq3kfyF-BzTD6H48P7SArvAHCooliRw=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/Zf3hS1-H7E_tjrDIxTQVIhvrldafYKFfZ-GZE5WaMehcfSKxaUab5euoRQBzi7lYbq-AUzMEC6MVbAJC7ze3olFz4Sx1Zq3kfyF-BzTD6H48P7SArvAHCooliRw=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="11111-1111112--1-zz1AzA1---1K0AA11111--611110--1-0--0-K0-0----K0">
           <st-name>Red Dead Redemption 2</st-name>
         </st-cover-micro>
         <st-slug>/red-dead-redemption-2</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/e5c6ec7bf437491ea4ac0917df8f9640rcp1">
+<st-game><a href="https://stadia.google.com/player/e5c6ec7bf437491ea4ac0917df8f9640rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/1BZb1p7JVXbv2jSjaUNYebDdUZhv9Rrnsm_feiKDwpzBFkEMmt-QOxXDR_Ae9KfD-aIB4Mx8oW1RKOQ6-gkOx90IHQjjgzxeaazXB2oE6UWocJ4IUvy6PEPSUg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/1BZb1p7JVXbv2jSjaUNYebDdUZhv9Rrnsm_feiKDwpzBFkEMmt-QOxXDR_Ae9KfD-aIB4Mx8oW1RKOQ6-gkOx90IHQjjgzxeaazXB2oE6UWocJ4IUvy6PEPSUg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="_duyttd_dtydtttddyu_dytutyK--yyyyyyddyzyyyyd_yyzyuuddyzyuyuy_uyz">
           <st-name>Rise of the Tomb Raider: 20 Year Celebration</st-name>
         </st-cover-micro>
         <st-slug>/rise-of-the-tomb-raider-20-year-celebration</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/120348c2707740b99b509fad49a2f45drcp1">
+<st-game><a href="https://stadia.google.com/player/120348c2707740b99b509fad49a2f45drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/ugOc_Fupr2_LSLHA_-mnxJ23VAW1dBlHEvMB4TjH8UwfE3Z-r_JvUla5wE0OZq-HH491PNp1UU9KpBPHiW1kUR94Hikn9AH80CSlWWSiPIUfanEvfAU7CxHIpyhD=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/ugOc_Fupr2_LSLHA_-mnxJ23VAW1dBlHEvMB4TjH8UwfE3Z-r_JvUla5wE0OZq-HH491PNp1UU9KpBPHiW1kUR94Hikn9AH80CSlWWSiPIUfanEvfAU7CxHIpyhD=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="555L-5Q9PPPP0PPQQjj4fQQ5jj5zzUjAUjjQjejQQQQLLQQj4PP0-PQQ45P5KPPP">
           <st-name>SAMURAI SHODOWN</st-name>
         </st-cover-micro>
         <st-slug>/samurai-shodown</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/efa3b6108d3e41689b2223ba9d48f5c8rcp1">
+<st-game><a href="https://stadia.google.com/player/efa3b6108d3e41689b2223ba9d48f5c8rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/v-DEyREU-awx_y0_UrUZs9DTBj9XehM8P9gPPBJcFUB8IrUdRjyIJpayqdbPC2qXgmJGu7Hns9ufZmjoHDQ7ow4_DVZ9CQvmG4HBmap6te4nu6b5Nfvg_wXg-WA=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/v-DEyREU-awx_y0_UrUZs9DTBj9XehM8P9gPPBJcFUB8IrUdRjyIJpayqdbPC2qXgmJGu7Hns9ufZmjoHDQ7ow4_DVZ9CQvmG4HBmap6te4nu6b5Nfvg_wXg-WA=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="---55F----PPLK---KefKeFK-0PeFe---KPe-K---KKP-O0--3PK-K----KK-KKK">
           <st-name>Shadow of the Tomb Raider</st-name>
         </st-cover-micro>
         <st-slug>/shadow-of-the-tomb-raider</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/c121d8b3fa744b52b71bf3599cb3da7frcp1">
+<st-game><a href="https://stadia.google.com/player/c121d8b3fa744b52b71bf3599cb3da7frcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/_p33ZpHqaQSZY78a-6PhjiqNucXh5ToiDd6HzWkeV_sjhUeGHLWzmTzfRgzaPkcmMFFmGyatpCVr1nIxcsf2_7uR4vPjTOGMoMzaWDl7yaiDhnT6oNv6ab0aXg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/_p33ZpHqaQSZY78a-6PhjiqNucXh5ToiDd6HzWkeV_sjhUeGHLWzmTzfRgzaPkcmMFFmGyatpCVr1nIxcsf2_7uR4vPjTOGMoMzaWDl7yaiDhnT6oNv6ab0aXg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="Q0000006-001000---4660--K00A450--Kf5z0---K4LK-0---G-P-----00LF--">
           <st-name>Thumper</st-name>
         </st-cover-micro>
         <st-slug>/thumper</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1">
+<st-game><a href="https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/ItdfhlmZlO02nwB2DXVUYjI9No4a8YneGd89WAtsQWQxIfuQtaNHNao7gA5ctMHgC-WTtPGjuuyK64Sv4nhEUYf6gwGELlxDePAdoKo1dGRhb9d64jyzPV4kQg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/ItdfhlmZlO02nwB2DXVUYjI9No4a8YneGd89WAtsQWQxIfuQtaNHNao7gA5ctMHgC-WTtPGjuuyK64Sv4nhEUYf6gwGELlxDePAdoKo1dGRhb9d64jyzPV4kQg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="zzzKed-Kz0KzePK4ePKeKKK-e00ee---KKK-ee--e-e-eeK-eKKee4--KKKeeK--">
           <st-name>Tomb Raider</st-name>
         </st-cover-micro>
         <st-slug>/tomb-raider</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/a031419410cc48469ff8954ea0732640rcp1">
+<st-game><a href="https://stadia.google.com/player/a031419410cc48469ff8954ea0732640rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/yboeUZCnPqzW-B4pHW8XyT3khyMK4n0D-1Tcsgv2aoJ3eh3S3JwblvGsW6Emf0hGQwq9pK6Kao2TSAp4Lek5Bx-GDTcKmDYlUbZjdjh7VpEaHZ9JuXjam5IpRig=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/yboeUZCnPqzW-B4pHW8XyT3khyMK4n0D-1Tcsgv2aoJ3eh3S3JwblvGsW6Emf0hGQwq9pK6Kao2TSAp4Lek5Bx-GDTcKmDYlUbZjdjh7VpEaHZ9JuXjam5IpRig=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="Feezz__JFfz-cdKKFezKcedKKezJKedLKezKyueKPzjPzeKJKeeKeeKKeKKPeKKF">
           <st-name>Trials Rising</st-name>
         </st-cover-micro>
         <st-slug>/trials-rising</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/4884bd9bd7864cf28deef05ef4b69e70rcp1">
+<st-game><a href="https://stadia.google.com/player/4884bd9bd7864cf28deef05ef4b69e70rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/l3hk5KRHoVrFdS-77AlpQtt2oRX3xZnki3aaVu-Op8mwoSgLqRz8ZoUEvzOIFpfdIxS6Fj5Ih5xFBJ_8CadJNeW1fjSdGjDwqP11KKYjnTk-tyIcI8Ysp-Zvrtg=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/l3hk5KRHoVrFdS-77AlpQtt2oRX3xZnki3aaVu-Op8mwoSgLqRz8ZoUEvzOIFpfdIxS6Fj5Ih5xFBJ_8CadJNeW1fjSdGjDwqP11KKYjnTk-tyIcI8Ysp-Zvrtg=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="FZt_FFFFFFJ_JzKeJ-u___JJ-G___K_--GaF_ML0-FKGtMM0FdK10LLLF-fMfGaK">
           <st-name>Wolfenstein: Youngblood</st-name>
         </st-cover-micro>
         <st-slug>/wolfenstein-youngblood</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/2afad3696b394f669b49e4c0b6016958rcp1">
+<st-game><a href="https://stadia.google.com/player/2afad3696b394f669b49e4c0b6016958rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/_QkJm54vdjWppurf3MNWjpbsF0YDeOrsWIr0Mm-Fy13MRD2HIpqvPvXhssls75dWQ5RbyagL4EBY_Yd-2Yv3YvOsrXUn1ahEeeejmBfaCeyx-psRF4OtGsgfJPnq=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/_QkJm54vdjWppurf3MNWjpbsF0YDeOrsWIr0Mm-Fy13MRD2HIpqvPvXhssls75dWQ5RbyagL4EBY_Yd-2Yv3YvOsrXUn1ahEeeejmBfaCeyx-psRF4OtGsgfJPnq=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="Jez-0zz00ezzMze--0L0GH-L-KKM6L0000MeeM0L00140zf0-00055K00KK-56L2">
           <st-name>NBA 2K20</st-name>
         </st-cover-micro>
         <st-slug>/nba-2k20</st-slug>
       </a></st-game>
-    
-
-      <st-game><a href="https://stadia.google.com/player/879d82512f5441829250ead1aa678a70rcp1">
+<st-game><a href="https://stadia.google.com/player/879d82512f5441829250ead1aa678a70rcp1">
         <st-cover-full>
-          <img src="https://lh3.googleusercontent.com/hL0fFlZDmLSy4bzxsXeLNVf6o5vtnKU5Wk5V6HJ5c7C0JdkQNBa0WT8yqDu7esb47dTe7FoLzN7pu06c2nXBStZTfTBnC8e3fuLyJmbdcBZa0lSwHT3YtDO5azs=w640-h360-rw">
+          <img crossorigin src="https://lh3.googleusercontent.com/hL0fFlZDmLSy4bzxsXeLNVf6o5vtnKU5Wk5V6HJ5c7C0JdkQNBa0WT8yqDu7esb47dTe7FoLzN7pu06c2nXBStZTfTBnC8e3fuLyJmbdcBZa0lSwHT3YtDO5azs=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="-FKKKKF--FKKKKF--eKzzee-KKKezKKFKFezzeKKFKzezzKK-KzyeydK-ee_ede-">
           <st-name>Metro Exodus</st-name>
         </st-cover-micro>
         <st-slug>/metro-exodus</st-slug>
       </a></st-game>
-    
   </st-games>
 </main>
 
@@ -1892,20 +1628,8 @@ export const skus = new Map();
 export const digits =
   "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
 
-export const cleanName = name =>
-  name
-        .replace(/™/g, " ")
-        .replace(/®/g, " ")
-        .replace(/[\:\-]? Early Access$/g, " ")
-        .replace(/[\:\-]? \w+ Edition$/g, " ")
-        .replace(/\(\w+ Ver(\.|sion)\)$/g, " ")
-        .replace(/™/g, " ")
-        .replace(/\s{2,}/g, " ")
-        .replace(/^\s+|\s+$/g, "");
-
-
 export const slugify = (name, separator = "-") =>
-    cleanName(name)
+    name
     .normalize('NFKD')
     .replace(/\p{Mark}/gu, '')
     .toLowerCase()

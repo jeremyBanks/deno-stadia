@@ -11,19 +11,20 @@ export const html = (
 <title>${escape(name)}</title>
 
 <link rel="icon" href="/stadian.png">
+<link rel="apple-touch-icon" href="/pwa.png">
 <meta property="og:title" content="${escape(name)}">
 <meta property="og:image" content="/stadian.png">
-<link rel="apple-touch-icon" href="/pwa.png">
-<link rel="canonical" href="/">
 <meta property="og:description" content="a lightning-fast launcher for Stadia">
 
-<meta name="viewport" content="width=770">
+<link rel="canonical" href="/">
 <link rel="manifest" href="/manifest.json">
-<base>
+<meta name="referrer" content="no-referrer">
 
 <link rel="preload" as="image" href="/squirrel.png">
 <link rel="preload" as="image" href="/stadian.png">
 <link rel="preload" as="image" href="/ghost.png">
+
+<meta name="viewport" content="width=770">
 
 <style>
   * {
@@ -87,25 +88,6 @@ export const html = (
   code {
     display: contents;
     font-family: monospace;
-  }
-
-  s {
-    display: contents;
-    text-decoration: line-through;
-    text-decoration-color: rgba(128, 0, 0, 0.5);
-    text-decoration-style: wavy;
-    text-shadow:
-      1px 0 2px rgba(0, 0, 0, 0.25),
-      0 0 2px rgba(0, 0, 0, 0.25),
-      0 0 3px rgba(0, 0, 0, 0.25),
-      -1px 0 2px rgba(0, 0, 0, 0.25);
-    color: rgba(0, 0, 0, 0.125);
-    user-select: none;
-    cursor: not-allowed;
-  }
-
-  *[hidden] {
-    display: none;
   }
 
   button:enabled {
@@ -396,15 +378,10 @@ export const html = (
           main st-games st-game st-cover-micro {
             image-rendering: pixelated;
             background-size: 100% 100%;
-            display: none;
-          }
-
-          main st-games st-game st-cover-micro.rendered:not([hidden]) {
             display: grid;
           }
 
           main st-games st-game st-slug {
-            display: span;
             position: absolute;
             z-index: 3000;
             border-radius: 4px;
@@ -425,19 +402,32 @@ export const html = (
           }
 
           main st-games st-game st-cover-micro st-name {
-            backdrop-filter: blur(calc(180px/8));
             width: 100%;
             height: 100%;
             text-align: center;
             padding: 16px;
             justify-items: center;
             align-items: center;
-            -webkit-text-stroke: 1px black;
-            text-shadow: 0 0 2px black;
             font-size: 36px;
             font-weight: bold;
-            color: #FFFFFF;
             font-family: sans-serif;
+          }
+
+          main st-games st-game st-cover-micro:not([hidden]) st-name {
+            -webkit-text-stroke: 1px black;
+            text-shadow: 0 0 2px black;
+            color: #FFFFFF;
+            backdrop-filter: blur(calc(180px/8));
+          }
+
+          main st-games st-game st-cover-micro[hidden] st-name {
+            color: transparent;
+            z-index: 1000;
+          }
+
+          main st-games st-game st-cover-micro[hidden] st-name::selection {
+            color: default;
+            background: default;
           }
 </style>
 
@@ -453,17 +443,15 @@ export const html = (
   <st-games>
     ${
     games.map(({ gameId, coverImageUrl, coverThumbnailData, name, slug }) =>
-      `
-      <st-game><a href="https://stadia.google.com/player/${escape(gameId!)}">
+      `<st-game><a href="https://stadia.google.com/player/${escape(gameId!)}">
         <st-cover-full>
-          <img src="${escape(coverImageUrl)}=w640-h360-rw">
+          <img crossorigin src="${escape(coverImageUrl)}=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="${escape(coverThumbnailData)}">
           <st-name>${escape(name)}</st-name>
         </st-cover-micro>
         <st-slug>/${escape(slug)}</st-slug>
-      </a></st-game>
-    `
+      </a></st-game>`
     ).join("\n")
   }
   </st-games>
@@ -518,20 +506,8 @@ export const skus = new Map();
 export const digits =
   "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
 
-export const cleanName = name =>
-  name
-        .replace(/™/g, " ")
-        .replace(/®/g, " ")
-        .replace(/[\\:\\-]? Early Access$/g, " ")
-        .replace(/[\\:\\-]? \\w+ Edition$/g, " ")
-        .replace(/\\(\\w+ Ver(\\.|sion)\\)$/g, " ")
-        .replace(/™/g, " ")
-        .replace(/\\s{2,}/g, " ")
-        .replace(/^\\s+|\\s+$/g, "");
-
-
 export const slugify = (name, separator = "-") =>
-    cleanName(name)
+    name
     .normalize('NFKD')
     .replace(/\\p{Mark}/gu, '')
     .toLowerCase()

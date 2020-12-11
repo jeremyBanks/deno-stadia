@@ -43,58 +43,61 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   log.debug("Loaded game list, processing and generating thumbnails...");
 
-  // TODO: just use async iteration, this is a weird mess:
-  const games = (await Promise.all(
-    listPage.skus.filter((x) => x.type === "game").map(
-      async (game) => {
-        const image = await loadImage(game.coverImageUrl);
-        const canvas = Canvas.MakeCanvas(8, 8);
-        const context = canvas.getContext("2d")!;
-        context.drawImage(image, 0, 0, 8, 8);
-        const pixels = context.getImageData(0, 0, 8, 8);
+  const games = [];
 
-        const pixelDigits = new Array(64);
-        for (let i = 0; i < 64; i++) {
-          const [r, g, b] = pixels.data.slice(i * 4, i * 4 + 3);
-          const u6 = rgbToU6([r, g, b]);
-          pixelDigits.push(digits[u6]);
-        }
-        const coverThumbnailData = pixelDigits.join("");
+  for (const game of listPage.skus) {
+    if (game.type !== "game") {
+      continue;
+    }
 
-        let {
-          gameId,
-          skuId,
-          name,
-          description,
-          coverImageUrl,
-          skuPublished,
-          skuUpdated,
-        } = game;
+    const image = await loadImage(game.coverImageUrl);
+    const canvas = Canvas.MakeCanvas(8, 8);
+    const context = canvas.getContext("2d")!;
+    context.drawImage(image, 0, 0, 8, 8);
+    const pixels = context.getImageData(0, 0, 8, 8);
 
-        name = cleanName(name);
-        skuPublished ??= 0;
-        skuUpdated ??= 0;
+    const pixelDigits = new Array(64);
+    for (let i = 0; i < 64; i++) {
+      const [r, g, b] = pixels.data.slice(i * 4, i * 4 + 3);
+      const u6 = rgbToU6([r, g, b]);
+      pixelDigits.push(digits[u6]);
+    }
+    const coverThumbnailData = pixelDigits.join("");
 
-        const slug = slugify(name);
+    let {
+      gameId,
+      skuId,
+      name,
+      description,
+      coverImageUrl,
+      skuTimestampA,
+      skuTimestampB,
+    } = game;
 
-        log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
+    name = cleanName(name);
+    skuTimestampA ??= 0;
+    skuTimestampB ??= 0;
 
-        return {
-          gameId,
-          skuId,
-          name,
-          slug,
-          description,
-          coverThumbnailData,
-          coverImageUrl,
-          skuPublished,
-          skuUpdated,
-        };
-      },
-    ),
-  )).sort((a, b) =>
-    Math.max(b.skuPublished, b.skuUpdated) -
-    Math.max(a.skuPublished, a.skuUpdated)
+    const slug = slugify(name);
+
+    log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
+
+    games.push({
+      gameId,
+      skuId,
+      name,
+      slug,
+      description,
+      coverThumbnailData,
+      coverImageUrl,
+      skuTimestampA,
+      skuTimestampB,
+    });
+  }
+
+  games.sort((a, b) =>
+    Math.max(b.skuTimestampA, b.skuTimestampB) -
+    Math.max(a.skuTimestampA, a.skuTimestampB)
   );
 
   log.debug("Games processed, rendering page.");
@@ -120,9 +123,20 @@ const digits =
 
 const cleanName = (name: string) =>
   name
+    .replace(
+      /^SpongeBobSquarePants:Battle for Bikini BottomRehydrated$/,
+      "SpongeBob SquarePants: Battle for Bikini Bottom – Rehydrated",
+    )
+    .replace(/\bRe(mastered|hydrated|dux|make)$/gi, "")
+    .replace(/\bTamriel Unlimited$/gi, "")
+    .replace(/\bThe Official Videogame\b/gi, "")
+    .replace(/^Tom Clancy's\b/gi, "")
+    .replace(/:(\d)/g, " $1")
     .replace(/™/g, " ")
     .replace(/®/g, " ")
+    .replace(/&/g, " and ")
     .replace(/[\:\-]? Early Access$/g, " ")
+    .replace(/\bStandard Edition$/gi, " ")
     .replace(/[\:\-]? \w+ Edition$/g, " ")
     .replace(/\(\w+ Ver(\.|sion)\)$/g, " ")
     .replace(/\(\w+MODE\)$/g, " ")

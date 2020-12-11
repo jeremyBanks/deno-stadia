@@ -344,8 +344,8 @@ class Sku extends ViewModel {
     readonly name: string,
     readonly coverImageUrl: string,
     readonly description: string,
-    readonly skuPublished: number | undefined,
-    readonly skuUpdated: number | undefined,
+    readonly skuTimestampA: number | undefined,
+    readonly skuTimestampB: number | undefined,
     readonly publisherOrganizationId: string,
     readonly developerOrganizationIds: string[],
     readonly languages: string[],
@@ -372,8 +372,8 @@ class Sku extends ViewModel {
     const coverImageUrl = (proto as any)[2][1][0][0][1]?.split(
       /=/,
     )[0] as string;
-    const skuPublished = proto[10]?.[0] ?? undefined;
-    const skuUpdated = proto[26]?.[0] ?? undefined;
+    const skuTimestampA = proto[10]?.[0] ?? undefined;
+    const skuTimestampB = proto[26]?.[0] ?? undefined;
 
     const publisherOrganizationId = proto[15] as string;
     const developerOrganizationIds = proto[16] as string[];
@@ -388,8 +388,8 @@ class Sku extends ViewModel {
       name,
       coverImageUrl,
       description,
-      skuPublished,
-      skuUpdated,
+      skuTimestampA,
+      skuTimestampB,
       publisherOrganizationId,
       developerOrganizationIds,
       languages,

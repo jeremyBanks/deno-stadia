@@ -20,7 +20,7 @@
     },
     {
       "destination": "https://stadia.google.com/player/b7503867ccbc4ac7be7093fe3ba1523crcp1",
-      "source": "/watch-dogs-standard-edition",
+      "source": "/watch-dogs",
       "statusCode": 301
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "destination": "https://stadia.google.com/player/53bd183291e340dda697167108d3dc6brcp1",
-      "source": "/spongebobsquarepants-battle-for-bikini-bottomrehydrated",
+      "source": "/spongebob-squarepants-battle-for-bikini-bottom",
       "statusCode": 301
     },
     {
@@ -290,7 +290,7 @@
     },
     {
       "destination": "https://stadia.google.com/player/d3d8e467203d401387857d5b6cc27263rcp1",
-      "source": "/rock-of-ages-3-make-break",
+      "source": "/rock-of-ages-3-make-and-break",
       "statusCode": 301
     },
     {
@@ -350,17 +350,17 @@
     },
     {
       "destination": "https://stadia.google.com/player/6b43cecd79734ba28cef5894985c65f1rcp1",
-      "source": "/just-shapes-beats",
+      "source": "/just-shapes-and-beats",
       "statusCode": 301
     },
     {
       "destination": "https://stadia.google.com/player/9b3ea6519cac48d68ca821f07b1a6a3drcp1",
-      "source": "/metro-2033-redux",
+      "source": "/metro-2033",
       "statusCode": 301
     },
     {
       "destination": "https://stadia.google.com/player/b65c1c4dcdf24446bcecda190c6a2fe7rcp1",
-      "source": "/metro-last-light-redux",
+      "source": "/metro-last-light",
       "statusCode": 301
     },
     {
@@ -370,12 +370,12 @@
     },
     {
       "destination": "https://stadia.google.com/player/b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
-      "source": "/the-elder-scrolls-online-tamriel-unlimited",
+      "source": "/the-elder-scrolls-online",
       "statusCode": 301
     },
     {
       "destination": "https://stadia.google.com/player/ffda0b7e397243f8956f92f89b6902c4rcp1",
-      "source": "/panzer-dragoon-remake",
+      "source": "/panzer-dragoon",
       "statusCode": 301
     },
     {
@@ -505,12 +505,12 @@
     },
     {
       "destination": "https://stadia.google.com/player/d50e1c1b61224bceb65da9406f3f4e8frcp1",
-      "source": "/monster-energy-supercross-the-official-videogame-3",
+      "source": "/monster-energy-supercross-3",
       "statusCode": 301
     },
     {
       "destination": "https://stadia.google.com/player/11c9ece5b3a045908d77cf2b66adb010rcp1",
-      "source": "/tom-clancys-ghost-recon-breakpoint",
+      "source": "/ghost-recon-breakpoint",
       "statusCode": 301
     },
     {

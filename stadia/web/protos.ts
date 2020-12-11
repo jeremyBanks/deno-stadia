@@ -24,7 +24,7 @@ export const SkuInternalName = z.string().nonempty();
 export const SkuTypeId = z.number().positive().int();
 export const SkuDescription = z.string().nonempty();
 export const SkuPublicationDate = NullableTimestamp;
-export const SkuUpdateDate = NullableTimestamp;
+export const skuTimestampBate = NullableTimestamp;
 export const SkuLanguages = z.string().nonempty().array().nonempty();
 export const SkuCountries = z.string().nonempty().array().nonempty();
 export const SkuPublisher = OrganizationId;
@@ -60,7 +60,7 @@ export let Sku = z.tuple([
   /* 23 */ UNKNOWN,
   /* 24 */ SkuLanguages,
   /* 25 */ SkuCountries,
-  /* 26 */ SkuUpdateDate,
+  /* 26 */ skuTimestampBate,
   /* 27 */ UNKNOWN,
   /* 28 */ UNKNOWN,
   /* 29 */ UNKNOWN,
