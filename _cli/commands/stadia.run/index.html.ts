@@ -236,8 +236,14 @@ export const html = (
         justify-content: center;
       }
 
+        st-game a[hidden] {
+          display: none;
+        }
+
         html[data-st-matches="1"] main st-games {
-          grid-template-columns: repeat(auto-fill, calc(2 * 320px));
+          grid-template-columns: calc(2 * 320px);
+          justify-content: center;
+          justify-content: center;
         }
 
         html[data-st-matches="1"] main st-games st-game a {
@@ -416,8 +422,7 @@ export const html = (
           }
 
           main st-games st-game st-cover-micro:not([hidden]) st-name {
-            -webkit-text-stroke: 1px black;
-            text-shadow: 0 0 2px black;
+            text-shadow: 0 0 4px black, 0 0 8px black;
             color: #FFFFFF;
             backdrop-filter: blur(calc(180px/8));
           }
@@ -429,7 +434,6 @@ export const html = (
 
           main st-games st-game st-cover-micro[hidden] st-name::selection {
             color: default;
-            background: default;
           }
 </style>
 

@@ -226,8 +226,14 @@
         justify-content: center;
       }
 
+        st-game a[hidden] {
+          display: none;
+        }
+
         html[data-st-matches="1"] main st-games {
-          grid-template-columns: repeat(auto-fill, calc(2 * 320px));
+          grid-template-columns: calc(2 * 320px);
+          justify-content: center;
+          justify-content: center;
         }
 
         html[data-st-matches="1"] main st-games st-game a {
@@ -406,8 +412,7 @@
           }
 
           main st-games st-game st-cover-micro:not([hidden]) st-name {
-            -webkit-text-stroke: 1px black;
-            text-shadow: 0 0 2px black;
+            text-shadow: 0 0 4px black, 0 0 8px black;
             color: #FFFFFF;
             backdrop-filter: blur(calc(180px/8));
           }
@@ -419,7 +424,6 @@
 
           main st-games st-game st-cover-micro[hidden] st-name::selection {
             color: default;
-            background: default;
           }
 </style>
 
@@ -546,9 +550,9 @@
           <img crossorigin src="https://lh3.googleusercontent.com/Wxwi0K3UvVZcVW15OabXp5FPAyL02BfinO4Qki1sFeG6Iz0POnDFi0uO5qnJWGZLeCLYCejbFqxmroGKn46eOk4riUpBa1HIjJbFwLQTftyEOFldPuvy-ys78WY=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="3Zc0_t_eKJK0z_JzKK_-ue_uzFK-zzKzKLaJL_uuFKKFzzyueeK4zzueLeeFfP_F">
-          <st-name>Immortals Fenyx Rising Stadia</st-name>
+          <st-name>Immortals Fenyx Rising</st-name>
         </st-cover-micro>
-        <st-slug>/immortals-fenyx-rising-stadia</st-slug>
+        <st-slug>/immortals-fenyx-rising</st-slug>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/44752f1774ca4508a2c45e57121d7e8frcp1">
         <st-cover-full>
@@ -1644,6 +1648,7 @@ const cleanName = ((name) => name
     .replace(/[\:\-]? \w+ Edition$/g, " ")
     .replace(/\(\w+ Ver(\.|sion)\)$/g, " ")
     .replace(/\(\w+MODE\)$/g, " ")
+    .replace(/\bStadia\b/gi, "")
     .replace(/™/g, " ")
     .replace(/\s{2,}/g, " ")
     .replace(/^\s+|\s+$/g, ""));
@@ -1654,7 +1659,7 @@ const slugify = ((name, separator = "-") => cleanName(name)
     .toLowerCase()
     .replace(/'/g, "")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^\-+|\-+$/g, "")
+    .replace(/^[\-\s]+|[\-\s]+$/g, "")
     .replace(/\-/g, separator));
 
 const loadedImage = async (/** @type string */ url) => {

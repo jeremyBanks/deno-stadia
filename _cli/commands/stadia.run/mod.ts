@@ -143,6 +143,7 @@ export const cleanName = (name: string) =>
     .replace(/[\:\-]? \w+ Edition$/g, " ")
     .replace(/\(\w+ Ver(\.|sion)\)$/g, " ")
     .replace(/\(\w+MODE\)$/g, " ")
+    .replace(/\bStadia\b/gi, "")
     .replace(/™/g, " ")
     .replace(/\s{2,}/g, " ")
     .replace(/^\s+|\s+$/g, "");
@@ -154,7 +155,7 @@ export const slugify = (name: string, separator = "-") =>
     .toLowerCase()
     .replace(/'/g, "")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^\-+|\-+$/g, "")
+    .replace(/^[\-\s]+|[\-\s]+$/g, "")
     .replace(/\-/g, separator);
 
 const rgbToU6 = (rgb: [number, number, number]): number => {
