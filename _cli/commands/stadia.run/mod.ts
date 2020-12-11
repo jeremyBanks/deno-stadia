@@ -16,16 +16,6 @@ export const flags: FlagOpts = {
 };
 
 let canvas: any;
-try {
-  // this is a huge import, so we put it here instead of ./deps since it's not
-  // required for the library, only this command.
-  canvas = await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
-} catch (error) {
-  // this is bad but this is only for my use so
-  let { proxy, revoke } = Proxy.revocable({}, {});
-  revoke();
-  canvas = proxy;
-}
 
 const loadImage = throttled(
   Math.E,
@@ -35,6 +25,17 @@ const loadImage = throttled(
 export type Games = types.ThenType<ReturnType<typeof command>>;
 
 export const command = async (client: Client, flags: FlagArgs) => {
+  try {
+    // this is a huge import, so we put it here instead of ./deps since it's not
+    // required for the library, only this command.
+    canvas ??= await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
+  } catch (error) {
+    // this is bad but this is only for my use so
+    let { proxy, revoke } = Proxy.revocable({}, {});
+    revoke();
+    canvas = proxy;
+  }
+
   const Canvas = canvas.default;
 
   const name = flags.name;
@@ -74,11 +75,12 @@ export const command = async (client: Client, flags: FlagArgs) => {
       skuTimestampB,
     } = game;
 
-    name = cleanName(name);
+    const storeName = name;
+    name = cleanName(storeName);
     skuTimestampA ??= 0;
     skuTimestampB ??= 0;
 
-    const slug = slugify(name);
+    const slug = slugify(storeName);
 
     log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
 
@@ -86,6 +88,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
       gameId,
       skuId,
       name,
+      storeName,
       slug,
       description,
       coverThumbnailData,
@@ -125,35 +128,48 @@ export const cleanName = (name: string) =>
   name
     .replace(
       /^SpongeBobSquarePants:Battle for Bikini BottomRehydrated$/,
-      "SpongeBob SquarePants: Battle for Bikini Bottom – Rehydrated",
+      "SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated",
     )
+    .replace(/’/g, "'")
     .replace(/\bRe(mastered|hydrated|dux|make)$/gi, "")
     .replace(/\bTamriel Unlimited$/gi, "")
-    .replace(/\bThe Official Videogame\b/gi, "")
-    .replace(/^Tom Clancy's\b/gi, "")
-    .replace(/:(\w)/g, " $1")
-    .replace(/\s+:/g, ":")
+    .replace(/- The Official Videogame\b/gi, "")
+    .replace(/^Tom Clancy's/gi, "")
+    .replace(/^STAR WARS/gi, "Star Wars")
+    .replace(/^Dragon Ball Xenoverse/gi, "Dragon Ball Xenoverse")
+    .replace(/^WATCH_DOGS/gi, "Watch Dogs")
+    .replace(/^OCTOPATH TRAVELER/gi, "Octopath Traveler")
+    .replace(/^DOOM/gi, "Doom")
+    .replace(/^Samurai Shodown/gi, "Samurai Shodown")
+    .replace(
+      /^PlayerUnknown's Battlegrounds/gi,
+      "PlayerUnknown's Battlegrounds",
+    )
+    .replace(/^Final Fantasy/gi, "Final Fantasy")
     .replace(/™/g, " ")
     .replace(/®/g, " ")
-    .replace(/&/g, " and ")
     .replace(/[\:\-]? Early Access$/g, " ")
     .replace(/\bStandard Edition$/gi, " ")
     .replace(/[\:\-]? \w+ Edition$/g, " ")
     .replace(/\(\w+ Ver(\.|sion)\)$/g, " ")
     .replace(/\(\w+MODE\)$/g, " ")
+    .replace(/: 20 Year Celebration$/, "")
     .replace(/\bStadia\b/gi, "")
-    .replace(/™/g, " ")
+    .replace(/:(\w)/g, ": $1")
+    .replace(/(\w)\s+:/g, "$1:")
     .replace(/\s{2,}/g, " ")
-    .replace(/^\s+|\s+$/g, "");
+    .replace(/(^[\- :]+)|([\- :]+$)/g, "");
 
 export const slugify = (name: string, separator = "-") =>
   cleanName(name)
+    .replace(/é/g, "e")
     .normalize("NFKD")
-    .replace(/[\u0300-\u0362]/gu, "")
+    .replace(/[\u0300-\u0362]/g, "")
     .toLowerCase()
     .replace(/'/g, "")
+    .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^[\-\s]+|[\-\s]+$/g, "")
+    .replace(/(^[\- :]+)|([\- :]+$)/g, "")
     .replace(/\-/g, separator);
 
 const rgbToU6 = (rgb: [number, number, number]): number => {

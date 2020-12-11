@@ -105,7 +105,7 @@
     },
     {
       "destination": "https://stadia.google.com/player/a1ce1274a83244f1a099bebef7ae1233rcp1",
-      "source": "/tom-clancy-s-ghost-recon-wildlands",
+      "source": "/ghost-recon-wildlands",
       "statusCode": 301
     },
     {
@@ -230,7 +230,7 @@
     },
     {
       "destination": "https://stadia.google.com/player/65864a95f9e74129845bda0467486413rcp1",
-      "source": "/r-publique",
+      "source": "/republique",
       "statusCode": 301
     },
     {
@@ -595,7 +595,7 @@
     },
     {
       "destination": "https://stadia.google.com/player/e5c6ec7bf437491ea4ac0917df8f9640rcp1",
-      "source": "/rise-of-the-tomb-raider-20-year-celebration",
+      "source": "/rise-of-the-tomb-raider",
       "statusCode": 301
     },
     {

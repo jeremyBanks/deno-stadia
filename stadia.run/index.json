@@ -9,7 +9,8 @@
       "skuId": "a4d44ee20c90481c86163a5d7b7b9d97p",
       "skuTimestampA": 1607558400,
       "skuTimestampB": 1607558400,
-      "slug": "cyberpunk-2077"
+      "slug": "cyberpunk-2077",
+      "storeName": "Cyberpunk 2077"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Le1q52MYQpiGvXtuWkxE1-Lb3n3XkozkfmRbKKpkU-0h9BvBgB2Uoog3q3fC_-dMwN5vyh1VEwoW7Ed7pO1M4X6yZRutbnQ_wIkggkYpZW6gL1spdwAz8t_7UQg",
@@ -20,29 +21,32 @@
       "skuId": "9e7a4e4a25cf45bc81367d8087df7f3bp",
       "skuTimestampA": 1607500800,
       "skuTimestampB": 1607500800,
-      "slug": "unto-the-end"
+      "slug": "unto-the-end",
+      "storeName": "Unto The End"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/fHICh6G6MC1CmWfw9Phs1MG0UUZiOEDKX_2pA5_k_oCAHifcN65hPif3yUnKW-cuvzt-57aWGFBJH4ZpFiewdnWnENSepo8LtCo3h_iRfVqhp2LKs_stCchnyl6B",
       "coverThumbnailData": "Z_zzZ_zZdzdzdzzcujyyKtttdezeKdzKKKeKKKKjK0e4KKKeK_eKeKJKJOe-KeJe",
       "description": "Play as Marcus Holloway, a brilliant young hacker living in the birthplace of the tech revolution, the San Francisco Bay Area. Team up with Dedsec, a notorious group of hackers, to execute the biggest hack in history; take down ctOS 2.0, an invasive operating system being used by criminal masterminds to monitor and manipulate citizens on a massive scale.  Explore the dynamic open-world, full of gameplay possibilities Hack into every connected device and take control of the city infrastructure. Develop different skills to suit your playstyle, and upgrade your hacker tools – RC cars, Quadcopter drone, 3D printed weapons and much more.",
       "gameId": "e6005e58d6d3458abd01bcf68e264ccercp1",
-      "name": "Watch_Dogs 2",
+      "name": "Watch Dogs 2",
       "skuId": "b64033837ef440bfaba7b1c54a1ac866p",
       "skuTimestampA": 1479196800,
       "skuTimestampB": 1607500800,
-      "slug": "watch-dogs-2"
+      "slug": "watch-dogs-2",
+      "storeName": "Watch_Dogs® 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/AUY3ERUj4WlbXQ_dbQ59Q3UM2kJGvJatCgFV1k_yFucOdxQ2divkGZJuzLwBr8kLjT5kc1kVybZm2U9qw4H2mgs-IvF-PGqgATnmTwHGkEcm6viIskZOVD0Ksl8",
       "coverThumbnailData": "Keeee-zeKyeK-eyeKeK-Kueeeez--zzzee-KKeeee--Keeeee-KKKyeKKK-K4KdK",
       "description": "IN TODAY’S HYPER-CONNECTED WORLD, CHICAGO OPERATES UNDER CTOS, THE MOST ADVANCED COMPUTER NETWORK IN AMERICA.You are Aiden Pearce, a brilliant hacker but also a former thug, who’s criminal past lead to a violent family tragedy.In a world led by technology, you will be able to hack and manipulate the city's systems to stop traffic lights, detonate gas lines, turn off the electrical grid and more.The city of Chicago has become the ultimate weapon for a man bent on revenge.",
       "gameId": "b7503867ccbc4ac7be7093fe3ba1523crcp1",
-      "name": "WATCH_DOGS",
+      "name": "Watch Dogs",
       "skuId": "426d9b3d67b84b359c71606ef2672cbdp",
       "skuTimestampA": 1401001200,
       "skuTimestampB": 1607500800,
-      "slug": "watch-dogs"
+      "slug": "watch-dogs",
+      "storeName": "WATCH_DOGS STANDARD EDITION"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/B-Q8yML3LIUhHqa4DEpIoa5ePHfBiPlsLNFxraEMliQcN_DtfAGVbwf8hvK71j-CuTDjYfketP4G_D2I7nhwmCtgSFROjZiKW6pB2KOA99gP0X-TRXApk6eJnZE",
@@ -53,7 +57,8 @@
       "skuId": "fae281d43a044453a5ad2e1a1961625a",
       "skuTimestampA": 1595919600,
       "skuTimestampB": 1607414400,
-      "slug": "destroy-all-humans"
+      "slug": "destroy-all-humans",
+      "storeName": "Destroy All Humans!"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/s8X-0BCYqwybicQDTu43tvqV5BCXaDJ_AwLOAEmIT5jmsrSuPy9rUCNh-nOmpNVeKRFNFOdCVs6ulxOuOaH7UA0Q5Zo2hlvpZ7yZKymvefrj56uFML4M64t0vJYf",
@@ -64,18 +69,20 @@
       "skuId": "dfc0719b3a5b48ab8213033dc72bfdfcp",
       "skuTimestampA": 1506063600,
       "skuTimestampB": 1607414400,
-      "slug": "figment"
+      "slug": "figment",
+      "storeName": "Figment"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Zx1M8H4czFmxCqaC66dI8WKrqJV-i5u5KmYO-F6uqb_T0f8DyL5D4c1Dufqpk-ou90fiOusdFKvSu-wKKO6sS-wEs6lMRoLXeUtIaHC0Zc0-WuUdNqp5HKoe_aaS",
       "coverThumbnailData": "dddcedddcddeJJddZZdeeedJdddjjetLtddLzeK_MKKKzfPLeLeKKKfKFFFGK3FK",
       "description": "Are you ready, kids? The cult classic is back, faithfully remade in spongetastic splendor! Play as SpongeBob, Patrick and Sandy and show the evil Plankton that crime pays even less than Mr. Krabs. Want to save Bikini Bottom from lots of rampant robots? Of course you do! Want to underpants bungee jump? Why wouldn't you! Want to join forces in a brand new multiplayer mode? The battle is on!",
       "gameId": "53bd183291e340dda697167108d3dc6brcp1",
-      "name": "SpongeBob SquarePants: Battle for Bikini Bottom –",
+      "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
       "skuId": "a25302b5cbc44d03b1440d2adaa0dd5ap",
       "skuTimestampA": 1592895600,
       "skuTimestampB": 1607414400,
-      "slug": "spongebob-squarepants-battle-for-bikini-bottom"
+      "slug": "spongebob-squarepants-battle-for-bikini-bottom",
+      "storeName": "SpongeBobSquarePants:Battle for Bikini BottomRehydrated"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/YObt8lSJkHDKIyQLz3IgOfQ4b4iFQziWyPuExp34UOsRg0HTbsYajUyv7n4xqqpYLS6THMWAY1PP_ulGw9pw3fxISvIv6y0r56YgCcDH1H_BsDa5caPjIcIEng",
@@ -86,7 +93,8 @@
       "skuId": "bd0a6e3669c7410c8c3f86779cac1f44p",
       "skuTimestampA": 1521615600,
       "skuTimestampB": 1607414400,
-      "slug": "valkyria-chronicles-4"
+      "slug": "valkyria-chronicles-4",
+      "storeName": "Valkyria Chronicles 4 Complete Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/rdaqhyknGU1Kzph6wbqcJtrrbyDwx_WgqT5w6-msWNHxfSBiz4mTjpoTgjEoPv2p6mluNYJdjUefJN055BwPN2wTlEz7BBYm8V5V4k1EqbL6kCndrL6FwjsbZqkY",
@@ -97,7 +105,8 @@
       "skuId": "4761cd53808a462ca823a9e403baea99",
       "skuTimestampA": 1607007600,
       "skuTimestampB": 1607007600,
-      "slug": "el-hijo-a-wild-west-tale"
+      "slug": "el-hijo-a-wild-west-tale",
+      "storeName": "El Hijo - A Wild West Tale"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/I9Y4umEKbc5Zu4C9vZW628S-pPazBrx3UKNUtm2AWUgrWL_veaAvNvyI9pqQ6f-sUwWQWIcREZkjAZUhV_L5XrYycqKFZ8fCS1Aj__6IGH1nWBQaK8agfXMiTbA",
@@ -108,7 +117,8 @@
       "skuId": "dbea776881b04301a1815e2ad662419a",
       "skuTimestampA": 1606982400,
       "skuTimestampB": 1606982400,
-      "slug": "outcasters"
+      "slug": "outcasters",
+      "storeName": "Outcasters"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/GnTDBD8WMbX9NZCdGv-Q1VTp3Y89A2d2TCiSEgNAjUEj06wr9s6ToeYZrJx7FHlULGDj9EAB98odF1J_p8xdnCiu0WvhhWmJh1_nAPkIoh_DYgSOel53psJX5Mgo",
@@ -119,7 +129,8 @@
       "skuId": "6efd691ecc1c4c50a1a314bb085fb2d7p",
       "skuTimestampA": 1606982400,
       "skuTimestampB": 1606982400,
-      "slug": "phogs"
+      "slug": "phogs",
+      "storeName": "PHOGS!"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/TkF9Z6r4pFKGm4ED_F-cwzBrecXJrLgmuT-A2jJmMorUiYAOYUB5X1-pHuhUrdlCl4r4OvRW2qU_DzJ03LqcgYjTP2wZsuoFb8khAeUBZ8mPL9lMrwC-Yp7gfmk",
@@ -130,7 +141,8 @@
       "skuId": "07b0ea07f5554f70a2675fe696b4c9ebp",
       "skuTimestampA": 1606982400,
       "skuTimestampB": 1606982400,
-      "slug": "submerged-hidden-depths"
+      "slug": "submerged-hidden-depths",
+      "storeName": "Submerged: Hidden Depths"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Wxwi0K3UvVZcVW15OabXp5FPAyL02BfinO4Qki1sFeG6Iz0POnDFi0uO5qnJWGZLeCLYCejbFqxmroGKn46eOk4riUpBa1HIjJbFwLQTftyEOFldPuvy-ys78WY",
@@ -141,7 +153,8 @@
       "skuId": "e08ea1952a294f24b9ba58478f69a5ddp",
       "skuTimestampA": 1606971600,
       "skuTimestampB": 1606971600,
-      "slug": "immortals-fenyx-rising"
+      "slug": "immortals-fenyx-rising",
+      "storeName": "Immortals Fenyx Rising™ Stadia"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/fGWg_nvR9ZlrUyk0TJlezFKellUnsJD84yoDsY8NpsFpXezCcEPvJjEanp0dCPp3UTi2t1r6V5dLlEYPEknz2Qb8ZfzZJFODX6XxaMh0KjhoEtAxk5jDdA189bxI",
@@ -152,7 +165,8 @@
       "skuId": "dfda545ac2e94885a13b1434d370d4b0",
       "skuTimestampA": 1495810800,
       "skuTimestampB": 1606834800,
-      "slug": "everspace"
+      "slug": "everspace",
+      "storeName": "EVERSPACE™"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/susg4Yh08577wi055hdwdwlDF1JWd11g2UFTsuvwi-Y0mfCoikYLXgOGyLsyl5P5D2H86f1fBF7OjdsgcRdNMe8qZOnTPgmmPL1lObmh2YQ-aPfcty70MoF_kxw",
@@ -163,7 +177,8 @@
       "skuId": "ab83a7b5efed40188c8ab8798d7dbfa6",
       "skuTimestampA": 1519743600,
       "skuTimestampB": 1606834800,
-      "slug": "into-the-breach"
+      "slug": "into-the-breach",
+      "storeName": "Into the Breach"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/UF5uwY0LnoEaP4mK28Pgc4Ldu2der5HvhaiJovNYRizUjVCmA5ID_52BbHvBLjf62IAFFr_hI8odcu5VIPj3EDVgOBOMU1ZMPycm-2OPpjNA6B3-ALqPr3vCCZw",
@@ -174,7 +189,8 @@
       "skuId": "5f1dfba8e3d64b3bbd4979c504cea096p",
       "skuTimestampA": 1571929200,
       "skuTimestampB": 1606834800,
-      "slug": "secret-neighbor"
+      "slug": "secret-neighbor",
+      "storeName": "Secret Neighbor"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/IZxMR8xMWH3-ZGkFZRRh684yOTM-S9kDcWoMoafNbcVPc0sImI0DcwWciFHWkNvMUDLWUi6tJ5sTrZ15CdESm5B8MfggBYcS25QMDpUOoA-Bg7yATF_3PP8GmA",
@@ -185,7 +201,8 @@
       "skuId": "c3fcca2c75614bf6b634bedc2f766003p",
       "skuTimestampA": 1459148400,
       "skuTimestampB": 1606809600,
-      "slug": "chronos-before-the-ashes"
+      "slug": "chronos-before-the-ashes",
+      "storeName": "Chronos: Before the Ashes"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/pUtjyjm4X9aP18HzCvpkyqk922sHYN3l04Ians4t68BSmlN5zZlagXqVD88RGBbb2-ea_fyFpS4Vr1gOsEVX1VazeoJ90dY5haB0Bk-5pXCFWvcF1E3bVpJvodQ",
@@ -196,7 +213,8 @@
       "skuId": "2af064a6b4814ae6a280ab8018842623p",
       "skuTimestampA": 1561446000,
       "skuTimestampB": 1606809600,
-      "slug": "monster-jam-steel-titans"
+      "slug": "monster-jam-steel-titans",
+      "storeName": "Monster Jam Steel Titans"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/0L30Lgw5FVX3tv8uXiNIwp4wjHU--rcVhNZvmHdnPMl7uVu1S1QcywrRoE2Ds6P9E241eEPKrDnC51-KJMum3FZx8n8d6OviRtWbJwuSnEv6TXfgHugzfAzEPZ4",
@@ -207,29 +225,32 @@
       "skuId": "018fbca8f0f34f2a93332ccf9f05e520p",
       "skuTimestampA": 1553583600,
       "skuTimestampB": 1606723200,
-      "slug": "outward"
+      "slug": "outward",
+      "storeName": "Outward"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/JOiIVo_118QFfttGv1BVbt4Kb4-EH-WNppUwe3r5CkG-VsVel68z6wZ5lQbb_-TaZV-CZZTUHcc8-eOlTHdgsFjaaToO_P8Lqploi8amyuFjdoDu1rAHMN5VwiU",
       "coverThumbnailData": "uK-J_KF-zK0KKKJ-yu0J----ueuaF-e-yueK----eeJ-L---yezKK---eze--F--",
       "description": "A galaxy-spanning adventure awaits in STAR WARS Jedi: Fallen Order, a 3rd person action-adventure title from Respawn Entertainment. This narratively-driven single player game puts you in the role of a Jedi Padawan who narrowly escaped the purge of Order 66 following the events of Episode 3: Revenge of the Sith. On a quest to rebuild the Jedi Order, you must pick up the pieces of your shattered past to complete your training, develop new powerful Force abilities, and master the art of the iconic lightsaber - all while staying one step ahead of the Empire and its deadly Inquisitors.",
       "gameId": "36c01626f21f428e8d5ae35ce19c774brcp1",
-      "name": "STAR WARS Jedi: Fallen Order",
+      "name": "Star Wars Jedi: Fallen Order",
       "skuId": "73f14fd59eb3417c8439562f54d2fc4a",
       "skuTimestampA": 1573804800,
       "skuTimestampB": 1606204800,
-      "slug": "star-wars-jedi-fallen-order"
+      "slug": "star-wars-jedi-fallen-order",
+      "storeName": "STAR WARS Jedi: Fallen Order™"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/xsoeWu7TElTV7s1_N8ElA2IF1pOQhmzVU0WQpxDjN2CwA5SmcIKrRJt3sT9-MRhbV-a4WnMtnDltqjdumLl_qAEZLkiX2GfiPAzVLuRc9C_vY8N35wMNo8ug3l8",
       "coverThumbnailData": "uue-___KzezK-eedjjj0-edeKKee-eKKLe0K-PK4Kee--eeL-KKeePKK-4L4--4-",
       "description": "Create a team with up to 3 friends in Ghost Recon Wildlands and enjoy the ultimate military shooter experience set in a massive, dangerous, and responsive open world. TAKE DOWN THE CARTEL In a near future, Bolivia has fallen into the hands of Santa Blanca, a merciless drug cartel who spread injustice and violence. Their objective: to create the biggest Narco-State in history. BECOME A GHOST Create and fully customize your Ghost, weapons, and gear. Enjoy a total freedom of playstyle. Lead your team and take down the cartel, either solo or with up to three friends. EXPLORE BOLIVIA Journey through Ubisoft's largest action-adventure open world. Discover the stunning diverse landscapes of the Wildlands both on and off road, in the air, on land, and at sea with over 60 different vehicles.",
       "gameId": "a1ce1274a83244f1a099bebef7ae1233rcp1",
-      "name": "Tom Clancy’s Ghost Recon Wildlands -",
+      "name": "Ghost Recon Wildlands",
       "skuId": "e609b00ee98d4e0e9a5eb80789db566cp",
       "skuTimestampA": 1488873600,
       "skuTimestampB": 1605772800,
-      "slug": "tom-clancy-s-ghost-recon-wildlands"
+      "slug": "ghost-recon-wildlands",
+      "storeName": "Tom Clancy’s Ghost Recon Wildlands - Standard Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/X2sAjsIYZAH9P2b9AvcO9dnQErCP2QeJQ0HVt1d9cure9H_CVf5HDzgUxRzWWIkuxfCjLX6qjg3FAMapc_LuB3EAElNn6ObmXuPxSW13ih_rRDSKuSyBBysFxQ",
@@ -240,7 +261,8 @@
       "skuId": "3a7288e1be9d4e92bc87c2138aa547c1p",
       "skuTimestampA": 1605772800,
       "skuTimestampB": 1605772800,
-      "slug": "watch-dogs-legion"
+      "slug": "watch-dogs-legion",
+      "storeName": "Watch Dogs: Legion"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/vVXfKq1LCFJ9viVNS8FGoWL9XBPQOI5ktvq1cb3Bb8NomCFxEAYENh5Ija5SQUWKISHwlomiAuIm_e8V0F_ppZIKwQ20_KgfF-ae8UfEI037f1An8Zzf6uytFg",
@@ -251,7 +273,8 @@
       "skuId": "9a25de2639254575abb6f2d58d5c57e5",
       "skuTimestampA": 1605632400,
       "skuTimestampB": 1605632400,
-      "slug": "pac-man-mega-tunnel-battle"
+      "slug": "pac-man-mega-tunnel-battle",
+      "storeName": "PAC-MAN™ Mega Tunnel Battle"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Rl7xBLgSOz1pAJzIh6cQKs5p0wKMdxFAd_VJs7U9N3wsRHucaljF_WRCx8HAd5IJ5eB5VL1P1c2xfInBpybM66ucBVAk5XOZVThzROoE7Lyo-EklnFJo273u-_M",
@@ -262,7 +285,8 @@
       "skuId": "3af579475c334c62985ac80b3dfed0bap",
       "skuTimestampA": 1605168000,
       "skuTimestampB": 1605168000,
-      "slug": "family-feud"
+      "slug": "family-feud",
+      "storeName": "Family Feud®"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/ClHPsFqXXMRSBcEZJFI0eEeCT_aDUc35TQI--Ji5LFqzPyaL35VqQIPfai1rOjzCLpqotSo3YisKy8SpBHDoPgPCiU2MVzTa01CKYcFhRjgggdVaky9jOB0ivEmd",
@@ -273,7 +297,8 @@
       "skuId": "691ff561f94e4fe79a219434f4186862",
       "skuTimestampA": 1605168000,
       "skuTimestampB": 1605168000,
-      "slug": "just-dance-2021"
+      "slug": "just-dance-2021",
+      "storeName": "Just Dance® 2021"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/DjkuZG6McXYD2YUgrKVVFbwWUEzuE7Rx23j3Y3H7kETtHzhN7npF1WK9ap43SaKIrndjxmhhJxPCvLuOlC-YRfrsJko9iSoJFH7q7WGAD_SQRMNSBSaynnkUexuy",
@@ -284,7 +309,8 @@
       "skuId": "cc0def63fcb547b2ab1e8dd8e4ac8a63",
       "skuTimestampA": 1604995200,
       "skuTimestampB": 1604995200,
-      "slug": "assassins-creed-valhalla"
+      "slug": "assassins-creed-valhalla",
+      "storeName": "Assassin's Creed Valhalla"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/CIsqhClRxS2rWiRtHBrkHHJhhnogvQBA8WnD-4h8KhHG_qtQFj-h87mPjeBEckyiGnjZ3MK0GyUuRTRa4sJYcnfvNQMxbwkSnW7e9KAVdUJKkEN3bZpQS6vSero",
@@ -295,7 +321,8 @@
       "skuId": "be70e67b1fd64dc2bb4f002e65239731p",
       "skuTimestampA": 1598918400,
       "skuTimestampB": 1604588400,
-      "slug": "ary-and-the-secret-of-seasons"
+      "slug": "ary-and-the-secret-of-seasons",
+      "storeName": "Ary and the Secret of Seasons"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/5jiDJ_5XhkGVpXN06cBFq38byDD1XIkYSBkvpBKTIOtuGS_jbSgWmOFa_5wxJKqM3ZdJIwuuKpsnbCoOftVL356ADDM1a0r3ESqZE_eSRWINwBNDMzCAdQs8XVoJ",
@@ -306,7 +333,8 @@
       "skuId": "c00cecabcbde4e95bdab69be6e80b40bp",
       "skuTimestampA": 1571324400,
       "skuTimestampB": 1604588400,
-      "slug": "little-big-workshop"
+      "slug": "little-big-workshop",
+      "storeName": "Little Big Workshop"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/pWpjJMOBrsJ3jnelmHn-Uo0Bl3Zrhc7Vsz2ZLTNadHIFaSTYfnzf43KbzR4sstzi79Pt_rqEEgbZt0BEfZt0ork5mgP4DSUvjXdXPScCySduYn_H4QvwcSK_Ma77",
@@ -317,7 +345,8 @@
       "skuId": "f500f7d58be94fa389e1cdef3bf1118ep",
       "skuTimestampA": 1550217600,
       "skuTimestampB": 1604390400,
-      "slug": "far-cry-new-dawn"
+      "slug": "far-cry-new-dawn",
+      "storeName": "Far Cry® New Dawn"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/b5fW4qH23yWdf34EO__w7fkQg2JxlMjwHU3ZzQfsE0GemtiOMgEwQee1GY1WI3x3QWxRKflJW3nDmhrWo2uGoKaQTKs0xzhGBrfsHa2Xssxy1WRdBIfjZmouALbw",
@@ -328,7 +357,8 @@
       "skuId": "b446084511c54da8a9b3381be38255c7p",
       "skuTimestampA": 1522134000,
       "skuTimestampB": 1604390400,
-      "slug": "far-cry-5"
+      "slug": "far-cry-5",
+      "storeName": "Far Cry 5"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/6HvkX4mV-LMUf7qL338sLn2Ss7NZeA2UD8iC2QYLBVY7Sz5U7yALebd2D6N9dlI8bg66VgtuLiRzzBvTAGEKn1sJe8K_jSf1lGmx3tQeeqKW-Dw1m1MN0l07iQ",
@@ -339,7 +369,8 @@
       "skuId": "ad2362e56c57469cafad1ed5799e8997p",
       "skuTimestampA": 1544194800,
       "skuTimestampB": 1604242800,
-      "slug": "hello-neighbor-hide-and-seek"
+      "slug": "hello-neighbor-hide-and-seek",
+      "storeName": "Hello Neighbor: Hide and Seek"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/whkXXypLDhhRjfTnoj6FvOkkmeGphAM2kmeYmac8nqWuDqQkZFbPZTi4MuHO4MATV5YDmMtSohOGOih5U4_Zm7nWPtTFd-Z2qt5-DeVcWRws2SGGEkJvDG2emQ",
@@ -350,7 +381,8 @@
       "skuId": "b485ca2ff43a4c658b32bd638546142cp",
       "skuTimestampA": 1487030400,
       "skuTimestampB": 1604242800,
-      "slug": "sniper-elite-4"
+      "slug": "sniper-elite-4",
+      "storeName": "Sniper Elite 4"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/S5gxNJIiaF9Oab3dV-u4F8dj2sy6gY6umtugNKfRzWlCoUeOIslqBpDrZAXVSE6OPr3NJc0BVRuWICa5k-aK8MixvT6a4qg3jAMPNXHglRG-WSU-atH-juJznj8",
@@ -361,18 +393,20 @@
       "skuId": "86269481f3884521806398d7d875df9e",
       "skuTimestampA": 1537426800,
       "skuTimestampB": 1604214000,
-      "slug": "the-gardens-between"
+      "slug": "the-gardens-between",
+      "storeName": "The Gardens Between"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/7PI2LCXtqmseh1eDK-z7LRabcRxrEFjK94qr2IYEXvAsBTdTG0yIfUp88rqWmxX1niTzYnhEk7CJs8qVxaLIYlKnkRwzG-1gV7joHkOsUrBp2v0EMC3ExZMfY08",
       "coverThumbnailData": "-----KKK-----dKK----4K-_---j--KK---L4-KK-----JKK-------K--K-J-K-",
       "description": "Game of the Year  - The Game Awards 2019\nMetacritic Must Play\n\nIn Sekiro™: Shadows Die Twice you are the 'one-armed wolf', a disgraced and disfigured warrior rescued from the brink of death. Bound to protect a young lord who is the descendant of an ancient bloodline, you become the target of many vicious enemies, including the dangerous Ashina clan. When the young lord is captured, nothing will stop you on a perilous quest to regain your honor, not even death itself.\nExplore late 1500s Sengoku Japan, a brutal period of constant life and death conflict, as you come face to face with larger than life foes in a dark and twisted world.",
       "gameId": "cc3f233990754f77a5819a583594f399rcp1",
-      "name": "Sekiro : Shadows Die Twice",
+      "name": "Sekiro: Shadows Die Twice",
       "skuId": "2a1351f516904ed190546d1b82934bd1",
       "skuTimestampA": 1553180400,
       "skuTimestampB": 1603897200,
-      "slug": "sekiro-shadows-die-twice"
+      "slug": "sekiro-shadows-die-twice",
+      "storeName": "Sekiro™: Shadows Die Twice"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/aGmGBQNUXpUHl8grv2eDhsy6ce4zwLa3qgyG8Zp5hDGrXklYq5wRODMBqIDeLw7vuNmF7nh-VRep8KDjU-9ggkC6PhHIndG_WwJwJKx6e270YfbD2Eil5_wouw",
@@ -383,7 +417,8 @@
       "skuId": "371cce816e0d4af294733dc22bbc680cp",
       "skuTimestampA": 1603350000,
       "skuTimestampB": 1603350000,
-      "slug": "immortals-fenyx-rising-demo"
+      "slug": "immortals-fenyx-rising-demo",
+      "storeName": "Immortals Fenyx Rising™ Demo"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/bpqyXvDB0mEppRpNnNJifmiyxa6erFTI8CSndYKwfd6a0nc7ALV0EOqOcW0tHf5EInKWcFvUbfyaJRPX6Nc-zOT6FbcGEg2I2V072eOQKY-jRKHD8ic5E_zYcQ",
@@ -394,7 +429,8 @@
       "skuId": "a7f0a6098ae747788a6f75d0d1e1d8f2p",
       "skuTimestampA": 1602745200,
       "skuTimestampB": 1602745200,
-      "slug": "cake-bash"
+      "slug": "cake-bash",
+      "storeName": "Cake Bash"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/vdwN_8DQShq_nSxDPfK1E1cFjkyjqnpfuTosUIb7Bi6N5y5XtLF9JLC1AFfRG0LWxvv2eTQlcDBsb1xuQ13UQ75cOTSUfqCB9R4JfwTOTYQkTaDnYDs4UFqdvJkc",
@@ -405,7 +441,8 @@
       "skuId": "a84dcb8e05e74083b5c879b49e923205p",
       "skuTimestampA": 1601996400,
       "skuTimestampB": 1601996400,
-      "slug": "baldurs-gate-3"
+      "slug": "baldurs-gate-3",
+      "storeName": "Baldur's Gate 3 Early Access"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/p50w55LRqB2vZ2NgICU6JyRObkU8ZFHNNOxvFnpHBAdUNcrDSP80fzx5icvg4ujD9s1vxqQs_YjSKzZhiNobrYiy2rBnOb2ZsjzLJH60ARuxbg1vHoCJlJ2xwY0",
@@ -416,7 +453,8 @@
       "skuId": "5af3426b8434401897bb4eeac0344662",
       "skuTimestampA": 1465855200,
       "skuTimestampB": 1601535600,
-      "slug": "dead-by-daylight"
+      "slug": "dead-by-daylight",
+      "storeName": "Dead by Daylight"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/D8M1nKt3uaXVqu5vsE6p9lIju6gSgRIxrjKgT1HzR-A3YWm-orcRdUyQ-BSprBwFlxXrTU4em3CzDTyotjGcXR_i7S5RylJaPabmu1TiIiaCk8BFSYrJ8DY_VS8",
@@ -427,7 +465,8 @@
       "skuId": "6ec089b591ee47fab2fed726e466700ap",
       "skuTimestampA": 1469170800,
       "skuTimestampB": 1601535600,
-      "slug": "human-fall-flat"
+      "slug": "human-fall-flat",
+      "storeName": "Human: Fall Flat Stadia Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/FZdjBJ1ygbaXNw74RNTLvwTB9cNsSRzPvlC_kzT7wFqda9GYCqkbubf-3TpH-lrt09yFrKz9Um5S8BTXP5u2KhIUkccdctWna18_RNjUEL7_KecjNB-4XsM8EUtE",
@@ -438,7 +477,8 @@
       "skuId": "5470776eda9b4270b049f081c6bc07ce",
       "skuTimestampA": 1567123200,
       "skuTimestampB": 1601395200,
-      "slug": "risk-of-rain-2"
+      "slug": "risk-of-rain-2",
+      "storeName": "Risk of Rain 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Jba4Eu87WWleMn00Rl04O3AOxKDZ-drE79FVV6Czw_neoSEaQvbo6ZfiMoqdBc1qWEtCDYVeiM9nZF5SrMs7TcCTF7lClORq3yEyGZA4TN9mtE9czw1oKaeLKoc",
@@ -449,7 +489,8 @@
       "skuId": "3ff11dc4d2bf449f89c89bf329003e10",
       "skuTimestampA": 1600959600,
       "skuTimestampB": 1600959600,
-      "slug": "serious-sam-4"
+      "slug": "serious-sam-4",
+      "storeName": "Serious Sam 4"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/UHWCaasl8h-oq-DfmJxN1IghKfii4CaqVYcQ6Xk7mKLzxSTjlnaIUMEw-o1WGpHL66sSC_QW8FlL4-WbQDLCbGwWcSuafVcTvtGmUODXpXkST8LPs43R-hXBv_ia",
@@ -460,18 +501,20 @@
       "skuId": "be1bff38daf046f78cde2b36228de554",
       "skuTimestampA": 1350889200,
       "skuTimestampB": 1600844400,
-      "slug": "hotline-miami"
+      "slug": "hotline-miami",
+      "storeName": "Hotline Miami"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/AErmZ5XaVGSBvutxVrGzuiTQ3A40HS2Xxu5ALCouor0amFt8IJxnB3U9wnibceKslS15NA1dZgkycLG5Ygl6K25-w2o6TvNYbQtF6Ee2hE2tBewZq_dZvuCacA",
       "coverThumbnailData": "PI-5Q0L5Of0fT-Q6M-L-00MQML-L00QIQ51LL6AAMQ-1LZ6QM-F_SF6Q4Pe_M-A4",
       "description": "Hotline Miami 2: Wrong Number is the brutal conclusion to the Hotline Miami saga, set against a backdrop of escalating violence and retribution over spilled blood in the original game. Follow the paths of several distinct factions – each with their own questionable methods and uncertain motivations – as unforeseen consequences intersect and reality once again slips back into a brilliant haze of neon and bloodshed.",
       "gameId": "68add0d67fe3491f94cb439664b1ffc7rcp1",
-      "name": "Hotline Miami 2 Wrong Number",
+      "name": "Hotline Miami 2: Wrong Number",
       "skuId": "bc01f7206e4f4f83a468ce33eea0c404",
       "skuTimestampA": 1425970800,
       "skuTimestampB": 1600758000,
-      "slug": "hotline-miami-2-wrong-number"
+      "slug": "hotline-miami-2-wrong-number",
+      "storeName": "Hotline Miami 2:Wrong Number"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/vj6IcsC0qUdBCP62Yb4WBL6dBV3qlwJyFJlupJs5dZJg0y6bcoM48EZrSwrbLXIYtkPNwrj7yyqcs-lDt_J4uIkOAXgS1dbGxZf2Gih_OX05g-gYinx_8Kn9mQ",
@@ -482,7 +525,8 @@
       "skuId": "30a2e74966344afcabc22d32c0d2cdc3p",
       "skuTimestampA": 1600498800,
       "skuTimestampB": 1600498800,
-      "slug": "wwe-2k-battlegrounds"
+      "slug": "wwe-2k-battlegrounds",
+      "storeName": "WWE 2K Battlegrounds"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/0Za-v137JTw6smGBkI7fpfnnsp6GbqczSuaimtqcNqnHbpsZl1s6B361V77RqNBbO4DEIdsqsAR-eH4T7-9hgv0wBD2CnkgMLV1uOp13Qd27eoaIj5WobmzY-g",
@@ -493,7 +537,8 @@
       "skuId": "c147fbe82f394c11bbe41ee134d4f350",
       "skuTimestampA": 1471392000,
       "skuTimestampB": 1600214400,
-      "slug": "uno"
+      "slug": "uno",
+      "storeName": "UNO®"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/w9BxPN6zb77lscIMjHKTGPchYdGvIG0hZcmByW3gGr-3nefc1sAhiVJtmHtPwMDoPTUNwqxiMEQltkLudRZMBU1XiMdtVu2Ya4oooZGWuBQ_8nJAVBUzOa9KEoY",
@@ -504,7 +549,8 @@
       "skuId": "2a4af85a84974cdba4d61df620305335",
       "skuTimestampA": 1387440000,
       "skuTimestampB": 1600182000,
-      "slug": "r-publique"
+      "slug": "republique",
+      "storeName": "République"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/2FW6vbDDDOU43DRG0xpEQ6qyKFh_7ZftTEzHdJp8LCNkN_ySnuXXzUsSVf56GTQarc2ur9CUYEc4zpuiN6LFtj_EFfkfWSFWYNJkbaHJPanVKFuirwZ8_eB6c24",
@@ -515,7 +561,8 @@
       "skuId": "ae31d6ce393f4896b9b9d1f2f1ac676ep",
       "skuTimestampA": 1599289200,
       "skuTimestampB": 1599289200,
-      "slug": "nba-2k21"
+      "slug": "nba-2k21",
+      "storeName": "NBA 2K21"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/RV7lEfqDoBummiz6FkDxL5dCvq59bHuxsx7ALOOY5REbHjDhhWhqbiOT3nmdZjVLXjL6-dLATTkBWzTNCh2QoTzp9RnCyg0zkNxpWwJE1QgwzpEh0uOFdyO7QmVX",
@@ -526,7 +573,8 @@
       "skuId": "cfc62fc3307a4ef1930e4644646c8179p",
       "skuTimestampA": 1599030000,
       "skuTimestampB": 1599030000,
-      "slug": "marvels-avengers"
+      "slug": "marvels-avengers",
+      "storeName": "Marvel's Avengers"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/qSIBrH9k3LiSa44vXcMiGZ_Sypr_V_M2i2NtDS-vpGKMnK-ddrTULOEpqhlk4zQ8re3w5Viu4KnqVvocS6cRXEOe9lEMixTpEoYlwi9EQw5HhUIplvzR7xf3g3oO",
@@ -537,7 +585,8 @@
       "skuId": "e57401bfbe4f4dd98fdfd05b0c75acb5",
       "skuTimestampA": 1599030000,
       "skuTimestampB": 1599030000,
-      "slug": "super-bomberman-r-online"
+      "slug": "super-bomberman-r-online",
+      "storeName": "SUPER BOMBERMAN R ONLINE"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/3w9DlWrP-PJrMJjW4_DzODxd80liGLRKByfJJ2M0UdRwVC7cbBdyrEiLysYsby_x3rV8GumLrEQnKRChCwfmtryeR2j3-nwMoAaYi2VF8_bXsVWV3H5DDbby4g",
@@ -548,7 +597,8 @@
       "skuId": "dc0627d002f24fdba14ac6755250360ep",
       "skuTimestampA": 1512745200,
       "skuTimestampB": 1598972400,
-      "slug": "hello-neighbor"
+      "slug": "hello-neighbor",
+      "storeName": "Hello Neighbor"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/K4cdZyCNR-LtN8LtkHCuvcoc3QC7LEFBY8y9OjJxGkYRtStskmqamLFS2kFG1tcDgtkHwMnKX2Oq5iGXoNdXiCfuJMqKuD_gE9ABbHIZUorFDOFOSRzNPbDQlg",
@@ -559,7 +609,8 @@
       "skuId": "17d98b899531490ba355016919ffe6ff",
       "skuTimestampA": 1598972400,
       "skuTimestampB": 1598972400,
-      "slug": "hitman-world-of-assassination"
+      "slug": "hitman-world-of-assassination",
+      "storeName": "HITMAN - World of Assassination"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/YLArj_wo5ZtpqIZmUqKEweGc21TJDPirzXMofM8-AMG1GPFWGKBsxIQGDsv3Uf_qUnkOgZdH274jfPNqX5DGp41LxoSp__YCj3BjN2RyZt-T3PeTxtDTKh7K_g",
@@ -570,7 +621,8 @@
       "skuId": "896565e45f974774a117876f949630df",
       "skuTimestampA": 1598943600,
       "skuTimestampB": 1598943600,
-      "slug": "gunsport"
+      "slug": "gunsport",
+      "storeName": "Gunsport"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/o99nUkSgXlc6Xv4_yrgLRwd2mezYkwUeCpp0PS8KPTLmUjjLzZ6xXGwNdyMiPqlurS4rGtRneZMDZ7QB1wvwS_-Jxu4woHkfFCiCQJ6OpTWHbE0zNSGAIgRr97s",
@@ -581,7 +633,8 @@
       "skuId": "d3e056ee79d947c29eedc5ae232d6c2ep",
       "skuTimestampA": 1598598000,
       "skuTimestampB": 1598598000,
-      "slug": "windbound"
+      "slug": "windbound",
+      "storeName": "Windbound"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/lFo7cvPbHFYhmc434VUUWeq8TDBJTTdtNleOMAQU3iWjshBqeffBfdNxCPm5CVaTKq8MVHrIOBeNEJjtVcdsikyFPMMF83HDBl0tyhc93DKm2VQdAd8F0r2N3K0",
@@ -592,7 +645,8 @@
       "skuId": "5582aa71e58a45e59a05598a93cde9a3",
       "skuTimestampA": 1598029200,
       "skuTimestampB": 1598029200,
-      "slug": "spiritfarer"
+      "slug": "spiritfarer",
+      "storeName": "Spiritfarer"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/pGQboi60jhx6FQkbf1bHEdE7OJ70cERWgcqshD5g_Zc8srTyfkCufqblHObG-iqKJqCotTT-6N5rxuNZffppKKK3kDtb2FENJxrQdYbyKwqVzYX9R7rvv30iNbA",
@@ -603,18 +657,20 @@
       "skuId": "9c7fd0f16817482c9e0b311a8340cb0b",
       "skuTimestampA": 1597993200,
       "skuTimestampB": 1597993200,
-      "slug": "pga-tour-2k21"
+      "slug": "pga-tour-2k21",
+      "storeName": "PGA TOUR 2K21"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Oiriurt7C92GiV2J5jXi2WuRouqvFXCSrRvZevSJfbSiSAhjfSw2C-pVjLOK_xi8d0sTkNFGVM-hItmkW7_CtJM3xno1EBjJcmDmuIBRTy3IyEFCJKDHP5Gx1w",
       "coverThumbnailData": "111zz010111zz0116511110151060Q01010Q5A-011LQ10-0QQ011000Q0002500",
       "description": "Developed by id Software, the studio that pioneered the first-person shooter genre and created multiplayer Deathmatch, DOOM returns as a brutally fun and challenging modern-day shooter experience. Relentless demons, impossibly destructive guns, and fast, fluid movement provide the foundation for intense, first-person combat – whether you’re obliterating demon hordes through the depths of Hell in the single-player campaign, or competing against your friends in numerous multiplayer modes. Combine your arsenal of futuristic and iconic guns, upgrades, movement and an advanced melee system to knock-down, slash, stomp, crush, and blow apart demons in creative and violent ways.",
       "gameId": "cc1a8e0e94d54f15a22149fed93bbd7arcp1",
-      "name": "DOOM",
+      "name": "Doom",
       "skuId": "3d2a4c3229bd44ea80647beacc9ed247",
       "skuTimestampA": 1463151600,
       "skuTimestampB": 1597762800,
-      "slug": "doom"
+      "slug": "doom",
+      "storeName": "DOOM"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/AQgF-jStsi643muPSSCTAu5o3YCNUi9BubewYzLyoQNa1tIaDVtdPZbYdloPEdy6FpWfWehXWwVk1UH7Swrr937-LWwl5qE9frHMUgnLqcqPWd8TNpVymCuXxx8",
@@ -625,18 +681,20 @@
       "skuId": "f491723b366248d18843107689f3ead6",
       "skuTimestampA": 1594911600,
       "skuTimestampB": 1597762800,
-      "slug": "superhot-mind-control-delete"
+      "slug": "superhot-mind-control-delete",
+      "storeName": "SUPERHOT: MIND CONTROL DELETE"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/e6LSULWu7uLIaoVSJRVlx5EHa2GauXpBCIQ5bGuya7ws8fEqIln1enwmXp77GZ27EEIpcze2vkXkX9320dY0FysL0MAzag7ckJypoNAcGFNKsPXNLf0z9BNSCQ",
       "coverThumbnailData": "yuezzzPzuKezeeezPeKeeKPe4PK4eeLLzOQLP-ejeP4P-0P444e0eK5494444445",
       "description": "Rock of Ages 3: Make &amp; Break is competitive tower defense and arcade action rolled up with ACE Team's quirky, Monty Python-esque humor into one giant, creative game for the ages.",
       "gameId": "d3d8e467203d401387857d5b6cc27263rcp1",
-      "name": "Rock of Ages 3: Make and Break",
+      "name": "Rock of Ages 3: Make & Break",
       "skuId": "5251fd4e832d459ca046e6eb81b16809",
       "skuTimestampA": 1595343600,
       "skuTimestampB": 1597417200,
-      "slug": "rock-of-ages-3-make-and-break"
+      "slug": "rock-of-ages-3-make-and-break",
+      "storeName": "Rock of Ages 3: Make & Break"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/N0zOQ_NWBD7V3Jk8KnEwsx6DaFmqoTx7DwTsRimPz1680tcFFavq6jctSBOQCfRhmEfQDGDjc2oH4SywCz5b_HWImcwQ45b_tlYHHSvVaRryez255PxiNNmAIA",
@@ -647,7 +705,8 @@
       "skuId": "f139cbd41135461a83da504824a5d382",
       "skuTimestampA": 1596524400,
       "skuTimestampB": 1596524400,
-      "slug": "relicta"
+      "slug": "relicta",
+      "storeName": "Relicta"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/lSAl-AfUY-zFwLWjoHnXE7v2OjY6kCTZwRVQmXaEBR5oS3pkkzmb4UjpaZ_xmIHe4QgrwA7eswJJmkkIGvAjevgDjbtggpwwyEwpITL70CzxhwtplCnHBt512Q",
@@ -658,7 +717,8 @@
       "skuId": "12f3e5611c34478fb0285c6de4f2a8aa",
       "skuTimestampA": 1489820400,
       "skuTimestampB": 1596351600,
-      "slug": "kona"
+      "slug": "kona",
+      "storeName": "Kona"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/3O4TSLomARrLlHKKXT_GwyFZ3NjqF3XO1B36OkjJbR3Xm_qG2F3QaHwqAIT6RqTBWWVgDoMHeItCQZm-7EWXqe3namAwYpcN67E8DmLac-pu-_bVUYTR9P8lfcw",
@@ -669,7 +729,8 @@
       "skuId": "2d155b69c4af46078db2d96a8b0e6883",
       "skuTimestampA": 1535468400,
       "skuTimestampB": 1596294000,
-      "slug": "strange-brigade"
+      "slug": "strange-brigade",
+      "storeName": "Strange Brigade"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/hCYpaTnJV_5kh9A_b7mHk7Irczsa-9D1IvSCfZu6qOqqNq0kHRAKfIYqDwhfgjLDIxvIVFlB2SxnudgH4fZuQMPtgijDEhdOpD0YTRN4jan2MRVLpTdnZaK5zOg",
@@ -680,7 +741,8 @@
       "skuId": "68fb07a7c4ac41f1afb21d742c717538",
       "skuTimestampA": 1516892400,
       "skuTimestampB": 1595948400,
-      "slug": "celeste"
+      "slug": "celeste",
+      "storeName": "Celeste"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/5SLIiiPbwGuKqbjNqAsBSeBnBIT70gipNFcRB6pWUgNHfwnmG_njj98iJEX7Vn88Z8tKKhSEF21sE8Cy2ntOglHWHrgQk4wUbMgL-D1jz3Ieh1w-5lkhTdDfqaU",
@@ -691,7 +753,8 @@
       "skuId": "163efc95783a4c39839c218b75e36127",
       "skuTimestampA": 1418137200,
       "skuTimestampB": 1594825200,
-      "slug": "lara-croft-and-the-temple-of-osiris"
+      "slug": "lara-croft-and-the-temple-of-osiris",
+      "storeName": "Lara Croft and the Temple of Osiris"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/FR-WpQKqruHCpYpUwTg0R4EaEndVTF_T44C90jVqtCQOnLKxiG--q-LYA2m9Gec1e5FT9lXwF_oRbUei9VO8RJRwJm1PFEXlUBmZK4S-AuDZ-6soO-rqd5Wivw",
@@ -702,7 +765,8 @@
       "skuId": "55b718bf03544bd3a9f6a62946fe7436",
       "skuTimestampA": 1594738800,
       "skuTimestampB": 1594738800,
-      "slug": "one-hand-clapping"
+      "slug": "one-hand-clapping",
+      "storeName": "One Hand Clapping - Early Access"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/9aZmCcciNKTOtfNFQYBkdbyrKcrhskMp2BGnBJv09DjNaaeEtJ9yFBYv4AObqWuGL9YEqEGL7AMcQRdgTargjKNGMlyKHiST9BSC81t59mGDTx-J1ISAFZlyVQ",
@@ -713,7 +777,8 @@
       "skuId": "fa63c6e891ff4d1bb76c4ac7580c119a",
       "skuTimestampA": 1594623600,
       "skuTimestampB": 1594623600,
-      "slug": "orcs-must-die-3"
+      "slug": "orcs-must-die-3",
+      "storeName": "Orcs Must Die! 3"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/vhqaoiurp5nmNe2yrMHiCzRGpBE0cXJ5yzNPUwDKLCqfHWq4v0NZnG6BwyQ73QAUCzRveOSxSHvk4AXXJbyIN_Tsi0_2IBzAK-CRmPucn25ZZqzuYjDINAeR-w",
@@ -724,7 +789,8 @@
       "skuId": "60da786be741463fbbeb63ed5130bc11",
       "skuTimestampA": 1594018800,
       "skuTimestampB": 1594018800,
-      "slug": "f1-2020"
+      "slug": "f1-2020",
+      "storeName": "F1® 2020"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/tiy7lGcnSadgxZLcqGkAh8TIkcKF7KpjuCc7Yb7zsVt0_YPnlkSyXar00xYfy4IEnkK-xOBS0o4sMS2AeoRS75Q8061nL48NqVppZGj9HMTcjYQ53eRhkbLy6nE3",
@@ -735,7 +801,8 @@
       "skuId": "bf97db3ce0644a448815aef1a5c33e0a",
       "skuTimestampA": 1593615600,
       "skuTimestampB": 1593615600,
-      "slug": "crayta"
+      "slug": "crayta",
+      "storeName": "Crayta"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/QuBR4RrvtnhJYHCPbDrqzHK-sHj-CiJ5mTorBwuuKV97T3vvDpgNEwu9ccvsDZ0CqzNUvPGfgUgA3moELPFqL2Vt2BFUTlDa1xyXWgAEVzY7pgUIhoGzPuShBe47",
@@ -746,7 +813,8 @@
       "skuId": "772119af45f44182bca3ff8d39f62b0b",
       "skuTimestampA": 1502982000,
       "skuTimestampB": 1593615600,
-      "slug": "west-of-loathing"
+      "slug": "west-of-loathing",
+      "storeName": "West of Loathing"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/emo8OMg2WrCCR231iyr96DXKOnMjck4ACiklQ2MIUxb1sk-4CRriIHHirCqhqnwUuHdtFAAivwbk_XIzLcnl8BTmhEDm26bG_yftFUiGcmoxLfNqHaqSYDqzag",
@@ -757,18 +825,20 @@
       "skuId": "38f772ac664545d99890ebb460d1d894",
       "skuTimestampA": 1543910400,
       "skuTimestampB": 1593586800,
-      "slug": "monster-boy-and-the-cursed-kingdom"
+      "slug": "monster-boy-and-the-cursed-kingdom",
+      "storeName": "Monster Boy and the Cursed Kingdom"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/4PB-AwkBss_SSWOTl7jVq_oxCK_pgOjZp86koLjoX-Sm4ABdgFOrR_-EKJeI_g0EFBHZZPGeJ64yJdI_8sUTQ1eLt6EslTeQ8R9g8Y9SvhnPD_ElF5IaritDpg",
       "coverThumbnailData": "---------------------H---H----H---ezzz0--HxJww-----JdK----------",
       "description": "Just Shapes &amp; Beats is a chaotic co-op musical bullet-hell based on three simple things: avoid Shapes, move to the rad Beats, and die, repeatedly. It’s a new spin on SHMUPs, adding a layer of coop that's at the core of the game: 'cause everything is better with friends.",
       "gameId": "6b43cecd79734ba28cef5894985c65f1rcp1",
-      "name": "Just Shapes and Beats",
+      "name": "Just Shapes & Beats",
       "skuId": "a8918900bd834426ab8f5a55fba998c7",
       "skuTimestampA": 1527778800,
       "skuTimestampB": 1593529200,
-      "slug": "just-shapes-and-beats"
+      "slug": "just-shapes-and-beats",
+      "storeName": "Just Shapes & Beats"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/EEYUoZm0h6ZK0DXdbMz2Y44OuIkHyjvMbNvS4-RRttgkkD192zYV1hWrnb8g01a1nSivbR_H6Uh_IE_a9H8Rgj2z48_iKsrtarK3IhATtJajyQZGpCmvjWCYYMmX",
@@ -779,7 +849,8 @@
       "skuId": "de1e97332f1148468759dfc4553edad9",
       "skuTimestampA": 1407855600,
       "skuTimestampB": 1592924400,
-      "slug": "metro-2033"
+      "slug": "metro-2033",
+      "storeName": "Metro 2033 Redux"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/LXYqwgAVSfrtwMdb04QwU_jZ1H1etEdIoMbrFyBYdg3ZVXOSjAWuk-1pzGGhYcKaUeCxZbOGJiEFqBnV1AU5utIyqhouCoKLzZ9cQVyNEFKWNPGra9Nvah3VLg",
@@ -790,7 +861,8 @@
       "skuId": "92cd0fa4958444b5846d1b72878c7e25",
       "skuTimestampA": 1368370800,
       "skuTimestampB": 1592924400,
-      "slug": "metro-last-light"
+      "slug": "metro-last-light",
+      "storeName": "Metro Last Light Redux"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Ymi7fRq9rqDF5UNVX3LULeL4RyqiQfeovNl0pKRcnvtUMoECxas8ODJq9SLKPcNd8xcAV3cuNOp-1wM4f6BYmn_6abjt3tw0-2W_ewQfIV9DcqUPq2alChNcWbM",
@@ -801,29 +873,32 @@
       "skuId": "599a08652fad4a41baad8591e18e83e2",
       "skuTimestampA": 1592924400,
       "skuTimestampB": 1592924400,
-      "slug": "wave-break"
+      "slug": "wave-break",
+      "storeName": "Wave Break"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/PUCpqPZn0NzwxkIyMkdRZ484BrgatrN-E_6l9b-hMFqbDziPEFaPopkCS1Ow4LMpXKQO0b57bIOtrc1Y2Nxz57G5pCOvwoj1BbI0x2XpgjP6my6T5U4MxQ9WgsM",
       "coverThumbnailData": "KejzjeeKKLeeeeLK3PeKPeLKKKP4-KK-KKK-0KKK-4K0KK----K--K---K------",
       "description": "The fantasy role-playing series, The Elder Scrolls, goes online – no game subscription required. Embark upon quests across Tamriel and engage in massive player versus player battles. Experience this multiplayer role-playing game on your own or with your friends, guild mates, and thousands of alliance members. The choices are yours in the world of The Elder Scrolls Online: Tamriel Unlimited. See loot box odds below.",
       "gameId": "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
-      "name": "The Elder Scrolls Online:",
+      "name": "The Elder Scrolls Online",
       "skuId": "2a598d522e4f4f9d818d08fe582d17e3",
       "skuTimestampA": 1396569600,
       "skuTimestampB": 1592319600,
-      "slug": "the-elder-scrolls-online"
+      "slug": "the-elder-scrolls-online",
+      "storeName": "The Elder Scrolls Online: Tamriel Unlimited"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Zgc_LRE8t-tIE0TMk3rfvmNdiLSoiV5jxcuLlsGIwu71FLZfqhqV9ALMlwean7POJAKuOtsGPz0BYwSLzIXJwcyO6NGx9pPhCC388yvgF6rNvaPtG0o7yVYVhw",
       "coverThumbnailData": "ezee___ejefddeKeeePeeeeeKeeeLuezKeeeteKPKe_zjejuKKKzKyKJJjLPK___",
       "description": "A new, remade version of the Panzer Dragoon game - true to the original, with improved graphics and controls, that suit modern gaming standards! On a far, lone planet, you encounter two dragons awaken from the ancient times. Armed with a deadly gun from the past and the guidance of your armored blue dragon,  you must fulfill your destiny and keep the Prototype Dragon from reaching the Tower or die trying.  Features:  - Pilot through seven unbelievably realistic levels ranging from tropical blue ocean cities to intricate subterranean ruins.  - Attack approaching from all sides enemies quickly and without mercy, with improved 360-degree controls and lock-on targeting.",
       "gameId": "ffda0b7e397243f8956f92f89b6902c4rcp1",
-      "name": "Panzer Dragoon:",
+      "name": "Panzer Dragoon",
       "skuId": "ac819b64342841eda35cebfd3a34c769",
       "skuTimestampA": 1585666800,
       "skuTimestampB": 1591027200,
-      "slug": "panzer-dragoon"
+      "slug": "panzer-dragoon",
+      "storeName": "Panzer Dragoon: Remake"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/i6ZIXQ9RKfAc_KpLAxNbLRzljAijoJttuGAqGwWaBaxdc2knx-v8x_i44bKMopt1PyqrMRkTLpIKSAz77v3A15BXUoSG0Uo2QOqGgouUFIHYNPtM_ti97M6omg",
@@ -834,7 +909,8 @@
       "skuId": "77ab8b1807a849e3991826d8d7a9e3e0",
       "skuTimestampA": 1493391600,
       "skuTimestampB": 1591023600,
-      "slug": "little-nightmares"
+      "slug": "little-nightmares",
+      "storeName": "Little Nightmares"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/5FpdmuacZhWJWU4SvnUxMAbhYI0NAL4AhO5bpRC72huqkNZvkZF_bJ4sTv8K_fotzPNG4P5SBf88JoJ-m8nTOSJ3MvXpeSFrtserJ8UNH2D5Hgj1HFdT94zPOfU",
@@ -845,7 +921,8 @@
       "skuId": "ce8a411f4dc2470da828fc259c584aa5",
       "skuTimestampA": 1456412400,
       "skuTimestampB": 1591023600,
-      "slug": "superhot"
+      "slug": "superhot",
+      "storeName": "SUPERHOT"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/MFtnP1yANZK-_tbna-x_R1zCQXSJy02Q3TGkVr-vkedKH0M7yEgD2_Vpu7X4L7OgiLLI6c5d2kxdcNetkLIs64wfHsRJNu1jHW6Pb7oYSyD48tdKIJNlfkPg5w",
@@ -856,7 +933,8 @@
       "skuId": "fe5459c281d9443ca8f0e420f59936fc",
       "skuTimestampA": 1553410800,
       "skuTimestampB": 1590908400,
-      "slug": "power-rangers-battle-for-the-grid"
+      "slug": "power-rangers-battle-for-the-grid",
+      "storeName": "Power Rangers: Battle for the Grid"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/H9mlv416K3WjSOMnV-9YbWP-YD9QmE0BdatE9xlcojeyVE06qkyWYMEryWiPsUlOAKAtmMcjY5nOo7YX6u25eq4kkKNqjD__Hx3hBPAiKthYeR7DORDMoUexUw",
@@ -867,7 +945,8 @@
       "skuId": "43fb9c029d0641e290fdbaedea1c3a40",
       "skuTimestampA": 1443538800,
       "skuTimestampB": 1590505200,
-      "slug": "jotun"
+      "slug": "jotun",
+      "storeName": "Jotun: Valhalla Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/KUyOxg3UiP5RPvyUg9yJyPHdgeDJK4jecxI4Z-Z-atd6lUD3Ed7fbyXr9BErUnDCdOcfTKR_IcQNMTA90bVa75Eaf8jjyGpRDVdYf_RLFwzJiyX0eGjweJ5vTBI",
@@ -878,7 +957,8 @@
       "skuId": "788a1f7b00f74b26b12d7c6d62d50d96",
       "skuTimestampA": 1501254000,
       "skuTimestampB": 1590505200,
-      "slug": "sundered"
+      "slug": "sundered",
+      "storeName": "Sundered: Eldritch Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/oOkJU1EWPj1a1YTtcXC-yjN2TY2o-U91V_7fLhQ3sQfygV2WNBj4-iz7DUHdh1Haa-EtE736z-vKlIPxjIkkMjkgW8zg_vj0GPfRrqocDwAfCCOoRmpTtG_eZcI",
@@ -889,18 +969,20 @@
       "skuId": "2240fd0ec10f4229ab05fe5c7547b20a",
       "skuTimestampA": 1590073200,
       "skuTimestampB": 1590073200,
-      "slug": "embr"
+      "slug": "embr",
+      "storeName": "Embr Early Access"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/2f9y7BvYG9RnFuEMBmCXbRbwdbG8g9AVQbMNx4m8M3bdIcIjVNz8MsY3jm6KTwGqsPa2XtHQ-y2gn0Yrtqf1UMwuYf1I2OeMHlHxQLlgdfkUzHr8xsjh7DWcpSg",
       "coverThumbnailData": "------------------P0JK----0455----AQEK-----AeP---000000-0000000-",
       "description": "Celebrate DOOM's 25th anniversary  with the release of DOOM 64, originally released on the Nintendo 64 in 1997, and now available for the first time on Stadia. Fight against demons in your crusade to hunt down the Mother of Demons and stop Hell's invasion. As you battle through more than 30 action-packed levels, be on the lookout for enhanced weapons and secrets to help you put an end to the demonic threat.",
       "gameId": "5a0e892c933c4f56b4d87976cb655ecfrcp1",
-      "name": "DOOM 64",
+      "name": "Doom 64",
       "skuId": "bcdca49dcac843f98ddb10e06ba83ee9",
       "skuTimestampA": 860166000,
       "skuTimestampB": 1589295600,
-      "slug": "doom-64"
+      "slug": "doom-64",
+      "storeName": "DOOM 64"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/CEn9QNz4gY90OkffAIyEz63oeNZAdYqZ77d3FqCgBcSfMC7jcf1i50ax-007dtT4uym3mYRUmWP6QLLD9l9UgHvVaVYlSEGTIoZ6KC5a-RTtWAM121MJ7nIgVA",
@@ -911,7 +993,8 @@
       "skuId": "a7b1581491ea4b7c9fcc89710561f5f7",
       "skuTimestampA": 1580828400,
       "skuTimestampB": 1588345200,
-      "slug": "zombie-army-4-dead-war"
+      "slug": "zombie-army-4-dead-war",
+      "storeName": "Zombie Army 4: Dead War"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/QNGa9YH5S9nU2Q7Bh8kxjKszTQ_4KJ9_WbvQMnpIfmE2zKOo3PgzRUptWMqqgpaWp41ymK7cxCGxRl1xtVUqNCopHPuFxED_jg8UhFXEflq0B6dlvkJkcuTzjSI",
@@ -922,18 +1005,20 @@
       "skuId": "e8ed70244808408cbb7d3b2b1f06547f",
       "skuTimestampA": 0,
       "skuTimestampB": 1588316400,
-      "slug": "the-turing-test"
+      "slug": "the-turing-test",
+      "storeName": "The Turing Test"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Y5bhR3kzAE7olMePHIUoiHk6fs7gIvpqZyL5U-IKBMhRQbL7JQHVivWS7SavfywrA4bG2sd3crQ48orttlRYA8rneM1C0lqo-sDeQmtNGzVCoM2lOiIGLyufKSc",
       "coverThumbnailData": "KeKeKPeeeePLPeeeePeLjPeeKKLKKKeePLOPPKeK4KK-zKKeKKz---KPKKK-00KK",
       "description": "Eight travelers. Eight adventures. Eight roles to play. Embark on an epic journey across the vast and wondrous world of Orsterra and discover the captivating stories of each of the eight travelers.",
       "gameId": "48ead86182b14fe0afcc5f2927dbed51rcp1",
-      "name": "OCTOPATH TRAVELER",
+      "name": "Octopath Traveler",
       "skuId": "a6c13e6aa796439295774eb0e8cd3f8b",
       "skuTimestampA": 1531407600,
       "skuTimestampB": 1588093200,
-      "slug": "octopath-traveler"
+      "slug": "octopath-traveler",
+      "storeName": "OCTOPATH TRAVELER™"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Al3QfOz25vWgOUrxSQU0-xl8bn3ti2NpBq0fAoOP7-79omCOQIT9fo90QIeMtp7q5SlcKjFEQxSbWZFC732WsgDrBh1nDdQULf-K4vdSH6N3A4Dt4zz8r7gQg-xV",
@@ -944,7 +1029,8 @@
       "skuId": "256f320f886b4ee68b7980d6fc1bd1b1",
       "skuTimestampA": 1509462000,
       "skuTimestampB": 1588086000,
-      "slug": "monopoly"
+      "slug": "monopoly",
+      "storeName": "Monopoly"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/1WP4Jx7dV5tM3ggITM7pAum4JuicTvzZ8NZYwb65gXs_y_bmSvpu-7ifv6o4bwRERxDTvaKlvgp6yCS5k4P7XXm4YAySWfXJb9LDzkxHtsu8dQSPBOnME2d9Dw",
@@ -955,18 +1041,20 @@
       "skuId": "a6ffc113bea9495b84581796893ebf50",
       "skuTimestampA": 1588057200,
       "skuTimestampB": 1588057200,
-      "slug": "get-packed"
+      "slug": "get-packed",
+      "storeName": "Get Packed"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/EChPoakpUO2FPUd_jMIRqHy7uKRy7QsfA2pvRNRAr9aUSjkbV3MDR7fQwqr5Lwm7fyNVI4a8i1LWPej2IS_KeyjH_Fobn8lH5wyoDXLI82_6g4poA-_SxxXwqSM",
       "coverThumbnailData": "___zKdd_ddz_d_d_eztttutdKuuuzeuK44QeKQfKK5f6LQQ0-04K0400---KK0--",
       "description": "This is Battle Royale. Land, loot and outwit your opponents to become the last player left standing in a thrilling game experience full of unexpected, adrenaline-pumping moments. For more information, please visit www.pubg.com.",
       "gameId": "a4c5eb3f4e614b7fadbba64cba68f849rcp1",
-      "name": "PLAYERUNKNOWN'S BATTLEGROUNDS",
+      "name": "PlayerUnknown's Battlegrounds",
       "skuId": "71e7c4fc5ca24f0f8301da6d042bf18e",
       "skuTimestampA": 1490338800,
       "skuTimestampB": 1588057200,
-      "slug": "playerunknowns-battlegrounds"
+      "slug": "playerunknowns-battlegrounds",
+      "storeName": "PLAYERUNKNOWN'S BATTLEGROUNDS"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/YbbBjXaJtWreW3nA5z2PvznMec3ySOLnAthRUdg7Q3Wr7BXSLMMuU6Enwyx5yLuB1G9ZpJqm1RD6zAm2ZzE8UaWU4GIMTeDb3-5tRLRBoEhNdbenKNAjPcdkmlg",
@@ -977,7 +1065,8 @@
       "skuId": "b0c60f8483be419eb2335a79a0783cc5",
       "skuTimestampA": 1587654000,
       "skuTimestampB": 1587654000,
-      "slug": "motogp-20"
+      "slug": "motogp-20",
+      "storeName": "MotoGP™20"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/De6syL9EA97s1Exz56Jg_3YxLOy06Il2I6hg0Yk8MqummuD70ufL69NS7PiQt4WqueXpdhUXhDewEXmqV667tpbcnoADUgOOp_Zzp89OoG8kWuOmy-ZZJYZT2__2",
@@ -988,7 +1077,8 @@
       "skuId": "7ed521aacf2a44168fb99cd1e13472ad",
       "skuTimestampA": 1585753200,
       "skuTimestampB": 1585753200,
-      "slug": "stacks-on-stacks-on-stacks"
+      "slug": "stacks-on-stacks-on-stacks",
+      "storeName": "Stacks On Stacks (On Stacks)"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/1lhuwC0b8Lycp3LZ80XPcWN_rZHEIIqQl4Uv8MRr4CFO52DFFCn1cCJHSni2cLXgpyQAlOqAHkcQBj7XQXrjOr1IKaHmffXU5sg2F0DAjkOt5WD83mw3R-bYGTTh",
@@ -999,7 +1089,8 @@
       "skuId": "ab6a5a0d448d4c7aaed8dfa91ad6f4b9",
       "skuTimestampA": 1585321200,
       "skuTimestampB": 1585321200,
-      "slug": "lost-words-beyond-the-page"
+      "slug": "lost-words-beyond-the-page",
+      "storeName": "Lost Words: Beyond the Page"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/9peeSCYDErB4rveQliQXKbuv3HHHnDUKL06gjHB-XYIiNagxQip2etO-C_NYTbJ5FusM4-j5P7dENu6nATYCrnWC3E_JKbOhDv05ZLIF848wN1cI_CMtM0t5Rg",
@@ -1010,29 +1101,32 @@
       "skuId": "94db678cbb6342c3bc0e58f71130b3fb",
       "skuTimestampA": 1530255600,
       "skuTimestampB": 1585119600,
-      "slug": "the-crew-2"
+      "slug": "the-crew-2",
+      "storeName": "The Crew 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/1vl54YOtfynrMsbouyaNwO4X5aeGXSXKRfZZUsEKIeeCSKFpmpm2MklltCPBMlBV7QijWiF1d-okJWxLpR3Qr1HC2QdPt-HVrlzuwoR4Kb9AnaVWau_CNDupAyd9",
       "coverThumbnailData": "-00ze450-40zzK4K-40yLL40K-5Q05K4000AQ5KKKK505KK-0L0-Q00040K045-4",
       "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons across dimensions and stop the final destruction of humanity. The only thing they fear... is you. Experience the ultimate combination of speed and power in DOOM Eternal - the next leap in push-forward, first-person combat. Armed with a shoulder-mounted flamethrower, retractable wrist-mounted blade, upgraded guns and mods and abilities, you're faster, stronger, and more versatile than ever. And enter BATTLEMODE, the new 2 versus 1 multiplayer experience where a fully-armed DOOM Slayer faces off against two player-controlled demons, fighting it out in a best-of-five round match of intense first-person combat.",
       "gameId": "632522c846a041ce801e47b96ba2e265rcp1",
-      "name": "DOOM Eternal",
+      "name": "Doom Eternal",
       "skuId": "17affc92b9ca47a7b64e748609ed25af",
       "skuTimestampA": 1584716400,
       "skuTimestampB": 1584716400,
-      "slug": "doom-eternal"
+      "slug": "doom-eternal",
+      "storeName": "DOOM Eternal (BATTLEMODE)"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Jt12hp4_SPL8dAUPWPb9a78a6_w9dqDki4Gnm-WNm1vc4t1KJzhNYHCfNHQBNqbSQ10wj6CCKLkJhJkzw2DbUP8YUvCY0JeD1MV2BuwUV6CSpL6OTAmfUeqj-g",
       "coverThumbnailData": "e-euuKKeu-eKLKKKz-efzLKez-KjeLKze0-PP-KPKK-zKKG4-0KeK0-0--KK----",
       "description": "HISTORY WILL REMEMBER. In The Division 2, the fate of the free world is on the line. Lead a team of elite agents into a post-pandemic Washington DC to restore order and prevent the collapse of the city. The Division 2 is an online, action shooter RPG experience, where exploration and player-progression are essential. Liberate Washington DC – Save a country on the brink of collapse as you explore an open, dynamic and hostile world. Stronger with your team – Specialize and fight together with your friends in online co-op or against others in competitive adversial PVP mode. Genre-defining endgame – Choose a unique class specialization to take on the toughest challenges with friends.",
       "gameId": "d43cd46c81734ca48e1a615310d0237crcp1",
-      "name": "The Division 2 -",
+      "name": "The Division 2",
       "skuId": "bed63eac149542078fa5b9d6f20f5f2f",
       "skuTimestampA": 1552402800,
       "skuTimestampB": 1584457200,
-      "slug": "the-division-2"
+      "slug": "the-division-2",
+      "storeName": "The Division 2 - Standard Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/EDJXmZlwYp3nr2gjMYhSKPw8vsxpTkxi-VlUMAI0NrrQWp01mOeuLnRbQYunW_34-E0tQpFF3ANnIZf0dMh2ca2YbUjgvI0pMjWDJfexaow-HlB4PqiOcYf7o9Z7",
@@ -1043,7 +1137,8 @@
       "skuId": "f6658df6c8874c828532d5d24c66d58f",
       "skuTimestampA": 1375887600,
       "skuTimestampB": 1583852400,
-      "slug": "steamworld-dig"
+      "slug": "steamworld-dig",
+      "storeName": "SteamWorld Dig"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/BmKVT4vYHvmpJBWzzQ_aks7pgL8bzk-ZFT242a9h6t41mQiOyJl91aY3zKa0oPEnQsmdb1RgfTv1UdhB7IUlpZdIkuaB9e_QY_dk1o6ENkr-_uVAn4-x05hdwA",
@@ -1054,7 +1149,8 @@
       "skuId": "f47a1e1e9f0b43078e0a80c57068b085",
       "skuTimestampA": 1449759600,
       "skuTimestampB": 1583852400,
-      "slug": "steamworld-heist"
+      "slug": "steamworld-heist",
+      "storeName": "SteamWorld Heist"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/ZHeKdW-PB3G9cBNdSXeAfgifG5W3Prdorbp2ls5sTcagawXgWrfkapPRWar8WQOi_5aMEVBQ8XDAeTt5m8vXyimQ4jl_-IGGdhwjRVXAqEThHMQA00zA8uu68DY",
@@ -1065,7 +1161,8 @@
       "skuId": "45918155e78145af937b5df1a574afd2",
       "skuTimestampA": 1583247600,
       "skuTimestampB": 1583247600,
-      "slug": "serious-sam-collection"
+      "slug": "serious-sam-collection",
+      "storeName": "Serious Sam Collection"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/7GuaGW36-UMWoS3B0fDQ9V3wTUFpYAx22adiUN162c7SR3JfX8EQn2czFuMWXVxk8QxK7IjNJHfaA80FGayemuVshQL0r1ogpaG0NSYhyYzvM5uYuF_K8X1Puhk",
@@ -1076,7 +1173,8 @@
       "skuId": "90f5bd9270024986b26ee8221c1fa2e4",
       "skuTimestampA": 1506006000,
       "skuTimestampB": 1583074800,
-      "slug": "steamworld-dig-2"
+      "slug": "steamworld-dig-2",
+      "storeName": "SteamWorld Dig 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/D-p90wJ-1PtYala--zX5dMmaFIHTZiwYudGB-AcVharTzcf9G2TO7zhC625TB4a1U09tl1X7ql4KzMEhr24KvD49PitMLxI9MP7C30LnIegr1XqLfhTnpg-Clfg",
@@ -1087,7 +1185,8 @@
       "skuId": "a1afa4eca7b24713a9bcf3421dd85a13",
       "skuTimestampA": 1556204400,
       "skuTimestampB": 1583074800,
-      "slug": "steamworld-quest-hand-of-gilgamech"
+      "slug": "steamworld-quest-hand-of-gilgamech",
+      "storeName": "SteamWorld Quest: Hand of Gilgamech"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/IROLlHyXNBYlWTJnDC7XU5A7wXZdzexyXeeiiO0ZTAdFHIOeQpBfl8SKHrhrBYbynte895jfIWp5rCf10X8ucm6WI7GMpKqypJw5YcsGsAiED-NA3DTu07rbZ2I",
@@ -1098,18 +1197,20 @@
       "skuId": "f16b28e2fd224acaafeee4c19134adb4",
       "skuTimestampA": 1582642800,
       "skuTimestampB": 1582642800,
-      "slug": "spitlings"
+      "slug": "spitlings",
+      "storeName": "Spitlings"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/naMIrWahw0AhZWz4o2SZ3xRl6X8E_xMhOPfoCrHBWBgphrPnkWqFDqWSGKqqVD6IqlklxEuyAtRj1sr9v1-f9kygJkraPUYt_2-GjIQCcU7UY5BhDqkks_-NBg",
       "coverThumbnailData": "eeeeze--eeeue---_eKdF---zKae-J-Fe3P4----------------------------",
       "description": "The only Official Monster Energy AMA Supercross Championship videogame is back! Relive the 2019 Supercross season with 100 riders of both 450SX and 250SX categories, 15 official stadiums and tracks and for the first time in the series you'll be able to join the official teams in the career mode. Enjoy an amazing Co-op experience with your friends in the new compound! Have fun with an improved multiplayer experience thanks to the new dedicated servers and play as a Race Director! Create and share an infinite number of tracks with the track editor! Race as a female rider to become the next Supercross champion. New ground and in-air physics, new rider models and new animations will give you a more immersive experience to enjoy the Supercross world at its best!  ",
       "gameId": "d50e1c1b61224bceb65da9406f3f4e8frcp1",
-      "name": "Monster Energy Supercross - 3",
+      "name": "Monster Energy Supercross 3",
       "skuId": "3ac3e537019c49028d7bb98e8cd92482",
       "skuTimestampA": 1580828400,
       "skuTimestampB": 1580828400,
-      "slug": "monster-energy-supercross-3"
+      "slug": "monster-energy-supercross-3",
+      "storeName": "Monster Energy Supercross - The Official Videogame 3"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/lpXmNmCyMsINt174NtZdLgIr-naFvDt95y5LA_XGio91PbdMDTnm7Dp9HE5Q44eZHqCLNzeJJ51WWBNA3KZAg-WXgkE4K0UPMkrLSdawwmAEveV1ldSfDAARRyGL",
@@ -1120,7 +1221,8 @@
       "skuId": "06e101d56a03472bb6c204aee96187d7",
       "skuTimestampA": 1569942000,
       "skuTimestampB": 1576681200,
-      "slug": "ghost-recon-breakpoint"
+      "slug": "ghost-recon-breakpoint",
+      "storeName": "Tom Clancy's Ghost Recon Breakpoint"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/ZNrc7lBTvvPCn0l0ZaR2_mc7FjjCzM-3_Ed4vstxX3imVyiIQ1sTm5TSs7hEbQ3l_Zqv4r_G_78CDjrpyk5q-dHdGIi1obxIVdVVZzjJYU5rzSMN7vQ101mWqylh",
@@ -1131,18 +1233,20 @@
       "skuId": "958f4c0900c64e7e83b9218ab479304e",
       "skuTimestampA": 1568386800,
       "skuTimestampB": 1576594800,
-      "slug": "borderlands-3"
+      "slug": "borderlands-3",
+      "storeName": "Borderlands®3"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/uD6WALL3-sc6mOhy2qtmXh_8ozAAOoc6sIjb4EaaU8c9c9S_VRs8pxpUmIqP_OkgzUfSBF2y7JsF_0tWk-2waf09-m0VqGt47JqWzBFF4_-oTq8-KUkUNkCWhnA",
       "coverThumbnailData": "Kzzezzzz-zzzezzz-zze-zzz-ez4Q5zz-zz--ezzKK---zezeK--jMeze--4--ez",
       "description": "DRAGON BALL XENOVERSE 2 gives players the ultimate DRAGON BALL gaming experience!\nDevelop your own warrior, create the perfect avatar, train to learn new skills &amp; help fight new enemies to restore the original story of the DRAGON BALL series.\nJoin 300 players from around the world in the new hub city of Conton &amp; fight with or against them.\nYou can view the Figure’s drop-rate in the URL below",
       "gameId": "80a70c13987841b3a2aedbcac54784abrcp1",
-      "name": "DRAGON BALL XENOVERSE 2",
+      "name": "Dragon Ball Xenoverse 2",
       "skuId": "66f1b5a13ee54b7aa70aebfddd18c085",
       "skuTimestampA": 1477407600,
       "skuTimestampB": 1576594800,
-      "slug": "dragon-ball-xenoverse-2"
+      "slug": "dragon-ball-xenoverse-2",
+      "storeName": "DRAGON BALL XENOVERSE 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/gxrZ7kbuRLS_p5KaZKqNK-JmE0lxQ8tvVrJ5eCYqNVzcnkqfMYaswKO7ctPiP_f8WYIrrDfcpi65KXJgDyQwGzr5vTXNRp98gsuyCfT5KwPBSGw8dPKnuclmwQo",
@@ -1153,7 +1257,8 @@
       "skuId": "6c8ae46efebc4bd1a7de725bc630ce65",
       "skuTimestampA": 1575558000,
       "skuTimestampB": 1575558000,
-      "slug": "darksiders-genesis"
+      "slug": "darksiders-genesis",
+      "storeName": "Darksiders Genesis"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/-yVMpBzhUPohpKlazmJ4WwxCztfqFxTOAZPr28tmhvvbxsWJohHUA_XNEBiTpBB5iRZTq7-AO5asjjUkNUkJCCRtFNHMskctMRk1nz419phwp4zA4CSxcuN4ops",
@@ -1164,7 +1269,8 @@
       "skuId": "6760aad6e75b4edc9686c48e8dd38936",
       "skuTimestampA": 1538751600,
       "skuTimestampB": 1574175600,
-      "slug": "assassins-creed-odyssey"
+      "slug": "assassins-creed-odyssey",
+      "storeName": "Assassin's Creed® Odyssey"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/eXP-01YmEHqfR_f4gkKS_-Apcgo8GS1QIgtRVw-71dif6VqU40nZuKedr0wKZi8S6oGF1ZTJCxc7FIKWLYJzgtCU7wAs7SWLCSbG3eJ_kakEVZ4oB9UE2C7RrjPW",
@@ -1175,7 +1281,8 @@
       "skuId": "f879d932d28c4104958c7976f201ba38",
       "skuTimestampA": 1562338800,
       "skuTimestampB": 1574175600,
-      "slug": "attack-on-titan-2-final-battle"
+      "slug": "attack-on-titan-2-final-battle",
+      "storeName": "Attack on Titan 2: Final Battle"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/fRIOG_nX5om1bPavFzFyuVQqctDWwxcSmVg7-lL4av64SMRPEDigssaLhaJPr53VlcTpwbCguL3pOiPZe1Mf52Hf51UXFhkDU_Cka_gpiSp4cPfffqM0hKZF8bI",
@@ -1186,7 +1293,8 @@
       "skuId": "4950959380034dcda0aecf98f675e11f",
       "skuTimestampA": 1504710000,
       "skuTimestampB": 1574175600,
-      "slug": "destiny-2"
+      "slug": "destiny-2",
+      "storeName": "Destiny 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/ZNbVuFKt_OzcXIhGQ6HdMzdcZU0WLX_tJdpSSXDvFTXRBoE047FTMYTXBKA6CUppdIPyB60sf__kogVfjYGLiY48JKRtTConxNEBPM6WvJsda0X3hkUXTPEI5kk",
@@ -1197,18 +1305,20 @@
       "skuId": "c50094b71d054fc28f3116245d9dbc9a",
       "skuTimestampA": 1542726000,
       "skuTimestampB": 1574175600,
-      "slug": "farming-simulator-19"
+      "slug": "farming-simulator-19",
+      "storeName": "Farming Simulator 19"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/shHWB-5Z_PGMIvjqsGo7zPb4Xeo1OZX1bDgbis5tJuACtGxO7LcJsGZOVr0UdodTzP77KQuOw52t4bsFAUhVpLHVnSMnPrnVB2OgAI_A8zVLcQ2oII_VLAD1aPo",
       "coverThumbnailData": "KK_dK__KKed_FKKKKjeeKKKKKK-fK--KKKK-K------KK-K----KFF-F-----F--",
       "description": "Take the journey, now in ultimate quality. Boasting a wealth of bonus content and supporting ultra high-resolution graphical options and HDR 10, you can now enjoy the beautiful and carefully-crafted experience of FINAL FANTASY XV like never before.",
       "gameId": "a447622dbe084c3e9ace4f913a939afarcp1",
-      "name": "FINAL FANTASY XV",
+      "name": "Final Fantasy XV",
       "skuId": "1611bf48ac784869bcbd1ce85bc71add",
       "skuTimestampA": 1480431600,
       "skuTimestampB": 1574175600,
-      "slug": "final-fantasy-xv"
+      "slug": "final-fantasy-xv",
+      "storeName": "FINAL FANTASY XV"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/bhTAE9AYFT9fsWHReXauJCbrg4wWx6JcnDllgHNjkF0VAZyxxSpqzldY7GW13GkY9XD2lJ-pE4fh9bdD3J4zhqgCHEyqVhg5jVnYf4DJe-HvYY-wmttKn3tp6bUP",
@@ -1219,7 +1329,8 @@
       "skuId": "32a0791a88474f08ad7a687846b786f2",
       "skuTimestampA": 1574175600,
       "skuTimestampB": 1574175600,
-      "slug": "football-manager-2020"
+      "slug": "football-manager-2020",
+      "storeName": "Football Manager 2020"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/NkKnPjx5pf_KtpTBLWydLybhKzWh2s3qp_m2SzGZ4u5iDDb_PuALemMCdnGZYnCoVzI_BWHevf-W-MPYIWfKWYiXqm3hBWIgiFsdCmfSf0EiX8_0wv0spvRj-VA",
@@ -1230,7 +1341,8 @@
       "skuId": "75be643ff0fb40d7873fa41edb10d98a",
       "skuTimestampA": 1570806000,
       "skuTimestampB": 1574175600,
-      "slug": "grid"
+      "slug": "grid",
+      "storeName": "GRID"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Kn2LsxzVn65aWLTjJwB_kXDzGusf_bhLijJ-1T47G-6AC2a4bxRsD-IvgmOKv5QeKIbKOTA9PC9209LoLthGjhykbxIJNxLWruyeeBZvMXLANLarBQb5ByC7SwM",
@@ -1241,7 +1353,8 @@
       "skuId": "9ac5597c3f4a4e648c9ae56bac3d1b32",
       "skuTimestampA": 1574175600,
       "skuTimestampB": 1574175600,
-      "slug": "gylt"
+      "slug": "gylt",
+      "storeName": "GYLT"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/TI1PWXCuH739YBSZev3xdW0gaCIKLxuMX77jGqIOMMgNMFL8gSeGbpbK7-txwqlUAyrYOLyAIkdlOQcCFy3mkEPDDhQ6T_I8d_ISPV6a3a3ObcnBX6VodClyh9M",
@@ -1252,7 +1365,8 @@
       "skuId": "3feef74cbacf4ba39b5d9087e0dfb9e4",
       "skuTimestampA": 1572966000,
       "skuTimestampB": 1574175600,
-      "slug": "just-dance-2020"
+      "slug": "just-dance-2020",
+      "storeName": "Just Dance 2020®"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/AxTeMN7KoEfDyyIHZLs583DTjg0p76d1ZG5j6C132xKkUefj5YkTDvANslKFTu1cthegaR5HwVjhwUwQLsLOP0aWlPMDxR4SXaS9tRZPXOvitq8Y6JQdtu0VVM8",
@@ -1263,7 +1377,8 @@
       "skuId": "8d3124a81f6444219acd3d99c90a5658",
       "skuTimestampA": 1571331600,
       "skuTimestampB": 1574175600,
-      "slug": "kine"
+      "slug": "kine",
+      "storeName": "Kine"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/cuRqApB8QJxOWkDaaEzicgga13YPUKrEUROyhwqlVKwE1xH3PKF4STAbBYJET5rkCrp0Ob75-EHFFW7AFWdtEGjI9A3O3fDF8ALQmkXGOt80WhuD2MuSSkxfkw",
@@ -1274,7 +1389,8 @@
       "skuId": "f3f250e8a4d54f60ba730fbc04268052",
       "skuTimestampA": 1556002800,
       "skuTimestampB": 1574175600,
-      "slug": "mortal-kombat-11"
+      "slug": "mortal-kombat-11",
+      "storeName": "Mortal Kombat 11"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/FDx3Tizwpn5wxPiEkQWXjI5slQh9gSirhBrmMVUH4Vo5zcQzFvyENdXs8QWo56XKYjuYP1feYFIkYBGsj5xesJXcqttEoF4dI5AWdzhYI97fmjUKvJXHIeXyhoXj",
@@ -1285,7 +1401,8 @@
       "skuId": "78ea22fb5c054167bb722322b469f33f",
       "skuTimestampA": 1557846000,
       "skuTimestampB": 1574175600,
-      "slug": "rage-2"
+      "slug": "rage-2",
+      "storeName": "RAGE 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/Zf3hS1-H7E_tjrDIxTQVIhvrldafYKFfZ-GZE5WaMehcfSKxaUab5euoRQBzi7lYbq-AUzMEC6MVbAJC7ze3olFz4Sx1Zq3kfyF-BzTD6H48P7SArvAHCooliRw",
@@ -1296,29 +1413,32 @@
       "skuId": "f790e37b6161477188923408085528a1",
       "skuTimestampA": 1540566000,
       "skuTimestampB": 1574175600,
-      "slug": "red-dead-redemption-2"
+      "slug": "red-dead-redemption-2",
+      "storeName": "Red Dead Redemption 2"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/1BZb1p7JVXbv2jSjaUNYebDdUZhv9Rrnsm_feiKDwpzBFkEMmt-QOxXDR_Ae9KfD-aIB4Mx8oW1RKOQ6-gkOx90IHQjjgzxeaazXB2oE6UWocJ4IUvy6PEPSUg",
       "coverThumbnailData": "_duyttd_dtydtttddyu_dytutyK--yyyyyyddyzyyyyd_yyzyuuddyzyuyuy_uyz",
       "description": "Rise of the Tomb Raider: 20 Year Celebration includes the base game and Season Pass featuring all-new content. Explore Croft Manor in the new \"Blood Ties\" story, then defend it against a zombie invasion in \"Lara’s Nightmare\". Survive extreme conditions with a friend in the new online Co-Op Endurance mode, and brave the new \"Extreme Survivor\" difficulty. Also features an outfit and weapon inspired by Tomb Raider III, and 5 classic Lara skins.",
       "gameId": "e5c6ec7bf437491ea4ac0917df8f9640rcp1",
-      "name": "Rise of the Tomb Raider: 20 Year Celebration",
+      "name": "Rise of the Tomb Raider",
       "skuId": "f5562aaf93cb46e081d317263bde3013",
       "skuTimestampA": 1444575600,
       "skuTimestampB": 1574175600,
-      "slug": "rise-of-the-tomb-raider-20-year-celebration"
+      "slug": "rise-of-the-tomb-raider",
+      "storeName": "Rise of the Tomb Raider: 20 Year Celebration"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/ugOc_Fupr2_LSLHA_-mnxJ23VAW1dBlHEvMB4TjH8UwfE3Z-r_JvUla5wE0OZq-HH491PNp1UU9KpBPHiW1kUR94Hikn9AH80CSlWWSiPIUfanEvfAU7CxHIpyhD",
       "coverThumbnailData": "555L-5Q9PPPP0PPQQjj4fQQ5jj5zzUjAUjjQjejQQQQLLQQj4PP0-PQQ45P5KPPP",
       "description": "Description: This is SAMURAI SHODOWN’s main game.  SAMURAI SHODOWN has enjoyed worldwide success as a blade-wielding fighting game series since its first release in 1993.  11 years have passed since the last series installment, and it is now time for SAMURAI SHODOWN to return in a brand-new game featuring high-end visuals and gameplay!  Faithfully reproducing the game mechanics and atmosphere that contributed to the success of the series, SAMURAI SHODOWN includes a revolutionary feature that learns players’ game actions and patterns in order to create CPU-controlled “ghost” characters.  With its story set one year before the very first installment, warriors and combatants from various backgrounds and with their own goals are about to battle to fulfill their destinies!",
       "gameId": "120348c2707740b99b509fad49a2f45drcp1",
-      "name": "SAMURAI SHODOWN",
+      "name": "Samurai Shodown",
       "skuId": "888a817c35b5439bb6a03a78ab09e138",
       "skuTimestampA": 1561388400,
       "skuTimestampB": 1574175600,
-      "slug": "samurai-shodown"
+      "slug": "samurai-shodown",
+      "storeName": "SAMURAI SHODOWN (Standard Ver.)"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/v-DEyREU-awx_y0_UrUZs9DTBj9XehM8P9gPPBJcFUB8IrUdRjyIJpayqdbPC2qXgmJGu7Hns9ufZmjoHDQ7ow4_DVZ9CQvmG4HBmap6te4nu6b5Nfvg_wXg-WA",
@@ -1329,7 +1449,8 @@
       "skuId": "bb9bcb490fd145d9997c8b3ff3f1039f",
       "skuTimestampA": 1536937200,
       "skuTimestampB": 1574175600,
-      "slug": "shadow-of-the-tomb-raider"
+      "slug": "shadow-of-the-tomb-raider",
+      "storeName": "Shadow of the Tomb Raider Definitive Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/_p33ZpHqaQSZY78a-6PhjiqNucXh5ToiDd6HzWkeV_sjhUeGHLWzmTzfRgzaPkcmMFFmGyatpCVr1nIxcsf2_7uR4vPjTOGMoMzaWDl7yaiDhnT6oNv6ab0aXg",
@@ -1340,7 +1461,8 @@
       "skuId": "6e98f34bbcae444a99816b8f2613452b",
       "skuTimestampA": 1476118800,
       "skuTimestampB": 1574175600,
-      "slug": "thumper"
+      "slug": "thumper",
+      "storeName": "Thumper"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/ItdfhlmZlO02nwB2DXVUYjI9No4a8YneGd89WAtsQWQxIfuQtaNHNao7gA5ctMHgC-WTtPGjuuyK64Sv4nhEUYf6gwGELlxDePAdoKo1dGRhb9d64jyzPV4kQg",
@@ -1351,7 +1473,8 @@
       "skuId": "c86bd12f279741a8b8c9c522845c7fa9",
       "skuTimestampA": 1362495600,
       "skuTimestampB": 1574175600,
-      "slug": "tomb-raider"
+      "slug": "tomb-raider",
+      "storeName": "Tomb Raider: Definitive Edition"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/yboeUZCnPqzW-B4pHW8XyT3khyMK4n0D-1Tcsgv2aoJ3eh3S3JwblvGsW6Emf0hGQwq9pK6Kao2TSAp4Lek5Bx-GDTcKmDYlUbZjdjh7VpEaHZ9JuXjam5IpRig",
@@ -1362,7 +1485,8 @@
       "skuId": "01e95e73256c465fb5620fc574446413",
       "skuTimestampA": 1551193200,
       "skuTimestampB": 1574175600,
-      "slug": "trials-rising"
+      "slug": "trials-rising",
+      "storeName": "Trials Rising"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/l3hk5KRHoVrFdS-77AlpQtt2oRX3xZnki3aaVu-Op8mwoSgLqRz8ZoUEvzOIFpfdIxS6Fj5Ih5xFBJ_8CadJNeW1fjSdGjDwqP11KKYjnTk-tyIcI8Ysp-Zvrtg",
@@ -1373,7 +1497,8 @@
       "skuId": "31047b9e82bb4a30ba66b24bef71cdf2",
       "skuTimestampA": 1564153200,
       "skuTimestampB": 1574175600,
-      "slug": "wolfenstein-youngblood"
+      "slug": "wolfenstein-youngblood",
+      "storeName": "Wolfenstein: Youngblood"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/_QkJm54vdjWppurf3MNWjpbsF0YDeOrsWIr0Mm-Fy13MRD2HIpqvPvXhssls75dWQ5RbyagL4EBY_Yd-2Yv3YvOsrXUn1ahEeeejmBfaCeyx-psRF4OtGsgfJPnq",
@@ -1384,7 +1509,8 @@
       "skuId": "b6d1b295ed0d4f1080576ac5d51df6d0",
       "skuTimestampA": 1567753200,
       "skuTimestampB": 1574150400,
-      "slug": "nba-2k20"
+      "slug": "nba-2k20",
+      "storeName": "NBA 2K20"
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/hL0fFlZDmLSy4bzxsXeLNVf6o5vtnKU5Wk5V6HJ5c7C0JdkQNBa0WT8yqDu7esb47dTe7FoLzN7pu06c2nXBStZTfTBnC8e3fuLyJmbdcBZa0lSwHT3YtDO5azs",
@@ -1395,7 +1521,8 @@
       "skuId": "8ca5e97f091e4f7fbfcf8069ba850b1f",
       "skuTimestampA": 1550242800,
       "skuTimestampB": 1572966000,
-      "slug": "metro-exodus"
+      "slug": "metro-exodus",
+      "storeName": "Metro Exodus"
     }
   ],
   "name": "stadia.run"
