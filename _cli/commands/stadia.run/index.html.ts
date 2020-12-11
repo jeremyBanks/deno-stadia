@@ -1,5 +1,7 @@
 import { escape } from "../../../_common/html.ts";
 
+import { cleanName, slugify } from "./mod.ts";
+
 import type { Games } from "./mod.ts";
 
 export const html = (
@@ -494,52 +496,23 @@ Promise.resolve().then(async () => {
   }
 });
 
-export const searchForm =
+const searchForm =
   globalThis.document && document.querySelector("st-search form");
-export const searchInput = searchForm && searchForm.querySelector("input");
-export const searchButton = searchForm && searchForm.querySelector("button");
-export const gameTiles =
+const searchInput = searchForm && searchForm.querySelector("input");
+const searchButton = searchForm && searchForm.querySelector("button");
+const gameTiles =
   globalThis.document && document.querySelector("st-games");
 
-export const skus = new Map();
+const skus = new Map();
 
-export const digits =
+const digits =
   "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
 
-  const cleanName = (name: string) =>
-  name
-    .replace(
-      /^SpongeBobSquarePants:Battle for Bikini BottomRehydrated$/,
-      "SpongeBob SquarePants: Battle for Bikini Bottom – Rehydrated",
-    )
-    .replace(/\\bRe(mastered|hydrated|dux|make)$/gi, "")
-    .replace(/\\bTamriel Unlimited$/gi, "")
-    .replace(/\\bThe Official Videogame\\b/gi, "")
-    .replace(/^Tom Clancy's\\b/gi, "")
-    .replace(/:(\\w)/g, " $1")
-    .replace(/™/g, " ")
-    .replace(/®/g, " ")
-    .replace(/&/g, " and ")
-    .replace(/[\\:\\-]? Early Access$/g, " ")
-    .replace(/\\bStandard Edition$/gi, " ")
-    .replace(/[\\:\\-]? \\w+ Edition$/g, " ")
-    .replace(/\\(\\w+ Ver(\\.|sion)\\)$/g, " ")
-    .replace(/\\(\\w+MODE\\)$/g, " ")
-    .replace(/™/g, " ")
-    .replace(/\\s{2,}/g, " ")
-    .replace(/^\\s+|\\s+$/g, "");
+const cleanName = (${cleanName.toString()});
 
-const slugify = (name: string, separator = "-") =>
-  cleanName(name)
-    .normalize("NFKD")
-    .replace(/[\\u0300-\\u0362]/gu, "")
-    .toLowerCase()
-    .replace(/'/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^\\-+|\\-+$/g, "")
-    .replace(/\\-/g, separator);
+const slugify = (${slugify.toString()});
 
-export const loadedImage = async (/** @type string */ url) => {
+const loadedImage = async (/** @type string */ url) => {
   const image = new Image();
   await new Promise((resolve, reject) => {
     image.onload = resolve;
@@ -550,7 +523,7 @@ export const loadedImage = async (/** @type string */ url) => {
   return image;
 };
 
-export const unpackMicroCovers = async () => {
+const unpackMicroCovers = async () => {
   for (const game of document.querySelectorAll("st-game")) {
     const full = game.querySelector("st-cover-full img");
     const micro = game.querySelector("st-cover-micro");
@@ -574,7 +547,7 @@ export const unpackMicroCovers = async () => {
   }
 };
 
-export const u6toRGB = u6 => {
+const u6toRGB = u6 => {
   const red =
     (u6 & 0b000010 ? 0b10101010 : 0) + (u6 & 0b000001 ? 0b01010101 : 0);
   const green =
@@ -584,7 +557,7 @@ export const u6toRGB = u6 => {
   return [red, green, blue];
 };
 
-export const microImageToURL = microImage => {
+const microImageToURL = microImage => {
   const canvas = document.createElement("canvas");
   canvas.width = 8;
   canvas.height = 8;

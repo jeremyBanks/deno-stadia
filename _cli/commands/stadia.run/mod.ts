@@ -45,12 +45,14 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   const games = [];
 
+  let image;
+
   for (const game of listPage.skus) {
     if (game.type !== "game") {
       continue;
     }
 
-    const image = await loadImage(game.coverImageUrl);
+    image ??= await loadImage(game.coverImageUrl);
     const canvas = Canvas.MakeCanvas(8, 8);
     const context = canvas.getContext("2d")!;
     context.drawImage(image, 0, 0, 8, 8);
@@ -121,7 +123,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
 const digits =
   "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
 
-const cleanName = (name: string) =>
+export const cleanName = (name: string) =>
   name
     .replace(
       /^SpongeBobSquarePants:Battle for Bikini BottomRehydrated$/,
@@ -132,6 +134,7 @@ const cleanName = (name: string) =>
     .replace(/\bThe Official Videogame\b/gi, "")
     .replace(/^Tom Clancy's\b/gi, "")
     .replace(/:(\w)/g, " $1")
+    .replace(/\s+:/g, ":")
     .replace(/™/g, " ")
     .replace(/®/g, " ")
     .replace(/&/g, " and ")
@@ -144,7 +147,7 @@ const cleanName = (name: string) =>
     .replace(/\s{2,}/g, " ")
     .replace(/^\s+|\s+$/g, "");
 
-const slugify = (name: string, separator = "-") =>
+export const slugify = (name: string, separator = "-") =>
   cleanName(name)
     .normalize("NFKD")
     .replace(/[\u0300-\u0362]/gu, "")
