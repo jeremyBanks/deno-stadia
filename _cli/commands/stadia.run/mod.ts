@@ -45,14 +45,12 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   const games = [];
 
-  let image;
-
   for (const game of listPage.skus) {
     if (game.type !== "game") {
       continue;
     }
 
-    image ??= await loadImage(game.coverImageUrl);
+    const image = await loadImage(game.coverImageUrl);
     const canvas = Canvas.MakeCanvas(8, 8);
     const context = canvas.getContext("2d")!;
     context.drawImage(image, 0, 0, 8, 8);
