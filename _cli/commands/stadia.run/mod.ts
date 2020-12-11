@@ -131,7 +131,7 @@ const cleanName = (name: string) =>
     .replace(/\bTamriel Unlimited$/gi, "")
     .replace(/\bThe Official Videogame\b/gi, "")
     .replace(/^Tom Clancy's\b/gi, "")
-    .replace(/:(\d)/g, " $1")
+    .replace(/:(\w)/g, " $1")
     .replace(/™/g, " ")
     .replace(/®/g, " ")
     .replace(/&/g, " and ")

@@ -506,10 +506,33 @@ export const skus = new Map();
 export const digits =
   "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
 
-export const slugify = (name, separator = "-") =>
-    name
-    .normalize('NFKD')
-    .replace(/\\p{Mark}/gu, '')
+  const cleanName = (name: string) =>
+  name
+    .replace(
+      /^SpongeBobSquarePants:Battle for Bikini BottomRehydrated$/,
+      "SpongeBob SquarePants: Battle for Bikini Bottom – Rehydrated",
+    )
+    .replace(/\\bRe(mastered|hydrated|dux|make)$/gi, "")
+    .replace(/\\bTamriel Unlimited$/gi, "")
+    .replace(/\\bThe Official Videogame\\b/gi, "")
+    .replace(/^Tom Clancy's\\b/gi, "")
+    .replace(/:(\\w)/g, " $1")
+    .replace(/™/g, " ")
+    .replace(/®/g, " ")
+    .replace(/&/g, " and ")
+    .replace(/[\\:\\-]? Early Access$/g, " ")
+    .replace(/\\bStandard Edition$/gi, " ")
+    .replace(/[\\:\\-]? \\w+ Edition$/g, " ")
+    .replace(/\\(\\w+ Ver(\\.|sion)\\)$/g, " ")
+    .replace(/\\(\\w+MODE\\)$/g, " ")
+    .replace(/™/g, " ")
+    .replace(/\\s{2,}/g, " ")
+    .replace(/^\\s+|\\s+$/g, "");
+
+const slugify = (name: string, separator = "-") =>
+  cleanName(name)
+    .normalize("NFKD")
+    .replace(/[\\u0300-\\u0362]/gu, "")
     .toLowerCase()
     .replace(/'/g, "")
     .replace(/[^a-z0-9]+/g, "-")
