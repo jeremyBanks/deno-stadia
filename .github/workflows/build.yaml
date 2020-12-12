@@ -67,12 +67,6 @@ jobs:
           )"
           echo "::set-output name=had-changes::${had_changes}"
 
-      - name: refresh published pages if running on schedule
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        run: |
-          echo "DENO_STADIA_GOOGLE_COOKIE=${{ secrets.GOOGLE_COOKIE }}" >> "${GITHUB_ENV}"
-          ./stadia.ts stadia.run
-
       - name: commit and push generated files
         if: success() && steps.build.outputs.had-changes == 'true' && (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
         run: |
