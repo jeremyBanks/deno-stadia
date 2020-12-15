@@ -4,6 +4,26 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/player/769a088b9ef04c04b341911a1ef8b8ecrcp1",
+      "source": "/cthulhu-saves-christmas",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/player/8f0addba5d3d4c05b07d7b59481e0171rcp1",
+      "source": "/enter-the-gungeon",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/player/29b3d5d6788f444c8cd59aa0a49d1bd1rcp1",
+      "source": "/lara-croft-and-the-guardian-of-light",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/player/2677ffb357f946e29b4e86a9f18ea55frcp1",
+      "source": "/reigns",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/player/11dfda5b2d78475d8624972b9b78c995rcp1",
       "source": "/assassins-creed-origins",
       "statusCode": 301
