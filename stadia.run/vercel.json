@@ -209,6 +209,11 @@
       "statusCode": 301
     },
     {
+      "destination": "https://stadia.google.com/player/6363b82d1cc442f5af9c3ce98ceb731drcp1",
+      "source": "/immortals-fenyx-rising-demo",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/player/19efd5fa36794d7b8bc87de68124e705rcp1",
       "source": "/cake-bash",
       "statusCode": 301
