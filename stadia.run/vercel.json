@@ -569,11 +569,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/player/8a3cc52ad2334b1e91ded77bc43644e0rcp1",
-      "source": "/football-manager-2020",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/player/ca805d3d37404654a91d2ea62fad7bd4rcp1",
       "source": "/grid",
       "statusCode": 301
