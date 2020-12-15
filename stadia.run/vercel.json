@@ -379,13 +379,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/player/3aed855f10b34f618e5f6c6f5467bcf9rcp1",
-      "source": "/little-nightmares",
+      "destination": "https://stadia.google.com/player/f7afcff709e74227a5648aacadf03815rcp1",
+      "source": "/superhot",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/player/f7afcff709e74227a5648aacadf03815rcp1",
-      "source": "/superhot",
+      "destination": "https://stadia.google.com/player/3aed855f10b34f618e5f6c6f5467bcf9rcp1",
+      "source": "/little-nightmares",
       "statusCode": 301
     },
     {
