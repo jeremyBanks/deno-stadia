@@ -66,9 +66,9 @@ jobs:
           declare author_email="$(git log -1 --pretty=format:'%ae')"
           declare current_action_url="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${{ github.run_id }}"
 
-          export GIT_COMMITTER_DATE="${date}"
-          export GIT_COMMITTER_NAME="github-actions"
-          export GIT_COMMITTER_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
+          export GIT_AUTHOR_DATE="${date}"
+          export GIT_AUTHOR_NAME="github-actions"
+          export GIT_AUTHOR_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
 
           export GIT_COMMITTER_DATE="${date}"
           export GIT_COMMITTER_NAME="github-actions"
