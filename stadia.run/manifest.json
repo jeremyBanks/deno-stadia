@@ -23,7 +23,37 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/zjuyA3C8s42BysAVvn4BppBMQET3gPgizdaFbrcwsmbglG799enngMSedrMYcPT8DJ_fW6lcSBAaM9uZx-vA1Pn_jFFsLG9prJl9WElVIl5WB21aTLraMjTXCA=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/miz1VFqThuIFbsCdhAA0KCiLt6Bi8LLGq66TIC84cetg15DXHRIsgV4F9fJqMOba-WbjNBBWS1J455erjvLurqE8JQBQc2d2DDaretuh5ohkqY3yu1FWvlmruQ=s192-p-rp"
+        }
+      ],
+      "name": "Assassin's Creed Origins",
+      "url": "/assassins-creed-origins"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/0o8xUFXx0-qGuKdGqikciqLzFiKsgyzjSs7CGJtoiG0mq2dIDVJ-uqpaKPcxNoHI73gJEk34XVosSNkKjy_bo5vSwD8sqnhV1O0-tHDwZdoM-lRTBXWoOzYTrsY=s192-p-rp"
+        }
+      ],
+      "name": "Assassin's Creed Syndicate",
+      "url": "/assassins-creed-syndicate"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/gR_gI7BURMihgH_0AmzuRtOQjtAr6V3lKpHnrMbfv8HKhz8pU1pN-_6YNYr5Zsy5J68mCKaZ6UEsWP66kxd_pETtygR9sFhNiC0s8YnhtRoC5CIZ7Fie5Rq3ylY=s192-p-rp"
+        }
+      ],
+      "name": "Assassin's Creed Unity",
+      "url": "/assassins-creed-unity"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/CvNSjOfcg2Mx8bJ4mDiN1uNBS0_5Wsr_cFPYLaB2eGKW7Bd5_zEMBUkNm3PKV07ttMqIQfb-VzPsdauHi4O8t0MjXyQnEODIZHiKWaaVC9u-CtaMZOHH9sgZqw=s192-p-rp"
         }
       ],
       "name": "Cyberpunk 2077",
@@ -33,7 +63,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/Le1q52MYQpiGvXtuWkxE1-Lb3n3XkozkfmRbKKpkU-0h9BvBgB2Uoog3q3fC_-dMwN5vyh1VEwoW7Ed7pO1M4X6yZRutbnQ_wIkggkYpZW6gL1spdwAz8t_7UQg=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/l4_Q-tdUAwQvrW9-rJk_HR8w6R68IAca8Eqv1Rz9v-PYzYpf8bxFFCsC1JCAxZLxeSn_0pZTBKJwJvofwwdgjVV8ZzxquL47wbxmA9HhTSxNI7Ko0z85zs6ek0I=s192-p-rp"
         }
       ],
       "name": "Unto The End",
@@ -148,36 +178,6 @@
       ],
       "name": "Immortals Fenyx Rising",
       "url": "/immortals-fenyx-rising"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/fGWg_nvR9ZlrUyk0TJlezFKellUnsJD84yoDsY8NpsFpXezCcEPvJjEanp0dCPp3UTi2t1r6V5dLlEYPEknz2Qb8ZfzZJFODX6XxaMh0KjhoEtAxk5jDdA189bxI=s192-p-rp"
-        }
-      ],
-      "name": "EVERSPACE",
-      "url": "/everspace"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/susg4Yh08577wi055hdwdwlDF1JWd11g2UFTsuvwi-Y0mfCoikYLXgOGyLsyl5P5D2H86f1fBF7OjdsgcRdNMe8qZOnTPgmmPL1lObmh2YQ-aPfcty70MoF_kxw=s192-p-rp"
-        }
-      ],
-      "name": "Into the Breach",
-      "url": "/into-the-breach"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/UF5uwY0LnoEaP4mK28Pgc4Ldu2der5HvhaiJovNYRizUjVCmA5ID_52BbHvBLjf62IAFFr_hI8odcu5VIPj3EDVgOBOMU1ZMPycm-2OPpjNA6B3-ALqPr3vCCZw=s192-p-rp"
-        }
-      ],
-      "name": "Secret Neighbor",
-      "url": "/secret-neighbor"
     }
   ],
   "start_url": "/",
