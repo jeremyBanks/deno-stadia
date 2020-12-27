@@ -649,11 +649,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/player/a031419410cc48469ff8954ea0732640rcp1",
-      "source": "/trials-rising",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/player/4884bd9bd7864cf28deef05ef4b69e70rcp1",
       "source": "/wolfenstein-youngblood",
       "statusCode": 301
@@ -661,6 +656,11 @@
     {
       "destination": "https://stadia.google.com/player/2afad3696b394f669b49e4c0b6016958rcp1",
       "source": "/nba-2k20",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/player/a031419410cc48469ff8954ea0732640rcp1",
+      "source": "/trials-rising",
       "statusCode": 301
     },
     {
