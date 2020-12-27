@@ -30,7 +30,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
     // required for the library, only this command.
     canvas ??= await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
   } catch (error) {
-    // this is bad but this is only for my use so
+    // this is bad but this is only for my use, so
     let { proxy, revoke } = Proxy.revocable({}, {});
     revoke();
     canvas = proxy;
@@ -40,13 +40,22 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   const name = flags.name;
 
-  const listPage = await client.fetchAllGames();
+  const allGamesListPage = await client.fetchStoreList("3");
+  const stadiaProListPage = await client.fetchStoreList("2001");
+  const ubisoftPlusListPage = await client.fetchStoreList("2002");
+
+  const stadiaProGameIds = new Set(
+    stadiaProListPage.skus.map((x) => x.gameId).filter(Boolean),
+  );
+  const ubisoftPlusGameIds = new Set(
+    ubisoftPlusListPage.skus.map((x) => x.gameId).filter(Boolean),
+  );
 
   log.debug("Loaded game list, processing and generating thumbnails...");
 
   const games = [];
 
-  for (const game of listPage.skus) {
+  for (const game of allGamesListPage.skus) {
     if (game.type !== "game") {
       continue;
     }
@@ -80,6 +89,9 @@ export const command = async (client: Client, flags: FlagArgs) => {
     skuTimestampA ??= 0;
     skuTimestampB ??= 0;
 
+    const inStadiaPro = stadiaProGameIds.has(gameId);
+    const inUbisoftPlus = ubisoftPlusGameIds.has(gameId);
+
     const slug = slugify(storeName);
 
     log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
@@ -95,6 +107,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
       coverImageUrl,
       skuTimestampA,
       skuTimestampB,
+      inStadiaPro,
+      inUbisoftPlus,
     });
   }
 

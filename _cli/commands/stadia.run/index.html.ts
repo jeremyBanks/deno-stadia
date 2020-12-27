@@ -28,6 +28,7 @@ export const html = (
 
 <meta name="viewport" content="width=770">
 
+
 <style>
   * {
     box-sizing: inherit;
@@ -300,74 +301,31 @@ export const html = (
               0 0 2px 7px rgba(0, 0, 0, 0.5);
           }
 
+          main st-games st-game st-badges {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 100%;
+            display: flex;
+            gap: 8px;
+          }
+
           main st-games st-game st-badge {
             z-index: 20;
-            display: block;
-            position: absolute;
             font-size: 16px;
             padding: 2px 6px;
             border-radius: 4px;
             box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
           }
 
-          main st-games st-game st-badge[popular] {
-            background: rgba(64, 0, 0, 0.5);
-            box-shadow: 0 0 2px 1px rgba(64, 0, 0, 0.25);
-            border-radius: 32px;
-            font-size: 32px;
-            height: 36px;
-            width: 36px;
-            padding: 0;
-            top: 8px;
-            left: 8px;
-          }
-
-          main st-games st-game[delisted] a {
-            filter: sepia(50%) saturate(50%) contrast(100%) brightness(50%);
-            cursor: not-allowed;
-          }
-
-          main st-games st-game st-badge[delisted] {
-            background: #222;
-            color: #F88;
-            left: 8px;
-            top: 8px;
-            border-top-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-          }
-
-          main st-games st-game st-badge[demo] {
-            background: #112233;
-            bottom: 8px;
-            left: 8px;
-            border-bottom-left-radius: 12px;
-            border-top-right-radius: 12px;
-          }
-
           main st-games st-game st-badge[pro] {
             background: var(--theme-color);
-            bottom: 8px;
-            left: 8px;
             border-bottom-left-radius: 12px;
             border-top-right-radius: 12px;
           }
 
-          main st-games st-game st-badge[previously-pro] {
-            color: #A66;
-            background-color: #300000;
-            font-size: 8px;
-            text-align: right;
-            bottom: 8px;
-            left: 8px;
-            border-bottom-left-radius: 12px;
-            border-top-right-radius: 12px;
-          }
-
-          main st-games st-game st-badge[pre-order] {
-            background: #FD0;
-            color: black;
-            bottom: 8px;
-            left: 8px;
+          main st-games st-game st-badge[ubi] {
+            background: #428ee1;
             border-bottom-left-radius: 12px;
             border-top-right-radius: 12px;
           }
@@ -448,7 +406,17 @@ export const html = (
 
   <st-games>
     ${
-    games.map(({ gameId, coverImageUrl, coverThumbnailData, name, slug }) =>
+    games.map((
+      {
+        gameId,
+        coverImageUrl,
+        coverThumbnailData,
+        name,
+        slug,
+        inStadiaPro,
+        inUbisoftPlus,
+      },
+    ) =>
       `<st-game><a href="https://stadia.google.com/player/${escape(gameId!)}">
         <st-cover-full>
           <img crossorigin src="${escape(coverImageUrl)}=w640-h360-rw">
@@ -457,6 +425,9 @@ export const html = (
           <st-name>${escape(name)}</st-name>
         </st-cover-micro>
         <st-slug>/${escape(slug)}</st-slug>
+        <st-badges>${inStadiaPro ? `<st-badge pro>PRO</st-badge>` : ""}${
+        inUbisoftPlus ? `<st-badge ubi>U+</st-badge>` : ""
+      }</st-badges>
       </a></st-game>`
     ).join("\n")
   }

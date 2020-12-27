@@ -18,6 +18,7 @@
 
 <meta name="viewport" content="width=770">
 
+
 <style>
   * {
     box-sizing: inherit;
@@ -290,74 +291,31 @@
               0 0 2px 7px rgba(0, 0, 0, 0.5);
           }
 
+          main st-games st-game st-badges {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 100%;
+            display: flex;
+            gap: 8px;
+          }
+
           main st-games st-game st-badge {
             z-index: 20;
-            display: block;
-            position: absolute;
             font-size: 16px;
             padding: 2px 6px;
             border-radius: 4px;
             box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
           }
 
-          main st-games st-game st-badge[popular] {
-            background: rgba(64, 0, 0, 0.5);
-            box-shadow: 0 0 2px 1px rgba(64, 0, 0, 0.25);
-            border-radius: 32px;
-            font-size: 32px;
-            height: 36px;
-            width: 36px;
-            padding: 0;
-            top: 8px;
-            left: 8px;
-          }
-
-          main st-games st-game[delisted] a {
-            filter: sepia(50%) saturate(50%) contrast(100%) brightness(50%);
-            cursor: not-allowed;
-          }
-
-          main st-games st-game st-badge[delisted] {
-            background: #222;
-            color: #F88;
-            left: 8px;
-            top: 8px;
-            border-top-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-          }
-
-          main st-games st-game st-badge[demo] {
-            background: #112233;
-            bottom: 8px;
-            left: 8px;
-            border-bottom-left-radius: 12px;
-            border-top-right-radius: 12px;
-          }
-
           main st-games st-game st-badge[pro] {
             background: var(--theme-color);
-            bottom: 8px;
-            left: 8px;
             border-bottom-left-radius: 12px;
             border-top-right-radius: 12px;
           }
 
-          main st-games st-game st-badge[previously-pro] {
-            color: #A66;
-            background-color: #300000;
-            font-size: 8px;
-            text-align: right;
-            bottom: 8px;
-            left: 8px;
-            border-bottom-left-radius: 12px;
-            border-top-right-radius: 12px;
-          }
-
-          main st-games st-game st-badge[pre-order] {
-            background: #FD0;
-            color: black;
-            bottom: 8px;
-            left: 8px;
+          main st-games st-game st-badge[ubi] {
+            background: #428ee1;
             border-bottom-left-radius: 12px;
             border-top-right-radius: 12px;
           }
@@ -445,6 +403,7 @@
           <st-name>Cthulhu Saves Christmas</st-name>
         </st-cover-micro>
         <st-slug>/cthulhu-saves-christmas</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/8f0addba5d3d4c05b07d7b59481e0171rcp1">
         <st-cover-full>
@@ -454,6 +413,7 @@
           <st-name>Enter The Gungeon</st-name>
         </st-cover-micro>
         <st-slug>/enter-the-gungeon</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/29b3d5d6788f444c8cd59aa0a49d1bd1rcp1">
         <st-cover-full>
@@ -463,6 +423,7 @@
           <st-name>Lara Croft and the Guardian of Light</st-name>
         </st-cover-micro>
         <st-slug>/lara-croft-and-the-guardian-of-light</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/2677ffb357f946e29b4e86a9f18ea55frcp1">
         <st-cover-full>
@@ -472,6 +433,7 @@
           <st-name>Reigns</st-name>
         </st-cover-micro>
         <st-slug>/reigns</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/11dfda5b2d78475d8624972b9b78c995rcp1">
         <st-cover-full>
@@ -481,6 +443,7 @@
           <st-name>Assassin&#39;s Creed Origins</st-name>
         </st-cover-micro>
         <st-slug>/assassins-creed-origins</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/88a2945345f744519c5148ddd54f26d1rcp1">
         <st-cover-full>
@@ -490,6 +453,7 @@
           <st-name>Assassin&#39;s Creed Syndicate</st-name>
         </st-cover-micro>
         <st-slug>/assassins-creed-syndicate</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/92f77c19718444499ffb3054dd97ca36rcp1">
         <st-cover-full>
@@ -499,6 +463,7 @@
           <st-name>Assassin&#39;s Creed Unity</st-name>
         </st-cover-micro>
         <st-slug>/assassins-creed-unity</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/49697e672bc34e7d8a5f73f78cb580d0rcp1">
         <st-cover-full>
@@ -508,6 +473,7 @@
           <st-name>Cyberpunk 2077</st-name>
         </st-cover-micro>
         <st-slug>/cyberpunk-2077</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/a089691b36254f77bc66a75052fc7cf6rcp1">
         <st-cover-full>
@@ -517,6 +483,7 @@
           <st-name>Unto The End</st-name>
         </st-cover-micro>
         <st-slug>/unto-the-end</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/e6005e58d6d3458abd01bcf68e264ccercp1">
         <st-cover-full>
@@ -526,6 +493,7 @@
           <st-name>Watch Dogs 2</st-name>
         </st-cover-micro>
         <st-slug>/watch-dogs-2</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b7503867ccbc4ac7be7093fe3ba1523crcp1">
         <st-cover-full>
@@ -535,6 +503,7 @@
           <st-name>Watch Dogs</st-name>
         </st-cover-micro>
         <st-slug>/watch-dogs</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/0fd3103549b54c7e89afd6eed83672cercp1">
         <st-cover-full>
@@ -544,6 +513,7 @@
           <st-name>Destroy All Humans!</st-name>
         </st-cover-micro>
         <st-slug>/destroy-all-humans</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/7183914d07034cb1bbb8a511779bc1efrcp1">
         <st-cover-full>
@@ -553,6 +523,7 @@
           <st-name>Figment</st-name>
         </st-cover-micro>
         <st-slug>/figment</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/53bd183291e340dda697167108d3dc6brcp1">
         <st-cover-full>
@@ -562,6 +533,7 @@
           <st-name>SpongeBob SquarePants: Battle for Bikini Bottom</st-name>
         </st-cover-micro>
         <st-slug>/spongebob-squarepants-battle-for-bikini-bottom</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b00e2f20b91e43c8a0597b07fc80ca84rcp1">
         <st-cover-full>
@@ -571,6 +543,7 @@
           <st-name>Valkyria Chronicles 4</st-name>
         </st-cover-micro>
         <st-slug>/valkyria-chronicles-4</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/d46f9c2d858d41d6ae4cc12d186657f0rcp1">
         <st-cover-full>
@@ -580,6 +553,7 @@
           <st-name>El Hijo - A Wild West Tale</st-name>
         </st-cover-micro>
         <st-slug>/el-hijo-a-wild-west-tale</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/8533fb04b9174c3f8dce10a2fec7b062rcp1">
         <st-cover-full>
@@ -589,6 +563,7 @@
           <st-name>Outcasters</st-name>
         </st-cover-micro>
         <st-slug>/outcasters</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/05b9db9b9b5b489995568afd930a9db3rcp1">
         <st-cover-full>
@@ -598,6 +573,7 @@
           <st-name>PHOGS!</st-name>
         </st-cover-micro>
         <st-slug>/phogs</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/3c39a33bbc064308941f9276c38c30e7rcp1">
         <st-cover-full>
@@ -607,6 +583,7 @@
           <st-name>Submerged: Hidden Depths</st-name>
         </st-cover-micro>
         <st-slug>/submerged-hidden-depths</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/161f276db10947a199cd0260ed4dc248rcp1">
         <st-cover-full>
@@ -616,6 +593,7 @@
           <st-name>Immortals Fenyx Rising</st-name>
         </st-cover-micro>
         <st-slug>/immortals-fenyx-rising</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/44752f1774ca4508a2c45e57121d7e8frcp1">
         <st-cover-full>
@@ -625,6 +603,7 @@
           <st-name>EVERSPACE</st-name>
         </st-cover-micro>
         <st-slug>/everspace</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/1a871cfe8a7d4ebc8592c2ad4bc07150rcp1">
         <st-cover-full>
@@ -634,6 +613,7 @@
           <st-name>Into the Breach</st-name>
         </st-cover-micro>
         <st-slug>/into-the-breach</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/8f8d583a2ae843e0b31fa653cea5d27drcp1">
         <st-cover-full>
@@ -643,6 +623,7 @@
           <st-name>Secret Neighbor</st-name>
         </st-cover-micro>
         <st-slug>/secret-neighbor</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/3f94b62fa50c4202be10472947478f8frcp1">
         <st-cover-full>
@@ -652,6 +633,7 @@
           <st-name>Chronos: Before the Ashes</st-name>
         </st-cover-micro>
         <st-slug>/chronos-before-the-ashes</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/e7506ec75c8046dfa7879fe604505ca7rcp1">
         <st-cover-full>
@@ -661,6 +643,7 @@
           <st-name>Monster Jam Steel Titans</st-name>
         </st-cover-micro>
         <st-slug>/monster-jam-steel-titans</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/8185df0ce9d74d61aab58a12d4bf21a0rcp1">
         <st-cover-full>
@@ -670,6 +653,7 @@
           <st-name>Outward</st-name>
         </st-cover-micro>
         <st-slug>/outward</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/36c01626f21f428e8d5ae35ce19c774brcp1">
         <st-cover-full>
@@ -679,6 +663,7 @@
           <st-name>Star Wars Jedi: Fallen Order</st-name>
         </st-cover-micro>
         <st-slug>/star-wars-jedi-fallen-order</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/a1ce1274a83244f1a099bebef7ae1233rcp1">
         <st-cover-full>
@@ -688,6 +673,7 @@
           <st-name>Ghost Recon Wildlands</st-name>
         </st-cover-micro>
         <st-slug>/ghost-recon-wildlands</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/deb490c166544813bf2ab73f4c6e2aa0rcp1">
         <st-cover-full>
@@ -697,6 +683,7 @@
           <st-name>Watch Dogs: Legion</st-name>
         </st-cover-micro>
         <st-slug>/watch-dogs-legion</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/9affbc684aeb422086bfb5d0c8bf2f55rcp1">
         <st-cover-full>
@@ -706,6 +693,7 @@
           <st-name>PAC-MAN Mega Tunnel Battle</st-name>
         </st-cover-micro>
         <st-slug>/pac-man-mega-tunnel-battle</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/5ba98de70c8c4b64bf56ca9009d60e62rcp1">
         <st-cover-full>
@@ -715,6 +703,7 @@
           <st-name>Family Feud</st-name>
         </st-cover-micro>
         <st-slug>/family-feud</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b87ca389d6454546af28dff82898406arcp1">
         <st-cover-full>
@@ -724,6 +713,7 @@
           <st-name>Just Dance 2021</st-name>
         </st-cover-micro>
         <st-slug>/just-dance-2021</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/377f50584071472096bcda89b0839bc3rcp1">
         <st-cover-full>
@@ -733,6 +723,7 @@
           <st-name>Assassin&#39;s Creed Valhalla</st-name>
         </st-cover-micro>
         <st-slug>/assassins-creed-valhalla</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/016636d5f49f4862be3ff8cbcf6c7adercp1">
         <st-cover-full>
@@ -742,6 +733,7 @@
           <st-name>Ary and the Secret of Seasons</st-name>
         </st-cover-micro>
         <st-slug>/ary-and-the-secret-of-seasons</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/e4e8f5e5bc744270a644c554ba3f2962rcp1">
         <st-cover-full>
@@ -751,6 +743,7 @@
           <st-name>Little Big Workshop</st-name>
         </st-cover-micro>
         <st-slug>/little-big-workshop</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/a2a4ff75e249404a975db7ae5f77e536rcp1">
         <st-cover-full>
@@ -760,6 +753,7 @@
           <st-name>Far Cry New Dawn</st-name>
         </st-cover-micro>
         <st-slug>/far-cry-new-dawn</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/7d9beb13648d44839b9aeea7555c37c0rcp1">
         <st-cover-full>
@@ -769,6 +763,7 @@
           <st-name>Far Cry 5</st-name>
         </st-cover-micro>
         <st-slug>/far-cry-5</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cf784a0f4c554ce68a2880cb461bd903rcp1">
         <st-cover-full>
@@ -778,6 +773,7 @@
           <st-name>Hello Neighbor: Hide and Seek</st-name>
         </st-cover-micro>
         <st-slug>/hello-neighbor-hide-and-seek</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/1376a179ca87458b85acd44341854772rcp1">
         <st-cover-full>
@@ -787,6 +783,7 @@
           <st-name>Sniper Elite 4</st-name>
         </st-cover-micro>
         <st-slug>/sniper-elite-4</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cf65dc95d523465493d6fbc482452227rcp1">
         <st-cover-full>
@@ -796,6 +793,7 @@
           <st-name>The Gardens Between</st-name>
         </st-cover-micro>
         <st-slug>/the-gardens-between</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cc3f233990754f77a5819a583594f399rcp1">
         <st-cover-full>
@@ -805,6 +803,7 @@
           <st-name>Sekiro: Shadows Die Twice</st-name>
         </st-cover-micro>
         <st-slug>/sekiro-shadows-die-twice</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/6363b82d1cc442f5af9c3ce98ceb731drcp1">
         <st-cover-full>
@@ -814,6 +813,7 @@
           <st-name>Immortals Fenyx Rising Demo</st-name>
         </st-cover-micro>
         <st-slug>/immortals-fenyx-rising-demo</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/19efd5fa36794d7b8bc87de68124e705rcp1">
         <st-cover-full>
@@ -823,6 +823,7 @@
           <st-name>Cake Bash</st-name>
         </st-cover-micro>
         <st-slug>/cake-bash</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/41de509cbdbb4a13828636099c57731arcp1">
         <st-cover-full>
@@ -832,6 +833,7 @@
           <st-name>Baldur&#39;s Gate 3</st-name>
         </st-cover-micro>
         <st-slug>/baldurs-gate-3</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b67e43f2b05f4ba7acc56a4b222568aarcp1">
         <st-cover-full>
@@ -841,6 +843,7 @@
           <st-name>Dead by Daylight</st-name>
         </st-cover-micro>
         <st-slug>/dead-by-daylight</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/16d98de80a3340ffa4129953ae4e3206rcp1">
         <st-cover-full>
@@ -850,6 +853,7 @@
           <st-name>Human: Fall Flat</st-name>
         </st-cover-micro>
         <st-slug>/human-fall-flat</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/7b6d79b833354dcaa9b2461086a7763crcp1">
         <st-cover-full>
@@ -859,6 +863,7 @@
           <st-name>Risk of Rain 2</st-name>
         </st-cover-micro>
         <st-slug>/risk-of-rain-2</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b3bd32ef05444a189dcdc88f8e85d7f2rcp1">
         <st-cover-full>
@@ -868,6 +873,7 @@
           <st-name>Serious Sam 4</st-name>
         </st-cover-micro>
         <st-slug>/serious-sam-4</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/5f54e869de4441f8998e80d2c54fa74brcp1">
         <st-cover-full>
@@ -877,6 +883,7 @@
           <st-name>Hotline Miami</st-name>
         </st-cover-micro>
         <st-slug>/hotline-miami</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/68add0d67fe3491f94cb439664b1ffc7rcp1">
         <st-cover-full>
@@ -886,6 +893,7 @@
           <st-name>Hotline Miami 2: Wrong Number</st-name>
         </st-cover-micro>
         <st-slug>/hotline-miami-2-wrong-number</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/f28e66bbd0984c77ac6a54e8cc3007bdrcp1">
         <st-cover-full>
@@ -895,6 +903,7 @@
           <st-name>WWE 2K Battlegrounds</st-name>
         </st-cover-micro>
         <st-slug>/wwe-2k-battlegrounds</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/1694aaa3968344228424092f180a3e0ercp1">
         <st-cover-full>
@@ -904,6 +913,7 @@
           <st-name>UNO</st-name>
         </st-cover-micro>
         <st-slug>/uno</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/65864a95f9e74129845bda0467486413rcp1">
         <st-cover-full>
@@ -913,6 +923,7 @@
           <st-name>République</st-name>
         </st-cover-micro>
         <st-slug>/republique</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b0a2ab7cdc194582bc4d111c07c2e30drcp1">
         <st-cover-full>
@@ -922,6 +933,7 @@
           <st-name>NBA 2K21</st-name>
         </st-cover-micro>
         <st-slug>/nba-2k21</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/232ff8abc7f74421a477e9e09dbf487drcp1">
         <st-cover-full>
@@ -931,6 +943,7 @@
           <st-name>Marvel&#39;s Avengers</st-name>
         </st-cover-micro>
         <st-slug>/marvels-avengers</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/2847419bbb5146ed877a308d9884f504rcp1">
         <st-cover-full>
@@ -940,6 +953,7 @@
           <st-name>SUPER BOMBERMAN R ONLINE</st-name>
         </st-cover-micro>
         <st-slug>/super-bomberman-r-online</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/9dc548a191914b419cc80802ca64788frcp1">
         <st-cover-full>
@@ -949,6 +963,7 @@
           <st-name>Hello Neighbor</st-name>
         </st-cover-micro>
         <st-slug>/hello-neighbor</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/990ec302c2cd4ba7817cedcf633ab20frcp1">
         <st-cover-full>
@@ -958,6 +973,7 @@
           <st-name>HITMAN - World of Assassination</st-name>
         </st-cover-micro>
         <st-slug>/hitman-world-of-assassination</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/16330bd770134d85b5bef3cc6b1407ffrcp1">
         <st-cover-full>
@@ -967,6 +983,7 @@
           <st-name>Gunsport</st-name>
         </st-cover-micro>
         <st-slug>/gunsport</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/657210fe20ad402b85bda8f816b80d98rcp1">
         <st-cover-full>
@@ -976,6 +993,7 @@
           <st-name>Windbound</st-name>
         </st-cover-micro>
         <st-slug>/windbound</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/430bbe284fb7482c9afe8e877b119269rcp1">
         <st-cover-full>
@@ -985,6 +1003,7 @@
           <st-name>Spiritfarer</st-name>
         </st-cover-micro>
         <st-slug>/spiritfarer</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/6a2ac2fc8e684c41b5c14981dcb454fdrcp1">
         <st-cover-full>
@@ -994,6 +1013,7 @@
           <st-name>PGA TOUR 2K21</st-name>
         </st-cover-micro>
         <st-slug>/pga-tour-2k21</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cc1a8e0e94d54f15a22149fed93bbd7arcp1">
         <st-cover-full>
@@ -1003,6 +1023,7 @@
           <st-name>Doom</st-name>
         </st-cover-micro>
         <st-slug>/doom</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/382fe14629e148449e7b8f94e8aecb38rcp1">
         <st-cover-full>
@@ -1012,6 +1033,7 @@
           <st-name>SUPERHOT: MIND CONTROL DELETE</st-name>
         </st-cover-micro>
         <st-slug>/superhot-mind-control-delete</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/d3d8e467203d401387857d5b6cc27263rcp1">
         <st-cover-full>
@@ -1021,6 +1043,7 @@
           <st-name>Rock of Ages 3: Make &amp; Break</st-name>
         </st-cover-micro>
         <st-slug>/rock-of-ages-3-make-and-break</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/ed05d9df2ec4452594b07336e360a1aarcp1">
         <st-cover-full>
@@ -1030,6 +1053,7 @@
           <st-name>Relicta</st-name>
         </st-cover-micro>
         <st-slug>/relicta</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/f5f9708a422a44cc876c240cfa07221drcp1">
         <st-cover-full>
@@ -1039,6 +1063,7 @@
           <st-name>Kona</st-name>
         </st-cover-micro>
         <st-slug>/kona</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/8e77c7a4368944589b4c9d8179d2eb4crcp1">
         <st-cover-full>
@@ -1048,6 +1073,7 @@
           <st-name>Strange Brigade</st-name>
         </st-cover-micro>
         <st-slug>/strange-brigade</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/c911998e4f8d4c6ea6712c5ad33e4a54rcp1">
         <st-cover-full>
@@ -1057,6 +1083,7 @@
           <st-name>Celeste</st-name>
         </st-cover-micro>
         <st-slug>/celeste</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/6d0d865669774338b3ce888a84da6cdercp1">
         <st-cover-full>
@@ -1066,6 +1093,7 @@
           <st-name>Lara Croft and the Temple of Osiris</st-name>
         </st-cover-micro>
         <st-slug>/lara-croft-and-the-temple-of-osiris</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/76309b9f2f294b07b410e8b6aa879273rcp1">
         <st-cover-full>
@@ -1075,6 +1103,7 @@
           <st-name>One Hand Clapping</st-name>
         </st-cover-micro>
         <st-slug>/one-hand-clapping</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/c1928530515748da9f55afc7243fd3e1rcp1">
         <st-cover-full>
@@ -1084,6 +1113,7 @@
           <st-name>Orcs Must Die! 3</st-name>
         </st-cover-micro>
         <st-slug>/orcs-must-die-3</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/f3519f3dc3d74fbb8086520577b832e0rcp1">
         <st-cover-full>
@@ -1093,6 +1123,7 @@
           <st-name>F1 2020</st-name>
         </st-cover-micro>
         <st-slug>/f1-2020</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/05f66a46027747a08b930ea70374ac7frcp1">
         <st-cover-full>
@@ -1102,6 +1133,7 @@
           <st-name>Crayta</st-name>
         </st-cover-micro>
         <st-slug>/crayta</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/0a60fff637b445a797623d0c69433a9crcp1">
         <st-cover-full>
@@ -1111,6 +1143,7 @@
           <st-name>West of Loathing</st-name>
         </st-cover-micro>
         <st-slug>/west-of-loathing</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/ef14fb2f692c4b42b4b092d3e7864cd8rcp1">
         <st-cover-full>
@@ -1120,6 +1153,7 @@
           <st-name>Monster Boy and the Cursed Kingdom</st-name>
         </st-cover-micro>
         <st-slug>/monster-boy-and-the-cursed-kingdom</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/6b43cecd79734ba28cef5894985c65f1rcp1">
         <st-cover-full>
@@ -1129,6 +1163,7 @@
           <st-name>Just Shapes &amp; Beats</st-name>
         </st-cover-micro>
         <st-slug>/just-shapes-and-beats</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/9b3ea6519cac48d68ca821f07b1a6a3drcp1">
         <st-cover-full>
@@ -1138,6 +1173,7 @@
           <st-name>Metro 2033</st-name>
         </st-cover-micro>
         <st-slug>/metro-2033</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b65c1c4dcdf24446bcecda190c6a2fe7rcp1">
         <st-cover-full>
@@ -1147,6 +1183,7 @@
           <st-name>Metro Last Light</st-name>
         </st-cover-micro>
         <st-slug>/metro-last-light</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/3e7b24085e704c10ab03f93a19947c14rcp1">
         <st-cover-full>
@@ -1156,6 +1193,7 @@
           <st-name>Wave Break</st-name>
         </st-cover-micro>
         <st-slug>/wave-break</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b17f16d4a4f94c0a85e07f54dbdedbb6rcp1">
         <st-cover-full>
@@ -1165,6 +1203,7 @@
           <st-name>The Elder Scrolls Online</st-name>
         </st-cover-micro>
         <st-slug>/the-elder-scrolls-online</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/ffda0b7e397243f8956f92f89b6902c4rcp1">
         <st-cover-full>
@@ -1174,6 +1213,7 @@
           <st-name>Panzer Dragoon</st-name>
         </st-cover-micro>
         <st-slug>/panzer-dragoon</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/f7afcff709e74227a5648aacadf03815rcp1">
         <st-cover-full>
@@ -1183,6 +1223,7 @@
           <st-name>SUPERHOT</st-name>
         </st-cover-micro>
         <st-slug>/superhot</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/3aed855f10b34f618e5f6c6f5467bcf9rcp1">
         <st-cover-full>
@@ -1192,6 +1233,7 @@
           <st-name>Little Nightmares</st-name>
         </st-cover-micro>
         <st-slug>/little-nightmares</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/bbb1a143aa3449a5a1f236a05c305c9frcp1">
         <st-cover-full>
@@ -1201,6 +1243,7 @@
           <st-name>Power Rangers: Battle for the Grid</st-name>
         </st-cover-micro>
         <st-slug>/power-rangers-battle-for-the-grid</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/c727a9083ce649e5b1cc6999c4fa2e5frcp1">
         <st-cover-full>
@@ -1210,6 +1253,7 @@
           <st-name>Jotun</st-name>
         </st-cover-micro>
         <st-slug>/jotun</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/5ec4424b963f44d18d0016322c19c9f0rcp1">
         <st-cover-full>
@@ -1219,6 +1263,7 @@
           <st-name>Sundered</st-name>
         </st-cover-micro>
         <st-slug>/sundered</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/d599576cddfc400f804b889460e84cb3rcp1">
         <st-cover-full>
@@ -1228,6 +1273,7 @@
           <st-name>Embr</st-name>
         </st-cover-micro>
         <st-slug>/embr</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/5a0e892c933c4f56b4d87976cb655ecfrcp1">
         <st-cover-full>
@@ -1237,6 +1283,7 @@
           <st-name>Doom 64</st-name>
         </st-cover-micro>
         <st-slug>/doom-64</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cba537cccfe3470b8784f88660ea5f09rcp1">
         <st-cover-full>
@@ -1246,6 +1293,7 @@
           <st-name>Zombie Army 4: Dead War</st-name>
         </st-cover-micro>
         <st-slug>/zombie-army-4-dead-war</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cfd2977e1b9f412387ca2f44848400acrcp1">
         <st-cover-full>
@@ -1255,6 +1303,7 @@
           <st-name>The Turing Test</st-name>
         </st-cover-micro>
         <st-slug>/the-turing-test</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/48ead86182b14fe0afcc5f2927dbed51rcp1">
         <st-cover-full>
@@ -1264,6 +1313,7 @@
           <st-name>Octopath Traveler</st-name>
         </st-cover-micro>
         <st-slug>/octopath-traveler</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/10b8a9cc8ec746f29afc1fc3c3ded28brcp1">
         <st-cover-full>
@@ -1273,6 +1323,7 @@
           <st-name>Monopoly</st-name>
         </st-cover-micro>
         <st-slug>/monopoly</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/73182869b2a644bdbef46984b96e1721rcp1">
         <st-cover-full>
@@ -1282,6 +1333,7 @@
           <st-name>Get Packed</st-name>
         </st-cover-micro>
         <st-slug>/get-packed</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/a4c5eb3f4e614b7fadbba64cba68f849rcp1">
         <st-cover-full>
@@ -1291,6 +1343,7 @@
           <st-name>PlayerUnknown&#39;s Battlegrounds</st-name>
         </st-cover-micro>
         <st-slug>/playerunknowns-battlegrounds</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/e465c4086aff4884990933d9f119f5f5rcp1">
         <st-cover-full>
@@ -1300,6 +1353,7 @@
           <st-name>MotoGP 20</st-name>
         </st-cover-micro>
         <st-slug>/motogp-20</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/15a067411b8d4429b0954434d8f05d48rcp1">
         <st-cover-full>
@@ -1309,6 +1363,7 @@
           <st-name>Stacks On Stacks (On Stacks)</st-name>
         </st-cover-micro>
         <st-slug>/stacks-on-stacks-on-stacks</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/d334bea27ee64ef5a3a9bb14b1d6a88ercp1">
         <st-cover-full>
@@ -1318,6 +1373,7 @@
           <st-name>Lost Words: Beyond the Page</st-name>
         </st-cover-micro>
         <st-slug>/lost-words-beyond-the-page</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cc97434908874852a6705d255a605dc8rcp1">
         <st-cover-full>
@@ -1327,6 +1383,7 @@
           <st-name>The Crew 2</st-name>
         </st-cover-micro>
         <st-slug>/the-crew-2</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/632522c846a041ce801e47b96ba2e265rcp1">
         <st-cover-full>
@@ -1336,6 +1393,7 @@
           <st-name>Doom Eternal</st-name>
         </st-cover-micro>
         <st-slug>/doom-eternal</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/d43cd46c81734ca48e1a615310d0237crcp1">
         <st-cover-full>
@@ -1345,6 +1403,7 @@
           <st-name>The Division 2</st-name>
         </st-cover-micro>
         <st-slug>/the-division-2</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/c4898519ff254b969ede8bafdff927e8rcp1">
         <st-cover-full>
@@ -1354,6 +1413,7 @@
           <st-name>SteamWorld Dig</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-dig</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/819cdf4b7ff94947941106571ccf41e5rcp1">
         <st-cover-full>
@@ -1363,6 +1423,7 @@
           <st-name>SteamWorld Heist</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-heist</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/cabec52b78264dafac69011aeacd5753rcp1">
         <st-cover-full>
@@ -1372,6 +1433,7 @@
           <st-name>Serious Sam Collection</st-name>
         </st-cover-micro>
         <st-slug>/serious-sam-collection</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b832835182124d4d83cb76a74a76a33frcp1">
         <st-cover-full>
@@ -1381,6 +1443,7 @@
           <st-name>SteamWorld Dig 2</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-dig-2</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/b845605f8eb447008f3f0d2295265ffdrcp1">
         <st-cover-full>
@@ -1390,6 +1453,7 @@
           <st-name>SteamWorld Quest: Hand of Gilgamech</st-name>
         </st-cover-micro>
         <st-slug>/steamworld-quest-hand-of-gilgamech</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/921e9afe46aa478fb4aa929a7b1a6bd5rcp1">
         <st-cover-full>
@@ -1399,6 +1463,7 @@
           <st-name>Spitlings</st-name>
         </st-cover-micro>
         <st-slug>/spitlings</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/d50e1c1b61224bceb65da9406f3f4e8frcp1">
         <st-cover-full>
@@ -1408,6 +1473,7 @@
           <st-name>Monster Energy Supercross 3</st-name>
         </st-cover-micro>
         <st-slug>/monster-energy-supercross-3</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/11c9ece5b3a045908d77cf2b66adb010rcp1">
         <st-cover-full>
@@ -1417,6 +1483,7 @@
           <st-name>Ghost Recon Breakpoint</st-name>
         </st-cover-micro>
         <st-slug>/ghost-recon-breakpoint</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/be080ad40b434ca289166031d3e88623rcp1">
         <st-cover-full>
@@ -1426,6 +1493,7 @@
           <st-name>Borderlands 3</st-name>
         </st-cover-micro>
         <st-slug>/borderlands-3</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/80a70c13987841b3a2aedbcac54784abrcp1">
         <st-cover-full>
@@ -1435,6 +1503,7 @@
           <st-name>Dragon Ball Xenoverse 2</st-name>
         </st-cover-micro>
         <st-slug>/dragon-ball-xenoverse-2</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/f39390395ed5444d8e9b23460c8f9152rcp1">
         <st-cover-full>
@@ -1444,6 +1513,7 @@
           <st-name>Darksiders Genesis</st-name>
         </st-cover-micro>
         <st-slug>/darksiders-genesis</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/8b7e7f7036e5483eaa8745d46248536crcp1">
         <st-cover-full>
@@ -1453,6 +1523,7 @@
           <st-name>Assassin&#39;s Creed Odyssey</st-name>
         </st-cover-micro>
         <st-slug>/assassins-creed-odyssey</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/a38d988fb142400c947bf0a7b37fd404rcp1">
         <st-cover-full>
@@ -1462,6 +1533,7 @@
           <st-name>Attack on Titan 2: Final Battle</st-name>
         </st-cover-micro>
         <st-slug>/attack-on-titan-2-final-battle</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/20e792017ab34ad89b70dc17a5c72d68rcp1">
         <st-cover-full>
@@ -1471,6 +1543,7 @@
           <st-name>Destiny 2</st-name>
         </st-cover-micro>
         <st-slug>/destiny-2</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/ebf235012b054269af70eee901bc85cfrcp1">
         <st-cover-full>
@@ -1480,6 +1553,7 @@
           <st-name>Farming Simulator 19</st-name>
         </st-cover-micro>
         <st-slug>/farming-simulator-19</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/a447622dbe084c3e9ace4f913a939afarcp1">
         <st-cover-full>
@@ -1489,6 +1563,7 @@
           <st-name>Final Fantasy XV</st-name>
         </st-cover-micro>
         <st-slug>/final-fantasy-xv</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/ca805d3d37404654a91d2ea62fad7bd4rcp1">
         <st-cover-full>
@@ -1498,6 +1573,7 @@
           <st-name>GRID</st-name>
         </st-cover-micro>
         <st-slug>/grid</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/18a3cc2bb111419c8ac873086d04dfaarcp1">
         <st-cover-full>
@@ -1507,6 +1583,7 @@
           <st-name>GYLT</st-name>
         </st-cover-micro>
         <st-slug>/gylt</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/4b7f307c37364d659118bf7d435733c7rcp1">
         <st-cover-full>
@@ -1516,6 +1593,7 @@
           <st-name>Just Dance 2020</st-name>
         </st-cover-micro>
         <st-slug>/just-dance-2020</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/da94f3aa88b24eb6ae6fdff798f73355rcp1">
         <st-cover-full>
@@ -1525,6 +1603,7 @@
           <st-name>Kine</st-name>
         </st-cover-micro>
         <st-slug>/kine</st-slug>
+        <st-badges><st-badge pro>PRO</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/7bfbcba307114ab88ae4231da2ec85d3rcp1">
         <st-cover-full>
@@ -1534,6 +1613,7 @@
           <st-name>Mortal Kombat 11</st-name>
         </st-cover-micro>
         <st-slug>/mortal-kombat-11</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/8615c857d7d54efebd94fe17e3f2896crcp1">
         <st-cover-full>
@@ -1543,6 +1623,7 @@
           <st-name>RAGE 2</st-name>
         </st-cover-micro>
         <st-slug>/rage-2</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/2152a1e96d5b47b18a5df7ca9bb0751frcp1">
         <st-cover-full>
@@ -1552,6 +1633,7 @@
           <st-name>Red Dead Redemption 2</st-name>
         </st-cover-micro>
         <st-slug>/red-dead-redemption-2</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/e5c6ec7bf437491ea4ac0917df8f9640rcp1">
         <st-cover-full>
@@ -1561,6 +1643,7 @@
           <st-name>Rise of the Tomb Raider</st-name>
         </st-cover-micro>
         <st-slug>/rise-of-the-tomb-raider</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/120348c2707740b99b509fad49a2f45drcp1">
         <st-cover-full>
@@ -1570,6 +1653,7 @@
           <st-name>Samurai Shodown</st-name>
         </st-cover-micro>
         <st-slug>/samurai-shodown</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/efa3b6108d3e41689b2223ba9d48f5c8rcp1">
         <st-cover-full>
@@ -1579,6 +1663,7 @@
           <st-name>Shadow of the Tomb Raider</st-name>
         </st-cover-micro>
         <st-slug>/shadow-of-the-tomb-raider</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/c121d8b3fa744b52b71bf3599cb3da7frcp1">
         <st-cover-full>
@@ -1588,6 +1673,7 @@
           <st-name>Thumper</st-name>
         </st-cover-micro>
         <st-slug>/thumper</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1">
         <st-cover-full>
@@ -1597,6 +1683,7 @@
           <st-name>Tomb Raider</st-name>
         </st-cover-micro>
         <st-slug>/tomb-raider</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/a031419410cc48469ff8954ea0732640rcp1">
         <st-cover-full>
@@ -1606,6 +1693,7 @@
           <st-name>Trials Rising</st-name>
         </st-cover-micro>
         <st-slug>/trials-rising</st-slug>
+        <st-badges><st-badge ubi>U+</st-badge></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/4884bd9bd7864cf28deef05ef4b69e70rcp1">
         <st-cover-full>
@@ -1615,6 +1703,7 @@
           <st-name>Wolfenstein: Youngblood</st-name>
         </st-cover-micro>
         <st-slug>/wolfenstein-youngblood</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/2afad3696b394f669b49e4c0b6016958rcp1">
         <st-cover-full>
@@ -1624,6 +1713,7 @@
           <st-name>NBA 2K20</st-name>
         </st-cover-micro>
         <st-slug>/nba-2k20</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
 <st-game><a href="https://stadia.google.com/player/879d82512f5441829250ead1aa678a70rcp1">
         <st-cover-full>
@@ -1633,6 +1723,7 @@
           <st-name>Metro Exodus</st-name>
         </st-cover-micro>
         <st-slug>/metro-exodus</st-slug>
+        <st-badges></st-badges>
       </a></st-game>
   </st-games>
 </main>

@@ -36,10 +36,6 @@ export class Client extends ResponsesClient {
     return (await this.fetchView(path)).page as PlayerProfileGameDetails;
   }
 
-  public async fetchAllGames() {
-    return this.fetchStoreList("3");
-  }
-
   public async fetchStoreList(
     listId: string,
   ): Promise<StoreList> {
