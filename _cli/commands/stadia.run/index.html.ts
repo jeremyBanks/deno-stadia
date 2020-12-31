@@ -392,7 +392,9 @@ export const html = (
         inUbisoftPlus,
       },
     ) =>
-      `<st-game><a href="https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/${escape(gameId!)}">
+      `<st-game><a href="https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/${
+        escape(gameId!)
+      }">
         <st-cover-full>
           <img crossorigin src="${escape(coverImageUrl)}=w640-h360-rw">
         </st-cover-full>
