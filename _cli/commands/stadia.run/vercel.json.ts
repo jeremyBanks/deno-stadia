@@ -16,7 +16,8 @@ export const json = ({ games }: { games: Games }) => {
     redirects: games.map((game) => ({
       statusCode: 301,
       source: `/${game.slug}`,
-      destination: `https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/${game.gameId}`,
+      destination:
+        `https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/${game.gameId}`,
     })),
   }, 2);
 };
