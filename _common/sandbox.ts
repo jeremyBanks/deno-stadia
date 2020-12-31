@@ -38,7 +38,9 @@ export const safeEval = throttled(0.125, async (
       }
     })(),
     (async () => {
-      await sleep(4, abortTimeout.signal);
+      // otherwise fast evaluations can randomly be delayed by the
+      // operating system since we need to spawn a new process.
+      await sleep(12, abortTimeout.signal);
       process.close();
       throw new Error("eval timed out");
     })(),
