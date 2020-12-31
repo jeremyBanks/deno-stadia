@@ -203,29 +203,6 @@ export const html = (
           color: #888;
         }
 
-        main st-search button {
-          grid-column: search-button-start / search-button-end;
-          align-items: center;
-          padding-top: 8px;
-
-          color: #444;
-          cursor: not-allowed;
-          pointer-events: none;
-        }
-
-        html[data-st-matches="1"] st-search button {
-          color: var(--theme-color);
-          pointer-events: default;
-        }
-
-        main st-search button kbd {
-          font-size: calc(var(--search-font-size) / 2);
-          display: inline;
-          border: 2px solid currentColor;
-          padding: 2px;
-          border-radius: 4px;
-        }
-
       main st-games {
         z-index: 5;
         grid-column: game-columns-start / game-columns-end;
@@ -243,7 +220,6 @@ export const html = (
 
         html[data-st-matches="1"] main st-games {
           grid-template-columns: calc(2 * 320px);
-          justify-content: center;
           justify-content: center;
         }
 
@@ -400,7 +376,6 @@ export const html = (
     <form method="get" action="/">
       <span>stadia<code>.</code>run<code>/</code></span>
       <input name="q" type="text" placeholder="your favourite Stadia game" autocomplete="off" autofocus>
-      <button tabindex="-1"><kbd>⏎</kbd></button>
     </form>
   </st-search>
 
@@ -417,7 +392,7 @@ export const html = (
         inUbisoftPlus,
       },
     ) =>
-      `<st-game><a href="https://stadia.google.com/player/${escape(gameId!)}">
+      `<st-game><a href="https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/${escape(gameId!)}">
         <st-cover-full>
           <img crossorigin src="${escape(coverImageUrl)}=w640-h360-rw">
         </st-cover-full>
@@ -474,7 +449,6 @@ Promise.resolve().then(async () => {
 const searchForm =
   globalThis.document && document.querySelector("st-search form");
 const searchInput = searchForm && searchForm.querySelector("input");
-const searchButton = searchForm && searchForm.querySelector("button");
 const gameTiles =
   globalThis.document && document.querySelector("st-games");
 
