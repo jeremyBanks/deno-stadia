@@ -68,14 +68,16 @@ export class Client {
   protected initializeDatabase() {
   }
 
-  public async fetchHttp(path: string) {
+  public async fetchHttp(path: string, body?: RequestInit["body"]) {
     const url = new URL(path, stadiaRoot);
     if (url.origin !== stadiaRoot.origin) {
       // Don't accidentally send Google cookies to the wrong host.
       throw new TypeError(`${url} is not in ${stadiaRoot}`);
     }
 
-    const headers = {
+    const method = body == undefined ? "GET" : "POST";
+
+    const headers: Record<string, string> = {
       "user-agent": [
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
         "AppleWebKit/537.36 (KHTML, like Gecko)",
@@ -85,7 +87,14 @@ export class Client {
 
       "cookie": Object.entries(this.googleCookies).map(([k, v]) => `${k}=${v};`)
         .join(" "),
+
+      "origin": "https://stadia.google.com",
     };
+
+    if (body instanceof URLSearchParams) {
+      headers["content-type"] =
+        "application/x-www-form-urlencoded;charset=UTF-8";
+    }
 
     const request = NewStadiaWebRequest.parse({
       googleId: this.googleId,
@@ -93,8 +102,9 @@ export class Client {
       path: url.pathname,
     });
 
-    log.debug(`fetching ${url} for ${this.googleId}`);
-    const httpResponse = await fetch(url, { headers });
+    log.debug(`${method} ${url} for Google user ${this.googleId}`);
+
+    const httpResponse = await fetch(url, { headers, body, method });
 
     return { request, httpResponse };
   }

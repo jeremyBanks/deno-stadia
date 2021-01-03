@@ -5,13 +5,11 @@ import { Json } from "../../_common/json.ts";
 import { eprintln, println } from "../../_common/io.ts";
 import * as protos from "../web/protos.ts";
 
-import {
-  Client as ResponsesClient,
-  JsProto,
-  StadiaWebResponse,
-} from "./_responses.ts";
+import { JsProto, StadiaWebResponse } from "./_responses.ts";
 
-export class Client extends ResponsesClient {
+import { Client as RpcClient } from "./_rpc.ts";
+
+export class Client extends RpcClient {
   public async fetchHome(): Promise<Home> {
     return (await this.fetchView("/")).page as Home;
   }
