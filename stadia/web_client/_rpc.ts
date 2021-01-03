@@ -83,16 +83,19 @@ export class Client extends ResponsesClient {
       [[pageSize, pageToken]],
     );
     const nextPageToken = (response.data as any)[1] as string | undefined;
-    const capturesData = (response.data as any)?.[0].filter((x: unknown) => x instanceof Array);
-    const captures =
-      (capturesData as Array<any>).map((proto) => ({
-        captureId: proto[1] as string,
-        gameId: proto[2][0] as string,
-        imageUrl: proto[7]?.[1] as string | undefined,
-        videoUrl: proto[8]?.[1] as string | undefined,
-      })) ?? [];
+    const capturesData = (response.data as any)?.[0].filter((x: unknown) =>
+      x instanceof Array
+    );
+    const captures = (capturesData as Array<any>).map((proto) => ({
+      captureId: proto[1] as string,
+      gameId: proto[2][0] as string,
+      imageUrl: proto[7]?.[1] as string | undefined,
+      videoUrl: proto[8]?.[1] as string | undefined,
+    })) ?? [];
 
-    log.debug(`Got page of ${captures.length} captures and a next page token ${nextPageToken}`);
+    log.debug(
+      `Got page of ${captures.length} captures and a next page token ${nextPageToken}`,
+    );
 
     for (const capture of captures) {
       yield capture;
