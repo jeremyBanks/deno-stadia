@@ -73,6 +73,8 @@ export class Client extends ResponsesClient {
   async *fetchCaptures(pageToken: string | null = null): AsyncGenerator<{
     captureId: string;
     gameId: string;
+    gameName: string;
+    timestamp: number;
     imageUrl?: string;
     videoUrl?: string;
   }> {
@@ -89,6 +91,8 @@ export class Client extends ResponsesClient {
     const captures = (capturesData as Array<any>).map((proto) => ({
       captureId: proto[1] as string,
       gameId: proto[2][0] as string,
+      gameName: proto[3] as string,
+      timestamp: proto[4][0] as number,
       imageUrl: proto[7]?.[1] as string | undefined,
       videoUrl: proto[8]?.[1] as string | undefined,
     })) ?? [];

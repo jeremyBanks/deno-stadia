@@ -7,6 +7,10 @@ const minRequestIntervalSeconds = 420 / 69;
 const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
 
 const stadiaRoot = new URL("https://stadia.google.com/");
+const allowedRoots = [
+  stadiaRoot,
+  new URL("https://lh3.googleusercontent.com/"),
+];
 
 export const StadiaWebRequest = z.object({
   /** Local ID for this request. */
@@ -70,9 +74,9 @@ export class Client {
 
   public async fetchHttp(path: string, body?: RequestInit["body"]) {
     const url = new URL(path, stadiaRoot);
-    if (url.origin !== stadiaRoot.origin) {
+    if (!allowedRoots.some((root) => root.origin === url.origin)) {
       // Don't accidentally send Google cookies to the wrong host.
-      throw new TypeError(`${url} is not in ${stadiaRoot}`);
+      throw new TypeError(`${url} is not in ${allowedRoots}`);
     }
 
     const method = body == undefined ? "GET" : "POST";
@@ -105,6 +109,12 @@ export class Client {
     log.debug(`${method} ${url} for Google user ${this.googleId}`);
 
     const httpResponse = await fetch(url, { headers, body, method });
+
+    if (httpResponse.status !== 200) {
+      throw new Error(
+        `http status ${httpResponse.status} ${httpResponse.statusText}`,
+      );
+    }
 
     return { request, httpResponse };
   }
