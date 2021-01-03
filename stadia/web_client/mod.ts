@@ -34,11 +34,14 @@ export class Client extends RpcClient {
     return (await this.fetchView(path)).page as PlayerProfileGameDetails;
   }
 
-  public async fetchStoreList(
-    listId: string,
-  ): Promise<StoreList> {
-    let path = `/store/list/${listId}`;
-    return (await this.fetchView(path)).page as StoreList;
+  async fetchStoreList(listId: number) {
+    const response = await this.fetchRpc(
+      "ZAm7We",
+      [, , , , , listId],
+    );
+    return ((response.data as any)[0] as JsProto[][][]).map((proto) =>
+      Sku.fromProto(proto[9])
+    );
   }
 
   public async fetchView(path: string) {

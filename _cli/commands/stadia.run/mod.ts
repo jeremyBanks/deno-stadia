@@ -40,22 +40,22 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   const name = flags.name;
 
-  const allGamesListPage = await client.fetchStoreList("3");
-  const stadiaProListPage = await client.fetchStoreList("2001");
-  const ubisoftPlusListPage = await client.fetchStoreList("2002");
+  const allGamesListPage = await client.fetchStoreList(3);
+  const stadiaProListPage = await client.fetchStoreList(2001);
+  const ubisoftPlusListPage = await client.fetchStoreList(2002);
 
   const stadiaProGameIds = new Set(
-    stadiaProListPage.skus.map((x) => x.gameId).filter(Boolean),
+    stadiaProListPage.map((x) => x.gameId).filter(Boolean),
   );
   const ubisoftPlusGameIds = new Set(
-    ubisoftPlusListPage.skus.map((x) => x.gameId).filter(Boolean),
+    ubisoftPlusListPage.map((x) => x.gameId).filter(Boolean),
   );
 
   log.debug("Loaded game list, processing and generating thumbnails...");
 
   const games = [];
 
-  for (const game of allGamesListPage.skus) {
+  for (const game of allGamesListPage) {
     if (game.type !== "game") {
       continue;
     }

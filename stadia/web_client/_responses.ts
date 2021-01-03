@@ -119,7 +119,13 @@ export class Client extends RequestsClient {
   }
 }
 
-export type JsProto = null | number | string | boolean | JsProto[];
+export type JsProto =
+  | null
+  | number
+  | string
+  | boolean
+  | Array<JsProto | undefined>;
+
 export const JsProto: z.ZodSchema<JsProto> = z.union([
   z.null(),
   z.number(),

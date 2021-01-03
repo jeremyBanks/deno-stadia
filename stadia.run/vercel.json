@@ -9,6 +9,11 @@
       "statusCode": 301
     },
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2677ffb357f946e29b4e86a9f18ea55frcp1",
+      "source": "/reigns",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8f0addba5d3d4c05b07d7b59481e0171rcp1",
       "source": "/enter-the-gungeon",
       "statusCode": 301
@@ -16,11 +21,6 @@
     {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/29b3d5d6788f444c8cd59aa0a49d1bd1rcp1",
       "source": "/lara-croft-and-the-guardian-of-light",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2677ffb357f946e29b4e86a9f18ea55frcp1",
-      "source": "/reigns",
       "statusCode": 301
     },
     {
@@ -64,11 +64,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/7183914d07034cb1bbb8a511779bc1efrcp1",
-      "source": "/figment",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/53bd183291e340dda697167108d3dc6brcp1",
       "source": "/spongebob-squarepants-battle-for-bikini-bottom",
       "statusCode": 301
@@ -79,18 +74,13 @@
       "statusCode": 301
     },
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/7183914d07034cb1bbb8a511779bc1efrcp1",
+      "source": "/figment",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/d46f9c2d858d41d6ae4cc12d186657f0rcp1",
       "source": "/el-hijo-a-wild-west-tale",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8533fb04b9174c3f8dce10a2fec7b062rcp1",
-      "source": "/outcasters",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/05b9db9b9b5b489995568afd930a9db3rcp1",
-      "source": "/phogs",
       "statusCode": 301
     },
     {
@@ -99,18 +89,18 @@
       "statusCode": 301
     },
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/05b9db9b9b5b489995568afd930a9db3rcp1",
+      "source": "/phogs",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8533fb04b9174c3f8dce10a2fec7b062rcp1",
+      "source": "/outcasters",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/161f276db10947a199cd0260ed4dc248rcp1",
       "source": "/immortals-fenyx-rising",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/44752f1774ca4508a2c45e57121d7e8frcp1",
-      "source": "/everspace",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/1a871cfe8a7d4ebc8592c2ad4bc07150rcp1",
-      "source": "/into-the-breach",
       "statusCode": 301
     },
     {
@@ -119,13 +109,23 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3f94b62fa50c4202be10472947478f8frcp1",
-      "source": "/chronos-before-the-ashes",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/1a871cfe8a7d4ebc8592c2ad4bc07150rcp1",
+      "source": "/into-the-breach",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/44752f1774ca4508a2c45e57121d7e8frcp1",
+      "source": "/everspace",
       "statusCode": 301
     },
     {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e7506ec75c8046dfa7879fe604505ca7rcp1",
       "source": "/monster-jam-steel-titans",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3f94b62fa50c4202be10472947478f8frcp1",
+      "source": "/chronos-before-the-ashes",
       "statusCode": 301
     },
     {
@@ -139,13 +139,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a1ce1274a83244f1a099bebef7ae1233rcp1",
-      "source": "/ghost-recon-wildlands",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/deb490c166544813bf2ab73f4c6e2aa0rcp1",
+      "source": "/watch-dogs-legion",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/deb490c166544813bf2ab73f4c6e2aa0rcp1",
-      "source": "/watch-dogs-legion",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a1ce1274a83244f1a099bebef7ae1233rcp1",
+      "source": "/ghost-recon-wildlands",
       "statusCode": 301
     },
     {
@@ -224,13 +224,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b67e43f2b05f4ba7acc56a4b222568aarcp1",
-      "source": "/dead-by-daylight",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/16d98de80a3340ffa4129953ae4e3206rcp1",
+      "source": "/human-fall-flat",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/16d98de80a3340ffa4129953ae4e3206rcp1",
-      "source": "/human-fall-flat",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b67e43f2b05f4ba7acc56a4b222568aarcp1",
+      "source": "/dead-by-daylight",
       "statusCode": 301
     },
     {
@@ -284,13 +284,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/9dc548a191914b419cc80802ca64788frcp1",
-      "source": "/hello-neighbor",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/990ec302c2cd4ba7817cedcf633ab20frcp1",
+      "source": "/hitman-world-of-assassination",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/990ec302c2cd4ba7817cedcf633ab20frcp1",
-      "source": "/hitman-world-of-assassination",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/9dc548a191914b419cc80802ca64788frcp1",
+      "source": "/hello-neighbor",
       "statusCode": 301
     },
     {
@@ -314,13 +314,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/cc1a8e0e94d54f15a22149fed93bbd7arcp1",
-      "source": "/doom",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/382fe14629e148449e7b8f94e8aecb38rcp1",
+      "source": "/superhot-mind-control-delete",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/382fe14629e148449e7b8f94e8aecb38rcp1",
-      "source": "/superhot-mind-control-delete",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/cc1a8e0e94d54f15a22149fed93bbd7arcp1",
+      "source": "/doom",
       "statusCode": 301
     },
     {
@@ -389,6 +389,11 @@
       "statusCode": 301
     },
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3e7b24085e704c10ab03f93a19947c14rcp1",
+      "source": "/wave-break",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/9b3ea6519cac48d68ca821f07b1a6a3drcp1",
       "source": "/metro-2033",
       "statusCode": 301
@@ -396,11 +401,6 @@
     {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b65c1c4dcdf24446bcecda190c6a2fe7rcp1",
       "source": "/metro-last-light",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3e7b24085e704c10ab03f93a19947c14rcp1",
-      "source": "/wave-break",
       "statusCode": 301
     },
     {
@@ -429,13 +429,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c727a9083ce649e5b1cc6999c4fa2e5frcp1",
-      "source": "/jotun",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/5ec4424b963f44d18d0016322c19c9f0rcp1",
+      "source": "/sundered",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/5ec4424b963f44d18d0016322c19c9f0rcp1",
-      "source": "/sundered",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c727a9083ce649e5b1cc6999c4fa2e5frcp1",
+      "source": "/jotun",
       "statusCode": 301
     },
     {
@@ -509,13 +509,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c4898519ff254b969ede8bafdff927e8rcp1",
-      "source": "/steamworld-dig",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/819cdf4b7ff94947941106571ccf41e5rcp1",
+      "source": "/steamworld-heist",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/819cdf4b7ff94947941106571ccf41e5rcp1",
-      "source": "/steamworld-heist",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c4898519ff254b969ede8bafdff927e8rcp1",
+      "source": "/steamworld-dig",
       "statusCode": 301
     },
     {
@@ -524,13 +524,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b832835182124d4d83cb76a74a76a33frcp1",
-      "source": "/steamworld-dig-2",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b845605f8eb447008f3f0d2295265ffdrcp1",
+      "source": "/steamworld-quest-hand-of-gilgamech",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b845605f8eb447008f3f0d2295265ffdrcp1",
-      "source": "/steamworld-quest-hand-of-gilgamech",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b832835182124d4d83cb76a74a76a33frcp1",
+      "source": "/steamworld-dig-2",
       "statusCode": 301
     },
     {
@@ -564,36 +564,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8b7e7f7036e5483eaa8745d46248536crcp1",
-      "source": "/assassins-creed-odyssey",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a38d988fb142400c947bf0a7b37fd404rcp1",
-      "source": "/attack-on-titan-2-final-battle",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/20e792017ab34ad89b70dc17a5c72d68rcp1",
-      "source": "/destiny-2",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ebf235012b054269af70eee901bc85cfrcp1",
-      "source": "/farming-simulator-19",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a447622dbe084c3e9ace4f913a939afarcp1",
-      "source": "/final-fantasy-xv",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ca805d3d37404654a91d2ea62fad7bd4rcp1",
-      "source": "/grid",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/18a3cc2bb111419c8ac873086d04dfaarcp1",
       "source": "/gylt",
       "statusCode": 301
@@ -609,23 +579,18 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/7bfbcba307114ab88ae4231da2ec85d3rcp1",
-      "source": "/mortal-kombat-11",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ca805d3d37404654a91d2ea62fad7bd4rcp1",
+      "source": "/grid",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8615c857d7d54efebd94fe17e3f2896crcp1",
-      "source": "/rage-2",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/4884bd9bd7864cf28deef05ef4b69e70rcp1",
+      "source": "/wolfenstein-youngblood",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2152a1e96d5b47b18a5df7ca9bb0751frcp1",
-      "source": "/red-dead-redemption-2",
-      "statusCode": 301
-    },
-    {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e5c6ec7bf437491ea4ac0917df8f9640rcp1",
-      "source": "/rise-of-the-tomb-raider",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a38d988fb142400c947bf0a7b37fd404rcp1",
+      "source": "/attack-on-titan-2-final-battle",
       "statusCode": 301
     },
     {
@@ -634,8 +599,43 @@
       "statusCode": 301
     },
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8615c857d7d54efebd94fe17e3f2896crcp1",
+      "source": "/rage-2",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/7bfbcba307114ab88ae4231da2ec85d3rcp1",
+      "source": "/mortal-kombat-11",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ebf235012b054269af70eee901bc85cfrcp1",
+      "source": "/farming-simulator-19",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2152a1e96d5b47b18a5df7ca9bb0751frcp1",
+      "source": "/red-dead-redemption-2",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8b7e7f7036e5483eaa8745d46248536crcp1",
+      "source": "/assassins-creed-odyssey",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/efa3b6108d3e41689b2223ba9d48f5c8rcp1",
       "source": "/shadow-of-the-tomb-raider",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/20e792017ab34ad89b70dc17a5c72d68rcp1",
+      "source": "/destiny-2",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a447622dbe084c3e9ace4f913a939afarcp1",
+      "source": "/final-fantasy-xv",
       "statusCode": 301
     },
     {
@@ -644,13 +644,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1",
-      "source": "/tomb-raider",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e5c6ec7bf437491ea4ac0917df8f9640rcp1",
+      "source": "/rise-of-the-tomb-raider",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/4884bd9bd7864cf28deef05ef4b69e70rcp1",
-      "source": "/wolfenstein-youngblood",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1",
+      "source": "/tomb-raider",
       "statusCode": 301
     },
     {

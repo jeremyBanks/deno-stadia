@@ -33,6 +33,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/0OyWjszqFjGdN6R0V2DEVDNtw0VChGWeMCQDMCPFb6vNwea4RHw73P5elzd06ec3ZKOXXlar0hsFW4rGt463sfbY6RsdVtY7qMdazuaa9kaqN5XTADBpFswK3i4=s192-p-rp"
+        }
+      ],
+      "name": "Reigns",
+      "url": "/reigns"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/DrpMvHt26gE3Ry9JLSSvzLuQiER2QPzUUYSGEeY60oK0d9TZXVbP76lNj3LFNLftRayohHjrowDCx5nf4_i8ZJPfrdFFBW0w0IpRoMK_UR5VMxFLwOcv5EtuaFo=s192-p-rp"
         }
       ],
@@ -48,16 +58,6 @@
       ],
       "name": "Lara Croft and the Guardian of Light",
       "url": "/lara-croft-and-the-guardian-of-light"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/0OyWjszqFjGdN6R0V2DEVDNtw0VChGWeMCQDMCPFb6vNwea4RHw73P5elzd06ec3ZKOXXlar0hsFW4rGt463sfbY6RsdVtY7qMdazuaa9kaqN5XTADBpFswK3i4=s192-p-rp"
-        }
-      ],
-      "name": "Reigns",
-      "url": "/reigns"
     },
     {
       "icons": [
@@ -143,16 +143,6 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/s8X-0BCYqwybicQDTu43tvqV5BCXaDJ_AwLOAEmIT5jmsrSuPy9rUCNh-nOmpNVeKRFNFOdCVs6ulxOuOaH7UA0Q5Zo2hlvpZ7yZKymvefrj56uFML4M64t0vJYf=s192-p-rp"
-        }
-      ],
-      "name": "Figment",
-      "url": "/figment"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/Zx1M8H4czFmxCqaC66dI8WKrqJV-i5u5KmYO-F6uqb_T0f8DyL5D4c1Dufqpk-ou90fiOusdFKvSu-wKKO6sS-wEs6lMRoLXeUtIaHC0Zc0-WuUdNqp5HKoe_aaS=s192-p-rp"
         }
       ],
@@ -168,6 +158,16 @@
       ],
       "name": "Valkyria Chronicles 4",
       "url": "/valkyria-chronicles-4"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/s8X-0BCYqwybicQDTu43tvqV5BCXaDJ_AwLOAEmIT5jmsrSuPy9rUCNh-nOmpNVeKRFNFOdCVs6ulxOuOaH7UA0Q5Zo2hlvpZ7yZKymvefrj56uFML4M64t0vJYf=s192-p-rp"
+        }
+      ],
+      "name": "Figment",
+      "url": "/figment"
     },
     {
       "icons": [
