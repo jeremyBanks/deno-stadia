@@ -1,4 +1,4 @@
-import { z } from "../../deps.ts";
+import { z } from "../deps.ts";
 
 export const Proto: z.ZodSchema<Proto> = z.union([
   z.null(),
@@ -6,7 +6,7 @@ export const Proto: z.ZodSchema<Proto> = z.union([
   z.string(),
   z.array(z.lazy(() => Proto)),
 ]);
-export type Proto = null | number | string | boolean | Proto[];
+export type Proto = null | number | string | boolean | Array<Proto>;
 
 const UNKNOWN = z.unknown();
 
@@ -23,15 +23,12 @@ export const SkuImages = z.unknown();
 export const SkuInternalName = z.string().nonempty();
 export const SkuTypeId = z.number().positive().int();
 export const SkuDescription = z.string().nonempty();
-export const SkuPublicationDate = NullableTimestamp;
-export const skuTimestampBate = NullableTimestamp;
+export const SkuTimestampA = NullableTimestamp;
+export const SkuTimestampB = NullableTimestamp;
 export const SkuLanguages = z.string().nonempty().array().nonempty();
 export const SkuCountries = z.string().nonempty().array().nonempty();
 export const SkuPublisher = OrganizationId;
 export const SkuDevelopers = OrganizationId.array().nonempty();
-export const SkuFullVersion = z.tuple(
-  [z.tuple([z.tuple([z.tuple([z.tuple([SkuId, GameId])])])])],
-);
 
 export let Sku = z.tuple([
   /*  0 */ SkuId,
@@ -44,7 +41,7 @@ export let Sku = z.tuple([
   /*  7 */ UNKNOWN,
   /*  8 */ UNKNOWN,
   /*  9 */ SkuDescription,
-  /* 10 */ SkuPublicationDate,
+  /* 10 */ SkuTimestampA,
   /* 11 */ UNKNOWN,
   /* 12 */ UNKNOWN,
   /* 13 */ UNKNOWN,
@@ -60,7 +57,7 @@ export let Sku = z.tuple([
   /* 23 */ UNKNOWN,
   /* 24 */ SkuLanguages,
   /* 25 */ SkuCountries,
-  /* 26 */ skuTimestampBate,
+  /* 26 */ SkuTimestampB,
   /* 27 */ UNKNOWN,
   /* 28 */ UNKNOWN,
   /* 29 */ UNKNOWN,

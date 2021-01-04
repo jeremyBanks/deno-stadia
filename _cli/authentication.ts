@@ -1,11 +1,9 @@
 import { discoverProfiles } from "../chrome/mod.ts";
-import { flags, log, sqlite } from "../deps.ts";
+import { flags, log } from "../deps.ts";
 import * as clui from "../_common/clui.ts";
-import { GoogleCookies } from "../stadia/web_client/_requests.ts";
-import { Client } from "../stadia/web_client/mod.ts";
+import { Client, GoogleCookies } from "../stadia/client.ts";
 
 export const makeClient = async (flags: flags.Args): Promise<Client> => {
-  const database = new sqlite.DB("./stadia.sqlite");
   let env;
   try {
     env = Deno.env.toObject();
@@ -18,12 +16,11 @@ export const makeClient = async (flags: flags.Args): Promise<Client> => {
   flags["google-email"] ??= env["DENO_STADIA_GOOGLE_EMAIL"];
 
   if (flags.offline) {
-    return new Client("", GoogleCookies.fromString(""), database);
+    return new Client("", GoogleCookies.fromString(""));
   } else if (flags["google-cookie"]) {
     return new Client(
       "",
       GoogleCookies.fromString(flags["google-cookie"]),
-      database,
     );
   } else {
     const targetEmail = flags["google-email"];
@@ -93,6 +90,6 @@ export const makeClient = async (flags: flags.Args): Promise<Client> => {
 
     log.info(`Using ${profile.chromeProfile}`);
 
-    return new Client(profile.googleId!, profile.googleCookies, database);
+    return new Client(profile.googleId!, profile.googleCookies);
   }
 };

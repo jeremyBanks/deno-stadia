@@ -1,5 +1,5 @@
-import { Client } from "../../stadia/web_client/mod.ts";
-import { log, sqlite, z } from "../../deps.ts";
+import { Client } from "../../stadia/client.ts";
+import { log, z } from "../../deps.ts";
 import { eprint, eprintln, print, println } from "../../_common/io.ts";
 import { color, FlagArgs, FlagOpts } from "../../deps.ts";
 import * as json from "../../_common/json.ts";
