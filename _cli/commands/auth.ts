@@ -1,13 +1,15 @@
-import { Client } from "../../stadia/web_client/mod.ts";
+import { Client } from "../../stadia/client.ts";
 import { println } from "../../_common/io.ts";
 import { color } from "../../deps.ts";
+import { notImplemented } from "../../_common/assertions.ts";
 
 export const flags = {};
 
 export const command = async (client: Client) => {
-  const view = (await client.fetchView("/profile"));
+  const view = (await client.fetchPage("/profile"));
 
-  const { userGoogleId, userGoogleEmail, userPlayer } = view.page;
+  const { userGoogleId, userGoogleEmail, userPlayer } =
+    notImplemented(view).page;
 
   let gamerTagPretty;
   if (userPlayer.gamerNumber === "0000") {

@@ -1,8 +1,8 @@
-import { Client } from "../../stadia/web_client/mod.ts";
+import { Client } from "../../stadia/client.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
 import { color, FlagArgs, FlagOpts } from "../../deps.ts";
 import * as json from "../../_common/json.ts";
-import { JsProto } from "../../stadia/web_client/_responses.ts";
+import { Proto } from "../../stadia/protos.ts";
 
 export const flags: FlagOpts = {
   boolean: [],
@@ -16,7 +16,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
   }
 
   const [rpcId, ...rpcArgsJson] = args;
-  const rpcArgs = rpcArgsJson.map((s) => json.decode(s) as JsProto);
+  const rpcArgs = rpcArgsJson.map((s) => json.decode(s) as Proto);
   const response = await client.fetchRpc(rpcId, rpcArgs);
 
   println(Deno.inspect(response.data, {

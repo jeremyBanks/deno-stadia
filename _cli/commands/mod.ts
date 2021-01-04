@@ -1,5 +1,5 @@
 import { flags } from "../../deps.ts";
-import { Client } from "../../stadia/web_client/mod.ts";
+import { Client } from "../../stadia/client.ts";
 import * as auth from "./auth.ts";
 import * as captures from "./captures.ts";
 import * as fetch from "./fetch.ts";

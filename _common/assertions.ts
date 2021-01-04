@@ -19,6 +19,6 @@ export class NotImplementedError extends Error {
   name = "NotImplementedError";
 }
 
-export const notImplemented = () => {
+export const notImplemented = (..._: any): any => {
   throw new NotImplementedError(`not implemented in ${caller()}`);
 };

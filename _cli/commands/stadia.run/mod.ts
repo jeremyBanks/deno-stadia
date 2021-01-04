@@ -1,4 +1,4 @@
-import { Client } from "../../../stadia/web_client/mod.ts";
+import { Client } from "../../../stadia/client.ts";
 import { FlagArgs, FlagOpts, log, types } from "../../../deps.ts";
 import * as json from "../../../_common/json.ts";
 

@@ -106,7 +106,7 @@ export class Client {
     return { request, httpResponse };
   }
 
-  protected async fetchPage(path: string) {
+  async fetchPage(path: string) {
     const { request, httpResponse } = await this.fetchHttp(path);
 
     let error: Json = null;
