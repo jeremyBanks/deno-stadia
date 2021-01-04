@@ -64,9 +64,9 @@ COMMANDS:
         response. The default output is meant for humans. The [--json] flag
         adds more detail for machines.
 
-    stadia captures
+        stadia rpc method_id [...json_args]
 
-    stadia rpc
+        stadia captures
 
 ```
 
