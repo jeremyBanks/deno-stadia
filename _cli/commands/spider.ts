@@ -5,6 +5,7 @@ import * as json from "../../_common/json.ts";
 import { Json } from "../../_common/json.ts";
 import { Proto } from "../../stadia/protos.ts";
 import { notImplemented, unreachable } from "../../_common/assertions.ts";
+import { ZodSqliteMap } from "../../_common/zodmap.ts";
 
 export const flags: FlagOpts = {
   string: "sqlite",
@@ -14,7 +15,7 @@ export const flags: FlagOpts = {
 };
 
 export const command = async (client: Client, flags: FlagArgs) => {
-  const db = new SqliteMap(flags.sqlite, Json);
+  const db = ZodSqliteMap.open(flags.sqlite);
 };
 
 const makeDB = (path: string) => {

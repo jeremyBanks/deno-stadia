@@ -3,11 +3,15 @@ import * as json from "../_common/json.ts";
 import { Json } from "../_common/json.ts";
 import { unreachable } from "./assertions.ts";
 
-const defaultPath = ':memory:';
-const DefaultKey = z.string().min(1).max(256);
-const DefaultValue = Json;
+const printableAscii = z.string().regex(
+  /^[\x20-\x7E]*$/,
+  "printable ascii",
+);
 
-export default class ZodSqliteMap<
+const defaultPath = ":memory:";
+const DefaultKey = printableAscii.min(1).max(512);
+const DefaultValue = Json;
+export class ZodSqliteMap<
   Key extends string = string,
   Value extends Json = Json,
   ValueSchema extends z.Schema<Value> = z.Schema<never>,
@@ -24,80 +28,141 @@ export default class ZodSqliteMap<
     readonly keySchema: KeySchema,
     readonly valueSchema: ValueSchema,
   ) {
-    this.db.query(`
-      create table if not exists
+    this.db.query(
+      `create table
+      if not exists
       Entry (
         index integer primary key,
         key text unique,
         value text
-      )
-    `).return();
-  }
-
-  get [Symbol.toStringTag]() {
-    return "ZodSqliteMap";
+      )`,
+    ).return();
   }
 
   get(key: Key): Value | undefined {
-    key = this.keySchema.parse(key);
-    for (const [jsonValue] of this.db.query(`select value from Entry where key = ?`, [key])) {
-      const value = json.decode(jsonValue);
-      return this.valueSchema.parse(value);
+    return this.valueSchema.parse(this.get(this.keySchema.parse(key)));
+  }
+
+  getUnchecked(key: Key): Value | undefined {
+    for (
+      const [jsonValue] of this.db.query(
+        `select value
+        from Entry
+        where key = ?`,
+        [key],
+      )
+    ) {
+      return json.decode(jsonValue) as Value;
     }
   }
 
   set(key: Key, value: Value) {
-    key = this.keySchema.parse(key);
-    value = this.valueSchema.parse(value);
-    this.db.query(`insert or replace into Entry(key, value) values (?, ?)`, [key, json.encode(value)]).return();
+    return this.setUnchecked(
+      this.keySchema.parse(key),
+      this.valueSchema.parse(value),
+    );
+  }
+
+  setUnchecked(key: Key, value: Value) {
+    this.db.query(
+      `insert into Entry(key, value)
+      values (?, ?)
+      on conflict(key)
+      do update
+      set value=excluded.value`,
+      [key, json.encode(value, 0)],
+    ).return();
     return this;
   }
 
   get size() {
-    for (const row of this.db.query(`select count(*) from Entry`)) {
+    for (
+      const row of this.db.query(
+        `select count(*) from Entry`,
+      )
+    ) {
       return z.number().parse(row);
     }
-    return unreachable("loop body expected to run");
+    return unreachable("expected a row");
   }
 
   clear(): void {
-    this.db.query(`delete from Entries`);
+    this.db.query(`delete from Entry`).return();
   }
 
-  delete(key: string): boolean {
-    return notImplemented(key) as boolean;
+  delete(key: Key): boolean {
+    return this.deleteUnchecked(this.keySchema.parse(key));
   }
 
-  entries() {
-    return notImplemented() as IterableIterator<[string, Value]>;
+  deleteUnchecked(key: Key): boolean {
+    this.db.query(`delete from Entries where key = ?`, [key]).return();
+    return this.db.changes > 0;
+  }
+
+  *entries(): Generator<[Key, Value]> {
+    for (
+      const [key, value] of this.db.query(
+        `select key, value
+        from Entry
+        order by index asc`,
+      )
+    ) {
+      yield [key, value];
+    }
+  }
+
+  *keys(): Generator<Key> {
+    for (
+      const [key] of this.db.query(
+        `select key
+        from Entry
+        order by index asc`,
+      )
+    ) {
+      yield key;
+    }
+  }
+
+  *values(): Generator<Value> {
+    for (
+      const [value] of this.db.query(
+        `select value
+        from Entry
+        order by index asc`,
+      )
+    ) {
+      yield value;
+    }
+  }
+
+  has(key: Key): boolean {
+    for (
+      const [count] of this.db.query(
+        `select count(*)
+        from Entry
+        where key = ?`,
+        [key],
+      )
+    ) {
+      return count > 0;
+    }
+    return unreachable("expected a row");
   }
 
   [Symbol.iterator]() {
     return this.entries();
   }
 
-  *keys() {
-    for (const [key, _value] of this.entries()) {
-      yield key;
-    }
-  }
-
-  *values() {
-    for (const [_key, value] of this.entries()) {
-      yield value;
-    }
-  }
-
   forEach(
-    callbackfn: (value: Value, key: string, map: Map<string, Value>) => void,
-    thisArg?: Map<string, Value>,
+    callbackfn: (value: Value, key: Key, map: Map<Key, Value>) => void,
+    thisArg?: Map<Key, Value>,
   ): void {
     for (const [key, value] of this.entries()) {
       callbackfn(value, key, thisArg ?? this);
     }
   }
 
-  has(key: string): boolean {
-    return this.get(key) !== undefined;
+  get [Symbol.toStringTag]() {
+    return this.constructor.name;
   }
 }
