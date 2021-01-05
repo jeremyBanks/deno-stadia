@@ -8,7 +8,7 @@ export const Proto: z.ZodSchema<Proto> = z.union([
 ]);
 export type Proto = null | number | string | boolean | Array<Proto>;
 
-const UNKNOWN = z.unknown();
+const UNKNOWN = Proto;
 
 export const GameId = z.string().regex(/^[0-9a-f]+(rcp1)$/);
 export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
@@ -19,7 +19,7 @@ export const NullableTimestamp = z.union([
   z.tuple([]),
 ]).nullable();
 export const SkuName = z.string().nonempty();
-export const SkuImages = z.unknown();
+export const SkuImages = UNKNOWN;
 export const SkuInternalName = z.string().nonempty();
 export const SkuTypeId = z.number().positive().int();
 export const SkuDescription = z.string().nonempty();

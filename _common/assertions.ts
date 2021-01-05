@@ -6,13 +6,21 @@ export class AssertionError extends Error {
   name = "AssertionError";
 }
 
-export function assert(
-  condition: any,
+export function assert<T>(
+  condition: T,
   message?: string,
 ): asserts condition {
   if (!condition) {
     throw new AssertionError(message ?? `assertion failed in ${caller()}`);
   }
+}
+
+export function expect<T>(
+  value: T,
+  message?: string,
+): NonNullable<T> {
+  assert(value != null, message ?? `expected non-null value but was ${value}`);
+  return value as NonNullable<T>;
 }
 
 export class NotImplementedError extends Error {

@@ -1,4 +1,4 @@
-import { sqlite, z } from "../deps.ts";
+import { log, sqlite, z } from "../deps.ts";
 import * as json from "../_common/json.ts";
 import { Json } from "../_common/json.ts";
 import { unreachable } from "./assertions.ts";
@@ -8,17 +8,18 @@ const printableAscii = z.string().regex(
   "printable ascii",
 );
 
-const defaultPath = ":memory:";
-const DefaultKey = printableAscii.min(1).max(512);
-const DefaultValue = Json;
 export class ZodSqliteMap<
   Key extends string = string,
   Value extends Json = Json,
-  ValueSchema extends z.Schema<Value> = z.Schema<never>,
   KeySchema extends z.Schema<Key> = z.Schema<never>,
+  ValueSchema extends z.Schema<Value> = z.Schema<never>,
 > implements Map<Key, Value> {
-  public static open(path: string = defaultPath) {
-    return new this(path, DefaultKey, DefaultValue);
+  static readonly defaultPath = ":memory:";
+  static readonly DefaultKey = printableAscii.min(1).max(512);
+  static readonly DefaultValue = Json;
+
+  public static open(path: string = ZodSqliteMap.defaultPath) {
+    return new this(path, ZodSqliteMap.DefaultKey, ZodSqliteMap.DefaultValue);
   }
 
   readonly db: sqlite.DB = new sqlite.DB(this.path);
@@ -32,15 +33,18 @@ export class ZodSqliteMap<
       `create table
       if not exists
       Entry (
-        index integer primary key,
+        pk integer primary key,
         key text unique,
         value text
       )`,
     ).return();
+    for (const [_key, _value] of this) {
+      // revalidate any existing data
+    }
   }
 
   get(key: Key): Value | undefined {
-    return this.valueSchema.parse(this.get(this.keySchema.parse(key)));
+    return this.valueSchema.parse(this.getUnchecked(this.keySchema.parse(key)));
   }
 
   getUnchecked(key: Key): Value | undefined {
@@ -77,11 +81,11 @@ export class ZodSqliteMap<
 
   get size() {
     for (
-      const row of this.db.query(
+      const [count] of this.db.query(
         `select count(*) from Entry`,
       )
     ) {
-      return z.number().parse(row);
+      return z.number().parse(count);
     }
     return unreachable("expected a row");
   }
@@ -104,10 +108,13 @@ export class ZodSqliteMap<
       const [key, value] of this.db.query(
         `select key, value
         from Entry
-        order by index asc`,
+        order by pk asc`,
       )
     ) {
-      yield [key, value];
+      yield [
+        this.keySchema.parse(key),
+        this.valueSchema.parse(json.decode(value)),
+      ];
     }
   }
 
@@ -116,10 +123,10 @@ export class ZodSqliteMap<
       const [key] of this.db.query(
         `select key
         from Entry
-        order by index asc`,
+        order by pk asc`,
       )
     ) {
-      yield key;
+      yield this.keySchema.parse(key);
     }
   }
 
@@ -128,10 +135,10 @@ export class ZodSqliteMap<
       const [value] of this.db.query(
         `select value
         from Entry
-        order by index asc`,
+        order by pk asc`,
       )
     ) {
-      yield value;
+      yield this.valueSchema.parse(value);
     }
   }
 
@@ -144,7 +151,7 @@ export class ZodSqliteMap<
         [key],
       )
     ) {
-      return count > 0;
+      return z.number().parse(count) > 0;
     }
     return unreachable("expected a row");
   }
