@@ -7,19 +7,20 @@ const printableAscii = z.string().regex(
   /^[\x20-\x7E]*$/,
   "printable ascii",
 );
+const defaultPath = ":memory:";
+export const DefaultKey = printableAscii.min(1).max(512);
+export type DefaultKey = z.infer<typeof DefaultKey>;
+export const DefaultValue = Json;
+export type DefaultValue = z.infer<typeof DefaultValue>;
 
 export class ZodSqliteMap<
-  Key extends string = string,
-  Value extends Json = Json,
-  KeySchema extends z.Schema<Key> = z.Schema<never>,
-  ValueSchema extends z.Schema<Value> = z.Schema<never>,
+  KeySchema extends z.Schema<Key>,
+  ValueSchema extends z.Schema<Value>,
+  Key extends string = z.infer<KeySchema>,
+  Value extends Json = z.infer<ValueSchema>,
 > implements Map<Key, Value> {
-  static readonly defaultPath = ":memory:";
-  static readonly DefaultKey = printableAscii.min(1).max(512);
-  static readonly DefaultValue = Json;
-
-  public static open(path: string = ZodSqliteMap.defaultPath) {
-    return new this(path, ZodSqliteMap.DefaultKey, ZodSqliteMap.DefaultValue);
+  public static open(path: string = defaultPath) {
+    return new this(path, DefaultKey, DefaultValue);
   }
 
   readonly db: sqlite.DB = new sqlite.DB(this.path);
@@ -138,7 +139,7 @@ export class ZodSqliteMap<
         order by pk asc`,
       )
     ) {
-      yield this.valueSchema.parse(value);
+      yield this.valueSchema.parse(json.decode(value));
     }
   }
 

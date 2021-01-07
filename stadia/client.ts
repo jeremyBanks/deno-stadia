@@ -300,6 +300,15 @@ export class Client {
       Sku.fromProto(proto[9])
     );
   }
+
+  async fetchSku(skuId: string, gameId?: string): Promise<Sku> {
+    const response = await this.fetchRpc(
+      "FWhQV",
+      [gameId ?? null, skuId],
+    );
+
+    return Sku.fromProto((response.data as any)[16]);
+  }
 }
 
 abstract class ViewModel {
@@ -347,8 +356,8 @@ const skuTypeIds = {
   1: "game",
   2: "addon",
   3: "bundle",
-  5: "subscription-bundle",
-  6: "subscription-addon",
+  5: "bundle-subscription",
+  6: "addon-subscription",
   10: "preorder",
 };
 
@@ -386,11 +395,10 @@ class Sku extends ViewModel {
     super();
   }
 
-  static fromProto(proto_: Array<Proto>): Sku {
-    if (proto_.length < 38) {
-      proto_.length = 38; // pad out optional trailing elements
+  static fromProto(proto: Array<any>): Sku {
+    if (proto.length < 38) {
+      proto.length = 38; // pad out optional trailing elements
     }
-    const proto = protos.Sku.parse(proto_);
     const typeId = proto[6] as keyof typeof skuTypeIds;
     const type = skuTypeIds[typeId] || `-unknown-type-${typeId}`;
     const skuId = proto[0];

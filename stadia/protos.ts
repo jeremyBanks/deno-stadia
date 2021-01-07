@@ -25,8 +25,8 @@ export const SkuTypeId = z.number().positive().int();
 export const SkuDescription = z.string().nonempty();
 export const SkuTimestampA = NullableTimestamp;
 export const SkuTimestampB = NullableTimestamp;
-export const SkuLanguages = z.string().nonempty().array().nonempty();
-export const SkuCountries = z.string().nonempty().array().nonempty();
+export const SkuLanguages = UNKNOWN || z.string().nonempty().array().nonempty();
+export const SkuCountries = UNKNOWN || z.string().nonempty().array().nonempty();
 export const SkuPublisher = OrganizationId;
 export const SkuDevelopers = OrganizationId.array().nonempty();
 

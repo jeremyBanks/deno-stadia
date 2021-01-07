@@ -3,3 +3,4 @@
 *.sqlite-*
 *.swp
 *.wasm
+*.ignored

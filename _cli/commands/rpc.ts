@@ -1,11 +1,11 @@
 import { Client } from "../../stadia/client.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
-import { color, FlagArgs, FlagOpts } from "../../deps.ts";
+import { color, FlagArgs, FlagOpts, log } from "../../deps.ts";
 import * as json from "../../_common/json.ts";
 import { Proto } from "../../stadia/protos.ts";
 
 export const flags: FlagOpts = {
-  boolean: [],
+  boolean: ["json"],
 };
 
 export const command = async (client: Client, flags: FlagArgs) => {
@@ -16,12 +16,25 @@ export const command = async (client: Client, flags: FlagArgs) => {
   }
 
   const [rpcId, ...rpcArgsJson] = args;
-  const rpcArgs = rpcArgsJson.map((s) => json.decode(s) as Proto);
+  const rpcArgs = rpcArgsJson.map((s) => {
+    try {
+      return json.decode(s) as Proto;
+    } catch (error) {
+      log.warning(error);
+      return s;
+    }
+  });
   const response = await client.fetchRpc(rpcId, rpcArgs);
 
-  println(Deno.inspect(response.data, {
-    depth: 6,
-    iterableLimit: 12,
-    sorted: true,
-  }));
+  const data = response.data;
+
+  if (flags.json) {
+    println(json.encode(data));
+  } else {
+    println(Deno.inspect(data, {
+      depth: 6,
+      iterableLimit: 24,
+      sorted: true,
+    }));
+  }
 };

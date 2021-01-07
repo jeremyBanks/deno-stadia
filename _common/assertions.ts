@@ -27,10 +27,13 @@ export class NotImplementedError extends Error {
   name = "NotImplementedError";
 }
 
-export const notImplemented = (..._: any): any => {
-  throw new NotImplementedError(`not implemented in ${caller()}`);
+export const notImplemented = (message?: any): any => {
+  throw new NotImplementedError(message ?? `not implemented in ${caller()}`);
 };
 
-export const unreachable = (..._: any): never => {
-  throw new TypeError(`logic error: this code was expected to be unreachable`);
+export const unreachable = (message?: any): never => {
+  throw new TypeError(
+    message ??
+      `logic error: this code was expected to be unreachable in ${caller()}`,
+  );
 };
