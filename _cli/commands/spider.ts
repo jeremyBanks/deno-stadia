@@ -70,7 +70,7 @@ class ModelDB extends ZodSqliteMap<typeof DefaultKey, typeof RemoteModel> {
     return this.get(key);
   }
 
-  seed(type: models.Model["type"], key: DefaultKey) {
+  seed(type: models.Model["type"], key: DefaultKey): boolean {
     if (!this.has(key)) {
       this.set(key, {
         lastFetchAttempted: null,
@@ -106,6 +106,9 @@ class ModelDB extends ZodSqliteMap<typeof DefaultKey, typeof RemoteModel> {
           ),
         },
       });
+      return true;
+    } else {
+      return false;
     }
   }
 }
@@ -142,7 +145,6 @@ class Command {
     log.info(`${instances.length} instances to spider.`);
 
     for (const model of instances) {
-      await sleep(1.0);
       log.debug(`Updating: ${
         Deno.inspect(model, {
           depth: 2,
@@ -150,15 +152,7 @@ class Command {
         })
       }`);
       await this.update(model);
-      log.debug(`Updated: ${
-        Deno.inspect(model, {
-          depth: 2,
-          iterableLimit: 8,
-        })
-      }`);
     }
-
-    debugger;
 
     return this;
   }
@@ -166,28 +160,56 @@ class Command {
   async update(remote: RemoteModel) {
     remote.lastFetchAttempted = Date.now();
 
-    if (remote.model.type === "game") {
-      log.warning(
-        `update() not implemented for ${remote.model.type}, skipping...`,
+    if (remote.model.type === "player") {
+      const updated = await this.client.fetchPlayer(
+        remote.model.playerId,
       );
-      return;
-    } else if (remote.model.type === "player") {
-      log.warning(
-        `update() not implemented for ${remote.model.type}, skipping...`,
+      remote.model = updated;
+
+      const friends = await this.client.fetchPlayerFriends(
+        remote.model.playerId,
       );
-      return;
+      const friendsKey = `${remote.model.playerId}.friends`;
+      this.db.set(friendsKey, {
+        lastFetchAttempted: null,
+        ...(this.db.get(friendsKey)?.model ?? {}),
+        model: friends,
+        lastFetchCompleted: Date.now(),
+      });
+      for (const friendPlayerId of friends.friendPlayerIds!) {
+        if (this.db.seed("player", friendPlayerId)) {
+          log.debug(
+            `discovered new player ${friendPlayerId} as friend of ${remote.model.playerId}`,
+          );
+        }
+      }
+
+      const games = await this.client.fetchPlayerGames(
+        remote.model.playerId,
+      );
+      const gamesKey = `${remote.model.playerId}.games`;
+      this.db.set(gamesKey, {
+        lastFetchAttempted: null,
+        ...(this.db.get(gamesKey)?.model ?? {}),
+        model: games,
+        lastFetchCompleted: Date.now(),
+      });
+      for (const playedGameId of games.playedGameIds!) {
+        if (this.db.seed("player", playedGameId)) {
+          log.warning(
+            `discovered new game ${playedGameId} played by ${remote.model.playerId}`,
+          );
+        }
+      }
     } else if (remote.model.type === "sku") {
       const updated = await this.client.fetchSku(
         remote.model.skuId,
       );
-      // merge them
-      for (const [key, value] of Object.entries(updated)) {
-        if (value != null) {
-          (remote.model as any)[key] = value;
-        }
-      }
+      remote.model = updated;
     } else {
-      return unreachable();
+      log.warning(`spidering not yet implemented for ${remote.model.type}`);
+      await sleep(0.5);
+      return;
     }
 
     remote.lastFetchCompleted = Date.now();
@@ -195,17 +217,6 @@ class Command {
   }
 
   async seed() {
-    // const f = await Deno.open("./stadia/seed_ids.ignored/users.txt");
-    // for await (const line of readLines(f)) {
-    //   const playerId = line.trim();
-    //   if (Math.random() < 0.001) {
-    //     log.debug(`seeding at player id ${playerId}`);
-    //   }
-    //   if (playerId) {
-    //     this.db.seed("player", playerId);
-    //   }
-    // }
-
     const playerIds = [
       "5904879799764",
       "3336291440735869496",

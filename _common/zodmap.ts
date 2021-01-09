@@ -42,7 +42,12 @@ export class ZodSqliteMap<
   }
 
   get(key: Key): Value | undefined {
-    return this.valueSchema.parse(this.getUnchecked(this.keySchema.parse(key)));
+    const unchecked = this.getUnchecked(this.keySchema.parse(key));
+    if (unchecked === undefined) {
+      return unchecked;
+    } else {
+      return this.valueSchema.parse(unchecked);
+    }
   }
 
   getUnchecked(key: Key): Value | undefined {

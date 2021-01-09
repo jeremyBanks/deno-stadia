@@ -289,21 +289,39 @@ export class Client {
   ): Promise<models.Player> {
     const response = await this.fetchRpc(
       "D0Amud",
-      [null, includeStatus, null, null, "4531298085847707355"],
+      [null, includeStatus, null, null, playerId],
     );
-
-    return notImplemented();
+    return models.playerFromProto((response.data as any)[5]);
   }
 
-  async fetchPlayerFriends(playerId: string, includeStatus = true) {
+  async fetchPlayerFriends(
+    playerId: string,
+    includeStatus = true,
+  ): Promise<models.PlayerFriends> {
     const response = await this.fetchRpc(
       "Z5HRnb",
       [null, includeStatus, playerId],
     );
+    return {
+      type: "player.friends",
+      playerId,
+      friendPlayerIds: (response.data as any)[0]?.map(models.playerFromProto),
+    };
   }
 
-  async fetchPlayerGames(playerId: string, limit: number | null = null) {
-    await this.fetchRpc("Q6jt8c", [null, 3, null, playerId]);
+  async fetchPlayerGames(
+    playerId: string,
+    limit: number | null = null,
+  ): Promise<models.PlayerGames> {
+    const response = await this.fetchRpc(
+      "Q6jt8c",
+      [null, limit, null, playerId],
+    );
+    return {
+      type: "player.games",
+      playerId,
+      playedGameIds: (response.data as any)[0],
+    };
   }
 
   async fetchPlayerSearch(namePrefix: string) {

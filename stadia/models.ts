@@ -1,5 +1,6 @@
 import { log, z } from "../deps.ts";
-import { assert, expect } from "../_common/assertions.ts";
+import { assert, expect, notImplemented } from "../_common/assertions.ts";
+import json from "../_common/json.ts";
 
 export const Proto: z.ZodSchema<Proto> = z.union([
   z.null(),
@@ -117,6 +118,16 @@ export const skuTypeFromId = (id: number) => {
   return expect(skuTypesById[id], `unknown sku type id: ${id}`);
 };
 
+export const playerFromProto = (proto: Array<Proto>): Player => {
+  const details = proto[2] as any;
+  return {
+    type: "player",
+    playerId: details[7],
+    name: details[0][0],
+    number: details[0][1],
+  };
+};
+
 export const Player = ModelBase.extend({
   type: z.literal("player"),
   playerId: PlayerId,
@@ -125,5 +136,19 @@ export const Player = ModelBase.extend({
 });
 export type Player = z.infer<typeof Player>;
 
-export const Model = z.union([Sku, Game, Player]);
+export const PlayerFriends = ModelBase.extend({
+  type: z.literal("player.friends"),
+  playerId: PlayerId,
+  friendPlayerIds: PlayerId.array().nullable(),
+});
+export type PlayerFriends = z.infer<typeof PlayerFriends>;
+
+export const PlayerGames = ModelBase.extend({
+  type: z.literal("player.games"),
+  playerId: PlayerId,
+  playedGameIds: GameId.array().nullable(),
+});
+export type PlayerGames = z.infer<typeof PlayerGames>;
+
+export const Model = z.union([Sku, Game, Player, PlayerFriends, PlayerGames]);
 export type Model = z.infer<typeof Model>;
