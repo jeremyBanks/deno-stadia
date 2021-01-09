@@ -1,4 +1,4 @@
-import { z } from "../deps.ts";
+import { log, z } from "../deps.ts";
 import { assert, expect } from "../_common/assertions.ts";
 
 export const Proto: z.ZodSchema<Proto> = z.union([
@@ -19,15 +19,17 @@ export const PlayerNumber = z.string().length(4).regex(
 );
 
 const ModelBase = z.object({
-  proto: Proto.nullable(),
+  proto: z.unknown().nullable(),
   type: z.string(),
 });
 
 export const Game = ModelBase.extend({
   type: z.literal("game"),
   gameId: GameId,
+  skuId: SkuId.nullable(),
   name: z.string().nullable(),
 });
+export type Game = z.infer<typeof Game>;
 
 export const SkuCommon = ModelBase.extend({
   type: z.literal("sku"),
@@ -63,6 +65,10 @@ export const BundleSubscriptionSku = SkuCommon.extend({
   skuType: z.literal("bundle-subscription"),
 });
 
+export const ExternalSubscriptionSku = SkuCommon.extend({
+  skuType: z.literal("external-subscription"),
+});
+
 export const AddonSubscriptionSku = SkuCommon.extend({
   skuType: z.literal("addon-subscription"),
 });
@@ -78,15 +84,18 @@ export const Sku = z.union([
   BundleSku,
   BundleSubscriptionSku,
   AddonSubscriptionSku,
+  ExternalSubscriptionSku,
   PreorderSku,
 ]);
 export type Sku = z.infer<typeof Sku>;
 
 export const skuFromProto = (proto: Array<Proto>): Sku => {
+  log.debug(`parsing sku ${proto?.[1]} ${proto?.[0]}`);
+  const skuType = skuTypeFromId(z.number().parse(proto[6]));
   return Sku.parse({
     type: "sku",
     proto: proto,
-    skuType: skuTypeFromId(z.number().parse(proto[6])),
+    skuType,
     skuId: proto[0],
     gameId: proto[4] ?? null,
     name: proto[1],
@@ -100,11 +109,12 @@ export const skuTypeFromId = (id: number) => {
     1: "game",
     2: "addon",
     3: "bundle",
+    4: "external-subscription",
     5: "bundle-subscription",
     6: "addon-subscription",
     10: "preorder",
   };
-  return expect(skuTypesById[id]);
+  return expect(skuTypesById[id], `unknown sku type id: ${id}`);
 };
 
 export const Player = ModelBase.extend({
@@ -112,8 +122,6 @@ export const Player = ModelBase.extend({
   playerId: PlayerId,
   name: PlayerName.nullable(),
   number: PlayerNumber.nullable(),
-  friendPlayerIds: PlayerId.array().nullable(),
-  playedGameIds: GameId.array().nullable(),
 });
 export type Player = z.infer<typeof Player>;
 

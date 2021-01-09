@@ -15,7 +15,7 @@ export const decode = (value: string): Json => {
   return JSON.parse(value) ?? null;
 };
 
-export const encode = (root: unknown, indent: number = 2): string => {
+export const encode = (root: unknown, indent: number = 0): string => {
   const transform = (
     node: unknown,
     ancestors: unknown[] = [],

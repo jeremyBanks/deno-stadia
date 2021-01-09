@@ -7,6 +7,8 @@ import { Proto } from "./protos.ts";
 import { safeEval } from "../_common/sandbox.ts";
 import { log, z } from "../deps.ts";
 import { throttled } from "../_common/async.ts";
+import { skuFromProto } from "./models.ts";
+import * as models from "../stadia/models.ts";
 
 const minRequestIntervalSeconds = 420 / 69;
 const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
@@ -93,7 +95,7 @@ export class Client {
       path: url.pathname,
     };
 
-    log.info(`${method} ${url} for Google user ${this.googleId}`);
+    log.info(`${method} ${url} ${body} for Google user ${this.googleId}`);
 
     const httpResponse = await fetch(url, { headers, body, method });
 
@@ -110,16 +112,7 @@ export class Client {
     const { request, httpResponse } = await this.fetchHttp(path);
 
     let error: Json = null;
-    let ijValues: Json = {};
     let wizGlobalData: Json & (Record<string, Json>) = {};
-    let afPreloadData: Record<
-      string,
-      Array<{
-        arguments: Proto;
-        value?: Proto;
-        error?: Proto;
-      }>
-    > = {};
 
     if (httpResponse.status === 200) {
       const html = await httpResponse.text();
@@ -130,47 +123,6 @@ export class Client {
             ?.[1] ?? "null") +
           ")",
       ) as Record<string, Json>;
-
-      ijValues = await safeEval(
-        "(" +
-          (html.match(/IJ_values =(.+?); window.IJ_valuesCb<\/script>/s)
-            ?.[1] ?? "null") +
-          ")",
-      );
-
-      assert(wizGlobalData instanceof Object);
-
-      const preloadRequests = await safeEval(
-        "(" +
-          (html.match(
-            /AF_dataServiceRequests =(.+?); var AF_initDataChunkQueue =/s,
-          )
-            ?.[1] ?? "null") +
-          ")",
-      ) as any;
-
-      const preloadResponses = await Promise.all([
-        ...html.matchAll(/>AF_initDataCallback(\(\{.*?\}\))\;<\/script>/gs),
-      ].map((x: any) => {
-        return safeEval(x[1]);
-      }));
-
-      afPreloadData = {};
-      for (const response of preloadResponses as any) {
-        const request = preloadRequests[response.key];
-        (afPreloadData[request.id] ??= []).push({
-          arguments: request.request,
-          ...(!response.isError
-            ? {
-              value: response.data,
-              error: undefined,
-            }
-            : {
-              error: response.data,
-              value: undefined,
-            }),
-        });
-      }
     } else {
       error = {
         message: `non-200 http response status (${httpResponse.status})`,
@@ -181,9 +133,7 @@ export class Client {
       status: httpResponse.status,
       timestamp: Date.now(),
       error,
-      ijValues,
       wizGlobalData,
-      afPreloadData,
     };
 
     if (error) {
@@ -203,14 +153,16 @@ export class Client {
   }
 
   /** Makes a Stadia frontend RPC call from the context of a response page.
-      *
-      * Based on
-      * https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
-      */
+  *
+  * Based on
+  * https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
+  */
   async fetchRpc(
     rpcId: string,
     request: Proto,
   ) {
+    // TODO: automatically batch RPC requests?
+
     const fReq = json.encode([[[rpcId, json.encode(request), null, "1"]]]);
 
     const wizGlobalData = await this.rpcSourcePageWizGlobalData();
@@ -291,149 +243,76 @@ export class Client {
     }
   }
 
+  async f() {
+    this.fetchRpc("v2jaIb", []);
+  }
+
   async fetchStoreList(listId: number) {
     const response = await this.fetchRpc(
       "ZAm7We",
       [null, null, null, null, null, listId],
     );
     return ((response.data as any)[0] as Proto[][][]).map((proto) =>
-      Sku.fromProto(proto[9])
+      skuFromProto(proto[9])
     );
   }
 
-  async fetchSku(skuId: string, gameId?: string): Promise<Sku> {
+  async fetchSku(skuId: string): Promise<models.Sku> {
     const response = await this.fetchRpc(
       "FWhQV",
-      [gameId ?? null, skuId],
+      [null, skuId],
     );
 
-    return Sku.fromProto((response.data as any)[16]);
-  }
-}
-
-abstract class ViewModel {
-}
-
-class Player extends ViewModel {
-  constructor(
-    readonly gamerId: string,
-    readonly gamerName: string,
-    readonly gamerNumber: string,
-    readonly avatarId: number,
-  ) {
-    super();
+    return skuFromProto((response.data as any)[16]);
   }
 
-  get gamerTag() {
-    return this.gamerNumber === "0000"
-      ? this.gamerName
-      : `${this.gamerName}#${this.gamerNumber}`;
+  async fetchGame(gameId: string): Promise<models.Game> {
+    const response = await this.fetchRpc(
+      "FWhQV",
+      [gameId, null],
+    );
+
+    const proto = (response.data as any)[16];
+    const sku = skuFromProto(proto);
+    return {
+      type: "game",
+      proto,
+      gameId,
+      name: sku.name,
+      skuId: sku.skuId,
+    };
   }
 
-  static fromProto(proto_: Proto): Player {
-    const proto = protos.Player.parse(proto_);
-    const shallowUserInfo = proto[5];
+  async fetchPlayer(
+    playerId: string,
+    includeStatus = true,
+  ): Promise<models.Player> {
+    const response = await this.fetchRpc(
+      "D0Amud",
+      [null, includeStatus, null, null, "4531298085847707355"],
+    );
 
-    const gamerName = shallowUserInfo[0][0];
-
-    const gamerNumber = shallowUserInfo[0][1];
-
-    const avatarId = parseInt(shallowUserInfo[1][0].slice(1), 10);
-
-    const gamerId = shallowUserInfo[5];
-
-    return new Player(gamerId, gamerName, gamerNumber, avatarId);
-  }
-}
-
-class Game extends ViewModel {
-  static fromProto(proto: Proto): Game {
     return notImplemented();
   }
-}
 
-const skuTypeIds = {
-  1: "game",
-  2: "addon",
-  3: "bundle",
-  5: "bundle-subscription",
-  6: "addon-subscription",
-  10: "preorder",
-};
-
-class SkuWrapper extends ViewModel {
-  protected constructor(
-    readonly sku: Sku,
-  ) {
-    super();
-  }
-
-  static fromProto(proto: Array<Proto>): SkuWrapper {
-    const sku = Sku.fromProto(proto[16] as Array<Proto>);
-
-    return new SkuWrapper(sku);
-  }
-}
-
-class Sku extends ViewModel {
-  protected constructor(
-    readonly typeId: number,
-    readonly type: string,
-    readonly skuId: string,
-    readonly gameId: string | undefined,
-    readonly name: string,
-    readonly coverImageUrl: string,
-    readonly description: string,
-    readonly skuTimestampA: number | undefined,
-    readonly skuTimestampB: number | undefined,
-    readonly publisherOrganizationId: string,
-    readonly developerOrganizationIds: string[],
-    readonly languages: string[],
-    readonly countries: string[],
-    readonly internalName: string,
-  ) {
-    super();
-  }
-
-  static fromProto(proto: Array<any>): Sku {
-    if (proto.length < 38) {
-      proto.length = 38; // pad out optional trailing elements
-    }
-    const typeId = proto[6] as keyof typeof skuTypeIds;
-    const type = skuTypeIds[typeId] || `-unknown-type-${typeId}`;
-    const skuId = proto[0];
-    const gameId = proto[4] ?? undefined;
-    const name = proto[1];
-    const description = proto[9];
-    const languages = proto[24];
-    const countries = proto[25];
-
-    const coverImageUrl = (proto as any)[2][1][0][0][1]?.split(
-      /=/,
-    )[0] as string;
-    const skuTimestampA = proto[10]?.[0] ?? undefined;
-    const skuTimestampB = proto[26]?.[0] ?? undefined;
-
-    const publisherOrganizationId = proto[15] as string;
-    const developerOrganizationIds = proto[16] as string[];
-
-    const internalName = proto[5] as string;
-
-    return new Sku(
-      typeId,
-      type,
-      skuId,
-      gameId,
-      name,
-      coverImageUrl,
-      description,
-      skuTimestampA,
-      skuTimestampB,
-      publisherOrganizationId,
-      developerOrganizationIds,
-      languages,
-      countries,
-      internalName,
+  async fetchPlayerFriends(playerId: string, includeStatus = true) {
+    const response = await this.fetchRpc(
+      "Z5HRnb",
+      [null, includeStatus, playerId],
     );
+  }
+
+  async fetchPlayerGames(playerId: string, limit: number | null = null) {
+    await this.fetchRpc("Q6jt8c", [null, 3, null, playerId]);
+  }
+
+  async fetchPlayerSearch(namePrefix: string) {
+    namePrefix = z.string().min(2).max(20).parse(namePrefix);
+    const q = namePrefix.slice(0, 1) + " " + namePrefix.slice(1);
+    await this.fetchRpc("FdyJ0", [q]);
+  }
+
+  async fetchWhoAmI() {
+    "esz4rb";
   }
 }

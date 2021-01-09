@@ -39,9 +39,6 @@ export class ZodSqliteMap<
         value text
       )`,
     ).return();
-    for (const [_key, _value] of this) {
-      // revalidate any existing data
-    }
   }
 
   get(key: Key): Value | undefined {
@@ -106,6 +103,17 @@ export class ZodSqliteMap<
 
   *entries(): Generator<[Key, Value]> {
     for (
+      const [key, value] of this.entriesUnchecked()
+    ) {
+      yield [
+        this.keySchema.parse(key),
+        this.valueSchema.parse(value),
+      ];
+    }
+  }
+
+  *entriesUnchecked(): Generator<[Key, Value]> {
+    for (
       const [key, value] of this.db.query(
         `select key, value
         from Entry
@@ -113,13 +121,21 @@ export class ZodSqliteMap<
       )
     ) {
       yield [
-        this.keySchema.parse(key),
-        this.valueSchema.parse(json.decode(value)),
+        key as Key,
+        json.decode(value) as Value,
       ];
     }
   }
 
   *keys(): Generator<Key> {
+    for (
+      const key of this.keysUnchecked()
+    ) {
+      yield this.keySchema.parse(key);
+    }
+  }
+
+  *keysUnchecked(): Generator<Key> {
     for (
       const [key] of this.db.query(
         `select key
@@ -127,11 +143,19 @@ export class ZodSqliteMap<
         order by pk asc`,
       )
     ) {
-      yield this.keySchema.parse(key);
+      yield key as Key;
     }
   }
 
   *values(): Generator<Value> {
+    for (
+      const value of this.valuesUnchecked()
+    ) {
+      yield this.valueSchema.parse(value);
+    }
+  }
+
+  *valuesUnchecked(): Generator<Value> {
     for (
       const [value] of this.db.query(
         `select value
@@ -139,7 +163,7 @@ export class ZodSqliteMap<
         order by pk asc`,
       )
     ) {
-      yield this.valueSchema.parse(json.decode(value));
+      yield json.decode(value) as Value;
     }
   }
 

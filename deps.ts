@@ -6,7 +6,11 @@ export type {
   Args as FlagArgs,
 } from "https://deno.land/std@0.79.0/flags/mod.ts";
 export { Sha3_256 as Sha3d256 } from "https://deno.land/std@0.79.0/hash/sha3.ts";
-export { BufReader, BufWriter } from "https://deno.land/std@0.78.0/io/bufio.ts";
+export {
+  BufReader,
+  BufWriter,
+  readLines,
+} from "https://deno.land/std@0.83.0/io/bufio.ts";
 export * as log from "https://deno.land/std@0.78.0/log/mod.ts";
 export * as path from "https://deno.land/std@0.79.0/path/mod.ts";
 

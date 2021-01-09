@@ -1,6 +1,15 @@
 import { Client } from "../../stadia/client.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
-import { color, FlagArgs, FlagOpts, log, sqlite, z } from "../../deps.ts";
+import {
+  BufReader,
+  color,
+  FlagArgs,
+  FlagOpts,
+  log,
+  readLines,
+  sqlite,
+  z,
+} from "../../deps.ts";
 import * as json from "../../_common/json.ts";
 import { Json } from "../../_common/json.ts";
 import { Proto } from "../../stadia/protos.ts";
@@ -18,6 +27,8 @@ import {
   ZodSqliteMap,
 } from "../../_common/zodmap.ts";
 import { Arguments } from "../../_common/utility_types/mod.ts";
+import { flatMap } from "../../_common/iterators.ts";
+import { sleep } from "../../_common/async.ts";
 
 export const flags: FlagOpts = {
   string: "sqlite",
@@ -59,17 +70,42 @@ class ModelDB extends ZodSqliteMap<typeof DefaultKey, typeof RemoteModel> {
     return this.get(key);
   }
 
-  seed(model: models.Model) {
-    const key = this.keyOf(model);
+  seed(type: models.Model["type"], key: DefaultKey) {
     if (!this.has(key)) {
       this.set(key, {
-        model,
         lastFetchAttempted: null,
         lastFetchCompleted: null,
+        model: {
+          proto: null,
+          ...(
+            (type === "game")
+              ? {
+                type,
+                gameId: key,
+                skuId: null,
+                name: null,
+              }
+              : (type === "player")
+              ? {
+                type,
+                playerId: key,
+                name: null,
+                number: null,
+              }
+              : (type === "sku")
+              ? {
+                type,
+                skuId: key,
+                skuType: null,
+                gameId: null,
+                name: null,
+                description: null,
+                internalName: null,
+              }
+              : unreachable()
+          ),
+        },
       });
-      return true;
-    } else {
-      return false;
     }
   }
 }
@@ -85,23 +121,44 @@ class Command {
   ) {}
 
   async run(): Promise<this> {
+    log.debug("Loading seed data");
+    this.db.db.query("savepoint seed");
     await this.seed();
+    this.db.db.query("release seed");
 
-    for (
-      const model of [...this.db.values()]
-        .sort((a, b, order = ["sku", "game", "player"]) =>
-          order.indexOf(a.model.type) - order.indexOf(b.model.type)
-        )
-        .sort((a, b) =>
-          (a.lastFetchCompleted ?? 0) - (b.lastFetchCompleted ?? 0)
-        )
-        .sort((a, b) =>
-          (a.lastFetchAttempted ?? 0) - (b.lastFetchAttempted ?? 0)
-        )
-    ) {
+    const instances = [...flatMap(this.db.valuesUnchecked(), (record) => {
+      if (
+        (record.lastFetchCompleted ?? 0) < Date.now() - 7 * 24 * 60 * 60 * 1_000
+      ) {
+        return [record];
+      }
+    })].sort((a, b) =>
+      (a.lastFetchCompleted ?? 0) - (b.lastFetchCompleted ?? 0)
+    )
+      .sort((a, b) =>
+        (a.lastFetchAttempted ?? 0) - (b.lastFetchAttempted ?? 0)
+      );
+
+    log.info(`${instances.length} instances to spider.`);
+
+    for (const model of instances) {
+      await sleep(1.0);
+      log.debug(`Updating: ${
+        Deno.inspect(model, {
+          depth: 2,
+          iterableLimit: 8,
+        })
+      }`);
       await this.update(model);
-      console.log(model);
+      log.debug(`Updated: ${
+        Deno.inspect(model, {
+          depth: 2,
+          iterableLimit: 8,
+        })
+      }`);
     }
+
+    debugger;
 
     return this;
   }
@@ -122,8 +179,8 @@ class Command {
     } else if (remote.model.type === "sku") {
       const updated = await this.client.fetchSku(
         remote.model.skuId,
-        remote.model.gameId ?? undefined,
       );
+      // merge them
       for (const [key, value] of Object.entries(updated)) {
         if (value != null) {
           (remote.model as any)[key] = value;
@@ -138,45 +195,36 @@ class Command {
   }
 
   async seed() {
+    // const f = await Deno.open("./stadia/seed_ids.ignored/users.txt");
+    // for await (const line of readLines(f)) {
+    //   const playerId = line.trim();
+    //   if (Math.random() < 0.001) {
+    //     log.debug(`seeding at player id ${playerId}`);
+    //   }
+    //   if (playerId) {
+    //     this.db.seed("player", playerId);
+    //   }
+    // }
+
+    const playerIds = [
+      "5904879799764",
+      "3336291440735869496",
+      "4028567364230127809",
+      "11077485192842304995",
+      "11986016002911569133",
+      "13541093767486303504",
+      "16012539233881992441",
+    ];
     for (
-      const playerId of [
-        "5904879799764",
-        "3336291440735869496",
-        "4028567364230127809",
-        "11077485192842304995",
-        "11986016002911569133",
-        "13541093767486303504",
-        "16012539233881992441",
-      ]
+      const playerId of playerIds
     ) {
-      this.db.seed({
-        playerId,
-        type: "player",
-        name: null,
-        number: null,
-        playedGameIds: null,
-        friendPlayerIds: null,
-        proto: null,
-      });
+      this.db.seed("player", playerId);
     }
 
+    // the "ALl Games" list includes all listed game skus and some bundles
     for (const { skuId, gameId } of await this.client.fetchStoreList(3)) {
-      this.db.seed({
-        gameId: expect(gameId),
-        type: "game",
-        name: null,
-        proto: null,
-      });
-      this.db.seed({
-        skuId,
-        type: "sku",
-        skuType: null,
-        gameId: null,
-        name: null,
-        description: null,
-        internalName: null,
-        proto: null,
-      });
+      this.db.seed("game", expect(gameId));
+      this.db.seed("sku", skuId);
     }
 
     for (
@@ -190,21 +238,12 @@ class Command {
         "2e51be1b06974b81bcf0b4767b4c63dfp",
         "2f112e5ba3d544d69bb1d537c5c4ae5c",
         "5ce9f4c1253047dda226a982fc3dc866",
+        "6ed658c7e6564de6acf724f979172bb6p",
       ]
     ) {
-      this.db.seed({
-        skuId,
-        type: "sku",
-        skuType: null,
-        gameId: null,
-        name: null,
-        description: null,
-        internalName: null,
-        proto: null,
-      });
+      this.db.seed("sku", skuId);
     }
 
     log.info(`now ${this.db.size} entries`);
-    console.log([...this.db.entries()]);
   }
 }
