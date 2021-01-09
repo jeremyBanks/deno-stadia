@@ -305,7 +305,8 @@ export class Client {
     return {
       type: "player.friends",
       playerId,
-      friendPlayerIds: (response.data as any)[0]?.map(models.playerFromProto),
+      friendPlayerIds: (response.data as any)[0]?.map(models.playerFromProto) ??
+        null,
     };
   }
 
@@ -320,7 +321,7 @@ export class Client {
     return {
       type: "player.games",
       playerId,
-      playedGameIds: (response.data as any)[0],
+      playedGameIds: (response.data as any)[0] ?? null,
     };
   }
 

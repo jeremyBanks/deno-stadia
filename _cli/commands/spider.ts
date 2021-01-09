@@ -176,7 +176,7 @@ class Command {
         model: friends,
         lastFetchCompleted: Date.now(),
       });
-      for (const friendPlayerId of friends.friendPlayerIds!) {
+      for (const friendPlayerId of friends.friendPlayerIds ?? []) {
         if (this.db.seed("player", friendPlayerId)) {
           log.debug(
             `discovered new player ${friendPlayerId} as friend of ${remote.model.playerId}`,
@@ -194,7 +194,7 @@ class Command {
         model: games,
         lastFetchCompleted: Date.now(),
       });
-      for (const playedGameId of games.playedGameIds!) {
+      for (const playedGameId of games.playedGameIds ?? []) {
         if (this.db.seed("player", playedGameId)) {
           log.warning(
             `discovered new game ${playedGameId} played by ${remote.model.playerId}`,
