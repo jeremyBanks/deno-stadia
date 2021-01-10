@@ -49,16 +49,10 @@ export const makeClient = async (flags: flags.Args): Promise<Client> => {
       );
 
       if (Object.keys(googleCookiesRecord).length < 3) {
-        log.debug(
-          `${chromeProfile} does not have Google authentication cookies.`,
-        );
         continue;
       }
 
       if (targetEmail && targetEmail !== googleEmail) {
-        log.debug(
-          `${chromeProfile} does not match target email address (${targetEmail}).`,
-        );
         continue;
       }
 

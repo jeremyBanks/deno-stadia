@@ -16,7 +16,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
   for (const arg of args) {
     let [rpcId] = arg.split(/\b/, 1);
     let rpcArgsJson = arg.slice(rpcId.length).trim();
-    if (rpcArgsJson.startsWith('(') && rpcArgsJson.endsWith(')')) {
+    if (rpcArgsJson.startsWith("(") && rpcArgsJson.endsWith(")")) {
       rpcArgsJson = `[${rpcArgsJson.slice(1, -1)}]`;
     }
 

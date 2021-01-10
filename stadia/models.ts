@@ -91,7 +91,6 @@ export const Sku = z.union([
 export type Sku = z.infer<typeof Sku>;
 
 export const skuFromProto = (proto: Array<Proto>): Sku => {
-  log.debug(`parsing sku ${proto?.[1]} ${proto?.[0]}`);
   const skuType = skuTypeFromId(z.number().parse(proto[6]));
   return Sku.parse({
     type: "sku",

@@ -180,7 +180,10 @@ class Command {
       try {
         await this.update(model);
       } catch (error) {
-        log.error(`failed to update ${model?.model?.type} due to ${error}`);
+        log.error(
+          `failed to update ${model?.model
+            ?.type} due to ${error}\n${error.stack}`,
+        );
         await sleep(1);
         continue;
       }
@@ -194,15 +197,14 @@ class Command {
     this.db.upsert(remote);
 
     if (remote.model.type === "player") {
-      const updated = await this.client.fetchPlayer(
+      const { playerId } = remote.model;
+      const { player, friends, playedGames } = await this.client.fetchPlayer(
         remote.model.playerId,
       );
-      remote.model = updated;
 
-      const friends = await this.client.fetchPlayerFriends(
-        remote.model.playerId,
-      );
-      const friendsKey = `${remote.model.playerId}.friends`;
+      remote.model = player;
+
+      const friendsKey = `${playerId}.friends`;
       this.db.set(friendsKey, {
         lastFetchAttempted: null,
         ...(this.db.get(friendsKey)?.model ?? {}),
@@ -217,17 +219,14 @@ class Command {
         }
       }
 
-      const games = await this.client.fetchPlayerGames(
-        remote.model.playerId,
-      );
       const gamesKey = `${remote.model.playerId}.games`;
       this.db.set(gamesKey, {
         lastFetchAttempted: null,
         ...(this.db.get(gamesKey)?.model ?? {}),
-        model: games,
+        model: playedGames,
         lastFetchCompleted: Date.now(),
       });
-      for (const playedGameId of games.playedGameIds ?? []) {
+      for (const playedGameId of playedGames.playedGameIds ?? []) {
         if (this.db.seed("player", playedGameId)) {
           log.warning(
             `discovered new game ${playedGameId} played by ${remote.model.playerId}`,
