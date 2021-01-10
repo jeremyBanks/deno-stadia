@@ -152,17 +152,61 @@ export class Client {
     >;
   }
 
-  /** Makes a Stadia frontend RPC call from the context of a response page.
-  *
-  * Based on
-  * https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
-  */
+  async fetchRpcBatch(
+    rpcidRequestPairs: Array<[string, Proto]>
+  ) {
+    // https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
+    const rpcids = rpcidRequestPairs.map(([rpcid, _request]) => rpcid);
+
+    const fReq = json.encode([
+      rpcidRequestPairs.map(([rpcid, request], index) => {
+        return [rpcid, json.encode(request), null, String(index + 1)];
+      })
+    ]);
+
+    const wizGlobalData = await this.rpcSourcePageWizGlobalData();
+    const aToken = wizGlobalData["SNlM0e"];
+    const backendRelease = wizGlobalData["cfb2h"];
+    const fSid = wizGlobalData["FdrFJe"];
+
+    const requestId = Math.floor(Math.random() * 1_000_000).toString();
+
+    const humanLanguage = "en";
+
+    const getParams = new URLSearchParams();
+    getParams.set("rpcids", rpcids.join(','));
+    getParams.set("f.sid", fSid);
+    getParams.set("bl", backendRelease);
+    getParams.set("hl", humanLanguage);
+    getParams.set("_reqid", requestId);
+    getParams.set("rt", "c");
+
+    const postParams = new URLSearchParams();
+    postParams.set("f.req", fReq);
+    postParams.set("at", aToken);
+
+    const url = new URL(rpcUrl.toString());
+    url.search = getParams.toString();
+
+    const { httpResponse } = await this.fetchHttp(url.toString(), postParams);
+
+    const text = await httpResponse.text();
+    const envelopes = text.split(/\n\d+\n/).slice(1);
+    const responses = envelopes.map(envelope => json.decode(
+      (json.decode(envelope) as any)[0][2],
+    )) as Array<Proto>;
+
+    return {
+      httpResponse,
+      responses,
+    };
+  }
+
   async fetchRpc(
     rpcId: string,
     request: Proto,
   ) {
-    // TODO: automatically batch RPC requests?
-
+    // https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
     const fReq = json.encode([[[rpcId, json.encode(request), null, "1"]]]);
 
     const wizGlobalData = await this.rpcSourcePageWizGlobalData();
@@ -302,12 +346,14 @@ export class Client {
       "Z5HRnb",
       [null, includeStatus, playerId],
     );
-    return {
+    return models.PlayerFriends.parse({
       type: "player.friends",
       playerId,
-      friendPlayerIds: (response.data as any)[0]?.map(models.playerFromProto) ??
+      friendPlayerIds: (response.data as any)?.[0]?.map((x: any) =>
+        models.playerFromProto(x).playerId
+      ) ??
         null,
-    };
+    });
   }
 
   async fetchPlayerGames(

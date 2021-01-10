@@ -10,31 +10,33 @@ export const flags: FlagOpts = {
 
 export const command = async (client: Client, flags: FlagArgs) => {
   const args = flags["_"] as Array<string>;
-  if (args.length < 1) {
-    eprintln(color.red("rpcId required"));
-    Deno.exit(70);
+
+  const pairs: Array<[string, Proto]> = [];
+
+  for (const arg of args) {
+    let [rpcId] = arg.split(/\b/, 1);
+    let rpcArgsJson = arg.slice(rpcId.length).trim();
+    if (rpcArgsJson.startsWith('(') && rpcArgsJson.endsWith(')')) {
+      rpcArgsJson = `[${rpcArgsJson.slice(1, -1)}]`;
+    }
+
+    const rpcArgs = json.decode(rpcArgsJson) as Proto;
+    pairs.push([rpcId, rpcArgs]);
   }
 
-  const [rpcId, ...rpcArgsJson] = args;
-  const rpcArgs = rpcArgsJson.map((s) => {
-    try {
-      return json.decode(s) as Proto;
-    } catch (error) {
-      log.warning(error);
-      return s;
+  const { responses } = await client.fetchRpcBatch(pairs);
+
+  for (const [i, [rpcId, rpcArgs]] of pairs.entries()) {
+    const response = responses[i];
+    log.info(`request: ${rpcId}${json.encode(rpcArgs, 2)}`);
+    if (flags.json) {
+      println(json.encode(response));
+    } else {
+      println(Deno.inspect(response, {
+        depth: 6,
+        iterableLimit: 24,
+        sorted: true,
+      }));
     }
-  });
-  const response = await client.fetchRpc(rpcId, rpcArgs);
-
-  const data = response.data;
-
-  if (flags.json) {
-    println(json.encode(data));
-  } else {
-    println(Deno.inspect(data, {
-      depth: 6,
-      iterableLimit: 24,
-      sorted: true,
-    }));
   }
 };

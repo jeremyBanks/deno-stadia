@@ -124,23 +124,49 @@ class Command {
   ) {}
 
   async run(): Promise<this> {
+    const backupPath = `${this.flags.sqlite}.bak`;
+
+    await Deno.truncate(backupPath).catch(() => {});
+    this.db.db.query("VACUUM INTO ?", [backupPath]);
+
     log.debug("Loading seed data");
     this.db.db.query("savepoint seed");
     await this.seed();
     this.db.db.query("release seed");
 
+    let i = 0;
     const instances = [...flatMap(this.db.valuesUnchecked(), (record) => {
       if (
         (record.lastFetchCompleted ?? 0) < Date.now() - 7 * 24 * 60 * 60 * 1_000
       ) {
-        return [record];
+        return [[i++, record]] as Array<[number, typeof record]>;
       }
-    })].sort((a, b) =>
-      (a.lastFetchCompleted ?? 0) - (b.lastFetchCompleted ?? 0)
-    )
-      .sort((a, b) =>
-        (a.lastFetchAttempted ?? 0) - (b.lastFetchAttempted ?? 0)
-      );
+    })].sort(([a_i, a], [b_i, b]) =>
+      ((a.lastFetchAttempted ?? 0) < (b.lastFetchAttempted ?? 0))
+        ? -1
+        : ((a.lastFetchAttempted ?? 0) > (b.lastFetchAttempted ?? 0))
+        ? +1
+        : ((a.model.type !== b.model.type)
+            ? (
+              (a.model.type === "game")
+                ? -1
+                : (b.model.type === "game")
+                ? +1
+                : (a.model.type === "sku")
+                ? -1
+                : (b.model.type === "sku")
+                ? +1
+                : null
+            )
+            : null) ??
+            ((a.lastFetchCompleted ?? 0) < (b.lastFetchCompleted ?? 0))
+        ? -1
+        : ((a.lastFetchCompleted ?? 0) > (b.lastFetchCompleted ?? 0))
+        ? +1
+        : a_i - b_i
+    ).map(([_, x]) => x);
+
+    // const instances = [expect(this.db.get("1963102464858152"))];
 
     log.info(`${instances.length} instances to spider.`);
 
@@ -151,7 +177,13 @@ class Command {
           iterableLimit: 8,
         })
       }`);
-      await this.update(model);
+      try {
+        await this.update(model);
+      } catch (error) {
+        log.error(`failed to update ${model?.model?.type} due to ${error}`);
+        await sleep(1);
+        continue;
+      }
     }
 
     return this;
@@ -159,6 +191,7 @@ class Command {
 
   async update(remote: RemoteModel) {
     remote.lastFetchAttempted = Date.now();
+    this.db.upsert(remote);
 
     if (remote.model.type === "player") {
       const updated = await this.client.fetchPlayer(
@@ -232,7 +265,7 @@ class Command {
       this.db.seed("player", playerId);
     }
 
-    // the "ALl Games" list includes all listed game skus and some bundles
+    // the "All Games" list includes all listed game skus and some bundles
     for (const { skuId, gameId } of await this.client.fetchStoreList(3)) {
       this.db.seed("game", expect(gameId));
       this.db.seed("sku", skuId);
