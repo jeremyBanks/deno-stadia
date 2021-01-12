@@ -30,7 +30,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
     const response = responses[i];
     log.info(`request: ${rpcId}${json.encode(rpcArgs, 2)}`);
     if (flags.json) {
-      println(json.encode(response));
+      println(json.encode(response, 2));
     } else {
       println(Deno.inspect(response, {
         depth: 6,

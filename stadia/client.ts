@@ -164,6 +164,8 @@ export class Client {
       }),
     ]);
 
+    log.debug(`RPC ${Deno.inspect(rpcidRequestPairs)}`);
+
     const wizGlobalData = await this.rpcSourcePageWizGlobalData();
     const aToken = wizGlobalData["SNlM0e"];
     const backendRelease = wizGlobalData["cfb2h"];
@@ -194,7 +196,7 @@ export class Client {
     const envelopes = text.split(/\n\d+\n/).slice(1).map((x) =>
       (json.decode(x) as any)[0]
     );
-    log.debug("envelopes: " + Deno.inspect(envelopes));
+    log.debug("envelopes: " + Deno.inspect(envelopes, { iterableLimit: 4 }));
     const responseEnvelopes = envelopes.filter((x: any) => x[0] === "wrb.fr")
       .sort(
         (a: any, b: any) => Number(a[6]) - Number(b[6]),
@@ -202,7 +204,7 @@ export class Client {
     const responses = responseEnvelopes.map((r: any) =>
       json.decode(r[2])
     ) as Array<Array<Proto>>;
-    log.debug("responses: " + Deno.inspect(responses));
+    log.debug("responses: " + Deno.inspect(responses, { iterableLimit: 4 }));
 
     return {
       httpResponse,
@@ -286,21 +288,13 @@ export class Client {
     return skuFromProto((response.response as any)[16]);
   }
 
-  async fetchGame(gameId: string): Promise<models.Game> {
+  async fetchGame(gameId: string): Promise<Array<models.Sku>> {
     const response = await this.fetchRpc(
-      "FWhQV",
-      [gameId, null],
+      "ZAm7We",
+      [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]],
     );
 
-    const proto = (response.response as any)[16];
-    const sku = skuFromProto(proto);
-    return {
-      type: "game",
-      proto,
-      gameId,
-      name: sku.name,
-      skuId: sku.skuId,
-    };
+    return (response.response as any)[0].map((x: any) => skuFromProto(x[9]));
   }
 
   async fetchPlayer(
@@ -308,8 +302,9 @@ export class Client {
     includeStatus = true,
   ): Promise<{
     player: models.Player;
-    friends: models.PlayerFriends;
-    playedGames: models.PlayerGames;
+    friends: models.PlayerFriends | null;
+    playedGames: models.PlayerGames | null;
+    gameStats: models.PlayerGameStats | null;
   }> {
     const { responses: [playerResponse, friendsResponse, gamesResponse] } =
       await this.fetchRpcBatch([
@@ -329,30 +324,60 @@ export class Client {
 
     const player = models.playerFromProto((playerResponse as any)[5]);
 
-    const friends = models.PlayerFriends.parse({
-      type: "player.friends",
-      playerId,
-      friendPlayerIds: (friendsResponse as any)?.[1]?.map((x: any) =>
+    const friendPlayerIds =
+      (friendsResponse as any)?.[0]?.map((x: any) =>
         models.playerFromProto(x).playerId
       ) ??
-        null,
-    });
+        null;
 
-    const playedGames = {
-      type: "player.games",
-      playerId,
-      playedGameIds: (gamesResponse as any)?.[0] ?? null,
-    } as const;
+    const friends = friendPlayerIds
+      ? models.PlayerFriends.parse({
+        type: "player.friends",
+        playerId,
+        friendPlayerIds,
+      })
+      : null;
 
-    return { player, friends, playedGames };
+    const playedGameIds = (gamesResponse as any)?.[0] ?? null;
+    const playedGames: models.PlayerGames | null = playedGameIds
+      ? {
+        type: "player.games",
+        playerId,
+        playedGameIds,
+      }
+      : null;
+
+    const gameStats: models.PlayerGameStats | null = playedGameIds
+      ? {
+        type: "player.gamestats",
+        playerId,
+        proto: await this.fetchPlayerGameStats(
+          playerId,
+          playedGameIds,
+        ),
+      }
+      : null;
+
+    return { player, friends, playedGames, gameStats };
   }
+
+  async fetchPlayerGameStats(
+    playerId: string,
+    gameIds: Array<string>,
+  ): Promise<unknown> {
+    const { responses } = await this.fetchRpcBatch(
+      gameIds.map((gameId) => [
+        "e7h9qd",
+        [null, gameId, playerId],
+      ]),
+    );
+
+    return responses?.[0]?.[0];
+  }
+
   async fetchPlayerSearch(namePrefix: string) {
     namePrefix = z.string().min(2).max(20).parse(namePrefix);
     const q = namePrefix.slice(0, 1) + " " + namePrefix.slice(1);
     await this.fetchRpc("FdyJ0", [q]);
-  }
-
-  async fetchWhoAmI() {
-    "esz4rb";
   }
 }

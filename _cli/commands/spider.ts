@@ -136,37 +136,25 @@ class Command {
 
     let i = 0;
     const instances = [...flatMap(this.db.valuesUnchecked(), (record) => {
-      if (
-        (record.lastFetchCompleted ?? 0) < Date.now() - 7 * 24 * 60 * 60 * 1_000
-      ) {
-        return [[i++, record]] as Array<[number, typeof record]>;
-      }
+      return [[i++, record]] as Array<[number, typeof record]>;
     })].sort(([a_i, a], [b_i, b]) =>
-      ((a.lastFetchAttempted ?? 0) < (b.lastFetchAttempted ?? 0))
-        ? -1
-        : ((a.lastFetchAttempted ?? 0) > (b.lastFetchAttempted ?? 0))
-        ? +1
-        : ((a.model.type !== b.model.type)
-            ? (
-              (a.model.type === "game")
-                ? -1
-                : (b.model.type === "game")
-                ? +1
-                : (a.model.type === "sku")
-                ? -1
-                : (b.model.type === "sku")
-                ? +1
-                : null
-            )
-            : null) ??
-            ((a.lastFetchCompleted ?? 0) < (b.lastFetchCompleted ?? 0))
-        ? -1
-        : ((a.lastFetchCompleted ?? 0) > (b.lastFetchCompleted ?? 0))
-        ? +1
-        : a_i - b_i
+      ((a.model.type !== b.model.type)
+        ? (
+          // (a.model.type === "game") ? -1 : (b.model.type === "game") ? +1 :
+          null
+        )
+        : null) ?? (
+          ((a.lastFetchAttempted ?? 0) < (b.lastFetchAttempted ?? 0))
+            ? -1
+            : ((a.lastFetchAttempted ?? 0) > (b.lastFetchAttempted ?? 0))
+            ? +1
+            : ((a.lastFetchCompleted ?? 0) < (b.lastFetchCompleted ?? 0))
+            ? -1
+            : ((a.lastFetchCompleted ?? 0) > (b.lastFetchCompleted ?? 0))
+            ? +1
+            : -(a_i - b_i)
+        )
     ).map(([_, x]) => x);
-
-    // const instances = [expect(this.db.get("1963102464858152"))];
 
     log.info(`${instances.length} instances to spider.`);
 
@@ -202,35 +190,41 @@ class Command {
         remote.model.playerId,
       );
 
+      log.debug(Deno.inspect({ player, friends, playedGames }));
+
       remote.model = player;
 
-      const friendsKey = `${playerId}.friends`;
-      this.db.set(friendsKey, {
-        lastFetchAttempted: null,
-        ...(this.db.get(friendsKey)?.model ?? {}),
-        model: friends,
-        lastFetchCompleted: Date.now(),
-      });
-      for (const friendPlayerId of friends.friendPlayerIds ?? []) {
-        if (this.db.seed("player", friendPlayerId)) {
-          log.debug(
-            `discovered new player ${friendPlayerId} as friend of ${remote.model.playerId}`,
-          );
+      if (friends?.friendPlayerIds?.length) {
+        const friendsKey = `${playerId}.friends`;
+        this.db.set(friendsKey, {
+          lastFetchAttempted: null,
+          ...(this.db.get(friendsKey)?.model ?? {}),
+          model: friends,
+          lastFetchCompleted: Date.now(),
+        });
+        for (const friendPlayerId of friends.friendPlayerIds ?? []) {
+          if (this.db.seed("player", friendPlayerId)) {
+            log.debug(
+              `discovered new player ${friendPlayerId} as friend of ${remote.model.playerId}`,
+            );
+          }
         }
       }
 
-      const gamesKey = `${remote.model.playerId}.games`;
-      this.db.set(gamesKey, {
-        lastFetchAttempted: null,
-        ...(this.db.get(gamesKey)?.model ?? {}),
-        model: playedGames,
-        lastFetchCompleted: Date.now(),
-      });
-      for (const playedGameId of playedGames.playedGameIds ?? []) {
-        if (this.db.seed("player", playedGameId)) {
-          log.warning(
-            `discovered new game ${playedGameId} played by ${remote.model.playerId}`,
-          );
+      if (playedGames?.playedGameIds?.length) {
+        const gamesKey = `${remote.model.playerId}.games`;
+        this.db.set(gamesKey, {
+          lastFetchAttempted: null,
+          ...(this.db.get(gamesKey)?.model ?? {}),
+          model: playedGames!,
+          lastFetchCompleted: Date.now(),
+        });
+        for (const playedGameId of playedGames.playedGameIds ?? []) {
+          if (this.db.seed("player", playedGameId)) {
+            log.warning(
+              `discovered new game ${playedGameId} played by ${remote.model.playerId}`,
+            );
+          }
         }
       }
     } else if (remote.model.type === "sku") {
@@ -238,9 +232,23 @@ class Command {
         remote.model.skuId,
       );
       remote.model = updated;
+    } else if (remote.model.type === "game") {
+      for (const sku of await this.client.fetchGame(remote.model.gameId)) {
+        this.db.set(sku.skuId, {
+          lastFetchAttempted: null,
+          ...(this.db.get(sku.skuId)?.model ?? {}),
+          model: sku,
+          lastFetchCompleted: Date.now(),
+        });
+        if (sku.skuType === "game") {
+          remote.model.name = sku.name;
+          remote.model.proto = sku.proto;
+          remote.model.skuId = sku.skuId;
+        }
+      }
     } else {
       log.warning(`spidering not yet implemented for ${remote.model.type}`);
-      await sleep(0.5);
+      await sleep(3.5);
       return;
     }
 

@@ -74,6 +74,10 @@ export const AddonSubscriptionSku = SkuCommon.extend({
   skuType: z.literal("addon-subscription"),
 });
 
+export const AddonBundleSku = SkuCommon.extend({
+  skuType: z.literal("addon-bundle"),
+});
+
 export const PreorderSku = SkuCommon.extend({
   skuType: z.literal("preorder"),
 });
@@ -85,6 +89,7 @@ export const Sku = z.union([
   BundleSku,
   BundleSubscriptionSku,
   AddonSubscriptionSku,
+  AddonBundleSku,
   ExternalSubscriptionSku,
   PreorderSku,
 ]);
@@ -101,6 +106,7 @@ export const skuFromProto = (proto: Array<Proto>): Sku => {
     name: proto[1],
     description: proto[9] ?? null,
     internalName: proto[5],
+    childSkuIds: (proto[14] as any)?.[0]?.map((x: any) => x[0]),
   });
 };
 
@@ -112,6 +118,7 @@ export const skuTypeFromId = (id: number) => {
     4: "external-subscription",
     5: "bundle-subscription",
     6: "addon-subscription",
+    9: "addon-bundle",
     10: "preorder",
   };
   return expect(skuTypesById[id], `unknown sku type id: ${id}`);
@@ -149,5 +156,14 @@ export const PlayerGames = ModelBase.extend({
 });
 export type PlayerGames = z.infer<typeof PlayerGames>;
 
-export const Model = z.union([Sku, Game, Player, PlayerFriends, PlayerGames]);
+export const PlayerGameStats = ModelBase.extend({
+  type: z.literal("player.gamestats"),
+  playerId: PlayerId,
+  stats: z.unknown(),
+});
+export type PlayerGameStats = z.infer<typeof PlayerGameStats>;
+
+export const Model = z.union(
+  [Sku, Game, Player, PlayerFriends, PlayerGames, PlayerGameStats],
+);
 export type Model = z.infer<typeof Model>;
