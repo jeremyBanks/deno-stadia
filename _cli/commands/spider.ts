@@ -140,7 +140,7 @@ class Command {
     })].sort(([a_i, a], [b_i, b]) =>
       ((a.model.type !== b.model.type)
         ? (
-          // (a.model.type === "game") ? -1 : (b.model.type === "game") ? +1 :
+          (a.model.type === "game") ? -1 : (b.model.type === "game") ? +1 :
           null
         )
         : null) ?? (
@@ -186,9 +186,10 @@ class Command {
 
     if (remote.model.type === "player") {
       const { playerId } = remote.model;
-      const { player, friends, playedGames } = await this.client.fetchPlayer(
-        remote.model.playerId,
-      );
+      const { player, friends, playedGames, gameStats } = await this.client
+        .fetchPlayer(
+          remote.model.playerId,
+        );
 
       log.debug(Deno.inspect({ player, friends, playedGames }));
 
@@ -220,12 +221,22 @@ class Command {
           lastFetchCompleted: Date.now(),
         });
         for (const playedGameId of playedGames.playedGameIds ?? []) {
-          if (this.db.seed("player", playedGameId)) {
+          if (this.db.seed("game", playedGameId)) {
             log.warning(
               `discovered new game ${playedGameId} played by ${remote.model.playerId}`,
             );
           }
         }
+      }
+
+      if (playedGames?.playedGameIds?.length && gameStats?.proto) {
+        const statsKey = `${remote.model.playerId}.gamestats`;
+        this.db.set(statsKey, {
+          lastFetchAttempted: null,
+          ...(this.db.get(statsKey)?.model ?? {}),
+          model: gameStats!,
+          lastFetchCompleted: Date.now(),
+        });
       }
     } else if (remote.model.type === "sku") {
       const updated = await this.client.fetchSku(
