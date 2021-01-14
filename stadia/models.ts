@@ -1,6 +1,5 @@
-import { log, z } from "../deps.ts";
-import { assert, expect, notImplemented } from "../_common/assertions.ts";
-import json from "../_common/json.ts";
+import { z } from "../deps.ts";
+import { expect } from "../_common/assertions.ts";
 
 export const Proto: z.ZodSchema<Proto> = z.union([
   z.null(),
