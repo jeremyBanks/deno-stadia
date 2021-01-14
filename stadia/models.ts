@@ -40,11 +40,11 @@ export const SkuCommon = ModelBase.extend({
   name: z.string().nullable(),
   description: z.string().nullable(),
   internalName: z.string().nullable(),
-  coverImageUrl: z.string().nullable(),
-  timestampA: z.number().nullable(),
-  timestampB: z.number().nullable(),
-  publisherOrganizationId: OrganizationId.nullable(),
-  developerOrganizationIds: OrganizationId.array().nullable(),
+  coverImageUrl: z.string().nullable().optional(),
+  timestampA: z.number().nullable().optional(),
+  timestampB: z.number().nullable().optional(),
+  publisherOrganizationId: OrganizationId.nullable().optional(),
+  developerOrganizationIds: OrganizationId.array().nullable().optional(),
 });
 
 export const UnknownSku = SkuCommon.extend({
