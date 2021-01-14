@@ -119,7 +119,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   log.debug("Games processed, rendering page.");
 
-  Deno.writeTextFile("./stadia.run/index.json", json.encode({ games, name }));
+  Deno.writeTextFile("./stadia.run/index.json", json.encode({ games, name }, 2));
   Deno.writeTextFile("./stadia.run/index.html", index.html({ games, name }));
   Deno.writeTextFile(
     "./stadia.run/manifest.json",
