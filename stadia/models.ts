@@ -43,6 +43,8 @@ export const SkuCommon = ModelBase.extend({
   coverImageUrl: z.string().nullable(),
   timestampA: z.number().nullable(),
   timestampB: z.number().nullable(),
+  publisherOrganizationId: OrganizationId.nullable(),
+  developerOrganizationIds: OrganizationId.array().nullable(),
 });
 
 export const UnknownSku = SkuCommon.extend({
@@ -113,6 +115,8 @@ export const skuFromProto = (proto: Array<Proto>): Sku => {
     childSkuIds: (proto[14] as any)?.[0]?.map((x: any) => x[0]),
     timestampA: (proto[10] as any)?.[0] ?? null,
     timestampB: (proto[26] as any)?.[0] ?? null,
+    publisherOrganizationId: proto[15],
+    developerOrganizationIds: proto[16],
   });
 };
 

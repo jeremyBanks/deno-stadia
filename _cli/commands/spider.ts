@@ -104,6 +104,8 @@ class ModelDB extends ZodSqliteMap<typeof DefaultKey, typeof RemoteModel> {
                 timestampA: null,
                 timestampB: null,
                 coverImageUrl: null,
+                publisherOrganizationId: null,
+                developerOrganizationIds: null,
               }
               : unreachable()
           ),
