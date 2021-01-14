@@ -101,6 +101,9 @@ class ModelDB extends ZodSqliteMap<typeof DefaultKey, typeof RemoteModel> {
                 name: null,
                 description: null,
                 internalName: null,
+                timestampA: null,
+                timestampB: null,
+                coverImageUrl: null,
               }
               : unreachable()
           ),
@@ -140,8 +143,7 @@ class Command {
     })].sort(([a_i, a], [b_i, b]) =>
       ((a.model.type !== b.model.type)
         ? (
-          (a.model.type === "game") ? -1 : (b.model.type === "game") ? +1 :
-          null
+          (a.model.type === "game") ? -1 : (b.model.type === "game") ? +1 : null
         )
         : null) ?? (
           ((a.lastFetchAttempted ?? 0) < (b.lastFetchAttempted ?? 0))

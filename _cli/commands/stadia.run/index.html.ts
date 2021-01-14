@@ -396,7 +396,7 @@ export const html = (
         escape(gameId!)
       }">
         <st-cover-full>
-          <img crossorigin src="${escape(coverImageUrl)}=w640-h360-rw">
+          <img crossorigin src="${escape(coverImageUrl!)}=w640-h360-rw">
         </st-cover-full>
         <st-cover-micro data="${escape(coverThumbnailData)}">
           <st-name>${escape(name)}</st-name>

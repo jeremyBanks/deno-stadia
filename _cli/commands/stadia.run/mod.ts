@@ -56,11 +56,11 @@ export const command = async (client: Client, flags: FlagArgs) => {
   const games = [];
 
   for (const game of allGamesListPage) {
-    if (game.type !== "game") {
+    if (game.skuType !== "game") {
       continue;
     }
 
-    const image = await loadImage(game.coverImageUrl);
+    const image = await loadImage(game.coverImageUrl!);
     const canvas = Canvas.MakeCanvas(8, 8);
     const context = canvas.getContext("2d")!;
     context.drawImage(image, 0, 0, 8, 8);
@@ -80,19 +80,19 @@ export const command = async (client: Client, flags: FlagArgs) => {
       name,
       description,
       coverImageUrl,
-      skuTimestampA,
-      skuTimestampB,
+      timestampA,
+      timestampB,
     } = game;
 
     const storeName = name;
-    name = cleanName(storeName);
-    skuTimestampA ??= 0;
-    skuTimestampB ??= 0;
+    name = cleanName(storeName!);
+    timestampA ??= 0;
+    timestampB ??= 0;
 
     const inStadiaPro = stadiaProGameIds.has(gameId);
     const inUbisoftPlus = ubisoftPlusGameIds.has(gameId);
 
-    const slug = slugify(storeName);
+    const slug = slugify(storeName!);
 
     log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
 
@@ -105,16 +105,16 @@ export const command = async (client: Client, flags: FlagArgs) => {
       description,
       coverThumbnailData,
       coverImageUrl,
-      skuTimestampA,
-      skuTimestampB,
+      timestampA,
+      timestampB,
       inStadiaPro,
       inUbisoftPlus,
     });
   }
 
   games.sort((a, b) =>
-    Math.max(b.skuTimestampA, b.skuTimestampB) -
-    Math.max(a.skuTimestampA, a.skuTimestampB)
+    Math.max(b.timestampA, b.timestampB) -
+    Math.max(a.timestampA, a.timestampB)
   );
 
   log.debug("Games processed, rendering page.");

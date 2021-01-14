@@ -269,7 +269,7 @@ export class Client {
     this.fetchRpc("v2jaIb", []);
   }
 
-  async fetchStoreList(listId: number) {
+  async fetchStoreList(listId: number): Promise<Array<models.Sku>> {
     const response = await this.fetchRpc(
       "ZAm7We",
       [null, null, null, null, null, listId],
