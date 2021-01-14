@@ -1,7 +1,8 @@
 import { sqlite, z } from "../deps.ts";
-import * as json from "../_common/json.ts";
-import { Json } from "../_common/json.ts";
+import * as json from "./json.ts";
+import { Json } from "./json.ts";
 import { unreachable } from "./assertions.ts";
+import { encodeSQLiteIdentifier, SQL, SQLExpression } from "./sql.ts";
 
 const printableAscii = z.string().regex(
   /^[\x20-\x7E]*$/,
@@ -23,22 +24,69 @@ export class ZodSqliteMap<
     return new this(path, DefaultKey, DefaultValue);
   }
 
-  readonly db: sqlite.DB = new sqlite.DB(this.path);
+  readonly db: sqlite.DB = this.path instanceof sqlite.DB
+    ? this.path
+    : new sqlite.DB(this.path);
+  readonly tableIdentifier: SQLExpression = encodeSQLiteIdentifier(
+    this.tableName,
+  );
 
   constructor(
-    readonly path: string,
+    readonly path: string | sqlite.DB,
     readonly keySchema: KeySchema,
     readonly valueSchema: ValueSchema,
+    readonly tableName: string = "Entries",
+    readonly generatedColumns: Array<{
+      name: SQLExpression | "pk";
+      expression: SQLExpression;
+      type: "virtual" | "stored" | "indexed" | "unique";
+    }> = [],
   ) {
     this.db.query(
-      `create table
+      ...SQL`create table
       if not exists
-      Entry (
+      ${this.tableIdentifier} (
         pk integer primary key,
         key text unique,
         value text
-      )`,
+      )`.args,
     ).return();
+  }
+
+  table<
+    KeySchema extends z.Schema<Key>,
+    ValueSchema extends z.Schema<Value>,
+    Key extends string = z.infer<KeySchema>,
+    Value extends Json = z.infer<ValueSchema>,
+  >(
+    tableName: string,
+    keySchema: KeySchema,
+    valueSchema: ValueSchema,
+    generatedColumns: Array<{
+      name: SQLExpression | "pk";
+      expression: SQLExpression;
+      type: "virtual" | "stored" | "indexed" | "unique";
+    }> = [],
+  ) {
+    return new ZodSqliteMap(
+      this.db,
+      keySchema,
+      valueSchema,
+      tableName,
+      generatedColumns,
+    );
+  }
+
+  *select(condition: SQLExpression, ordering = SQL`pk asc`): Generator<Value> {
+    for (
+      const [value] of this.db.query(
+        ...SQL
+          `select value from ${this.tableIdentifier} where ${condition} order by ${ordering};`
+          .args,
+      )
+    ) {
+      yield this.valueSchema.parse(value);
+    }
   }
 
   get(key: Key): Value | undefined {
@@ -54,7 +102,7 @@ export class ZodSqliteMap<
     for (
       const [jsonValue] of this.db.query(
         `select value
-        from Entry
+        from ${this.tableIdentifier}
         where key = ?`,
         [key],
       )
@@ -72,7 +120,7 @@ export class ZodSqliteMap<
 
   setUnchecked(key: Key, value: Value) {
     this.db.query(
-      `insert into Entry(key, value)
+      `insert into ${this.tableIdentifier}(key, value)
       values (?, ?)
       on conflict(key)
       do update
@@ -85,7 +133,7 @@ export class ZodSqliteMap<
   get size() {
     for (
       const [count] of this.db.query(
-        `select count(*) from Entry`,
+        `select count(*) from ${this.tableIdentifier}`,
       )
     ) {
       return z.number().parse(count);
@@ -94,7 +142,7 @@ export class ZodSqliteMap<
   }
 
   clear(): void {
-    this.db.query(`delete from Entry`).return();
+    this.db.query(`delete from ${this.tableIdentifier}`).return();
   }
 
   delete(key: Key): boolean {
@@ -102,7 +150,8 @@ export class ZodSqliteMap<
   }
 
   deleteUnchecked(key: Key): boolean {
-    this.db.query(`delete from Entries where key = ?`, [key]).return();
+    this.db.query(`delete from ${this.tableIdentifier} where key = ?`, [key])
+      .return();
     return this.db.changes > 0;
   }
 
@@ -121,7 +170,7 @@ export class ZodSqliteMap<
     for (
       const [key, value] of this.db.query(
         `select key, value
-        from Entry
+        from ${this.tableIdentifier}
         order by pk asc`,
       )
     ) {
@@ -144,7 +193,7 @@ export class ZodSqliteMap<
     for (
       const [key] of this.db.query(
         `select key
-        from Entry
+        from ${this.tableIdentifier}
         order by pk asc`,
       )
     ) {
@@ -164,7 +213,7 @@ export class ZodSqliteMap<
     for (
       const [value] of this.db.query(
         `select value
-        from Entry
+        from ${this.tableIdentifier}
         order by pk asc`,
       )
     ) {
@@ -176,7 +225,7 @@ export class ZodSqliteMap<
     for (
       const [count] of this.db.query(
         `select count(*)
-        from Entry
+        from ${this.tableIdentifier}
         where key = ?`,
         [key],
       )
