@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a3725b4a70aa4447b4c193125f3a2529rcp1",
+      "source": "/scott-pilgrim-vs-the-world",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/769a088b9ef04c04b341911a1ef8b8ecrcp1",
       "source": "/cthulhu-saves-christmas",
       "statusCode": 301

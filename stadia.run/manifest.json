@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/_oj893ZnZHF8tmAmXGuCar2FiETbQqjikxv3z4LyB52sFVvJC7RP4JHsEctpWIOrole7YE86hmMK93OmZb6YDM1vPUj_KSKFyMBmqdhPmNP3BLFyG3RNqLPWuMk=s192-p-rp"
+        }
+      ],
+      "name": "Scott Pilgrim vs. The World",
+      "url": "/scott-pilgrim-vs-the-world"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/DMtkXG_4RB60IzNcu653Kb1mPV8_J8mtQwarUEyhdnw256psmPTmgULz4QPMwsO7yDFnx8-RcP05_tFwK1lemmYGfDvHpFxQYxQ9Wtp1NKoltyXjo1P7E-fxcMY=s192-p-rp"
         }
       ],
@@ -168,16 +178,6 @@
       ],
       "name": "Figment",
       "url": "/figment"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/OJlEpepdM_ZEG-peE8ednMq_AYt-bzALXGndR-uhl_zfUuPEzqhkfOVDhDkFjwcz46o2wAi4cOLEn-z5h2o0pWhErWI78HnOprFJxeqPuOzRcXLuvY0OvSR44HAe=s192-p-rp"
-        }
-      ],
-      "name": "El Hijo - A Wild West Tale",
-      "url": "/el-hijo-a-wild-west-tale"
     }
   ],
   "start_url": "/",
