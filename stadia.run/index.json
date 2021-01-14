@@ -1,7 +1,7 @@
 {
   "games": [
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/cnL9Eil2qgXvKBAEey4c7QjIPLzOli-CDuUBXlzoDPgtMWQde4__5AijSMy96nKeiTEsipdJD4gVwlxM64-gRJsg-VRq2_-DD57_hiPuY03LXh4pNBAtJryqcqQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/Fi6OpP_sEhUhKHg9J_cZgnawNjtDxjQoW-vYcXzGlxO13R-ak-f4KXFwDtC2Pi8HHxD7tREdK1C2Os_vA0WuOF_Pwm0BWNEmpSCvBtDAGr80vaebf0uwcuX1xgA",
       "coverThumbnailData": "As-jzjQAAsJzPzjAA2UzKPfAP0PjKj4feLfLOUK--AKOKdAKe_KKKf4Ge5K-zAzz",
       "description": "Complete Edition includes the original Scott Pilgrim vs. The World™: The Game, as well as its original contents: the Knives Chau and Wallace Wells Add-On Packs. Rediscover the beloved 2D arcade-style beat 'em up inspired by the iconic comic book series and movie Scott Pilgrim vs. The World. Play as your favorite characters – Scott Pilgrim, Ramona Flowers, Knives Chau, and more. Level up and learn new awesome abilities, unlock secret items and modes, summon powerful allies, and more! Team up with friends and battle your way through waves of enemies, or compete with them in mini-games; all on your way to defeat the League of Evil Exes!",
       "gameId": "a3725b4a70aa4447b4c193125f3a2529rcp1",
@@ -11,7 +11,7 @@
       "skuId": "bf065d3d3dca4d0e8d68418f66d3afa1p",
       "slug": "scott-pilgrim-vs-the-world",
       "storeName": "Scott Pilgrim vs. The World™ - Complete Edition",
-      "timestampA": 1281337200,
+      "timestampA": 1281423600,
       "timestampB": 1610611200
     },
     {
@@ -113,7 +113,7 @@
       "timestampB": 1608019200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/-u7FQKPXEzJyzSX9cro-_2DAauFdVcxVi6hIb7FkgR0gHv-t8jiuoLZP4lDdDDTYAYJSY8aBM0_EfpgGEDw0cSTdvyY-4N7xV_Sz8aTrg7pXBj1ifMewXaygZQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/qpyAXMoC_TSs6OW0sY7lKCCgAKErYZU84K84c0_G_cd8VrC9yzROe7Ls_t_6nX8T-GpKgn9X0m7TB9NBBjbdNXMRprlsRViKex1qhVZhSQ3eeY9awOSlzecbmw",
       "coverThumbnailData": "EEEEKEAEEEePLEEEEE4-KEEAEEK-P-EAEE--K-EAEE----EEEEE--0EAE9A---E9",
       "description": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.",
       "gameId": "49697e672bc34e7d8a5f73f78cb580d0rcp1",
@@ -398,7 +398,7 @@
       "description": "Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Welcome to the Resistance. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities.Take your recruits online and team up with your friends as you complete missions and challenging endgame content.",
       "gameId": "deb490c166544813bf2ab73f4c6e2aa0rcp1",
       "inStadiaPro": false,
-      "inUbisoftPlus": false,
+      "inUbisoftPlus": true,
       "name": "Watch Dogs: Legion",
       "skuId": "3a7288e1be9d4e92bc87c2138aa547c1p",
       "slug": "watch-dogs-legion",
@@ -799,7 +799,7 @@
       "timestampB": 1599030000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/sFPyyOgySeqY5xIEgbE-XcPYCGhBOQo7y3Px5IbI6omY3cmROyp7SXmc4x833kIC2qyf2gM9wC9BT1uXYOmnl9oSQ-pijTuQSHf12BiCuA8obouStLOwcsXjiw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/s6xs8Jk6EqanySlHNBuWTUNCcOZdZW948oGo7nQRnikx_3YK8TQgCjb8flU5Np5dox5ixpaWA1zF6aJXUWBfF6kkvf3zFuKc3VIxHFFbLCIIJjMbstK0p-b7lw",
       "coverThumbnailData": "GaL11111aLF1aKK0---GK00G--G-000G-G-F0zzG-a-FGLeeau--GGHLvu-GGGLL",
       "description": "Experience a globetrotting adventure as Agent 47 and travel to exotic sandbox locations that are meticulously crafted and packed full of creative opportunities. \n\nWhen you purchase HITMAN 1, HITMAN 2 or HITMAN 3 on Stadia, you’ll play them seamlessly within HITMAN: World of Assassination.",
       "gameId": "990ec302c2cd4ba7817cedcf633ab20frcp1",
@@ -1079,7 +1079,7 @@
       "timestampB": 1593586800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/E9TS3bG-stDWUtFGsKZ_S4p4RVHOt25MNqOC-bGio27MQV8J-fI_A70Mnq9O6ofXIHlW3DsrPbx3Rq1D2w6vVmN0cRWunHeA7JvBxGNkEYFNfGhrKMKruNrViw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/coJ19RauxIOTeBR80AGNC4E_nT-dFmZcbP-hhZxuyLa0FI1mWFYPfnoaGRhpKV3bBBfJqOYF2QPQc_Sgsuc37b3z_a_nFtKw1dqDigZHbT2yufRBO9aXGVqkGg",
       "coverThumbnailData": "---------------------H---H----H---ezzz0--HxJww-----JdK----------",
       "description": "Just Shapes &amp; Beats is a chaotic co-op musical bullet-hell based on three simple things: avoid Shapes, move to the rad Beats, and die, repeatedly. It’s a new spin on SHMUPs, adding a layer of coop that's at the core of the game: 'cause everything is better with friends.",
       "gameId": "6b43cecd79734ba28cef5894985c65f1rcp1",
@@ -1261,7 +1261,7 @@
       "timestampB": 1589295600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/HX_T6IcnSrF-4X3C8pwmD9oFYkbcoQf_SPUgQjWQRS9yPP9BaLMlNXAqzXlU9ySfQzGGlMqlNTn9Vn9MIln9CO0o5gtLTIP9MxsHCayOpentSq7kdtmsAFZo3w",
+      "coverImageUrl": "https://lh3.googleusercontent.com/4O_Aur9phE-zhQMiyD0WJgQ5S4yBJ4kM3Qjtzv47wjJeu5lui07EpbwWL2RqYLVuZzcaIxciD5-_9YIJqwuBW36tJZwP9X5z4OB_ws6V0FTRvt6ePsr_ihE5Fw",
       "coverThumbnailData": "-------------Je-----JKJF-11-JAAJ---e_KKJ--FJ_dKJ----_J-F---KJ--J",
       "description": "Hitler’s hordes are back for more in this spine-chilling shooter! Occult enemies, epic weapons and a new campaign for 1-4 players await, as you fight to save humankind from undead Armageddon!",
       "gameId": "cba537cccfe3470b8784f88660ea5f09rcp1",
