@@ -1,5 +1,5 @@
 import { log, sqlite, z } from "../../deps.ts";
-import { unreachable } from "../assertions.ts";
+import { assert, unreachable } from "../assertions.ts";
 import { decode as jsonDecode, encode as jsonEncode } from "../json.ts";
 import { encodeSQLiteIdentifier, SQL, SQLExpression, toSQL } from "../sql.ts";
 
@@ -27,30 +27,76 @@ await log.setup({
   },
 });
 
-const TableName = printableAscii.min(1).max(128);
+const TableName = printableAscii.min(1).max(64).regex(
+  /^[a-z0-9\_\$]+$/i,
+);
 type TableName = z.infer<typeof TableName>;
 
-const ColumnName = printableAscii.min(1).max(128).regex(/^[a-z0-9\_\$\.]*$/i);
+const ColumnName = printableAscii.min(1).max(128).regex(
+  /^[a-z0-9\_\$]+(\.[a-z0-9\_\$]+)*$/i,
+);
 type ColumnName = z.infer<typeof ColumnName>;
 
 const ColumnType = z.enum(["virtual", "indexed", "unique"]);
 type ColumnType = z.infer<typeof ColumnType>;
 
+const ColumnDefinitions = z.record(ColumnType);
+type ColumnDefinitions = z.infer<typeof ColumnDefinitions>;
+
+class Column<ParentTable extends Table> {
+  constructor(
+    readonly table: ParentTable,
+    readonly name: ColumnName,
+    readonly type: ColumnType,
+  ) {
+    this.name = ColumnName.parse(name);
+  }
+
+  readonly id = SQL`${this.table}.${encodeSQLiteIdentifier(this.name)}`;
+
+  [toSQL](): SQLExpression {
+    return this.id;
+  }
+}
+
 class Table<
-  Value,
-  ValueSchema extends z.ZodSchema<Value>,
-  ColumnDefinitions extends { [name: string]: ColumnType },
+  Value = unknown,
+  ValueSchema extends z.ZodSchema<Value> = z.ZodSchema<Value>,
+  ChildColumnDefinitions extends ColumnDefinitions = {},
 > {
   constructor(
-    private readonly database: Database<{}>,
+    readonly database: Database<{}>,
     readonly name: TableName,
     readonly schema: ValueSchema,
-    private readonly columnDefinitions: ColumnDefinitions,
+    private readonly columnDefinitions: ChildColumnDefinitions,
   ) {
-    this.name = TableName.parse(name);
+    this.name = TableName.parse(this.name);
   }
 
   readonly id = encodeSQLiteIdentifier(this.name);
+
+  [toSQL](): SQLExpression {
+    return this.id;
+  }
+
+  readonly columns: {
+    [columnName in keyof ColumnDefinitions]: Column<this>;
+  } = Object.fromEntries(
+    Object.keys(this.columnDefinitions).map(
+      (columnName) => [
+        columnName,
+        new Column(
+          this,
+          columnName,
+          this.columnDefinitions[columnName],
+        ),
+      ],
+    ),
+  ) as any;
+
+  get sugar(): this & this["columns"] {
+    return Object.assign(Object.create(this) as this, this.columns);
+  }
 
   count(options?: {
     where?: SQLExpression;
@@ -64,10 +110,6 @@ class Table<
       return count;
     }
     return unreachable();
-  }
-
-  [toSQL](): SQLExpression {
-    return this.id;
   }
 
   insert(value: Value, options?: {
@@ -119,14 +161,16 @@ class Database<
 > {
   constructor(
     readonly path: string,
-    readonly tableDefinitions: TableDefinitions,
+    private readonly tableDefinitions: TableDefinitions,
   ) {}
 
   readonly connection = new sqlite.DB(this.path);
 
   sql(query: SQLExpression) {
     log.debug(
-      `${query.strings.join("?").trim()}\n${Deno.inspect(query.values)}`,
+      `${query.strings.join("?").trim()}${
+        query.values ? `\n${Deno.inspect(query.values)}` : ``
+      }`,
     );
     return this.connection.query(...query.args);
   }
@@ -151,6 +195,17 @@ class Database<
     ),
   ) as any;
 
+  get sugar(): this & this["tables"][any]["sugar"] {
+    return Object.assign(
+      Object.create(this) as this,
+      Object.fromEntries(
+        Object.entries(this.tables).map(
+          ([key, value]) => [key, value.sugar],
+        ),
+      ) as this["tables"][any]["sugar"],
+    );
+  }
+
   readonly initialized = Object.keys(this.tables).forEach((tableName) => {
     const table = this.tables[tableName];
 
@@ -169,7 +224,9 @@ class Database<
       columnType = ColumnType.parse(columnType);
 
       const id = encodeSQLiteIdentifier(columnName);
-      const indexId = encodeSQLiteIdentifier(columnName + "_index");
+      const indexId = encodeSQLiteIdentifier(
+        `index.${tableName}.${columnName}`,
+      );
       const extraction = new SQLExpression([`'$.${columnName}'`]);
       if (columnType === "virtual") {
         columns = SQL`${columns},
@@ -194,10 +251,10 @@ class Database<
 }
 
 setTimeout(() => {
-  const database = new Database("example.sqlite", {
+  const db = new Database("example.sqlite", {
     Sku: {
       type: z.object({
-        skuId: z.string().nonempty(),
+        skuId: z.number(),
         request: z.any().array().nullable(),
         data: z.object({
           name: z.string().nonempty(),
@@ -210,21 +267,21 @@ setTimeout(() => {
         "data.releaseTimestamp": "indexed",
       },
     },
-  });
+  }).sugar;
 
-  const { Sku } = database.tables;
+  for (let i = 0; i < 100; i += 9) {
+    db.Sku.insert({
+      skuId: i,
+      request: [],
+      data: {
+        name: "test",
+        releaseTimestamp: 100,
+      },
+    });
+  }
 
-  Sku.insert({
-    skuId: "10",
-    request: [],
-    data: {
-      name: "test",
-      releaseTimestamp: 100,
-    },
-  });
-
-  for (const sku of Sku.select({ where: SQL`skuId = ${"10"}` })) {
-    console.log(sku.skuId);
+  for (const sku of db.Sku.select({ where: SQL`${db.Sku.skuId} > ${80}` })) {
+    console.log(sku);
   }
 }, 500);
 // const ZZZ: any = {};
