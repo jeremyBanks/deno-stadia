@@ -40,83 +40,72 @@ export const PlayerNumber = z.string().length(4).regex(
   /^(0000|[1-9][0-9]{3})$/,
 );
 
-export const command = async (_: Client, flags: FlagArgs) => {
-  const PlayerType = z.object({
-    playerId: PlayerId,
-    _request: ProtoMessage,
-    player: z.object({
-      _response: ProtoMessage,
-      _timestamp: z.number().positive(),
-      name: PlayerName,
-      number: PlayerNumber,
-      friendPlayerIds: z.array(PlayerId),
-    }).optional(),
-  });
-  const PlayerSchema = {
-    type: PlayerType,
-    columns: {
-      playerId: "unique",
-      "player.name": "indexed",
-      "player.number": "virtual",
-    },
-    toRequest(player: Omit<Player, "_request">): ProtoMessage {
-      return [
-        [
-          "D0Amud",
-          [null, true, null, null, player.playerId],
-        ],
-        [
-          "Z5HRnb",
-          [null, true, player.playerId],
-        ],
-        [
-          "Q6jt8c",
-          [null, null, null, player.playerId],
-        ],
-      ];
-    },
-    fromResponse(
-      response: NonNullable<Player["player"]>["_response"],
-    ): Omit<NonNullable<Player["player"]>, "_response" | "_timestamp"> {
-      return {
-        name: "test",
-        number: "1234",
-        friendPlayerIds: [],
-      };
-    },
-  } as const;
+const remoteModel = <T>() => {
 
-  const db = zoddb.open(flags.sqlite, {
-    Player: PlayerSchema,
-  });
-  type Player = z.infer<typeof PlayerType>;
-  const Player = db.Player;
-
-  const p = {
-    playerId: "2",
-  };
-
-  Player.insert({
-    _request: PlayerSchema.toRequest(p),
-    ...p,
-  });
-
-  Player.update({
-    _request: PlayerSchema.toRequest(p),
-    ...p,
-  });
-
-  Player.delete({ where: Player.playerId.eq(Player.get().playerId) });
-
-  Player.insert({
-    _request: PlayerSchema.toRequest(p),
-    ...p,
-  });
-
-  const only = Player.get();
-  console.log({ only });
-
-  const player: Player = Player.get({ where: Player.playerId.eq("2") });
-
-  console.log({ player });
 };
+
+export const command = async (_: Client, flags: FlagArgs) => {
+  open({
+    Player: playerTable,
+    Game: gameTable,
+    Sku: skuTable,
+    StoreList: storeListTable,
+    UserSearch: userSearchTable,
+  });
+
+  const Player = db.Player;
+  type Player = z.infer<typeof Player.type>;
+};
+
+export const open = async <T>() => {
+  const db = zoddb.open(flags.sqlite, {
+  });
+
+};
+
+const PlayerType = z.object({
+  playerId: PlayerId,
+  _request: ProtoMessage,
+  player: z.object({
+    _response: ProtoMessage,
+    _timestamp: z.number().positive(),
+    name: PlayerName,
+    number: PlayerNumber,
+    friendPlayerIds: z.array(PlayerId),
+  }).optional(),
+});
+type PlayerType = z.infer<typeof PlayerType>;
+
+const playerTable = {
+  type: PlayerType,
+  columns: {
+    playerId: "unique",
+    "player.name": "indexed",
+    "player.number": "virtual",
+  },
+  toRequest(player: Omit<PlayerType, "_request">): ProtoMessage {
+    return [
+      [
+        "D0Amud",
+        [null, true, null, null, player.playerId],
+      ],
+      [
+        "Z5HRnb",
+        [null, true, player.playerId],
+      ],
+      [
+        "Q6jt8c",
+        [null, null, null, player.playerId],
+      ],
+    ];
+  },
+  fromResponse(
+    response: NonNullable<PlayerType["player"]>["_response"],
+  ): Omit<NonNullable<PlayerType["player"]>, "_response" | "_timestamp"> {
+    return {
+      name: "test",
+      number: "1234",
+      friendPlayerIds: [],
+    };
+  },
+} as const;

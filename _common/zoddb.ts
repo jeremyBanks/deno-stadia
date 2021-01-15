@@ -30,7 +30,7 @@ type ColumnType = z.output<typeof ColumnType>;
 const ColumnDefinitions = z.record(ColumnType);
 type ColumnDefinitions = z.output<typeof ColumnDefinitions>;
 
-type TableDefinitions = {
+export type TableDefinitions = {
   [tableName: string]: {
     type: z.ZodType<unknown>;
     columns?: {
@@ -101,7 +101,7 @@ class Table<
   constructor(
     readonly database: Database<{}>,
     readonly name: TableName,
-    readonly schema: ValueSchema,
+    readonly type: ValueSchema,
     private readonly columnDefinitions: ThisColumnDefinitions,
   ) {
     this.name = TableName.parse(this.name);
@@ -138,7 +138,7 @@ class Table<
     for (
       const [count] of this.database.sql(
         SQL`select count(*) from ${this}
-        where ${options?.where ?? SQL`1=1`}`,
+        where ${options?.where ?? SQL`true`}`,
       )
     ) {
       return count;
@@ -150,7 +150,7 @@ class Table<
     unchecked?: "unchecked";
   }): boolean {
     if (options?.unchecked !== "unchecked") {
-      value = this.schema.parse(value);
+      value = this.type.parse(value);
     }
     log.debug(`inserting into ${this.name}: ${Deno.inspect(value)}`);
     this.database.sql(
@@ -165,7 +165,7 @@ class Table<
     unchecked?: "unchecked";
   }): unknown {
     if (options?.unchecked !== "unchecked") {
-      value = this.schema.parse(value);
+      value = this.type.parse(value);
     }
     log.debug(`insert-or-replacing into ${this.name}: ${Deno.inspect(value)}`);
     this.database.sql(
@@ -180,7 +180,7 @@ class Table<
   }): number {
     this.database.sql(
       SQL`delete from ${this}
-      where ${options?.where ?? SQL`1=1`}`,
+      where ${options?.where ?? SQL`true`}`,
     ).return();
     return this.database.connection.changes;
   }
@@ -193,14 +193,14 @@ class Table<
     for (
       const [json] of this.database.sql(
         SQL`select json from ${this}
-        where ${options?.where ?? SQL`1=1`}
+        where ${options?.where ?? SQL`true`}
         order by ${options?.orderBy ?? SQL`rowid asc`}`,
       )
     ) {
       const uncheckedValue = jsonDecode(json);
       let value;
       if (options?.unchecked !== "unchecked") {
-        value = this.schema.parse(uncheckedValue);
+        value = this.type.parse(uncheckedValue);
       } else {
         value = uncheckedValue as unknown as Value;
       }
