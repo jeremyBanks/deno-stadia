@@ -152,6 +152,21 @@ class Table<
     if (options?.unchecked !== "unchecked") {
       value = this.schema.parse(value);
     }
+    log.debug(`inserting into ${this.name}: ${Deno.inspect(value)}`);
+    this.database.sql(
+      SQL`insert into ${this} (json)
+      values (${jsonEncode(value)})`,
+    ).return();
+    return value;
+  }
+
+  update(value: Value, options?: {
+    unchecked?: "unchecked";
+  }): unknown {
+    if (options?.unchecked !== "unchecked") {
+      value = this.schema.parse(value);
+    }
+    log.debug(`insert-or-replacing into ${this.name}: ${Deno.inspect(value)}`);
     this.database.sql(
       SQL`insert or replace into ${this} (json)
       values (${jsonEncode(value)})`,
@@ -179,6 +194,25 @@ class Table<
         value = uncheckedValue as unknown as Value;
       }
       yield value;
+    }
+  }
+
+  get(options?: {
+    where?: SQLExpression;
+    orderBy?: SQLExpression;
+    unchecked?: "unchecked";
+  }): Value {
+    let result = undefined;
+    for (const value of this.select(options)) {
+      if (result !== undefined) {
+        throw new TypeError("get() expects one result, but got more than one");
+      }
+      result = value;
+    }
+    if (result !== undefined) {
+      return result;
+    } else {
+      throw new TypeError("get() expects one result, but got none");
     }
   }
 }
@@ -250,7 +284,9 @@ class Database<
       } else if (columnType === "indexed") {
         columns = SQL`${columns},
           ${id} any always generated as (json_extract(json, ${extraction})) stored`;
-        indexCreations.push(SQL`create index ${indexId} on ${table} (${id})`);
+        indexCreations.push(
+          SQL`create index if not exists ${indexId} on ${table} (${id})`,
+        );
       } else if (columnType === "unique") {
         columns = SQL`${columns},
           ${id} any unique generated always as (json_extract(json, ${extraction})) stored`;

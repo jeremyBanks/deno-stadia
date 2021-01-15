@@ -18,6 +18,7 @@ export const Proto: z.ZodSchema<Proto> = z.union([
   z.null(),
   z.number(),
   z.string(),
+  z.boolean(),
   z.array(z.lazy(() => Proto)),
 ]);
 export type Proto = null | number | string | boolean | Array<Proto>;
@@ -51,7 +52,6 @@ export const command = async (_: Client, flags: FlagArgs) => {
       friendPlayerIds: z.array(PlayerId),
     }).optional(),
   });
-  type Player = z.infer<typeof PlayerType>;
   const PlayerSchema = {
     type: PlayerType,
     columns: {
@@ -59,7 +59,7 @@ export const command = async (_: Client, flags: FlagArgs) => {
       "player.name": "indexed",
       "player.number": "virtual",
     },
-    toRequest(player: Player): ProtoMessage {
+    toRequest(player: Omit<Player, "_request">): ProtoMessage {
       return [
         [
           "D0Amud",
@@ -86,8 +86,35 @@ export const command = async (_: Client, flags: FlagArgs) => {
     },
   } as const;
 
-  const {Player} = zoddb.open(flags.sqlite, {
+  const db = zoddb.open(flags.sqlite, {
     Player: PlayerSchema,
   });
+  type Player = z.infer<typeof PlayerType>;
+  const Player = db.Player;
 
+  const p = {
+    playerId: "2",
+  };
+
+  Player.insert({
+    _request: PlayerSchema.toRequest(p),
+    ...p,
+  });
+
+  Player.update({
+    _request: PlayerSchema.toRequest(p),
+    ...p,
+  });
+
+  Player.insert({
+    _request: PlayerSchema.toRequest(p),
+    ...p,
+  });
+
+  const only = Player.get();
+  console.log({ only });
+
+  const player: Player = Player.get({ where: Player.playerId.eq("2") });
+
+  console.log({ player });
 };
