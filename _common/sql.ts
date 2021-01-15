@@ -3,9 +3,11 @@ import json, { Json } from "./json.ts";
 
 export const toSQL = Symbol("toSQL");
 
+export type SQLValue = Json | SQLExpression | { [toSQL](): SQLExpression };
+
 export const SQL = (
   strings: TemplateStringsArray,
-  ...values: (Json | SQLExpression | { [toSQL](): SQLExpression })[]
+  ...values: SQLValue[]
 ) => {
   const flattened: (
     | { string: string; value?: undefined }
@@ -18,7 +20,10 @@ export const SQL = (
 
     if (i < values.length) {
       let value = values[i];
-      while (!(value instanceof SQLExpression) && typeof (value as any)?.[toSQL] === 'function') {
+      while (
+        !(value instanceof SQLExpression) &&
+        typeof (value as any)?.[toSQL] === "function"
+      ) {
         value = (value as any)?.[toSQL]();
       }
       if (value instanceof SQLExpression) {
@@ -30,9 +35,9 @@ export const SQL = (
           }
         }
       } else if (typeof value === "object" && value !== null) {
-        flattened.push({string: `json(`});
+        flattened.push({ string: `json(` });
         flattened.push({ value: json.encode(value, 0) });
-        flattened.push({string: `)`});
+        flattened.push({ string: `)` });
       } else {
         flattened.push({ value });
       }

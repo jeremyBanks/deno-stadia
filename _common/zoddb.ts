@@ -1,74 +1,108 @@
-import { log, sqlite, z } from "../../deps.ts";
-import { assert, unreachable } from "../assertions.ts";
-import { decode as jsonDecode, encode as jsonEncode } from "../json.ts";
-import { encodeSQLiteIdentifier, SQL, SQLExpression, toSQL } from "../sql.ts";
+import { log, sqlite, z } from "../deps.ts";
+import { unreachable } from "./assertions.ts";
+import { decode as jsonDecode, encode as jsonEncode } from "./json.ts";
+import {
+  encodeSQLiteIdentifier,
+  SQL,
+  SQLExpression,
+  SQLValue,
+  toSQL,
+} from "./sql.ts";
 
 const printableAscii = z.string().regex(
   /^[\x20-\x7E]*$/,
   "printable ascii",
 );
 
-await log.setup({
-  handlers: {
-    console: new class extends log.handlers.ConsoleHandler {
-      constructor() {
-        super("DEBUG");
-      }
-      log(msg: string): void {
-        console.log(msg);
-      }
-    }(),
-  },
-  loggers: {
-    default: {
-      level: "DEBUG",
-      handlers: ["console"],
-    },
-  },
-});
-
 const TableName = printableAscii.min(1).max(64).regex(
   /^[a-z0-9\_\$]+$/i,
 );
-type TableName = z.infer<typeof TableName>;
+type TableName = z.output<typeof TableName>;
 
 const ColumnName = printableAscii.min(1).max(128).regex(
   /^[a-z0-9\_\$]+(\.[a-z0-9\_\$]+)*$/i,
 );
-type ColumnName = z.infer<typeof ColumnName>;
+type ColumnName = z.output<typeof ColumnName>;
 
 const ColumnType = z.enum(["virtual", "indexed", "unique"]);
-type ColumnType = z.infer<typeof ColumnType>;
+type ColumnType = z.output<typeof ColumnType>;
 
 const ColumnDefinitions = z.record(ColumnType);
-type ColumnDefinitions = z.infer<typeof ColumnDefinitions>;
+type ColumnDefinitions = z.output<typeof ColumnDefinitions>;
 
-class Column<ParentTable extends Table> {
+type TableDefinitions = {
+  [tableName: string]: {
+    type: z.ZodType<unknown>;
+    columns?: {
+      [columnName: string]: ColumnType;
+    };
+  };
+};
+
+class Column {
   constructor(
-    readonly table: ParentTable,
+    readonly tableId: SQLExpression,
     readonly name: ColumnName,
     readonly type: ColumnType,
   ) {
     this.name = ColumnName.parse(name);
   }
 
-  readonly id = SQL`${this.table}.${encodeSQLiteIdentifier(this.name)}`;
+  readonly id = SQL`${this.tableId}.${encodeSQLiteIdentifier(this.name)}`;
 
   [toSQL](): SQLExpression {
     return this.id;
+  }
+
+  lt(other: SQLValue) {
+    return SQL`${this} < ${other}`;
+  }
+
+  lte(other: SQLValue) {
+    return SQL`${this} <= ${other}`;
+  }
+
+  eq(other: SQLValue) {
+    return SQL`${this} = ${other}`;
+  }
+
+  gte(other: SQLValue) {
+    return SQL`${this} >= ${other}`;
+  }
+
+  gt(other: SQLValue) {
+    return SQL`${this} > ${other}`;
+  }
+
+  ne(other: SQLValue) {
+    return SQL`${this} != ${other}`;
+  }
+
+  isNull() {
+    return SQL`${this} is null`;
+  }
+
+  notNull() {
+    return SQL`${this} is not null`;
+  }
+
+  isJson() {
+    return SQL`json_valid(${this})`;
   }
 }
 
 class Table<
   Value = unknown,
-  ValueSchema extends z.ZodSchema<Value> = z.ZodSchema<Value>,
-  ChildColumnDefinitions extends ColumnDefinitions = {},
+  ValueSchema extends z.ZodSchema<Value, z.ZodTypeDef, unknown> = z.ZodSchema<
+    Value
+  >,
+  ThisColumnDefinitions extends ColumnDefinitions = {},
 > {
   constructor(
     readonly database: Database<{}>,
     readonly name: TableName,
     readonly schema: ValueSchema,
-    private readonly columnDefinitions: ChildColumnDefinitions,
+    private readonly columnDefinitions: ThisColumnDefinitions,
   ) {
     this.name = TableName.parse(this.name);
   }
@@ -80,13 +114,13 @@ class Table<
   }
 
   readonly columns: {
-    [columnName in keyof ColumnDefinitions]: Column<this>;
+    [columnName in keyof ThisColumnDefinitions]: Column;
   } = Object.fromEntries(
     Object.keys(this.columnDefinitions).map(
       (columnName) => [
         columnName,
         new Column(
-          this,
+          this.id,
           columnName,
           this.columnDefinitions[columnName],
         ),
@@ -150,18 +184,11 @@ class Table<
 }
 
 class Database<
-  TableDefinitions extends {
-    [tableName: string]: {
-      type: z.ZodType<unknown>;
-      columns?: {
-        [columnName: string]: ColumnType;
-      };
-    };
-  },
+  ThisTableDefinitions extends TableDefinitions = {},
 > {
   constructor(
     readonly path: string,
-    private readonly tableDefinitions: TableDefinitions,
+    private readonly tableDefinitions: ThisTableDefinitions,
   ) {}
 
   readonly connection = new sqlite.DB(this.path);
@@ -176,17 +203,17 @@ class Database<
   }
 
   readonly tables: {
-    [tableName in keyof TableDefinitions]: Table<
-      z.infer<TableDefinitions[tableName]["type"]>,
-      TableDefinitions[tableName]["type"],
-      NonNullable<TableDefinitions[tableName]["columns"]>
+    [tableName in keyof ThisTableDefinitions]: Table<
+      z.output<ThisTableDefinitions[tableName]["type"]>,
+      ThisTableDefinitions[tableName]["type"],
+      NonNullable<ThisTableDefinitions[tableName]["columns"]>
     >;
   } = Object.fromEntries(
     Object.keys(this.tableDefinitions).map(
       (tableName) => [
         tableName,
         new Table(
-          this,
+          this as any,
           tableName,
           this.tableDefinitions[tableName].type,
           this.tableDefinitions[tableName].columns ?? {},
@@ -195,23 +222,12 @@ class Database<
     ),
   ) as any;
 
-  get sugar(): this & this["tables"][any]["sugar"] {
-    return Object.assign(
-      Object.create(this) as this,
-      Object.fromEntries(
-        Object.entries(this.tables).map(
-          ([key, value]) => [key, value.sugar],
-        ),
-      ) as this["tables"][any]["sugar"],
-    );
-  }
-
   readonly initialized = Object.keys(this.tables).forEach((tableName) => {
     const table = this.tables[tableName];
 
     let columns = SQL`
       rowid integer primary key autoincrement not null,
-      json text not null check (json(json) is not null)`;
+      json text not null check (json_valid(json))`;
 
     let indexCreations = [];
 
@@ -250,96 +266,36 @@ class Database<
   });
 }
 
-setTimeout(() => {
-  const db = new Database("example.sqlite", {
-    Sku: {
-      type: z.object({
-        skuId: z.number(),
-        request: z.any().array().nullable(),
-        data: z.object({
-          name: z.string().nonempty(),
-          releaseTimestamp: z.number(),
-        }).nullable(),
+export const open = <
+  ThisTableDefinitions extends TableDefinitions,
+>(
+  path: string,
+  tables: ThisTableDefinitions,
+): (
+  & Database<ThisTableDefinitions>
+  & {
+    [tableName in keyof Database<ThisTableDefinitions>["tables"]]: (
+      & Database<ThisTableDefinitions>["tables"][tableName]
+      & Database<ThisTableDefinitions>["tables"][tableName]["columns"]
+    );
+  }
+) => {
+  const db = new Database(path, tables);
+
+  return Object.assign(
+    Object.create(db) as typeof db,
+    Object.fromEntries(
+      Object.entries(db.tables as any).map(([tableName, table]) => {
+        return [
+          tableName,
+          Object.assign(
+            Object.create(table as any) as typeof table,
+            (table as any).columns,
+          ),
+        ];
       }),
-      columns: {
-        "skuId": "unique",
-        "data.name": "virtual",
-        "data.releaseTimestamp": "indexed",
-      },
-    },
-  }).sugar;
+    ),
+  ) as any;
+};
 
-  for (let i = 0; i < 100; i += 9) {
-    db.Sku.insert({
-      skuId: i,
-      request: [],
-      data: {
-        name: "test",
-        releaseTimestamp: 100,
-      },
-    });
-  }
-
-  for (const sku of db.Sku.select({ where: SQL`${db.Sku.skuId} > ${80}` })) {
-    console.log(sku);
-  }
-}, 500);
-// const ZZZ: any = {};
-
-// const TableDefinition = <
-//   ValueType extends unknown,
-//   ValueTypeSchema extends z.ZodSchema<ValueType>,
-// >(table: TableDefinition<ValueType, ValueTypeSchema>) => table;
-
-// type TableDefinition<
-//   ValueType extends unknown,
-//   ValueTypeSchema extends z.ZodSchema<ValueType>,
-// > = {
-//   type: ValueTypeSchema;
-//   columns: {
-//     [columnName: string]:
-//       | "virtual" // an alias for SQL queries
-//       | "indexed" // stored and indexed
-//       | "unique"; // indexed + unique-or-null check
-//   };
-// };
-
-// type TableFromDefinition<Definition> = Definition extends
-//   TableDefinition<infer ValueType, infer ValueTypeSchema> ? {
-//     type: ValueTypeSchema,
-//     select(condition?: SQLExpression): Iterable<ValueType>;
-//   } : "TypeError: T in Table<T> must extend Definition";
-
-// type Table<T, U> = TableFromDefinition<TableDefinition<T, U>>;
-
-// type Database<T> = {
-//   [K in keyof T]: T[K] extends TableDefinition<infer ValueType, infer ValueTypeSchema> ? T[K]
-//     : never;
-// }[keyof T];
-
-// const open = <Definition extends TableDefinition<unknown, z.ZodSchema<unknown>>>(path: string, definition: Definition): Database<Definition> => {
-//   return Object.fromEntries(Object.entries(definition).map(([tableName, tableInfo]) => [tableName, {
-//       type: tableInfo.type,
-//       columns:
-//   }
-
-//   }]));
-// }
-
-// const table = open("foo.ts", {
-//   Sku: {
-//     type: z.object({
-//       skuId: z.string().nonempty(),
-//       request: z.any().array().nullable(),
-//       data: z.object({
-//         name: z.string().nonempty(),
-//         releaseTimestamp: z.number(),
-//       }).nullable(),
-//     }),
-//     columns: {
-//       "skuId": "unique",
-//       "data.name": "virtual",
-//       "data.releaseTimestamp": "indexed",
-//     },
-//   },
-// });
+export default { open };

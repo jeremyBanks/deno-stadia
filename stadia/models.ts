@@ -1,23 +1,6 @@
 import { z } from "../deps.ts";
 import { expect } from "../_common/assertions.ts";
 
-export const Proto: z.ZodSchema<Proto> = z.union([
-  z.null(),
-  z.number(),
-  z.string(),
-  z.array(z.lazy(() => Proto)),
-]);
-export type Proto = null | number | string | boolean | Array<Proto>;
-
-export const GameId = z.string().regex(/^[0-9a-f]+(rcp1)$/);
-export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
-export const OrganizationId = z.string().regex(/^[0-9a-f]+(pup1)$/);
-export const PlayerId = z.string().regex(/^[1-9][0-9]*$/);
-export const PlayerName = z.string().min(3).max(15);
-export const PlayerNumber = z.string().length(4).regex(
-  /^(0000|[1-9][0-9]{3})$/,
-);
-
 const ModelBase = z.object({
   proto: z.unknown().nullable(),
   type: z.string(),
