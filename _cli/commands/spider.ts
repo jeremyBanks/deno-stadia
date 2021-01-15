@@ -106,6 +106,8 @@ export const command = async (_: Client, flags: FlagArgs) => {
     ...p,
   });
 
+  Player.delete({ where: Player.playerId.eq(Player.get().playerId) });
+
   Player.insert({
     _request: PlayerSchema.toRequest(p),
     ...p,

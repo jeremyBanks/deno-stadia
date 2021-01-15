@@ -148,16 +148,17 @@ class Table<
 
   insert(value: Value, options?: {
     unchecked?: "unchecked";
-  }): unknown {
+  }): boolean {
     if (options?.unchecked !== "unchecked") {
       value = this.schema.parse(value);
     }
     log.debug(`inserting into ${this.name}: ${Deno.inspect(value)}`);
     this.database.sql(
       SQL`insert into ${this} (json)
-      values (${jsonEncode(value)})`,
+      values (${jsonEncode(value)})
+      on conflict do nothing`,
     ).return();
-    return value;
+    return this.database.connection.changes > 0;
   }
 
   update(value: Value, options?: {
@@ -171,7 +172,17 @@ class Table<
       SQL`insert or replace into ${this} (json)
       values (${jsonEncode(value)})`,
     ).return();
-    return value;
+    return;
+  }
+
+  delete(options: {
+    where: SQLExpression;
+  }): number {
+    this.database.sql(
+      SQL`delete from ${this}
+      where ${options?.where ?? SQL`1=1`}`,
+    ).return();
+    return this.database.connection.changes;
   }
 
   *select(options?: {
