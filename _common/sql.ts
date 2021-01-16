@@ -87,7 +87,7 @@ export default SQL;
  */
 export const encodeSQLiteIdentifier = (
   identifier: string,
-  allowWeird: boolean | "warn" = "warn",
+  allowWeird: boolean | "warn" = true,
 ): SQLExpression => {
   if (identifier.includes("\x00")) {
     throw new TypeError('identifier included a ␀ ("\\x00") character');

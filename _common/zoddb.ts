@@ -24,19 +24,21 @@ const ColumnName = printableAscii.min(1).max(128).regex(
 );
 type ColumnName = z.output<typeof ColumnName>;
 
-const ColumnType = z.enum(["virtual", "indexed", "unique"]);
-type ColumnType = z.output<typeof ColumnType>;
+export const ColumnType = z.enum(["virtual", "indexed", "unique"]);
+export type ColumnType = z.output<typeof ColumnType>;
 
-const ColumnDefinitions = z.record(ColumnType);
-type ColumnDefinitions = z.output<typeof ColumnDefinitions>;
+export const ColumnDefinitions = z.record(ColumnType);
+export type ColumnDefinitions = z.output<typeof ColumnDefinitions>;
+
+export type TableDefinition = {
+  type: z.ZodType<unknown>;
+  columns?: {
+    [columnName: string]: ColumnType;
+  };
+};
 
 export type TableDefinitions = {
-  [tableName: string]: {
-    type: z.ZodType<unknown>;
-    columns?: {
-      [columnName: string]: ColumnType;
-    };
-  };
+  [tableName: string]: TableDefinition;
 };
 
 class Column {
@@ -92,8 +94,8 @@ class Column {
 }
 
 class Table<
-  Value = unknown,
-  ValueSchema extends z.ZodSchema<Value, z.ZodTypeDef, unknown> = z.ZodSchema<
+  Value,
+  ValueSchema extends z.ZodSchema<Value, z.ZodTypeDef, Value> = z.ZodSchema<
     Value
   >,
   ThisColumnDefinitions extends ColumnDefinitions = {},
@@ -241,7 +243,7 @@ class Database<
   sql(query: SQLExpression) {
     log.debug(
       `${query.strings.join("?").trim()}${
-        query.values ? `\n${Deno.inspect(query.values)}` : ``
+        query.values?.length ? `\n${Deno.inspect(query.values)}` : ``
       }`,
     );
     return this.connection.query(...query.args);
@@ -285,28 +287,45 @@ class Database<
       columnType = ColumnType.parse(columnType);
 
       const id = encodeSQLiteIdentifier(columnName);
-      const indexId = encodeSQLiteIdentifier(
-        `index.${tableName}.${columnName}`,
-      );
+
       const extraction = new SQLExpression([`'$.${columnName}'`]);
       if (columnType === "virtual") {
         columns = SQL`${columns},
-          ${id} any always generated as (json_extract(json, ${extraction})) virtual`;
+          ${id} unknown generated always as (
+            json_extract(json, ${extraction})
+          ) virtual`;
       } else if (columnType === "indexed") {
         columns = SQL`${columns},
-          ${id} any always generated as (json_extract(json, ${extraction})) stored`;
+          ${id} unknown generated always as (
+            json_extract(json, ${extraction})
+          ) stored`;
         indexCreations.push(
-          SQL`create index if not exists ${indexId} on ${table} (${id})`,
+          SQL`create index if not exists
+          ${
+            encodeSQLiteIdentifier(
+              `${tableName}.${columnName}::indexed`,
+            )
+          } on ${table} (${id})`,
         );
       } else if (columnType === "unique") {
         columns = SQL`${columns},
-          ${id} any unique generated always as (json_extract(json, ${extraction})) stored`;
+          ${id} unknown generated always as (
+            json_extract(json, ${extraction})
+          ) stored`;
+        indexCreations.push(
+          SQL`create unique index if not exists
+          ${
+            encodeSQLiteIdentifier(
+              `${tableName}.${columnName}::unique`,
+            )
+          } on ${table} (${id})`,
+        );
       } else {
         return unreachable();
       }
     }
 
-    this.sql(SQL`create table if not exists ${table} (${columns});`);
+    this.sql(SQL`create table if not exists ${table} (${columns})`);
     for (const statement of indexCreations) {
       this.sql(statement);
     }
