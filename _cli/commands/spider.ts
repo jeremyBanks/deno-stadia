@@ -26,8 +26,11 @@ export const command = async (_: Client, flags: FlagArgs) => {
 
   console.log(`There are ${Player.count()} Players.`);
 
+  let x: Player["remoteModel"];
+
   Player.insert({
-    playerId: "134",
+    playerId: [],
+    player: []
   });
 
   console.log(`There are ${Player.count()} Players.`);
@@ -77,7 +80,7 @@ export const openDB = (path: string) => {
         "player.name": "indexed",
         "player.number": "virtual",
       },
-      makeRequest(playerId) {
+      makeRequest(playerId: z.output<typeof PlayerId>): ProtoMessage {
         return [
           [
             "D0Amud",
@@ -93,7 +96,7 @@ export const openDB = (path: string) => {
           ],
         ];
       },
-      parseResponse(response, playerId) {
+      parseResponse(response: ProtoMessage, playerId: z.output<typeof PlayerId>) {
         return {
           name: (response as any)[0]?.[1],
           number: (response as any)[0],
@@ -107,11 +110,11 @@ export const openDB = (path: string) => {
     ...remoteModels,
   });
 
-  for (const [name, remoteModel] of Object.entries(remoteModels)) {
-    const table = db.tables[name as keyof typeof remoteModels];
-    const { makeRequest, parseResponse } = remoteModel;
-    Object.assign(table, { makeRequest, parseResponse, remoteModel });
-  }
+  // for (const [name, remoteModel] of Object.entries(remoteModels)) {
+  //   const table = db.tables[name as keyof typeof remoteModels];
+  //   const { makeRequest, parseResponse } = remoteModel;
+  //   Object.assign(table, { makeRequest, parseResponse, remoteModel });
+  // }
 
   return db; // as ((typeof db) & {
   //   tables: {
@@ -160,9 +163,9 @@ const remoteModel = <
       z.object({
         _response: ProtoMessage,
         _timestamp: z.number(),
-      }),
+      } as const),
     ).optional(),
-  });
+  } as const);
 
   return {
     type: rowType,
