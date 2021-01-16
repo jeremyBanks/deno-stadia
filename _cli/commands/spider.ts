@@ -30,7 +30,7 @@ export const command = async (_: Client, flags: FlagArgs) => {
 
   Player.insert({
     playerId: [],
-    player: []
+    player: [],
   });
 
   console.log(`There are ${Player.count()} Players.`);
@@ -96,7 +96,10 @@ export const openDB = (path: string) => {
           ],
         ];
       },
-      parseResponse(response: ProtoMessage, playerId: z.output<typeof PlayerId>) {
+      parseResponse(
+        response: ProtoMessage,
+        playerId: z.output<typeof PlayerId>,
+      ) {
         return {
           name: (response as any)[0]?.[1],
           number: (response as any)[0],
@@ -155,17 +158,21 @@ const remoteModel = <
     key: NoInfer<z.infer<KeySchemaType>>,
   ) => z.infer<ValueSchemaType>;
 }) => {
-  const rowType = z.object({
-    [keyName]: keyType,
-    _request: ProtoMessage,
-    [valueName]: z.intersection(
-      valueType,
-      z.object({
-        _response: ProtoMessage,
-        _timestamp: z.number(),
-      } as const),
-    ).optional(),
-  } as const);
+  const rowType = z.object(
+    {
+      [keyName]: keyType,
+      _request: ProtoMessage,
+      [valueName]: z.intersection(
+        valueType,
+        z.object(
+          {
+            _response: ProtoMessage,
+            _timestamp: z.number(),
+          } as const,
+        ),
+      ).optional(),
+    } as const,
+  );
 
   return {
     type: rowType,
