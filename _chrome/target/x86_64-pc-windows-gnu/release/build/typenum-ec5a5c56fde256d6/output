@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/mnt/c/Users/_/src/github.com/stadians/stadians/deno-stadia/chrome/target/x86_64-pc-windows-gnu/release/build/typenum-ec5a5c56fde256d6/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/mnt/c/Users/_/src/github.com/stadians/stadians/deno-stadia/chrome/target/x86_64-pc-windows-gnu/release/build/typenum-ec5a5c56fde256d6/out/op.rs

@@ -5,6 +5,9 @@
     },
     "remote.WSL.fileWatcher.polling": true,
     "files.exclude": {
-        "*.sqlite-*": true
-    }
+        "*.sqlite*": true
+    },
+    "editor.formatOnSave": true,
+    "deno.unstable": true,
+    "deno.lint": true,
 }

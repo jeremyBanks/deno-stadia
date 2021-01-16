@@ -1,8 +1,8 @@
 import { color, flags, flags as stdFlags, log } from "../deps.ts";
 
 import { eprint, eprintln } from "../_common/io.ts";
-import commands from "./commands/mod.ts";
-import { makeClient } from "./authentication.ts";
+import commands from "./_commands/mod.ts";
+import { makeClient } from "./_authentication.ts";
 
 const { yellow, italic, bold, cyan, red, underline, dim } = color;
 
