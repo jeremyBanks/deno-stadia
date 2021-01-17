@@ -211,22 +211,13 @@ const stadiaModelDefinitions = {
     seedKeys: bigrams,
   },
   MyGames: {
-    cacheControl: "no-store,max-age=0",
+    cacheControl: "max-age=172800",
     keyName: "MyGames",
     keyType: z.literal("MyGames"),
     valueName: "myGames",
     valueType: z.object({
       skuId: SkuId,
       gameId: GameId,
-      entitlement: z.union([
-        z.object({
-          type: z.literal("purchase"),
-        }),
-        z.object({
-          type: z.literal("subscription"),
-          skuId: SkuId,
-        }),
-      ]),
     }),
   },
   MyPurchases: {
