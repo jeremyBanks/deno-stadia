@@ -3,7 +3,8 @@ import { FlagArgs, FlagOpts, z } from "../../deps.ts";
 import zoddb, { ColumnDefinitions } from "../../_common/zoddb.ts";
 import { NoInfer } from "../../_common/utility_types/mod.ts";
 import bigrams from "../../_common/bigrams.ts";
-import { Proto } from "../../_common/proto.ts";
+import { notImplemented } from "../../_common/assertions.ts";
+import { Proto, ProtoMessage } from "../../_common/proto.ts";
 
 export const flags: FlagOpts = {
   string: "sqlite",
@@ -11,6 +12,8 @@ export const flags: FlagOpts = {
     sqlite: "./spider.sqlite",
   },
 };
+
+type Unbox<T extends z.ZodType<any, z.ZodTypeDef, any>> = NoInfer<z.infer<T>>;
 
 export const command = async (_: Client, flags: FlagArgs) => {
   const db = openDB(flags.sqlite);
@@ -40,7 +43,7 @@ export class StadiaDatabase {
     private path: string,
   ) {}
 
-  // private readonly stadiaModelDefinitions = readonly;
+  // private readonly stadiaTableDefinitions = readonly;
   db = zoddb.open(this.path, {});
 }
 
@@ -59,61 +62,56 @@ export const PlayerNumber = z.string().length(4).regex(
 );
 export type PlayerNumber = z.infer<typeof PlayerNumber>;
 
-const remoteModel = <
+const def = <
   KeyName extends string,
-  KeySchemaType extends z.ZodSchema<{}>,
+  KeyType extends z.ZodSchema<{}>,
   ValueName extends string,
-  ValueSchemaType extends z.ZodSchema<{}>,
+  ValueType extends z.ZodSchema<{}>,
   ThisColumnDefinitions extends ColumnDefinitions,
->({
-  keyName,
-  keyType,
-  valueName,
-  valueType,
-  columns,
-  makeRequest,
-  parseResponse,
-}: {
+  CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
+>(definition: {
   keyName: KeyName;
-  keyType: KeySchemaType;
+  keyType: KeyType;
   valueName: ValueName;
-  valueType: ValueSchemaType;
-  columns: ThisColumnDefinitions;
+  valueType: ValueType;
+  seedKeys?: Array<Unbox<KeyType>>;
+  cacheControl?: CacheControl;
+  columns?: ThisColumnDefinitions;
   makeRequest: (
-    key: NoInfer<z.infer<KeySchemaType>>,
+    key: Unbox<KeyType>,
   ) => ProtoMessage;
   parseResponse: (
     response: ProtoMessage,
-    key: NoInfer<z.infer<KeySchemaType>>,
-  ) => z.infer<ValueSchemaType>;
-}) => {
-  const rowType = z.object({
-    [keyName]: keyType,
-    _request: ProtoMessage,
-    [valueName]: z.intersection(
-      valueType,
+    key: Unbox<KeyType>,
+  ) => Unbox<ValueType>;
+}) => ({
+  ...definition,
+  rowType: z.intersection(
+    z.object({
+      [definition.keyName]: definition.keyType,
+    }),
+    z.union([
       z.object({
+        [definition.valueName]: definition.valueType,
+        _request: ProtoMessage,
         _response: ProtoMessage,
-        _timestamp: z.number(),
+        _timestamp: z.number().positive(),
       }),
-    ).optional(),
-  });
+      z.object({
+        [definition.valueName]: z.undefined(),
+        _request: z.undefined(),
+        _response: z.undefined(),
+        _timestamp: z.undefined(),
+      }),
+    ]),
+  ),
+} as const);
 
-  return {
-    type: rowType,
-    keyType,
-    valueType,
-    columns,
-    makeRequest,
-    parseResponse,
-  } as const;
-};
-
-const stadiaModelDefinitions = {
-  Player: {
+const stadiaTableDefinitions = {
+  Player: def({
     cacheControl: "max-age=11059200",
     keyName: "playerId",
-    keyType: PlayerId,
+    keyType: z.string(),
     valueName: "player",
     valueType: z.object({
       name: PlayerName,
@@ -121,7 +119,6 @@ const stadiaModelDefinitions = {
       friendPlayerIds: z.array(PlayerId),
     }),
     columns: {
-      playerId: "unique",
       "player.name": "indexed",
       "player.number": "virtual",
     },
@@ -158,8 +155,8 @@ const stadiaModelDefinitions = {
       // denoStadia (lots of friends, mostly-public profile)
       "13541093767486303504",
     ],
-  },
-  Game: {
+  }),
+  Game: def({
     cacheControl: "max-age=57600",
     seedKeys: [
       // Destiny 2 (many associated skus)
@@ -173,8 +170,8 @@ const stadiaModelDefinitions = {
       // Elder Scrolls Online (very many associated skus)
       "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
     ],
-  },
-  Sku: {
+  }),
+  Sku: def({
     cacheControl: "max-age=1382400",
     seedKeys: [
       // Stadia Pro (subscription)
@@ -190,93 +187,68 @@ const stadiaModelDefinitions = {
       // Immortals Preorder Bonus (delisted)
       "2e51be1b06974b81bcf0b4767b4c63dfp",
     ],
-  },
-  PlayerStats: {
+  }),
+  PlayerProgression: def({
     cacheControl: "max-age=115200",
     seedKeys: [
       // denoStadia
       "13541093767486303504",
     ],
-  },
-  StoreList: {
+  }),
+  StoreList: def({
     cacheControl: "max-age=1920",
     seedKeys: [
       // All games
       "3",
     ],
-  },
-  PlayerSearch: {
+  }),
+  PlayerSearch: def({
+    keyName: "playerPrefix",
+    keyType: z.string().min(2).max(20),
+    valueName: "players",
+    valueType: z.array(PlayerId),
     cacheControl: "max-age=5529600",
     // exhaustive list of prefixes (our minimum search length is 2)
     seedKeys: bigrams,
-  },
-  MyGames: {
+    makeRequest: (playerId) => [
+      [
+        "FdyJ0",
+        playerId,
+      ],
+    ],
+    parseResponse: notImplemented,
+  }),
+  MyGames: def({
     cacheControl: "max-age=172800",
     keyName: "MyGames",
-    keyType: z.literal("MyGames"),
+    keyType: z.literal("myGames"),
     valueName: "myGames",
-    valueType: z.object({
+    valueType: z.array(z.object({
       skuId: SkuId,
       gameId: GameId,
-    }).array(),
-    makeRequest(_: unknown) {
-      return [
-        [
-          "T2ZnGf",
-          [],
-        ],
-      ];
-    },
-  },
-  MyFriends: {
+    })),
+    makeRequest: () => [["T2ZnGf"]],
+    parseResponse: notImplemented,
+  }),
+  MyFriends: def({
     cacheControl: "no-store,max-age=0",
-    keyType: z.literal("MyFriends"),
+    keyName: "MyFriends",
+    keyType: z.literal("myFriends"),
     valueName: "myFriends",
-    valueType: z.object({
-      myPlayerId: PlayerId,
-      friendPlayerIds: PlayerId.array(),
-    }),
-    makeRequest() {
-      return [[
-        "Z5HRnb",
-        [],
-      ]];
-    },
-  },
-  MyPurchases: {
+    valueType: z.array(PlayerId),
+    makeRequest: () => [["Z5HRnb"]],
+    parseResponse: notImplemented,
+  }),
+  MyPurchases: def({
     cacheControl: "no-store,max-age=0",
     keyName: "MyPurchases",
-    keyType: z.literal("MyPurchases"),
+    keyType: z.literal("myPurchases"),
     valueName: "myPurchases",
-    valueType: z.object({
+    valueType: z.array(z.object({
       skuId: SkuId,
       gameId: GameId,
-    }).array(),
-    makeRequest(_: "key") {
-      return [
-        [
-          "uwn0Ob",
-          [],
-        ],
-      ];
-    },
-  },
-};
-
-export const openDB = (path: string) => {
-  const remoteModels = {} as const;
-
-  // This is cute, but very stupid. Get rid of it.
-  for (const [name, remoteModel] of Object.entries(remoteModels)) {
-    const table = db.tables[name as keyof typeof remoteModels];
-    Object.assign(table, { remoteModel });
-  }
-  return db as (
-    & (typeof db)
-    & {
-      [K in keyof typeof db.tables]: {
-        remoteModel: (typeof remoteModels)[K];
-      };
-    }
-  );
+    })),
+    makeRequest: () => [["uwn0Ob"]],
+    parseResponse: notImplemented,
+  }),
 };
