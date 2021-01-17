@@ -1,6 +1,5 @@
 import { zod as z } from "../deps.ts";
 
-/** */
 export type Proto = null | number | string | boolean | Array<Proto>;
 export const Proto: z.ZodSchema<Proto> = z.union([
   z.null(),

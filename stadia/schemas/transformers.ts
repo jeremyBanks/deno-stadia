@@ -23,11 +23,11 @@ export const skuFromProto = response.Sku.transform((proto) => {
   });
 });
 
-export const skuTypeFromId = response.SkuTypeId.transform((id) => {
-  return models.SkuType.parse(
+export const skuTypeFromId = response.SkuTypeId.transform((id) =>
+  models.SkuType.parse(
     expect(skuTypesById[id], `unexpected sku type id ${id}`),
-  );
-});
+  )
+);
 
 const skuTypesById: Record<response.SkuTypeId, models.SkuType> = {
   1: "Game",

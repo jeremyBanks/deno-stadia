@@ -1,1 +1,1 @@
-import { Proto } from "../../_common/proto.ts";
+import { Proto, ProtoMessage } from "../../_common/proto.ts";
