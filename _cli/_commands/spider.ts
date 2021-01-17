@@ -218,7 +218,30 @@ const stadiaModelDefinitions = {
     valueType: z.object({
       skuId: SkuId,
       gameId: GameId,
+    }).array(),
+    makeRequest(_: unknown) {
+      return [
+        [
+          "T2ZnGf",
+          [],
+        ],
+      ];
+    },
+  },
+  MyFriends: {
+    cacheControl: "no-store,max-age=0",
+    keyType: z.literal("MyFriends"),
+    valueName: "myFriends",
+    valueType: z.object({
+      myPlayerId: PlayerId,
+      friendPlayerIds: PlayerId.array(),
     }),
+    makeRequest() {
+      return [[
+        "Z5HRnb",
+        [],
+      ]];
+    },
   },
   MyPurchases: {
     cacheControl: "no-store,max-age=0",
@@ -228,7 +251,7 @@ const stadiaModelDefinitions = {
     valueType: z.object({
       skuId: SkuId,
       gameId: GameId,
-    }),
+    }).array(),
     makeRequest(_: "key") {
       return [
         [
