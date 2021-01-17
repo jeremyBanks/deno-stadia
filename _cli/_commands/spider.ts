@@ -13,7 +13,9 @@ export const flags: FlagOpts = {
   },
 };
 
-type Unbox<T extends z.ZodType<any, z.ZodTypeDef, any>> = NoInfer<z.infer<T>>;
+type Unbox<T extends z.ZodType<any, z.ZodTypeDef, any>> = NoInfer<
+  z.infer<NoInfer<T>>
+>;
 
 export const command = async (_: Client, flags: FlagArgs) => {
   const db = openDB(flags.sqlite);
@@ -74,6 +76,7 @@ const def = <
   ValueName extends string,
   ValueType extends z.ZodSchema<any>,
   ThisColumnDefinitions extends ColumnDefinitions,
+  RowType extends z.ZodSchema<any>,
   CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
 >(definition: {
   keyName: KeyName;
@@ -85,36 +88,28 @@ const def = <
   columns?: ThisColumnDefinitions;
   makeRequest: (
     key: Unbox<KeyType>,
-  ) => ProtoMessage;
+  ) => ProtoMessage | Promise<ProtoMessage>;
   parseResponse: (
     response: ProtoMessage,
     key: Unbox<KeyType>,
   ) => Unbox<ValueType>;
-}) => ({
-  ...definition,
-  rowType: z.intersection(
-    z.object({
-      [definition.keyName]: definition.keyType,
-    }),
-    z.union([
-      z.object({
-        [definition.valueName]: definition.valueType,
-        _request: ProtoMessage,
-        _response: ProtoMessage,
-        _timestamp: z.number().positive(),
-      }),
-      z.object({
-        [definition.valueName]: z.undefined(),
-        _request: z.undefined(),
-        _response: z.undefined(),
-        _timestamp: z.undefined(),
-      }),
-    ]),
-  ),
-} as const);
+}) => {
+  const rowType: RowType = z.object({
+    [definition.keyName]: definition.keyType,
+    [definition.valueName]: definition.valueType.optional(),
+    _request: ProtoMessage.optional(),
+    _response: ProtoMessage.optional(),
+    _lastUpdatedTimestamp: z.number().positive().optional(),
+  });
 
-const stadiaTableDefinitions = {
-  Player: def({
+  return {
+    ...definition,
+    rowType,
+  } as const;
+};
+
+const stadiaTableDefinitions = (() => {
+  const Player = def({
     cacheControl: "max-age=11059200",
     keyName: "playerId",
     keyType: PlayerId,
@@ -123,6 +118,7 @@ const stadiaTableDefinitions = {
       name: PlayerName,
       number: PlayerNumber,
       friendPlayerIds: z.array(PlayerId),
+      playedGameIds: z.array(GameId),
     }),
     columns: {
       "player.name": "indexed",
@@ -148,7 +144,8 @@ const stadiaTableDefinitions = {
       return {
         name: (response as any)[0]?.[1],
         number: (response as any)[0],
-        friendPlayerIds: [], // TODO
+        friendPlayerIds: [],
+        playedGameIds: [],
       };
     },
     seedKeys: [
@@ -161,9 +158,9 @@ const stadiaTableDefinitions = {
       // denoStadia (lots of friends, mostly-public profile)
       "13541093767486303504",
     ],
-  }),
+  });
 
-  Game: def({
+  const Game = def({
     cacheControl: "max-age=57600",
     keyName: "gameId",
     keyType: GameId,
@@ -186,11 +183,13 @@ const stadiaTableDefinitions = {
       // Elder Scrolls Online (very many associated skus)
       "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
     ],
-    makeRequest: notImplemented,
+    makeRequest: (gameId) => [
+      ["ZAm7We", [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]]],
+    ],
     parseResponse: notImplemented,
-  }),
+  });
 
-  Sku: def({
+  const Sku = def({
     cacheControl: "max-age=1382400",
     keyName: "skuId",
     keyType: SkuId,
@@ -215,25 +214,33 @@ const stadiaTableDefinitions = {
       // Immortals Preorder Bonus (delisted)
       "2e51be1b06974b81bcf0b4767b4c63dfp",
     ],
-    makeRequest: notImplemented,
+    makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
     parseResponse: notImplemented,
-  }),
+  });
 
-  PlayerProgression: def({
+  const PlayerProgression = def({
     keyName: "playerId",
     keyType: PlayerId,
     valueName: "playerProgression",
     valueType: z.object({}),
     cacheControl: "max-age=115200",
-    seedKeys: [
-      // denoStadia
-      "13541093767486303504",
-    ],
-    makeRequest: notImplemented,
+    seedKeys: Player.seedKeys,
+    makeRequest: async (playerId, context?: {
+      get<Definition extends ReturnType<typeof def>>(
+        definition: Definition,
+        keyValue: Unbox<Definition["keyType"]>,
+      ): Promise<Unbox<Definition["valueType"]>>;
+    }): Promise<ProtoMessage> => {
+      const player = await context!.get(Player, playerId);
+      return player!.playedGameIds.map((gameId) => [
+        "e7h9qd",
+        [null, gameId, playerId],
+      ]);
+    },
     parseResponse: notImplemented,
-  }),
+  });
 
-  StoreList: def({
+  const StoreList = def({
     cacheControl: "max-age=1920",
     keyName: "storeListId",
     keyType: StoreListId,
@@ -247,20 +254,22 @@ const stadiaTableDefinitions = {
       ["ZAm7We", [null, null, null, null, null, listId]],
     ],
     parseResponse: notImplemented,
-  }),
+  });
 
-  PlayerSearch: def({
+  const PlayerSearch = def({
     cacheControl: "max-age=5529600",
     keyName: "playerPrefix",
     keyType: z.string().min(2).max(20),
     valueName: "playerIds",
     valueType: z.array(PlayerId),
     seedKeys: bigrams,
-    makeRequest: (playerId) => [["FdyJ0", [playerId]]],
+    makeRequest: (playerPrefix) => [
+      ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
+    ],
     parseResponse: notImplemented,
-  }),
+  });
 
-  MyGames: def({
+  const MyGames = def({
     cacheControl: "max-age=172800",
     keyName: "MyGames",
     keyType: z.literal("myGames"),
@@ -268,9 +277,9 @@ const stadiaTableDefinitions = {
     valueType: z.array(GameId),
     makeRequest: () => [["T2ZnGf"]],
     parseResponse: notImplemented,
-  }),
+  });
 
-  MyFriends: def({
+  const MyFriends = def({
     cacheControl: "no-store,max-age=0",
     keyName: "MyFriends",
     keyType: z.literal("myFriends"),
@@ -278,9 +287,9 @@ const stadiaTableDefinitions = {
     valueType: z.array(PlayerId),
     makeRequest: () => [["Z5HRnb"]],
     parseResponse: notImplemented,
-  }),
+  });
 
-  MyPurchases: def({
+  const MyPurchases = def({
     cacheControl: "no-store,max-age=0",
     keyName: "MyPurchases",
     keyType: z.literal("myPurchases"),
@@ -288,5 +297,19 @@ const stadiaTableDefinitions = {
     valueType: z.array(SkuId),
     makeRequest: () => [["uwn0Ob"]],
     parseResponse: notImplemented,
-  }),
-};
+  });
+
+  const defs = {
+    Player,
+    Game,
+    Sku,
+    PlayerProgression,
+    StoreList,
+    PlayerSearch,
+    MyGames,
+    MyPurchases,
+    MyFriends,
+  } as const;
+
+  return defs;
+})();
