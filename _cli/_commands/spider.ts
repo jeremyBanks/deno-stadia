@@ -47,14 +47,20 @@ export class StadiaDatabase {
   db = zoddb.open(this.path, {});
 }
 
-export const GameId = z.string().regex(/^[0-9a-f]+(rcp1)$/);
+export const GameId = z.string().regex(
+  /^[0-9a-f]+(rcp1)$/,
+) as z.Schema<`${string}rcp1`>;
 export type GameId = z.infer<typeof GameId>;
 export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
 export type SkuId = z.infer<typeof SkuId>;
-export const OrganizationId = z.string().regex(/^[0-9a-f]+(pup1)$/);
+export const OrganizationId = z.string().regex(
+  /^[0-9a-f]+(pup1)$/,
+) as z.Schema<`${string}pup1`>;
 export type OrganizationId = z.infer<typeof OrganizationId>;
 export const PlayerId = z.string().regex(/^[1-9][0-9]*$/);
 export type PlayerId = z.infer<typeof PlayerId>;
+export const StoreListId = z.string().regex(/^[1-9][0-9]*$/);
+export type StoreListId = z.infer<typeof StoreListId>;
 export const PlayerName = z.string().min(3).max(15);
 export type PlayerName = z.infer<typeof PlayerName>;
 export const PlayerNumber = z.string().length(4).regex(
@@ -64,9 +70,9 @@ export type PlayerNumber = z.infer<typeof PlayerNumber>;
 
 const def = <
   KeyName extends string,
-  KeyType extends z.ZodSchema<{}>,
+  KeyType extends z.ZodSchema<any>,
   ValueName extends string,
-  ValueType extends z.ZodSchema<{}>,
+  ValueType extends z.ZodSchema<any>,
   ThisColumnDefinitions extends ColumnDefinitions,
   CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
 >(definition: {
@@ -111,7 +117,7 @@ const stadiaTableDefinitions = {
   Player: def({
     cacheControl: "max-age=11059200",
     keyName: "playerId",
-    keyType: z.string(),
+    keyType: PlayerId,
     valueName: "player",
     valueType: z.object({
       name: PlayerName,
@@ -156,8 +162,18 @@ const stadiaTableDefinitions = {
       "13541093767486303504",
     ],
   }),
+
   Game: def({
     cacheControl: "max-age=57600",
+    keyName: "gameId",
+    keyType: GameId,
+    valueName: "game",
+    valueType: z.object({
+      skuId: SkuId,
+    }),
+    columns: {
+      skuId: "indexed",
+    },
     seedKeys: [
       // Destiny 2 (many associated skus)
       "20e792017ab34ad89b70dc17a5c72d68rcp1",
@@ -170,9 +186,21 @@ const stadiaTableDefinitions = {
       // Elder Scrolls Online (very many associated skus)
       "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
     ],
+    makeRequest: notImplemented,
+    parseResponse: notImplemented,
   }),
+
   Sku: def({
     cacheControl: "max-age=1382400",
+    keyName: "skuId",
+    keyType: SkuId,
+    valueName: "sku",
+    valueType: z.object({
+      name: z.string(),
+    }),
+    columns: {
+      name: "indexed",
+    },
     seedKeys: [
       // Stadia Pro (subscription)
       "59c8314ac82a456ba61d08988b15b550",
@@ -187,67 +215,77 @@ const stadiaTableDefinitions = {
       // Immortals Preorder Bonus (delisted)
       "2e51be1b06974b81bcf0b4767b4c63dfp",
     ],
+    makeRequest: notImplemented,
+    parseResponse: notImplemented,
   }),
+
   PlayerProgression: def({
+    keyName: "playerId",
+    keyType: PlayerId,
+    valueName: "playerProgression",
+    valueType: z.object({}),
     cacheControl: "max-age=115200",
     seedKeys: [
       // denoStadia
       "13541093767486303504",
     ],
+    makeRequest: notImplemented,
+    parseResponse: notImplemented,
   }),
+
   StoreList: def({
     cacheControl: "max-age=1920",
-    seedKeys: [
-      // All games
-      "3",
-    ],
-  }),
-  PlayerSearch: def({
-    keyName: "playerPrefix",
-    keyType: z.string().min(2).max(20),
-    valueName: "players",
-    valueType: z.array(PlayerId),
-    cacheControl: "max-age=5529600",
-    // exhaustive list of prefixes (our minimum search length is 2)
-    seedKeys: bigrams,
-    makeRequest: (playerId) => [
-      [
-        "FdyJ0",
-        playerId,
-      ],
+    keyName: "storeListId",
+    keyType: StoreListId,
+    valueName: "storeList",
+    valueType: z.object({
+      name: z.string().nonempty(),
+      skuIds: z.array(SkuId),
+    }),
+    seedKeys: ["3"],
+    makeRequest: (listId) => [
+      ["ZAm7We", [null, null, null, null, null, listId]],
     ],
     parseResponse: notImplemented,
   }),
+
+  PlayerSearch: def({
+    cacheControl: "max-age=5529600",
+    keyName: "playerPrefix",
+    keyType: z.string().min(2).max(20),
+    valueName: "playerIds",
+    valueType: z.array(PlayerId),
+    seedKeys: bigrams,
+    makeRequest: (playerId) => [["FdyJ0", [playerId]]],
+    parseResponse: notImplemented,
+  }),
+
   MyGames: def({
     cacheControl: "max-age=172800",
     keyName: "MyGames",
     keyType: z.literal("myGames"),
-    valueName: "myGames",
-    valueType: z.array(z.object({
-      skuId: SkuId,
-      gameId: GameId,
-    })),
+    valueName: "gameIds",
+    valueType: z.array(GameId),
     makeRequest: () => [["T2ZnGf"]],
     parseResponse: notImplemented,
   }),
+
   MyFriends: def({
     cacheControl: "no-store,max-age=0",
     keyName: "MyFriends",
     keyType: z.literal("myFriends"),
-    valueName: "myFriends",
+    valueName: "playerIds",
     valueType: z.array(PlayerId),
     makeRequest: () => [["Z5HRnb"]],
     parseResponse: notImplemented,
   }),
+
   MyPurchases: def({
     cacheControl: "no-store,max-age=0",
     keyName: "MyPurchases",
     keyType: z.literal("myPurchases"),
-    valueName: "myPurchases",
-    valueType: z.array(z.object({
-      skuId: SkuId,
-      gameId: GameId,
-    })),
+    valueName: "skuIds",
+    valueType: z.array(SkuId),
     makeRequest: () => [["uwn0Ob"]],
     parseResponse: notImplemented,
   }),
