@@ -111,6 +111,7 @@ const remoteModel = <
 
 const stadiaModelDefinitions = {
   Player: {
+    cacheControl: "max-age=11059200",
     keyName: "playerId",
     keyType: PlayerId,
     valueName: "player",
@@ -159,6 +160,7 @@ const stadiaModelDefinitions = {
     ],
   },
   Game: {
+    cacheControl: "max-age=57600",
     seedKeys: [
       // Destiny 2 (many associated skus)
       "20e792017ab34ad89b70dc17a5c72d68rcp1",
@@ -173,6 +175,7 @@ const stadiaModelDefinitions = {
     ],
   },
   Sku: {
+    cacheControl: "max-age=1382400",
     seedKeys: [
       // Stadia Pro (subscription)
       "59c8314ac82a456ba61d08988b15b550",
@@ -189,20 +192,60 @@ const stadiaModelDefinitions = {
     ],
   },
   PlayerStats: {
+    cacheControl: "max-age=115200",
     seedKeys: [
       // denoStadia
       "13541093767486303504",
     ],
   },
   StoreList: {
+    cacheControl: "max-age=1920",
     seedKeys: [
       // All games
       "3",
     ],
   },
   PlayerSearch: {
+    cacheControl: "max-age=5529600",
     // exhaustive list of prefixes (our minimum search length is 2)
     seedKeys: bigrams,
+  },
+  MyGames: {
+    cacheControl: "no-store,max-age=0",
+    keyName: "MyGames",
+    keyType: z.literal("MyGames"),
+    valueName: "myGames",
+    valueType: z.object({
+      skuId: SkuId,
+      gameId: GameId,
+      entitlement: z.union([
+        z.object({
+          type: z.literal("purchase"),
+        }),
+        z.object({
+          type: z.literal("subscription"),
+          skuId: SkuId,
+        }),
+      ]),
+    }),
+  },
+  MyPurchases: {
+    cacheControl: "no-store,max-age=0",
+    keyName: "MyPurchases",
+    keyType: z.literal("MyPurchases"),
+    valueName: "myPurchases",
+    valueType: z.object({
+      skuId: SkuId,
+      gameId: GameId,
+    }),
+    makeRequest(_: "key") {
+      return [
+        [
+          "uwn0Ob",
+          [],
+        ],
+      ];
+    },
   },
 };
 
