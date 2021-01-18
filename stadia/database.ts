@@ -1,12 +1,10 @@
 /** Declares our Stadia tables with their associated RPCs. */
 
 import { z } from "../deps.ts";
-import zoddb, { ColumnDefinitions, TableDefinition } from "../_common/zoddb.ts";
-import { NoInfer } from "../_common/utility_types/mod.ts";
+import zoddb from "../_common/zoddb.ts";
 import bigrams from "../_common/bigrams.ts";
-import { assertStatic, Extends } from "../_common/utility_types/mod.ts";
+import { assertStatic, StrictlyExtends } from "../_common/utility_types/mod.ts";
 import { notImplemented } from "../_common/assertions.ts";
-import { Proto, ProtoMessage } from "../_common/proto.ts";
 import {
   GameId,
   PlayerId,
@@ -15,23 +13,15 @@ import {
   SkuId,
   StoreListId,
 } from "./common_scalars.ts";
-import { StrictlyExtends } from "../_common/utility_types/mod.ts";
-import { TableDefinitions } from "../_common/zoddb.ts";
-
-export class StadiaDatabase {
-  constructor(
-    readonly path: string,
-  ) {}
-
-  readonly tableDefinitions = stadiaTableDefinitions;
-  readonly database = zoddb.open(this.path, this.tableDefinitions);
-}
+import { ColumnDefinitions, TableDefinition } from "../_common/zoddb.ts";
+import { NoInfer } from "../_common/utility_types/mod.ts";
+import { ProtoMessage } from "../_common/proto.ts";
 
 type Unbox<T extends z.ZodType<any, z.ZodTypeDef, any>> = NoInfer<
   z.infer<NoInfer<T>>
 >;
 
-const def = <
+export const def = <
   KeyName extends string,
   KeyType extends z.ZodSchema<any>,
   ValueName extends string,
@@ -48,18 +38,7 @@ const def = <
   columns?: ThisColumnDefinitions;
   makeRequest: (
     key: Unbox<KeyType>,
-    context?: {
-      getDependency<
-        DependencyKeyType extends z.ZodSchema<any>,
-        DependencyValueType extends z.ZodSchema<any>,
-      >(
-        definition: {
-          keyType: DependencyKeyType;
-          valueType: DependencyValueType;
-        },
-        keyValue: Unbox<DependencyKeyType>,
-      ): Promise<Unbox<DependencyValueType>>;
-    },
+    context: Context,
   ) => ProtoMessage | Promise<ProtoMessage>;
   parseResponse: (
     response: ProtoMessage,
@@ -84,7 +63,49 @@ const def = <
   return d;
 };
 
-const stadiaTableDefinitions = (() => {
+export class StadiaDatabase {
+  constructor(
+    readonly path: string,
+  ) {}
+
+  readonly tableDefinitions = tableDefinitions;
+  readonly database = zoddb.open(this.path, this.tableDefinitions);
+}
+
+interface RequestContext {
+  getDependency<
+    DependencyKeyType extends z.ZodSchema<any>,
+    DependencyValueType extends z.ZodSchema<any>,
+  >(
+    definition: {
+      keyType: DependencyKeyType;
+      valueType: DependencyValueType;
+    },
+    keyValue: Unbox<DependencyKeyType>,
+  ): Promise<Unbox<DependencyValueType>>;
+}
+
+export class DatabaseRequestContext implements RequestContext {
+  constructor(
+    readonly database: StadiaDatabase,
+    readonly minTimestamp = -Infinity,
+  ) {}
+
+  async getDependency<
+    DependencyKeyType extends z.ZodSchema<any>,
+    DependencyValueType extends z.ZodSchema<any>,
+  >(
+    definition: {
+      keyType: DependencyKeyType;
+      valueType: DependencyValueType;
+    },
+    keyValue: Unbox<DependencyKeyType>,
+  ): Promise<Unbox<DependencyValueType>> {
+    return await notImplemented() ?? definition ?? keyValue;
+  }
+}
+
+const tableDefinitions = (() => {
   const Player = def({
     cacheControl: "max-age=11059200",
     keyName: "playerId",
@@ -202,8 +223,8 @@ const stadiaTableDefinitions = (() => {
     cacheControl: "max-age=115200",
     seedKeys: Player.seedKeys,
     async makeRequest(playerId, context) {
-      const player = await context!.getDependency(Player, playerId);
-      return player!.playedGameIds.map((gameId) => [
+      const player = await context.getDependency(Player, playerId);
+      return player.playedGameIds.map((gameId) => [
         "e7h9qd",
         [null, gameId, playerId],
       ]);
