@@ -16,7 +16,7 @@ import {
   StoreListId,
 } from "./common_scalars.ts";
 import { StrictlyExtends } from "../_common/utility_types/mod.ts";
-import { TableDefinitions } from "../_common/zoddb";
+import { TableDefinitions } from "../_common/zoddb.ts";
 
 export class StadiaDatabase {
   constructor(
@@ -48,6 +48,18 @@ const def = <
   columns?: ThisColumnDefinitions;
   makeRequest: (
     key: Unbox<KeyType>,
+    context?: {
+      getDependency<
+        DependencyKeyType extends z.ZodSchema<any>,
+        DependencyValueType extends z.ZodSchema<any>,
+      >(
+        definition: {
+          keyType: DependencyKeyType;
+          valueType: DependencyValueType;
+        },
+        keyValue: Unbox<DependencyKeyType>,
+      ): Promise<Unbox<DependencyValueType>>;
+    },
   ) => ProtoMessage | Promise<ProtoMessage>;
   parseResponse: (
     response: ProtoMessage,
@@ -189,13 +201,8 @@ const stadiaTableDefinitions = (() => {
     valueType: z.object({}),
     cacheControl: "max-age=115200",
     seedKeys: Player.seedKeys,
-    makeRequest: async (playerId, context?: {
-      get<Definition extends ReturnType<typeof def>>(
-        definition: Definition,
-        keyValue: Unbox<Definition["keyType"]>,
-      ): Promise<Unbox<Definition["valueType"]>>;
-    }): Promise<ProtoMessage> => {
-      const player = await context!.get(Player, playerId);
+    async makeRequest(playerId, context) {
+      const player = await context!.getDependency(Player, playerId);
       return player!.playedGameIds.map((gameId) => [
         "e7h9qd",
         [null, gameId, playerId],
