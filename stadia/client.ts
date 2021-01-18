@@ -1,10 +1,12 @@
+/** You probably want this. */
+
 import { Json } from "../_common/json.ts";
 import * as json from "../_common/json.ts";
-import { Proto } from "./protos.ts";
+import { Proto } from "../_common/proto.ts";
 import { safeEval } from "../_common/sandbox.ts";
 import { log, z } from "../deps.ts";
+import { skuFromProto } from "./response_parsers.ts";
 import { throttled } from "../_common/async.ts";
-import { skuFromProto } from "./models.ts";
 import * as models from "../stadia/models.ts";
 
 const minRequestIntervalSeconds = 420 / 69;

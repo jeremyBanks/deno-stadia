@@ -1,8 +1,7 @@
-import { z } from "../../deps.ts";
-import { expect } from "../../_common/assertions.ts";
-import { Json } from "../../_common/json.ts";
-import { Proto } from "./_common.ts";
-import { GameId, OrganizationId, SkuId } from "./_common.ts";
+/** Local model types. */
+
+import { z } from "../deps.ts";
+import { GameId, OrganizationId, SkuId } from "./common_scalars.ts";
 
 export const SkuType = z.enum([
   "Game",

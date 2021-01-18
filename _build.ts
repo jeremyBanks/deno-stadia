@@ -1,5 +1,5 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
-/** Rebuilds generated files. */
+/** Rebuilds generated code. */
 import { brotli, Sha3d256 } from "./deps.ts";
 
 const main = async () => {

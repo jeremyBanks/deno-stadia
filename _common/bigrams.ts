@@ -1,3 +1,5 @@
+/** All two-character letter & letter-or-number pairs, roughly based on letter
+bigram frequency in English text. */
 
 export default [
   "in",

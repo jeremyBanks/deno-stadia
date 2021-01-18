@@ -31,7 +31,7 @@ export const ColumnDefinitions = z.record(ColumnType);
 export type ColumnDefinitions = z.output<typeof ColumnDefinitions>;
 
 export type TableDefinition = {
-  type: z.ZodType<unknown>;
+  rowType: z.ZodType<unknown>;
   columns?: {
     [columnName: string]: ColumnType;
   };
@@ -103,7 +103,7 @@ class Table<
   constructor(
     readonly database: Database<{}>,
     readonly name: TableName,
-    readonly type: ValueSchema,
+    readonly rowType: ValueSchema,
     private readonly columnDefinitions: ThisColumnDefinitions,
   ) {
     this.name = TableName.parse(this.name);
@@ -152,7 +152,7 @@ class Table<
     unchecked?: "unchecked";
   }): boolean {
     if (options?.unchecked !== "unchecked") {
-      value = this.type.parse(value);
+      value = this.rowType.parse(value);
     }
     log.debug(`inserting into ${this.name}: ${Deno.inspect(value)}`);
     this.database.sql(
@@ -167,7 +167,7 @@ class Table<
     unchecked?: "unchecked";
   }): unknown {
     if (options?.unchecked !== "unchecked") {
-      value = this.type.parse(value);
+      value = this.rowType.parse(value);
     }
     log.debug(`insert-or-replacing into ${this.name}: ${Deno.inspect(value)}`);
     this.database.sql(
@@ -202,7 +202,7 @@ class Table<
       const uncheckedValue = jsonDecode(json);
       let value;
       if (options?.unchecked !== "unchecked") {
-        value = this.type.parse(uncheckedValue);
+        value = this.rowType.parse(uncheckedValue);
       } else {
         value = uncheckedValue as unknown as Value;
       }
@@ -251,8 +251,8 @@ class Database<
 
   readonly tables: {
     [tableName in keyof ThisTableDefinitions]: Table<
-      z.output<ThisTableDefinitions[tableName]["type"]>,
-      ThisTableDefinitions[tableName]["type"],
+      z.output<ThisTableDefinitions[tableName]["rowType"]>,
+      ThisTableDefinitions[tableName]["rowType"],
       NonNullable<ThisTableDefinitions[tableName]["columns"]>
     >;
   } = Object.fromEntries(
@@ -262,7 +262,7 @@ class Database<
         new Table(
           this as any,
           tableName,
-          this.tableDefinitions[tableName].type,
+          this.tableDefinitions[tableName].rowType,
           this.tableDefinitions[tableName].columns ?? {},
         ),
       ],
