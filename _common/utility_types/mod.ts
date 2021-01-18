@@ -9,14 +9,20 @@ export default {
   ...shopify,
 };
 
-type Pass = { "assertStatic": "Pass" };
-export const assertStatic: Pass = { "assertStatic": "Pass" };
-type Fail<message extends string> = [`Fail<"${message}">`];
+export const assertStatic: Pass = undefined as any;
+type Pass = [void];
+type Fail<T> = [[T]];
+
+export type StrictlyExtends<Type, Supertype> = Type extends Supertype
+  ? Supertype extends Type
+    ? Fail<[Type, "equals", Supertype, "but does not extend it"]>
+  : Pass
+  : Fail<[Type, "does not extend", Supertype]>;
 
 export type Extends<Type, Supertype> = Type extends Supertype ? Pass
-  : Fail<`Type does not extend Supertype`>;
+  : Fail<[Type, "does not extend or equal", Supertype]>;
 
-export type Equal<Left, Right> = Left extends Right ? Right extends Left ? Pass
-: Fail<`Types are not equal, though Left extends Right.`>
-  : Right extends Left ? Fail<`Types are not equal`>
-  : Fail<`Types are not equal, though Right extends Left`>;
+export type Equals<Left, Right> = Left extends Right ? Right extends Left ? Pass
+: Fail<[Left, "extends", Right, "but does not equal it"]>
+  : Right extends Left ? Fail<[Right, "extends", Left, "but does not equal it"]>
+  : Fail<[Left, "and", Right, "are not equal"]>;

@@ -15,6 +15,8 @@ import {
   SkuId,
   StoreListId,
 } from "./common_scalars.ts";
+import { StrictlyExtends } from "../_common/utility_types/mod.ts";
+import { TableDefinitions } from "../_common/zoddb";
 
 export class StadiaDatabase {
   constructor(
@@ -65,7 +67,7 @@ const def = <
     rowType,
   } as const;
 
-  assertStatic as Extends<typeof d, TableDefinition>;
+  assertStatic as StrictlyExtends<typeof d, TableDefinition>;
 
   return d;
 };
@@ -265,13 +267,17 @@ const stadiaTableDefinitions = (() => {
     Player,
     Game,
     Sku,
-    PlayerProgression,
     StoreList,
-    PlayerSearch,
-    MyGames,
-    MyPurchases,
-    MyFriends,
+    ...{} ?? notImplemented({
+      PlayerProgression,
+      PlayerSearch,
+      MyGames,
+      MyPurchases,
+      MyFriends,
+    }),
   } as const;
+
+  assertStatic as StrictlyExtends<typeof defs, TableDefinitions>;
 
   return defs;
 })();
