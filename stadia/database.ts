@@ -38,7 +38,7 @@ export const def = <
   columns?: ThisColumnDefinitions;
   makeRequest: (
     key: Unbox<KeyType>,
-    context: Context,
+    context: RequestContext,
   ) => ProtoMessage | Promise<ProtoMessage>;
   parseResponse: (
     response: ProtoMessage,
@@ -73,6 +73,12 @@ export class StadiaDatabase {
 }
 
 interface RequestContext {
+  /** Timestamp at which this request was initiated. */
+  requestTimestamp: number;
+  /** Timestamp before which data will be considered stale/expired for the
+  purposes of this request. */
+  minFreshTimestamp: number;
+
   getDependency<
     DependencyKeyType extends z.ZodSchema<any>,
     DependencyValueType extends z.ZodSchema<any>,
@@ -88,8 +94,11 @@ interface RequestContext {
 export class DatabaseRequestContext implements RequestContext {
   constructor(
     readonly database: StadiaDatabase,
-    readonly minTimestamp = -Infinity,
+    readonly maxAgeSeconds = Infinity,
   ) {}
+
+  readonly requestTimestamp = Date.now();
+  readonly minFreshTimestamp = this.requestTimestamp - this.maxAgeSeconds;
 
   async getDependency<
     DependencyKeyType extends z.ZodSchema<any>,
