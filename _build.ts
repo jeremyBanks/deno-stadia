@@ -11,7 +11,7 @@ const main = async () => {
     Deno.exit(1);
   }
 
-  Deno.chdir("chrome");
+  Deno.chdir("_chrome");
 
   await Deno.mkdir("_generated", { recursive: true });
 
@@ -221,7 +221,8 @@ const inlineBytes = async (
 
   if (!compressedAndUgly) {
     lines.push(`\
-// @generated deno-fmt-ignore-file
+// @generated
+// deno-fmt-ignore-file
 export const
   size = ${size},
   type = ${JSON.stringify(type)},
@@ -232,7 +233,8 @@ export default new Uint8Array
 ********************************************************************************`);
   } else {
     lines.push(`\
-// @generated deno-fmt-ignore-file
+// @generated
+// deno-fmt-ignore-file
 import { brotli } from "../../deps.ts";
 export const
   size = ${size},

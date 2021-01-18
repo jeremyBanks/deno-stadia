@@ -26,47 +26,17 @@ $ stadia
 ```
 
 ```
-Unofficial Stadia CLI
-
-USAGE:
-
-    stadia [<authentication>] <command> [<arguments>...]
-
-AUTHENTICATION:
-
-    You must authenticate with Google Stadia in one of the following ways:
-
-    (1) If using Google Chrome on Windows 10 and running this command within
-        Windows Subsystem for Linux, it will detect any Chrome Profiles that are
-        synced with a Google account and load their authentication cookies
-        automatically. If there are multiple synced profiles, you will be
-        prompted to pick one, or you may specify it with the
-        --google-email=<email> parameter.
-
-    (2) The --google-cookie=<cookies> parameter may be set to a header-style
-        semicolon-delimited Cookie string that will be used to authenticate with
-        Google. This should contain the Google authentication cookies "SID",
-        "SSID", and "HSID".
-
-    (3) --offline will disable all authentication and network
-        operations. Operations that require data that isn't already saved
-        locally will fail.
-
-COMMANDS:
-
-    stadia auth
-
-        Prints information about the authenticated user.
-
-    stadia fetch [--json] <stadia_url>
-
-        Fetches a Stadia URL and displays our internal representation of the
-        response. The default output is meant for humans. The [--json] flag
-        adds more detail for machines.
-
-        stadia rpc method_id [...json_args]
-
-        stadia captures
+error: RangeError: Maximum call stack size exceeded
+    at getBaseConstraintOfType (deno:cli/tsc/00_typescript.js:53240:41)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:37)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
 
 ```
 

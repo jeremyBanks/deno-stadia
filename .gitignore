@@ -3,6 +3,6 @@
 *.sqlite
 *.sqlite*
 *.swp
+/_chrome/target/
 /canvaskit.wasm
-/chrome/target/
 /dist

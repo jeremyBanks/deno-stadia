@@ -72,14 +72,14 @@ export class StadiaDatabase {
   readonly database = zoddb.open(this.path, this.tableDefinitions);
 }
 
-interface RequestContext {
+abstract class RequestContext {
   /** Timestamp at which this request was initiated. */
-  requestTimestamp: number;
+  abstract requestTimestamp: number;
   /** Timestamp before which data will be considered stale/expired for the
   purposes of this request. */
-  minFreshTimestamp: number;
+  abstract minFreshTimestamp: number;
 
-  getDependency<
+  abstract getDependency<
     DependencyKeyType extends z.ZodSchema<any>,
     DependencyValueType extends z.ZodSchema<any>,
   >(
@@ -91,11 +91,13 @@ interface RequestContext {
   ): Promise<Unbox<DependencyValueType>>;
 }
 
-export class DatabaseRequestContext implements RequestContext {
+export class DatabaseRequestContext extends RequestContext {
   constructor(
     readonly database: StadiaDatabase,
     readonly maxAgeSeconds = Infinity,
-  ) {}
+  ) {
+    super();
+  }
 
   readonly requestTimestamp = Date.now();
   readonly minFreshTimestamp = this.requestTimestamp - this.maxAgeSeconds;
