@@ -18,33 +18,4 @@ type Unbox<T extends z.ZodType<any, z.ZodTypeDef, any>> = NoInfer<
 >;
 
 export const command = async (_: Client, flags: FlagArgs) => {
-  const db = openDB(flags.sqlite);
-  const { Player } = db;
-  type Player = z.infer<typeof Player["type"]>;
-
-  console.log(`There are ${Player.count()} Players.`);
-
-  Player.insert({
-    playerId: "134",
-    request: Player.remoteModel.makeRequest("134"),
-  });
-
-  console.log(`There are ${Player.count()} Players.`);
-
-  console.log(Player.get());
 };
-
-export class StadiaClient {
-  constructor(
-    readonly database: StadiaDatabase,
-  ) {}
-}
-
-export class StadiaDatabase {
-  constructor(
-    private path: string,
-  ) {}
-
-  // private readonly stadiaTableDefinitions = readonly;
-  db = zoddb.open(this.path, {});
-}

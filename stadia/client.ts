@@ -5,7 +5,7 @@ import * as json from "../_common/json.ts";
 import { Proto } from "../_common/proto.ts";
 import { safeEval } from "../_common/sandbox.ts";
 import { log, z } from "../deps.ts";
-import { skuFromProto } from "./response_parsers.ts";
+import { playerFromProto, skuFromProto } from "./response_parsers.ts";
 import { throttled } from "../_common/async.ts";
 import * as models from "../stadia/models.ts";
 
@@ -274,7 +274,7 @@ export class Client {
       [null, null, null, null, null, listId],
     );
     return ((response.response as any)[0] as Proto[][][]).map((proto) =>
-      skuFromProto(proto[9])
+      skuFromProto.parse(proto[9])
     );
   }
 
@@ -284,7 +284,7 @@ export class Client {
       [null, skuId],
     );
 
-    return skuFromProto((response.response as any)[16]);
+    return skuFromProto.parse((response.response as any)[16]);
   }
 
   async fetchGame(gameId: string): Promise<Array<models.Sku>> {
@@ -293,7 +293,9 @@ export class Client {
       [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]],
     );
 
-    return (response.response as any)[0].map((x: any) => skuFromProto(x[9]));
+    return (response.response as any)[0].map((x: any) =>
+      skuFromProto.parse(x[9])
+    );
   }
 
   async fetchPlayer(
@@ -321,11 +323,11 @@ export class Client {
         ],
       ]);
 
-    const player = models.playerFromProto((playerResponse as any)[5]);
+    const player = playerFromProto.parse((playerResponse as any)[5]);
 
     const friendPlayerIds =
       (friendsResponse as any)?.[0]?.map((x: any) =>
-        models.playerFromProto(x).playerId
+        playerFromProto.parse(x).playerId
       ) ??
         null;
 

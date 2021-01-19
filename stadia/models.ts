@@ -1,7 +1,14 @@
 /** Local model types. */
 
 import { z } from "../deps.ts";
-import { GameId, OrganizationId, SkuId } from "./common_scalars.ts";
+import {
+  GameId,
+  OrganizationId,
+  PlayerId,
+  PlayerName,
+  PlayerNumber,
+  SkuId,
+} from "./common_scalars.ts";
 
 export const SkuType = z.enum([
   "Game",

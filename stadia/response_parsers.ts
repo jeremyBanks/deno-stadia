@@ -25,6 +25,10 @@ export const skuFromProto = response.Sku.transform((proto) => {
   });
 });
 
+export const playerFromProto = response.Player.transform((proto) => {
+  return models.Player.parse({});
+});
+
 export const skuTypeFromId = response.SkuTypeId.transform((id) =>
   models.SkuType.parse(
     expect(skuTypesById[id], `unexpected sku type id ${id}`),

@@ -10,7 +10,6 @@ export const flags: FlagOpts = {
 
 export const command = async (client: Client, flags: FlagArgs) => {
   const args = flags["_"] as Array<string>;
-  w;
 
   const pairs: Array<[string, Proto]> = [];
 

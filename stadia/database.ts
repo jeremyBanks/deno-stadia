@@ -3,7 +3,7 @@
 import { z } from "../deps.ts";
 import zoddb from "../_common/zoddb.ts";
 import bigrams from "../_common/bigrams.ts";
-import { assertStatic, StrictlyExtends } from "../_common/utility_types/mod.ts";
+import { as, assertStatic } from "../_common/utility_types/mod.ts";
 import { notImplemented } from "../_common/assertions.ts";
 import {
   GameId,
@@ -13,19 +13,23 @@ import {
   SkuId,
   StoreListId,
 } from "./common_scalars.ts";
-import { ColumnDefinitions, TableDefinition } from "../_common/zoddb.ts";
+import {
+  ColumnDefinitions,
+  TableDefinition,
+  TableDefinitions,
+} from "../_common/zoddb.ts";
 import { NoInfer } from "../_common/utility_types/mod.ts";
 import { ProtoMessage } from "../_common/proto.ts";
 
-type Unbox<T extends z.ZodType<any, z.ZodTypeDef, any>> = NoInfer<
+type Unbox<T extends z.ZodTypeAny> = NoInfer<
   z.infer<NoInfer<T>>
 >;
 
 export const def = <
   KeyName extends string,
-  KeyType extends z.ZodSchema<any>,
+  KeyType extends z.ZodTypeAny,
   ValueName extends string,
-  ValueType extends z.ZodSchema<any>,
+  ValueType extends z.ZodTypeAny,
   ThisColumnDefinitions extends ColumnDefinitions,
   CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
 >(definition: {
@@ -58,7 +62,7 @@ export const def = <
     rowType,
   } as const;
 
-  assertStatic as StrictlyExtends<typeof d, TableDefinition>;
+  assertStatic as as.StrictlyExtends<typeof d, TableDefinition>;
 
   return d;
 };
@@ -80,8 +84,8 @@ abstract class RequestContext {
   abstract minFreshTimestamp: number;
 
   abstract getDependency<
-    DependencyKeyType extends z.ZodSchema<any>,
-    DependencyValueType extends z.ZodSchema<any>,
+    DependencyKeyType extends z.ZodTypeAny,
+    DependencyValueType extends z.ZodTypeAny,
   >(
     definition: {
       keyType: DependencyKeyType;
@@ -103,8 +107,8 @@ export class DatabaseRequestContext extends RequestContext {
   readonly minFreshTimestamp = this.requestTimestamp - this.maxAgeSeconds;
 
   async getDependency<
-    DependencyKeyType extends z.ZodSchema<any>,
-    DependencyValueType extends z.ZodSchema<any>,
+    DependencyKeyType extends z.ZodTypeAny,
+    DependencyValueType extends z.ZodTypeAny,
   >(
     definition: {
       keyType: DependencyKeyType;
@@ -316,7 +320,7 @@ const tableDefinitions = (() => {
     }),
   } as const;
 
-  assertStatic as StrictlyExtends<typeof defs, TableDefinitions>;
+  assertStatic as as.StrictlyExtends<typeof defs, TableDefinitions>;
 
   return defs;
 })();
