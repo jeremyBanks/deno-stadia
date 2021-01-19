@@ -135,11 +135,6 @@ export const discoverProfiles = async (): Promise<Array<ChromeProfile>> => {
         { isDirectory },
       ) => isDirectory).map(({ name }) => name);
     } catch (error) {
-      if (error instanceof Deno.errors.PermissionDenied) {
-        log.warning(`Unable to list contents of ${systemUserRoot}: ${error}`);
-      } else {
-        log.debug(`Unable to list contents of ${systemUserRoot}: ${error}`);
-      }
       continue;
     }
 
@@ -162,9 +157,6 @@ export const discoverProfiles = async (): Promise<Array<ChromeProfile>> => {
           "encryption key missing",
         );
       } catch (error) {
-        log.debug(
-          `Unable to read Chrome profiles for system user ${user} at ${localStatePath}: ${error}`,
-        );
         continue;
       }
 
@@ -179,10 +171,12 @@ export const discoverProfiles = async (): Promise<Array<ChromeProfile>> => {
       } catch (error) {
         if (error instanceof Deno.errors.PermissionDenied) {
           log.warning(
-            `Unable to decrypt Chrome cookie encryption key: ${error}`,
+            `Unable to decrypt Chrome cookie encryption key for system user ${user} at ${localStatePath}: ${error}`,
           );
         } else {
-          log.info(`Unable to decrypt Chrome cookie encryption key: ${error}`);
+          log.info(
+            `Unable to decrypt Chrome cookie encryption key for system user ${user} at ${localStatePath}: ${error}`,
+          );
         }
         continue;
       }

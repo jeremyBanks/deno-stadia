@@ -13,9 +13,5 @@ export const flags: FlagOpts = {
   },
 };
 
-type Unbox<T extends z.ZodType<any, z.ZodTypeDef, any>> = NoInfer<
-  z.infer<NoInfer<T>>
->;
-
 export const command = async (_: Client, flags: FlagArgs) => {
 };

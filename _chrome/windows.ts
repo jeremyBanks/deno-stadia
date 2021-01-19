@@ -20,7 +20,7 @@ export const cryptUnprotectData = async (
 
   if (!status.success) {
     throw new Error(
-      `decryption failed (code ${status.code}, sig ${status.signal}`,
+      `decryption failed (code ${status.code}, sig ${status.signal})`,
     );
   }
 

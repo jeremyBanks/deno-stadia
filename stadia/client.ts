@@ -8,6 +8,7 @@ import { log, z } from "../deps.ts";
 import { playerFromProto, skuFromProto } from "./response_parsers.ts";
 import { throttled } from "../_common/async.ts";
 import * as models from "../stadia/models.ts";
+import * as database from "../stadia/models.ts";
 
 const minRequestIntervalSeconds = 420 / 69;
 const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);

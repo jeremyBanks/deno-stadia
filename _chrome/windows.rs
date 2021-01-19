@@ -61,10 +61,9 @@ fn main() {
         Ok(cleartext) => {
             stdout()
                 .write_all(&cleartext)
-                .expect("everything is fucked");
+                .unwrap();
         }
         Err(error_message) => {
-            eprintln!("{}", error_message);
             exit(1);
         }
     }
