@@ -106,12 +106,12 @@ const main = async () => {
 
 [<img alt="latest release" src="https://img.shields.io/github/v/tag/jeremyBanks/gaming?label=latest%20release&logo=deno&style=flat-square&logoColor=white">](http://deno.land/x/gaming)
 [<img alt="commits" src="https://img.shields.io/github/commits-since/jeremyBanks/gaming/latest/trunk?label=commits%20since%20release&logo=git&style=flat-square&logoColor=white">](https://github.com/jeremyBanks/gaming/commits/trunk)
-[<img alt="checks" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white">](http://deno.land/x/gaming)
+[<img alt="checks" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white">](https://github.com/jeremyBanks/gaming/actions)
 [<img alt="pull requests" src="https://img.shields.io/github/issues-pr-raw/jeremyBanks/gaming?logo=github&style=flat-square&logoColor=white">](http://deno.land/x/gaming)<br>
-<img alt="stadia: under development" src="https://img.shields.io/badge/stadia-under_development-yellow?logo=stadia&logoColor=D72D30&style=flat-square">
-<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-not_supported-663333?logo=xbox&logoColor=107C10&style=flat-square">
-<img alt="PlayStation: not supported" src="https://img.shields.io/badge/playstation-not_supported-663333?logo=playstation&logoColor=003087&style=flat-square">
-<img alt="steam: not supported" src="https://img.shields.io/badge/steam-not_supported-663333?logo=steam&style=flat-square">
+[<img alt="stadia: under development" src="https://img.shields.io/badge/stadia-under_development-yellow?logo=stadia&logoColor=D72D30&style=flat-square">](https://stadia.com/)
+[<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-not_supported-663333?logo=xbox&logoColor=107C10&style=flat-square">](https://xbox.com/)
+[<img alt="PlayStation: not supported" src="https://img.shields.io/badge/playstation-not_supported-663333?logo=playstation&logoColor=003087&style=flat-square">](https://www.playstation.com/)
+[<img alt="steam: not supported" src="https://img.shields.io/badge/steam-not_supported-663333?logo=steam&style=flat-square">](https://steampowered.com/)
 
 An Unofficial CLI tool and Deno TypeScript library for interacting with your
 Google Stadia account.
