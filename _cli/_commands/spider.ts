@@ -9,8 +9,12 @@ export const flags: FlagOpts = {
   },
 };
 
-export const command = (_: unknown, flags: FlagArgs) => {
+export const command = async (_: unknown, flags: FlagArgs) => {
   const database = new StadiaDatabase(flags.sqlite);
 
-  database.tables.Player.table;
+  for (const row of database.tables.Player.zodTable.select()) {
+    console.log(row);
+  }
+
+  return await (null as unknown);
 };

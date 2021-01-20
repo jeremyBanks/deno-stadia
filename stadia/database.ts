@@ -82,11 +82,15 @@ export class StadiaDatabase {
         this.database.tables,
       ) as (keyof typeof result)[]
     ) {
-      result[name] = new StadiaTable(
+      const table = new StadiaTable(
         this,
         tableDefinitions[name],
         this.database.tables[name] as any,
-      ) as any;
+      );
+      for (const key of tableDefinitions[name].seedKeys ?? []) {
+        table.seed(key);
+      }
+      result[name] = table as any;
     }
     return result;
   })();
