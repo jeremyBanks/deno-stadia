@@ -100,7 +100,7 @@ export class StadiaTable<Definition extends TableDefinition> {
   constructor(
     readonly database: StadiaDatabase,
     readonly definition: TableDefinition,
-    readonly zodTable: zoddb.Table<
+    readonly rows: zoddb.Table<
       z.infer<Definition["rowType"]>,
       Definition["rowType"],
       NonNullable<Definition["columns"]>
@@ -108,7 +108,7 @@ export class StadiaTable<Definition extends TableDefinition> {
   ) {}
 
   seed(key: Unbox<Definition["keyType"]>): boolean {
-    return this.zodTable.insert({
+    return this.rows.insert({
       [this.definition.keyName]: key,
     });
   }
@@ -116,16 +116,16 @@ export class StadiaTable<Definition extends TableDefinition> {
   get(
     key: Unbox<Definition["keyType"]>,
   ): Unbox<Definition["valueType"]> | undefined {
-    const row: Unbox<Definition["rowType"]> | undefined = this.zodTable.get({
+    const row: Unbox<Definition["rowType"]> | undefined = this.rows.get({
       where: SQL`${this.definition.keyName} = ${key}`,
     });
     return row?.[this.definition.valueName] as any;
   }
 
-  delete(key: Unbox<Definition["keyType"]>): boolean {
-    return this.zodTable.delete({
+  delete(key: Unbox<Definition["keyType"]>): number {
+    return this.rows.delete({
       where: SQL`${this.definition.keyName} = ${key}`,
-    }) > 0;
+    });
   }
 }
 
