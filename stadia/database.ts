@@ -27,16 +27,16 @@ export const def = <
   KeyType extends z.ZodTypeAny,
   ValueName extends string,
   ValueType extends z.ZodTypeAny,
-  ThisColumnDefinitions extends ColumnDefinitions,
   CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
+  ThisColumnDefinitions extends ColumnDefinitions,
 >(definition: {
   keyName: KeyName;
   keyType: KeyType;
   valueName: ValueName;
   valueType: ValueType;
+  columns: ThisColumnDefinitions;
   seedKeys?: Array<Unbox<KeyType>>;
   cacheControl?: CacheControl;
-  columns?: ThisColumnDefinitions;
   makeRequest: (
     key: Unbox<KeyType>,
     context: RequestContext,
@@ -74,7 +74,7 @@ export class StadiaDatabase {
   readonly tables = (() => {
     const result = {} as unknown as {
       [TableName in keyof typeof tableDefinitions]: StadiaTable<
-        typeof tableDefinitions[TableName]
+        NoInfer<typeof tableDefinitions[TableName]>
       >;
     };
     for (
@@ -90,20 +90,24 @@ export class StadiaDatabase {
       for (const key of tableDefinitions[name].seedKeys ?? []) {
         table.seed(key);
       }
-      result[name] = table as any;
+      result[name] as any = table;
     }
     return result;
   })();
 }
 
-export class StadiaTable<Definition extends TableDefinition> {
+export class StadiaTable<
+  Definition extends TableDefinition,
+  RowType extends TableDefinition["rowType"],
+  Columns extends TableDefinition["columns"],
+> {
   constructor(
     readonly database: StadiaDatabase,
-    readonly definition: TableDefinition,
+    readonly definition: Definition,
     readonly rows: zoddb.Table<
-      z.infer<Definition["rowType"]>,
-      Definition["rowType"],
-      NonNullable<Definition["columns"]>
+      Unbox<RowType>,
+      RowType,
+      Columns
     >,
   ) {}
 
@@ -288,6 +292,7 @@ const tableDefinitions = (() => {
     keyType: PlayerId,
     valueName: "playerProgression",
     valueType: z.object({}),
+    columns: {},
     cacheControl: "max-age=115200",
     seedKeys: Player.seedKeys,
     async makeRequest(playerId, context) {
@@ -305,6 +310,7 @@ const tableDefinitions = (() => {
     keyName: "storeListId",
     keyType: StoreListId,
     valueName: "storeList",
+    columns: {},
     valueType: z.object({
       name: z.string().nonempty(),
       skuIds: z.array(SkuId),
@@ -322,6 +328,7 @@ const tableDefinitions = (() => {
     keyType: z.string().min(2).max(20),
     valueName: "playerIds",
     valueType: z.array(PlayerId),
+    columns: {},
     seedKeys: bigrams,
     makeRequest: (playerPrefix) => [
       ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
@@ -335,6 +342,7 @@ const tableDefinitions = (() => {
     keyType: z.literal("myGames"),
     valueName: "gameIds",
     valueType: z.array(GameId),
+    columns: {},
     makeRequest: () => [["T2ZnGf"]],
     parseResponse: notImplemented,
   });
@@ -345,6 +353,7 @@ const tableDefinitions = (() => {
     keyType: z.literal("myFriends"),
     valueName: "playerIds",
     valueType: z.array(PlayerId),
+    columns: {},
     makeRequest: () => [["Z5HRnb"]],
     parseResponse: notImplemented,
   });
@@ -355,6 +364,7 @@ const tableDefinitions = (() => {
     keyType: z.literal("myPurchases"),
     valueName: "skuIds",
     valueType: z.array(SkuId),
+    columns: {},
     makeRequest: () => [["uwn0Ob"]],
     parseResponse: notImplemented,
   });
@@ -364,18 +374,25 @@ const tableDefinitions = (() => {
     Game,
     Sku,
     StoreList,
-    ...{} ?? notImplemented({
+  } as const;
+
+  notImplemented(
+    {
       PlayerProgression,
       PlayerSearch,
       MyGames,
       MyPurchases,
       MyFriends,
-    }),
-  };
+    } as const,
+  );
 
   assertStatic as as.StrictlyExtends<typeof defs, zoddb.TableDefinitions>;
 
   return defs;
 })();
 
-type TableDefinition = (typeof tableDefinitions)[keyof typeof tableDefinitions];
+type TableDefinition =
+  | typeof tableDefinitions.Player
+  | typeof tableDefinitions.Game
+  | typeof tableDefinitions.Sku
+  | typeof tableDefinitions.StoreList;
