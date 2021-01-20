@@ -1,10 +1,6 @@
-import { Client } from "../../stadia/client.ts";
-import { FlagArgs, FlagOpts, z } from "../../deps.ts";
-import zoddb, { ColumnDefinitions } from "../../_common/zoddb.ts";
-import { NoInfer } from "../../_common/utility_types/mod.ts";
-import bigrams from "../../_common/bigrams.ts";
-import { notImplemented } from "../../_common/assertions.ts";
-import { Proto, ProtoMessage } from "../../_common/proto.ts";
+import { FlagArgs, FlagOpts } from "../../deps.ts";
+import { StadiaDatabase } from "../../stadia/database.ts";
+import { eprintln } from "../../_common/io.ts";
 
 export const flags: FlagOpts = {
   string: "sqlite",
@@ -13,5 +9,6 @@ export const flags: FlagOpts = {
   },
 };
 
-export const command = async (_: Client, flags: FlagArgs) => {
+export const command = async (_: unknown, flags: FlagArgs) => {
+  const database = new StadiaDatabase(flags.sqlite);
 };

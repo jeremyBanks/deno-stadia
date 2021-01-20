@@ -1,7 +1,7 @@
 /** Declares our Stadia tables with their associated RPCs. */
 
 import { z } from "../deps.ts";
-import zoddb from "../_common/zoddb.ts";
+import * as zoddb from "../_common/zoddb.ts";
 import bigrams from "../_common/bigrams.ts";
 import { as, assertStatic } from "../_common/utility_types/mod.ts";
 import { notImplemented } from "../_common/assertions.ts";
@@ -74,6 +74,36 @@ export class StadiaDatabase {
 
   readonly tableDefinitions = tableDefinitions;
   readonly database = zoddb.open(this.path, this.tableDefinitions);
+  readonly tables = (() => {
+    const result = {} as unknown as {
+      [TableName in keyof typeof tableDefinitions]: StadiaTable<
+        typeof tableDefinitions[TableName]
+      >;
+    };
+    for (
+      const name of Object.keys(
+        this.database.tables,
+      ) as (keyof typeof result)[]
+    ) {
+      result[name] = new StadiaTable(
+        this,
+        tableDefinitions[name],
+        this.database.tables[name] as any,
+      ) as any;
+    }
+  })();
+}
+
+export class StadiaTable<Definition extends TableDefinition> {
+  constructor(
+    readonly database: StadiaDatabase,
+    readonly definition: TableDefinition,
+    readonly table: zoddb.Table<
+      Definition["rowType"],
+      z.ZodSchema<Definition["rowType"]>,
+      NonNullable<Definition["columns"]>
+    >,
+  ) {}
 }
 
 abstract class RequestContext {
@@ -318,7 +348,7 @@ const tableDefinitions = (() => {
       MyPurchases,
       MyFriends,
     }),
-  } as const;
+  };
 
   assertStatic as as.StrictlyExtends<typeof defs, TableDefinitions>;
 

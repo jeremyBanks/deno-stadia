@@ -93,7 +93,7 @@ class Column {
   }
 }
 
-class Table<
+export class Table<
   Value,
   ValueSchema extends z.ZodSchema<Value, z.ZodTypeDef, Value> = z.ZodSchema<
     Value
@@ -230,7 +230,7 @@ class Table<
   }
 }
 
-class Database<
+export class Database<
   ThisTableDefinitions extends TableDefinitions = {},
 > {
   constructor(
@@ -363,5 +363,3 @@ export const open = <
     ),
   ) as any;
 };
-
-export default { open };
