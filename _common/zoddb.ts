@@ -214,7 +214,7 @@ export class Table<
     where?: SQLExpression;
     orderBy?: SQLExpression;
     unchecked?: "unchecked";
-  }): Value {
+  }): Value | undefined {
     let result = undefined;
     for (const value of this.select(options)) {
       if (result !== undefined) {
@@ -222,11 +222,7 @@ export class Table<
       }
       result = value;
     }
-    if (result !== undefined) {
-      return result;
-    } else {
-      throw new TypeError("get() expects one result, but got none");
-    }
+    return result;
   }
 }
 

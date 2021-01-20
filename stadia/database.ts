@@ -2,6 +2,7 @@
 
 import { z } from "../deps.ts";
 import * as zoddb from "../_common/zoddb.ts";
+import { SQL } from "../_common/sql.ts";
 import bigrams from "../_common/bigrams.ts";
 import { as, assertStatic } from "../_common/utility_types/mod.ts";
 import { notImplemented } from "../_common/assertions.ts";
@@ -13,11 +14,7 @@ import {
   SkuId,
   StoreListId,
 } from "./common_scalars.ts";
-import {
-  ColumnDefinitions,
-  TableDefinition,
-  TableDefinitions,
-} from "../_common/zoddb.ts";
+import { ColumnDefinitions } from "../_common/zoddb.ts";
 import { NoInfer } from "../_common/utility_types/mod.ts";
 import { ProtoMessage } from "../_common/proto.ts";
 
@@ -91,6 +88,7 @@ export class StadiaDatabase {
         this.database.tables[name] as any,
       ) as any;
     }
+    return result;
   })();
 }
 
@@ -98,12 +96,33 @@ export class StadiaTable<Definition extends TableDefinition> {
   constructor(
     readonly database: StadiaDatabase,
     readonly definition: TableDefinition,
-    readonly table: zoddb.Table<
+    readonly zodTable: zoddb.Table<
+      z.infer<Definition["rowType"]>,
       Definition["rowType"],
-      z.ZodSchema<Definition["rowType"]>,
       NonNullable<Definition["columns"]>
     >,
   ) {}
+
+  seed(key: Unbox<Definition["keyType"]>): boolean {
+    return this.zodTable.insert({
+      [this.definition.keyName]: key,
+    });
+  }
+
+  get(
+    key: Unbox<Definition["keyType"]>,
+  ): Unbox<Definition["valueType"]> | undefined {
+    const row: Unbox<Definition["rowType"]> | undefined = this.zodTable.get({
+      where: SQL`${this.definition.keyName} = ${key}`,
+    });
+    return row?.[this.definition.valueName] as any;
+  }
+
+  delete(key: Unbox<Definition["keyType"]>): boolean {
+    return this.zodTable.delete({
+      where: SQL`${this.definition.keyName} = ${key}`,
+    }) > 0;
+  }
 }
 
 abstract class RequestContext {
@@ -350,7 +369,9 @@ const tableDefinitions = (() => {
     }),
   };
 
-  assertStatic as as.StrictlyExtends<typeof defs, TableDefinitions>;
+  assertStatic as as.StrictlyExtends<typeof defs, zoddb.TableDefinitions>;
 
   return defs;
 })();
+
+type TableDefinition = (typeof tableDefinitions)[keyof typeof tableDefinitions];
