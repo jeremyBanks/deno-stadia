@@ -59,9 +59,7 @@ fn main() {
 
     match cleartext {
         Ok(cleartext) => {
-            stdout()
-                .write_all(&cleartext)
-                .unwrap();
+            stdout().write_all(&cleartext).unwrap();
         }
         Err(error_message) => {
             exit(1);

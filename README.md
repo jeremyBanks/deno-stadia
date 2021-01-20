@@ -1,11 +1,11 @@
-# [deno.land/x/gaming](https://deno.land/x/gaming)
+# [<img src="stadia.run/stadian.png" height="105" alt="deno.land/x/gaming" />](https://deno.land/x/gaming "deno.land/x/gaming")
 
-[<img alt="latest release" src="https://img.shields.io/github/v/tag/jeremyBanks/gaming?label=latest%20release&logo=deno&style=flat-square&logoColor=white">](http://deno.land/x/gaming)
-[<img alt="commits" src="https://img.shields.io/github/commits-since/jeremyBanks/gaming/latest/trunk?label=commits%20since%20release&logo=git&style=flat-square&logoColor=white">](https://github.com/jeremyBanks/gaming/commits/trunk)
-[<img alt="checks" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white">](https://github.com/jeremyBanks/gaming/actions)
-[<img alt="pull requests" src="https://img.shields.io/github/issues-pr-raw/jeremyBanks/gaming?logo=github&style=flat-square&logoColor=white">](http://deno.land/x/gaming)<br>
-[<img alt="stadia: under development" src="https://img.shields.io/badge/stadia-under_development-yellow?logo=stadia&logoColor=D72D30&style=flat-square">](https://stadia.com/)
-[<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-not_supported-663333?logo=xbox&logoColor=107C10&style=flat-square">](https://xbox.com/)
+[<img alt="latest release" src="https://img.shields.io/github/v/tag/jeremyBanks/gaming?label=latest%20release&logo=deno&style=flat-square&logoColor=white" height="20">](http://deno.land/x/gaming)
+[<img alt="commits" src="https://img.shields.io/github/commits-since/jeremyBanks/gaming/latest/trunk?label=commits%20since%20release&logo=git&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/commits/trunk)
+[<img alt="checks" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/actions)
+[<img alt="pull requests" src="https://img.shields.io/github/issues-pr-raw/jeremyBanks/gaming?logo=github&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/pulls)<br>
+[<img alt="stadia: under development" src="https://img.shields.io/badge/stadia-under_development-yellow?logo=stadia&logoColor=D72D30&style=flat-square" height="20">](https://stadia.com/)
+[<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-not_supported-663333?logo=xbox&logoColor=107C10&style=flat-square" height="20">](https://xbox.com/)
 [<img alt="PlayStation: not supported" src="https://img.shields.io/badge/playstation-not_supported-663333?logo=playstation&logoColor=003087&style=flat-square">](https://www.playstation.com/)
 [<img alt="steam: not supported" src="https://img.shields.io/badge/steam-not_supported-663333?logo=steam&style=flat-square">](https://steampowered.com/)
 
@@ -37,17 +37,47 @@ $ stadia
 ```
 
 ```
-error: RangeError: Maximum call stack size exceeded
-    at getBaseConstraintOfType (deno:cli/tsc/00_typescript.js:53240:41)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:37)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
-    at getTypeFacts (deno:cli/tsc/00_typescript.js:62711:24)
+Unofficial Stadia CLI
+
+USAGE:
+
+    stadia [<authentication>] <command> [<arguments>...]
+
+AUTHENTICATION:
+
+    You must authenticate with Google Stadia in one of the following ways:
+
+    (1) If using Google Chrome on Windows 10 and running this command within
+        Windows Subsystem for Linux, it will detect any Chrome Profiles that are
+        synced with a Google account and load their authentication cookies
+        automatically. If there are multiple synced profiles, you will be
+        prompted to pick one, or you may specify it with the
+        --google-email=<email> parameter.
+
+    (2) The --google-cookie=<cookies> parameter may be set to a header-style
+        semicolon-delimited Cookie string that will be used to authenticate with
+        Google. This should contain the Google authentication cookies "SID",
+        "SSID", and "HSID".
+
+    (3) --offline will disable all authentication and network
+        operations. Operations that require data that isn't already saved
+        locally will fail.
+
+COMMANDS:
+
+    stadia auth
+
+        Prints information about the authenticated user.
+
+    stadia fetch [--json] <stadia_url>
+
+        Fetches a Stadia URL and displays our internal representation of the
+        response. The default output is meant for humans. The [--json] flag
+        adds more detail for machines.
+
+        stadia rpc method_id [...json_args]
+
+        stadia captures
 
 ```
 
