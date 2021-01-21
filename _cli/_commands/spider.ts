@@ -21,5 +21,5 @@ export const command = async (_: unknown, flags: FlagArgs) => {
     console.log(player.value);
   }
 
-  return await (null as unknown);
+  return await (null as unknown as unknown);
 };
