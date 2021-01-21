@@ -15,14 +15,10 @@ export const flags: FlagOpts = {
 export const command = async (_: unknown, flags: FlagArgs) => {
   const database = new StadiaDatabase(flags.sqlite);
 
-  const Player = database.tables.Player;
-  type PlayerRow = z.infer<typeof Player.definition.rowType>;
-  assertStatic as as.Extends<PlayerRow, {
-    playerId: PlayerId;
-  }>;
+  const { Player } = database.database;
 
-  for (const player of Player.rows.select()) {
-    assertStatic as as.Equals<typeof player, PlayerRow>;
+  for (const player of Player.select()) {
+    console.log(player.value);
   }
 
   return await (null as unknown);

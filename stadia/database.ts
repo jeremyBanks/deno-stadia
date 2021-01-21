@@ -23,16 +23,12 @@ type Unbox<T extends z.ZodTypeAny> = NoInfer<
 >;
 
 export const def = <
-  KeyName extends string,
-  KeyType extends z.ZodTypeAny,
-  ValueName extends string,
+  KeyType extends z.ZodType<string, z.ZodTypeDef, string>,
   ValueType extends z.ZodTypeAny,
   CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
   ThisColumnDefinitions extends ColumnDefinitions,
 >(definition: {
-  keyName: KeyName;
   keyType: KeyType;
-  valueName: ValueName;
   valueType: ValueType;
   columns: ThisColumnDefinitions;
   seedKeys?: Array<Unbox<KeyType>>;
@@ -46,20 +42,20 @@ export const def = <
     key: Unbox<KeyType>,
   ) => Unbox<ValueType>;
 }) => {
-  const rowType = z.object({
-    [definition.keyName]: definition.keyType,
-    [definition.valueName]: definition.valueType.optional(),
-    _request: ProtoMessage.optional(),
-    _response: ProtoMessage.optional(),
-    _lastUpdatedTimestamp: z.number().positive().optional(),
-  });
+  const rowType = z.object(
+    {
+      key: definition.keyType,
+      value: definition.valueType.optional(),
+      _request: ProtoMessage.optional(),
+      _response: ProtoMessage.optional(),
+      _lastUpdatedTimestamp: z.number().positive().optional(),
+    } as const,
+  );
 
   const d = {
     ...definition,
     rowType,
   } as const;
-
-  assertStatic as as.StrictlyExtends<typeof d, TableDefinition>;
 
   return d;
 };
@@ -71,66 +67,6 @@ export class StadiaDatabase {
 
   readonly tableDefinitions = tableDefinitions;
   readonly database = zoddb.open(this.path, this.tableDefinitions);
-  readonly tables = (() => {
-    const result = {} as unknown as {
-      [TableName in keyof typeof tableDefinitions]: StadiaTable<
-        NoInfer<typeof tableDefinitions[TableName]>
-      >;
-    };
-    for (
-      const name of Object.keys(
-        this.database.tables,
-      ) as (keyof typeof result)[]
-    ) {
-      const table = new StadiaTable(
-        this,
-        tableDefinitions[name],
-        this.database.tables[name] as any,
-      );
-      for (const key of tableDefinitions[name].seedKeys ?? []) {
-        table.seed(key);
-      }
-      result[name] as any = table;
-    }
-    return result;
-  })();
-}
-
-export class StadiaTable<
-  Definition extends TableDefinition,
-  RowType extends TableDefinition["rowType"],
-  Columns extends TableDefinition["columns"],
-> {
-  constructor(
-    readonly database: StadiaDatabase,
-    readonly definition: Definition,
-    readonly rows: zoddb.Table<
-      Unbox<RowType>,
-      RowType,
-      Columns
-    >,
-  ) {}
-
-  seed(key: Unbox<Definition["keyType"]>): boolean {
-    return this.rows.insert({
-      [this.definition.keyName]: key,
-    });
-  }
-
-  get(
-    key: Unbox<Definition["keyType"]>,
-  ): Unbox<Definition["valueType"]> | undefined {
-    const row: Unbox<Definition["rowType"]> | undefined = this.rows.get({
-      where: SQL`${this.definition.keyName} = ${key}`,
-    });
-    return row?.[this.definition.valueName] as any;
-  }
-
-  delete(key: Unbox<Definition["keyType"]>): number {
-    return this.rows.delete({
-      where: SQL`${this.definition.keyName} = ${key}`,
-    });
-  }
 }
 
 abstract class RequestContext {
@@ -180,9 +116,7 @@ export class DatabaseRequestContext extends RequestContext {
 const tableDefinitions = (() => {
   const Player = def({
     cacheControl: "max-age=11059200",
-    keyName: "playerId",
     keyType: PlayerId,
-    valueName: "player",
     valueType: z.object({
       name: PlayerName,
       number: PlayerNumber,
@@ -231,9 +165,7 @@ const tableDefinitions = (() => {
 
   const Game = def({
     cacheControl: "max-age=57600",
-    keyName: "gameId",
     keyType: GameId,
-    valueName: "game",
     valueType: z.object({
       skuId: SkuId,
     }),
@@ -260,9 +192,7 @@ const tableDefinitions = (() => {
 
   const Sku = def({
     cacheControl: "max-age=1382400",
-    keyName: "skuId",
     keyType: SkuId,
-    valueName: "sku",
     valueType: z.object({
       name: z.string(),
     }),
@@ -288,9 +218,7 @@ const tableDefinitions = (() => {
   });
 
   const PlayerProgression = def({
-    keyName: "playerId",
     keyType: PlayerId,
-    valueName: "playerProgression",
     valueType: z.object({}),
     columns: {},
     cacheControl: "max-age=115200",
@@ -307,9 +235,7 @@ const tableDefinitions = (() => {
 
   const StoreList = def({
     cacheControl: "max-age=1920",
-    keyName: "storeListId",
     keyType: StoreListId,
-    valueName: "storeList",
     columns: {},
     valueType: z.object({
       name: z.string().nonempty(),
@@ -324,9 +250,7 @@ const tableDefinitions = (() => {
 
   const PlayerSearch = def({
     cacheControl: "max-age=5529600",
-    keyName: "playerPrefix",
     keyType: z.string().min(2).max(20),
-    valueName: "playerIds",
     valueType: z.array(PlayerId),
     columns: {},
     seedKeys: bigrams,
@@ -338,9 +262,7 @@ const tableDefinitions = (() => {
 
   const MyGames = def({
     cacheControl: "max-age=172800",
-    keyName: "MyGames",
     keyType: z.literal("myGames"),
-    valueName: "gameIds",
     valueType: z.array(GameId),
     columns: {},
     makeRequest: () => [["T2ZnGf"]],
@@ -349,9 +271,7 @@ const tableDefinitions = (() => {
 
   const MyFriends = def({
     cacheControl: "no-store,max-age=0",
-    keyName: "MyFriends",
     keyType: z.literal("myFriends"),
-    valueName: "playerIds",
     valueType: z.array(PlayerId),
     columns: {},
     makeRequest: () => [["Z5HRnb"]],
@@ -360,9 +280,7 @@ const tableDefinitions = (() => {
 
   const MyPurchases = def({
     cacheControl: "no-store,max-age=0",
-    keyName: "MyPurchases",
     keyType: z.literal("myPurchases"),
-    valueName: "skuIds",
     valueType: z.array(SkuId),
     columns: {},
     makeRequest: () => [["uwn0Ob"]],
@@ -376,7 +294,7 @@ const tableDefinitions = (() => {
     StoreList,
   } as const;
 
-  notImplemented(
+  Math.random() ?? notImplemented(
     {
       PlayerProgression,
       PlayerSearch,
@@ -390,9 +308,3 @@ const tableDefinitions = (() => {
 
   return defs;
 })();
-
-type TableDefinition =
-  | typeof tableDefinitions.Player
-  | typeof tableDefinitions.Game
-  | typeof tableDefinitions.Sku
-  | typeof tableDefinitions.StoreList;
