@@ -10,5 +10,3 @@ if (import.meta.main) {
       : `deno run --allow-all ${import.meta.url}`,
   );
 }
-
-export * as chrome from "./chrome/mod.ts";

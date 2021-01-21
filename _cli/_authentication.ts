@@ -1,4 +1,4 @@
-import { discoverProfiles } from "../chrome/mod.ts";
+import { discoverProfiles } from "../_chrome/mod.ts";
 import { flags, log } from "../deps.ts";
 import * as clui from "../_common/clui.ts";
 import { Client, GoogleCookies } from "../stadia/client.ts";

@@ -1,18 +1,25 @@
-import { z } from "../deps.ts";
+/** Proto types used in Stadia frontend RPC responses. */
 
-export const Proto: z.ZodSchema<Proto> = z.union([
-  z.null(),
-  z.number(),
-  z.string(),
-  z.array(z.lazy(() => Proto)),
-]);
-export type Proto = null | number | string | boolean | Array<Proto>;
+import { z } from "../deps.ts";
+import { Proto } from "../_common/proto.ts";
 
 const UNKNOWN = Proto;
 
 export const GameId = z.string().regex(/^[0-9a-f]+(rcp1)$/);
 export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
 export const OrganizationId = z.string().regex(/^[0-9a-f]+(pup1)$/);
+
+export const SkuTypeId = z.union([
+  z.literal(1),
+  z.literal(2),
+  z.literal(3),
+  z.literal(4),
+  z.literal(5),
+  z.literal(6),
+  z.literal(9),
+  z.literal(10),
+]);
+export type SkuTypeId = z.infer<typeof SkuTypeId>;
 
 export const NullableTimestamp = z.union([
   z.tuple([z.number().int().positive()]),
@@ -21,7 +28,6 @@ export const NullableTimestamp = z.union([
 export const SkuName = z.string().nonempty();
 export const SkuImages = UNKNOWN;
 export const SkuInternalName = z.string().nonempty();
-export const SkuTypeId = z.number().positive().int();
 export const SkuDescription = z.string().nonempty();
 export const SkuTimestampA = NullableTimestamp;
 export const SkuTimestampB = NullableTimestamp;

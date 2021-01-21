@@ -2,7 +2,7 @@ import { Client } from "../../stadia/client.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
 import { color, FlagArgs, FlagOpts, log } from "../../deps.ts";
 import * as json from "../../_common/json.ts";
-import { Proto } from "../../stadia/protos.ts";
+import { Proto } from "../../_common/proto.ts";
 
 export const flags: FlagOpts = {
   boolean: ["json"],

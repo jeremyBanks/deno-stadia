@@ -59,12 +59,9 @@ fn main() {
 
     match cleartext {
         Ok(cleartext) => {
-            stdout()
-                .write_all(&cleartext)
-                .expect("everything is fucked");
+            stdout().write_all(&cleartext).unwrap();
         }
         Err(error_message) => {
-            eprintln!("{}", error_message);
             exit(1);
         }
     }

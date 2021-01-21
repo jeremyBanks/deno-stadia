@@ -1,7 +1,9 @@
-/chrome/target
+*.bak
+*.ignore*
 *.sqlite
-*.sqlite-*
+*.sqlite*
 *.swp
 *.wasm
-*.ignored
-*.bak
+/_chrome/target/
+/canvaskit.wasm
+/dist

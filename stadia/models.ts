@@ -1,23 +1,26 @@
-import { log, z } from "../deps.ts";
-import { assert, expect, notImplemented } from "../_common/assertions.ts";
-import json from "../_common/json.ts";
+/** Local model types. */
 
-export const Proto: z.ZodSchema<Proto> = z.union([
-  z.null(),
-  z.number(),
-  z.string(),
-  z.array(z.lazy(() => Proto)),
+import { z } from "../deps.ts";
+import {
+  GameId,
+  OrganizationId,
+  PlayerId,
+  PlayerName,
+  PlayerNumber,
+  SkuId,
+} from "./common_scalars.ts";
+
+export const SkuType = z.enum([
+  "Game",
+  "Addon",
+  "Bundle",
+  "ExternalSubscription",
+  "BundleSubscription",
+  "AddonSubscription",
+  "AddonBundle",
+  "PreorderBundle",
 ]);
-export type Proto = null | number | string | boolean | Array<Proto>;
-
-export const GameId = z.string().regex(/^[0-9a-f]+(rcp1)$/);
-export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
-export const OrganizationId = z.string().regex(/^[0-9a-f]+(pup1)$/);
-export const PlayerId = z.string().regex(/^[1-9][0-9]*$/);
-export const PlayerName = z.string().min(3).max(15);
-export const PlayerNumber = z.string().length(4).regex(
-  /^(0000|[1-9][0-9]{3})$/,
-);
+export type SkuType = z.infer<typeof SkuType>;
 
 const ModelBase = z.object({
   proto: z.unknown().nullable(),
@@ -99,50 +102,6 @@ export const Sku = z.union([
   PreorderSku,
 ]);
 export type Sku = z.infer<typeof Sku>;
-
-export const skuFromProto = (proto: Array<Proto>): Sku => {
-  const skuType = skuTypeFromId(z.number().parse(proto[6]));
-  return Sku.parse({
-    type: "sku",
-    proto: proto,
-    skuType,
-    skuId: proto[0],
-    gameId: proto[4] ?? null,
-    name: proto[1],
-    description: proto[9] ?? null,
-    internalName: proto[5],
-    coverImageUrl: (proto[2] as any)?.[1]?.[0]?.[0]?.[1]?.split(/=/)[0],
-    childSkuIds: (proto[14] as any)?.[0]?.map((x: any) => x[0]),
-    timestampA: (proto[10] as any)?.[0] ?? null,
-    timestampB: (proto[26] as any)?.[0] ?? null,
-    publisherOrganizationId: proto[15],
-    developerOrganizationIds: proto[16],
-  });
-};
-
-export const skuTypeFromId = (id: number) => {
-  let skuTypesById: Record<number, Sku["skuType"]> = {
-    1: "game",
-    2: "addon",
-    3: "bundle",
-    4: "external-subscription",
-    5: "bundle-subscription",
-    6: "addon-subscription",
-    9: "addon-bundle",
-    10: "preorder",
-  };
-  return expect(skuTypesById[id], `unknown sku type id: ${id}`);
-};
-
-export const playerFromProto = (proto: Array<Proto>): Player => {
-  const details = proto[2] as any;
-  return {
-    type: "player",
-    playerId: details[7],
-    name: details[0][0],
-    number: details[0][1],
-  };
-};
 
 export const Player = ModelBase.extend({
   type: z.literal("player"),

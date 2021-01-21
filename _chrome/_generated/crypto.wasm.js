@@ -1,4 +1,5 @@
-// @generated deno-fmt-ignore-file
+// @generated
+// deno-fmt-ignore-file
 export const
   size = 63_864,
   type = "application/wasm",

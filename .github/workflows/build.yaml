@@ -121,6 +121,7 @@ jobs:
           stadia --help
 
       - run: |
+          mkdir -p dist/
           deno bundle stadia.ts dist/bundle.js
           deno run --allow-all dist/bundle.js
         continue-on-error: true
