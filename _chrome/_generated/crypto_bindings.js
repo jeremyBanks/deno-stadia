@@ -55,10 +55,10 @@ function getInt32Memory0() {
   return cachegetInt32Memory0;
 }
 
-let cachedTextDecoder = new TextDecoder(
-  "utf-8",
-  { ignoreBOM: true, fatal: true },
-);
+let cachedTextDecoder = new TextDecoder("utf-8", {
+  ignoreBOM: true,
+  fatal: true,
+});
 
 cachedTextDecoder.decode();
 
