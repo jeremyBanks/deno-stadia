@@ -52,6 +52,8 @@ export const def = <
     } as const,
   );
 
+  (definition.columns as any)["key"] = "unique";
+
   const d = {
     ...definition,
     rowType,
@@ -87,7 +89,7 @@ export class StadiaDatabase {
       }
     }
 
-    log.debug(`Seeded ${count} records`);
+    log.info(`Seeded ${count} records`);
   })();
 }
 
@@ -146,8 +148,8 @@ const tableDefinitions = (() => {
       playedGameIds: z.array(GameId),
     }),
     columns: {
-      "player.name": "indexed",
-      "player.number": "virtual",
+      "value.name": "indexed",
+      "value.number": "virtual",
     },
     makeRequest(playerId) {
       return [
@@ -219,7 +221,7 @@ const tableDefinitions = (() => {
       name: z.string(),
     }),
     columns: {
-      name: "indexed",
+      "value.name": "indexed",
     },
     seedKeys: [
       // Stadia Pro (subscription)

@@ -18,7 +18,7 @@ export const command = async (_: unknown, flags: FlagArgs) => {
   const { Player } = database.database;
 
   for (const player of Player.select()) {
-    console.log(player.value);
+    console.log(player);
   }
 
   return await (null as unknown as unknown);
