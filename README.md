@@ -1,12 +1,13 @@
 # [<img src="stadia.run/stadian.png" height="105" alt="deno.land/x/gaming" />](https://deno.land/x/gaming "deno.land/x/gaming")
 
-[<img alt="latest release" src="https://img.shields.io/github/v/tag/jeremyBanks/gaming?label=latest%20release&logo=deno&style=flat-square&logoColor=white" height="20">](http://deno.land/x/gaming)
-[<img alt="commits" src="https://img.shields.io/github/commits-since/jeremyBanks/gaming/latest/trunk?label=commits%20since%20release&logo=git&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/commits/trunk)
-[<img alt="checks" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/actions)
-[<img alt="pull requests" src="https://img.shields.io/github/issues-pr-raw/jeremyBanks/gaming?logo=github&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/pulls)<br>
-[<img alt="stadia: under development" src="https://img.shields.io/badge/stadia-under_development-yellow?logo=stadia&logoColor=D72D30&style=flat-square" height="20">](https://stadia.com/)
+[<img alt="latest release" src="https://img.shields.io/github/v/tag/jeremyBanks/gaming?label=released&logo=deno&style=flat-square&logoColor=white" height="20">](http://deno.land/x/gaming)
+[<img alt="unreleased commits on trunk" src="https://img.shields.io/github/commits-since/jeremyBanks/gaming/latest/trunk?label=unreleased&logo=git&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/commits/trunk)
+[<img alt="github actions checks of trunk" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/actions)
+[<img alt="unmerged pull requests for trunk" src="https://img.shields.io/github/issues-search?query=repo%3AjeremyBanks%2Fgaming%20is%3Apr%20is%3Aopen%20base%3Atrunk&label=unmerged&logo=github&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/pulls?q=is%3Apr+is%3Aopen+base%3Atrunk)
+<br>
+[<img alt="stadia: in progress" src="https://img.shields.io/badge/stadia-in_progress-yellow?logo=stadia&logoColor=D72D30&style=flat-square" height="20">](https://stadia.com/)
 [<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-no-663333?logo=xbox&logoColor=107C10&style=flat-square" height="20">](https://xbox.com/)
-[<img alt="PlayStation: not supported" src="https://img.shields.io/badge/playstation-no-663333?logo=playstation&logoColor=003087&style=flat-square">](https://www.playstation.com/)
+[<img alt="PlayStation: not supported" src="https://img.shields.io/badge/playstation-no-663333?logo=playstation&logoColor=003087&style=flat-square">](https://playstation.com/)
 [<img alt="steam: not supported" src="https://img.shields.io/badge/steam-no-663333?logo=steam&style=flat-square">](https://steampowered.com/)
 
 An Unofficial CLI tool and Deno TypeScript library for interacting with your
