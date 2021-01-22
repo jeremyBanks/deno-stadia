@@ -1,6 +1,6 @@
 /** Declares our Stadia tables with their associated RPCs. */
 
-import { z } from "../deps.ts";
+import { log, z } from "../deps.ts";
 import * as zoddb from "../_common/zoddb.ts";
 import { SQL } from "../_common/sql.ts";
 import bigrams from "../_common/bigrams.ts";
@@ -67,6 +67,28 @@ export class StadiaDatabase {
 
   readonly tableDefinitions = tableDefinitions;
   readonly database = zoddb.open(this.path, this.tableDefinitions);
+  readonly seeded = (() => {
+    let count = 0;
+    for (
+      const tableName of Object.keys(
+        tableDefinitions,
+      ) as (keyof typeof tableDefinitions)[]
+    ) {
+      const definition = tableDefinitions[tableName];
+      const table = this.database.tables[tableName];
+      for (const key of (definition.seedKeys ?? [])) {
+        if (
+          table.insert({
+            key: definition.keyType.parse(key) as any,
+          })
+        ) {
+          count += 1;
+        }
+      }
+    }
+
+    log.debug(`Seeded ${count} records`);
+  })();
 }
 
 abstract class RequestContext {
