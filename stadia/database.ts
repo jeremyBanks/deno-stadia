@@ -4,7 +4,11 @@ import { log, z } from "../deps.ts";
 import * as zoddb from "../_common/zoddb.ts";
 import { SQL } from "../_common/sql.ts";
 import bigrams from "../_common/bigrams.ts";
-import { as, assertStatic } from "../_common/utility_types/mod.ts";
+import {
+  as,
+  assertStatic,
+  AsyncCallback,
+} from "../_common/utility_types/mod.ts";
 import { notImplemented } from "../_common/assertions.ts";
 import {
   GameId,
@@ -36,7 +40,7 @@ export const def = <
   makeRequest: (
     key: Unbox<KeyType>,
     context: RequestContext,
-  ) => ProtoMessage | Promise<ProtoMessage>;
+  ) => Array<[string, ProtoMessage?]> | Promise<Array<[string, ProtoMessage?]>>;
   parseResponse: (
     response: ProtoMessage,
     key: Unbox<KeyType>,
@@ -53,6 +57,7 @@ export const def = <
   );
 
   (definition.columns as any)["key"] = "unique";
+  (definition.columns as any)["_lastUpdatedTimestamp"] = "indexed";
 
   const d = {
     ...definition,

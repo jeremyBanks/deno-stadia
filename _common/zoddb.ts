@@ -210,6 +210,17 @@ export class Table<
     }
   }
 
+  first(options?: {
+    where?: SQLExpression;
+    orderBy?: SQLExpression;
+    unchecked?: "unchecked";
+  }): Value {
+    for (const value of this.select(options)) {
+      return value;
+    }
+    throw new TypeError("no results found for first()");
+  }
+
   get(options?: {
     where?: SQLExpression;
     orderBy?: SQLExpression;

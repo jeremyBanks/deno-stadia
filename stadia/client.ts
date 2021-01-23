@@ -153,14 +153,14 @@ export class Client {
   }
 
   async fetchRpcBatch(
-    rpcidRequestPairs: Array<[string, Proto]>,
+    rpcidRequestPairs: Array<[string, Proto?]>,
   ) {
     // https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
     const rpcids = rpcidRequestPairs.map(([rpcid, _request]) => rpcid);
 
     const fReq = json.encode([
       rpcidRequestPairs.map(([rpcid, request], index) => {
-        return [rpcid, json.encode(request), null, String(index + 1)];
+        return [rpcid, json.encode(request ?? []), null, String(index + 1)];
       }),
     ]);
 
