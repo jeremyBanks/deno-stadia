@@ -1,5 +1,7 @@
 /** You probably want this. */
 
+// deno-lint-ignore-file no-explicit-any
+
 import { Json } from "../_common/json.ts";
 import * as json from "../_common/json.ts";
 import { Proto } from "../_common/proto.ts";
@@ -263,10 +265,6 @@ export class Client {
     if (captures.length == pageSize) {
       yield* this.fetchCaptures(nextPageToken);
     }
-  }
-
-  async f() {
-    this.fetchRpc("v2jaIb", []);
   }
 
   async fetchStoreList(listId: number): Promise<Array<models.Sku>> {

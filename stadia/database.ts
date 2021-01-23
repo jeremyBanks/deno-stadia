@@ -1,5 +1,7 @@
 /** Declares our Stadia tables with their associated RPCs. */
 
+// deno-lint-ignore-file no-explicit-any
+
 import { log, z } from "../deps.ts";
 import * as zoddb from "../_common/zoddb.ts";
 import { SQL } from "../_common/sql.ts";
@@ -89,7 +91,7 @@ export class StadiaDatabase {
         if (
           table.insert({
             key: definition.keyType.parse(key) as any,
-          })
+          } as any)
         ) {
           count += 1;
         }
@@ -309,6 +311,7 @@ const tableDefinitions = (() => {
     keyType: z.literal("myGames"),
     valueType: z.array(GameId),
     columns: {},
+    seedKeys: [],
     makeRequest: () => [["T2ZnGf"]],
     parseResponse: notImplemented,
   });
@@ -318,6 +321,7 @@ const tableDefinitions = (() => {
     keyType: z.literal("myFriends"),
     valueType: z.array(PlayerId),
     columns: {},
+    seedKeys: [],
     makeRequest: () => [["Z5HRnb"]],
     parseResponse: notImplemented,
   });
@@ -327,6 +331,7 @@ const tableDefinitions = (() => {
     keyType: z.literal("myPurchases"),
     valueType: z.array(SkuId),
     columns: {},
+    seedKeys: [],
     makeRequest: () => [["uwn0Ob"]],
     parseResponse: notImplemented,
   });
@@ -336,17 +341,12 @@ const tableDefinitions = (() => {
     Game,
     Sku,
     StoreList,
+    PlayerProgression,
+    PlayerSearch,
+    MyGames,
+    MyPurchases,
+    MyFriends,
   } as const;
-
-  Math.random() ?? notImplemented(
-    {
-      PlayerProgression,
-      PlayerSearch,
-      MyGames,
-      MyPurchases,
-      MyFriends,
-    } as const,
-  );
 
   assertStatic as as.StrictlyExtends<typeof defs, zoddb.TableDefinitions>;
 

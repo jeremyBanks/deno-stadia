@@ -1,5 +1,7 @@
 /** Parsers from response proto types to corresponding local model types. */
 
+// deno-lint-ignore-file no-explicit-any
+
 import { zod as z } from "../deps.ts";
 import * as response from "./response_protos.ts";
 import * as models from "./models.ts";
