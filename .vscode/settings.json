@@ -13,4 +13,5 @@
         "canvaskit.wasm": true,
     },
     "remote.WSL.fileWatcher.polling": true,
+    "debug.javascript.unmapMissingSources": true,
 }

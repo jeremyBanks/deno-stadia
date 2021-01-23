@@ -95,7 +95,7 @@ export class Client {
       path: url.pathname,
     };
 
-    log.info(`${method} ${url} ${body} for Google user ${this.googleId}`);
+    log.debug(`${method} ${url} ${body} for Google user ${this.googleId}`);
 
     const httpResponse = await fetch(url, { headers, body, method });
 

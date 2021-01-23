@@ -9,7 +9,7 @@ import {
   assertStatic,
   AsyncCallback,
 } from "../_common/utility_types/mod.ts";
-import { notImplemented } from "../_common/assertions.ts";
+import { assert, expect, notImplemented } from "../_common/assertions.ts";
 import {
   GameId,
   PlayerId,
@@ -20,7 +20,9 @@ import {
 } from "./common_scalars.ts";
 import { ColumnDefinitions } from "../_common/zoddb.ts";
 import { NoInfer } from "../_common/utility_types/mod.ts";
-import { ProtoMessage } from "../_common/proto.ts";
+import { Proto, ProtoMessage } from "../_common/proto.ts";
+import { skuFromProto } from "./response_parsers.ts";
+import { Sku } from "./models.ts";
 
 type Unbox<T extends z.ZodTypeAny> = NoInfer<
   z.infer<NoInfer<T>>
@@ -172,22 +174,11 @@ const tableDefinitions = (() => {
         ],
       ];
     },
-    parseResponse(response) {
-      return {
-        name: (response as any)[0]?.[1],
-        number: (response as any)[0],
-        friendPlayerIds: [],
-        playedGameIds: [],
-      };
-    },
+    parseResponse: notImplemented,
     seedKeys: [
-      // Jeremy
       "5478196876050978967",
-      // usr
       "956082794034380385",
-      // prototest
       "5904879799764",
-      // denoStadia (lots of friends, mostly-public profile)
       "13541093767486303504",
     ],
   });
@@ -197,6 +188,7 @@ const tableDefinitions = (() => {
     keyType: GameId,
     valueType: z.object({
       skuId: SkuId,
+      skuIds: z.array(SkuId),
     }),
     columns: {
       skuId: "indexed",
@@ -215,8 +207,31 @@ const tableDefinitions = (() => {
     ],
     makeRequest: (gameId) => [
       ["ZAm7We", [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]]],
+      ["LrvzJb", [null, null, [[gameId]]]],
     ],
-    parseResponse: notImplemented,
+    parseResponse: (proto, gameId) => {
+      const gameProto: Proto = (proto as any)[1][1][0][1][9];
+      const gameSku = skuFromProto.parse(gameProto);
+
+      const listedSkus: Array<Sku> | null = (proto as any)[0]?.[0]?.map((
+        x: any,
+      ) => skuFromProto.parse(x[9]));
+
+      if (!listedSkus) {
+        log.info(
+          `No skus listed for ${gameSku.name} ${gameSku.gameId} ${gameSku.skuId}`,
+        );
+      }
+
+      const skus = listedSkus ?? [gameSku];
+
+      assert(gameId === gameSku.gameId);
+
+      return {
+        skuId: gameSku.skuId,
+        skuIds: skus.map((sku) => sku.skuId),
+      };
+    },
   });
 
   const Sku = def({

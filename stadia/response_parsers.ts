@@ -4,10 +4,11 @@ import { zod as z } from "../deps.ts";
 import * as response from "./response_protos.ts";
 import * as models from "./models.ts";
 import { expect } from "../_common/assertions.ts";
+import { Proto } from "../_common/proto.ts";
 
-export const skuFromProto = response.Sku.transform((proto) => {
+export const skuFromProto = Proto.transform((proto: any): models.Sku => {
   const skuType = skuTypeFromId.parse(z.number().parse(proto[6]));
-  return models.Sku.parse({
+  return (models.SkuTypes as any)[skuType].parse({
     type: "sku",
     proto: proto,
     skuType,

@@ -9,6 +9,7 @@ import {
   PlayerNumber,
   SkuId,
 } from "./common_scalars.ts";
+import { SkuTypeId } from "./response_protos.ts";
 
 export const SkuType = z.enum([
   "Game",
@@ -59,35 +60,35 @@ export const UnknownSku = SkuCommon.extend({
 });
 
 export const GameSku = SkuCommon.extend({
-  skuType: z.literal("game"),
+  skuType: z.literal("Game"),
 });
 
 export const AddonSku = SkuCommon.extend({
-  skuType: z.literal("addon"),
+  skuType: z.literal("Addon"),
 });
 
 export const BundleSku = SkuCommon.extend({
-  skuType: z.literal("bundle"),
+  skuType: z.literal("Bundle"),
 });
 
 export const BundleSubscriptionSku = SkuCommon.extend({
-  skuType: z.literal("bundle-subscription"),
+  skuType: z.literal("BundleSubscription"),
 });
 
 export const ExternalSubscriptionSku = SkuCommon.extend({
-  skuType: z.literal("external-subscription"),
+  skuType: z.literal("ExternalSubscription"),
 });
 
 export const AddonSubscriptionSku = SkuCommon.extend({
-  skuType: z.literal("addon-subscription"),
+  skuType: z.literal("AddonSubscription"),
 });
 
 export const AddonBundleSku = SkuCommon.extend({
-  skuType: z.literal("addon-bundle"),
+  skuType: z.literal("AddonBundle"),
 });
 
 export const PreorderSku = SkuCommon.extend({
-  skuType: z.literal("preorder"),
+  skuType: z.literal("Preorder"),
 });
 
 export const Sku = z.union([
@@ -102,6 +103,18 @@ export const Sku = z.union([
   PreorderSku,
 ]);
 export type Sku = z.infer<typeof Sku>;
+
+export const SkuTypes = {
+  Game: GameSku,
+  Addon: AddonSku,
+  Bundle: BundleSku,
+  BundleSubscription: BundleSubscriptionSku,
+  AddonSubscription: AddonSubscriptionSku,
+  AddonBundle: AddonBundleSku,
+  ExternalSubscription: ExternalSubscriptionSku,
+  Preorder: PreorderSku,
+  Unknown: UnknownSku,
+} as const;
 
 export const Player = ModelBase.extend({
   type: z.literal("player"),

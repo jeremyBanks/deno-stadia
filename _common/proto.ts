@@ -5,6 +5,7 @@ export const Proto: z.ZodSchema<Proto> = z.union([
   z.null(),
   z.number(),
   z.string(),
+  z.boolean(),
   z.array(z.lazy(() => Proto)),
 ]);
 
