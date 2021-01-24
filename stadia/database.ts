@@ -5,7 +5,7 @@
 import { log, z } from "../deps.ts";
 import * as zoddb from "../_common/zoddb.ts";
 import { SQL } from "../_common/sql.ts";
-import bigrams from "../_common/bigrams.ts";
+import seedKeys from "./seed_keys.ts";
 import {
   as,
   assertStatic,
@@ -13,11 +13,13 @@ import {
 } from "../_common/utility_types/mod.ts";
 import { assert, expect, notImplemented } from "../_common/assertions.ts";
 import {
+  CaptureId,
   GameId,
   PlayerId,
   PlayerName,
   PlayerNumber,
   SkuId,
+  StateId,
   StoreListId,
 } from "./common_scalars.ts";
 import { ColumnDefinitions } from "../_common/zoddb.ts";
@@ -39,7 +41,7 @@ export const def = <
   keyType: KeyType;
   valueType: ValueType;
   columns: ThisColumnDefinitions;
-  seedKeys?: Array<Unbox<KeyType>>;
+  seedKeys?: Readonly<Array<Unbox<KeyType>>>;
   cacheControl?: CacheControl;
   makeRequest: (
     key: Unbox<KeyType>,
@@ -119,6 +121,15 @@ abstract class RequestContext {
     },
     keyValue: Unbox<DependencyKeyType>,
   ): Promise<Unbox<DependencyValueType>>;
+
+  abstract seedDiscovery<
+    DependencyKeyType extends z.ZodTypeAny,
+  >(
+    definition: {
+      keyType: DependencyKeyType;
+    },
+    keyValue: Unbox<DependencyKeyType>,
+  ): Promise<boolean>;
 }
 
 export class DatabaseRequestContext extends RequestContext {
@@ -142,6 +153,17 @@ export class DatabaseRequestContext extends RequestContext {
     },
     keyValue: Unbox<DependencyKeyType>,
   ): Promise<Unbox<DependencyValueType>> {
+    return await notImplemented() ?? definition ?? keyValue;
+  }
+
+  async seedDiscovery<
+    DependencyKeyType extends z.ZodTypeAny,
+  >(
+    definition: {
+      keyType: DependencyKeyType;
+    },
+    keyValue: Unbox<DependencyKeyType>,
+  ): Promise<boolean> {
     return await notImplemented() ?? definition ?? keyValue;
   }
 }
@@ -177,12 +199,6 @@ const tableDefinitions = (() => {
       ];
     },
     parseResponse: notImplemented,
-    seedKeys: [
-      "5478196876050978967",
-      "956082794034380385",
-      "5904879799764",
-      "13541093767486303504",
-    ],
   });
 
   const Game = def({
@@ -195,18 +211,7 @@ const tableDefinitions = (() => {
     columns: {
       skuId: "indexed",
     },
-    seedKeys: [
-      // Destiny 2 (many associated skus)
-      "20e792017ab34ad89b70dc17a5c72d68rcp1",
-      // Celeste (no associated skus)
-      "c911998e4f8d4c6ea6712c5ad33e4a54rcp1",
-      // Wolfenstein German Version (unlisted in other countries)
-      "6d92431b6ca24d69a771cf136a2a231frcp1",
-      // Football Manager 2020 (delisted)
-      "8a3cc52ad2334b1e91ded77bc43644e0rcp1",
-      // Elder Scrolls Online (very many associated skus)
-      "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
-    ],
+    seedKeys: seedKeys.Game,
     makeRequest: (gameId) => [
       ["ZAm7We", [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]]],
       ["LrvzJb", [null, null, [[gameId]]]],
@@ -245,20 +250,7 @@ const tableDefinitions = (() => {
     columns: {
       "value.name": "indexed",
     },
-    seedKeys: [
-      // Stadia Pro (subscription)
-      "59c8314ac82a456ba61d08988b15b550",
-      // Ubisoft+ (subscription)
-      "6ed658c7e6564de6acf724f979172bb6p",
-      // RDR2 Launch Bundle (delisted)
-      "2f112e5ba3d544d69bb1d537c5c4ae5c",
-      // RDR2 Launch Bonus (delisted)
-      "5ce9f4c1253047dda226a982fc3dc866",
-      // FM2020 In-Game Editor (delisted)
-      "69f80c302be14b8284ba84d1229848e8",
-      // Immortals Preorder Bonus (delisted)
-      "2e51be1b06974b81bcf0b4767b4c63dfp",
-    ],
+    seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
     parseResponse: notImplemented,
   });
@@ -268,7 +260,7 @@ const tableDefinitions = (() => {
     valueType: z.object({}),
     columns: {},
     cacheControl: "max-age=115200",
-    seedKeys: Player.seedKeys,
+    seedKeys: seedKeys.Player,
     async makeRequest(playerId, context) {
       const player = await context.getDependency(Player, playerId);
       return player.playedGameIds.map((gameId) => [
@@ -287,7 +279,7 @@ const tableDefinitions = (() => {
       name: z.string().nonempty(),
       skuIds: z.array(SkuId),
     }),
-    seedKeys: ["3"],
+    seedKeys: seedKeys.StoreList,
     makeRequest: (listId) => [
       ["ZAm7We", [null, null, null, null, null, listId]],
     ],
@@ -296,10 +288,10 @@ const tableDefinitions = (() => {
 
   const PlayerSearch = def({
     cacheControl: "max-age=5529600",
-    keyType: z.string().min(2).max(20),
+    keyType: z.string().min(2).max(20).regex(/^[a-z][a-z0-9]+$/),
     valueType: z.array(PlayerId),
     columns: {},
-    seedKeys: bigrams,
+    seedKeys: seedKeys.PlayerSearch,
     makeRequest: (playerPrefix) => [
       ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
     ],
@@ -307,21 +299,37 @@ const tableDefinitions = (() => {
   });
 
   const MyGames = def({
-    cacheControl: "max-age=172800",
+    cacheControl: "no-store,max-age=0",
     keyType: z.literal("myGames"),
     valueType: z.array(GameId),
     columns: {},
-    seedKeys: [],
+    seedKeys: ["myGames"],
     makeRequest: () => [["T2ZnGf"]],
+    parseResponse: notImplemented,
+  });
+
+  const MyRecentPlayers = def({
+    cacheControl: "no-store,max-age=0",
+    keyType: z.literal("myRecentPlayers"),
+    makeRequest: () => [["nsSFNb"]],
+    valueType: z.array(z.object({
+      playerId: PlayerId,
+      gameId: GameId.optional(),
+    })),
+    columns: {},
+    seedKeys: ["myRecentPlayers"],
     parseResponse: notImplemented,
   });
 
   const MyFriends = def({
     cacheControl: "no-store,max-age=0",
     keyType: z.literal("myFriends"),
-    valueType: z.array(PlayerId),
+    valueType: z.object({
+      playerId: PlayerId,
+      playerIds: z.array(PlayerId),
+    }),
     columns: {},
-    seedKeys: [],
+    seedKeys: ["myFriends"],
     makeRequest: () => [["Z5HRnb"]],
     parseResponse: notImplemented,
   });
@@ -331,8 +339,25 @@ const tableDefinitions = (() => {
     keyType: z.literal("myPurchases"),
     valueType: z.array(SkuId),
     columns: {},
-    seedKeys: [],
+    seedKeys: ["myPurchases"],
     makeRequest: () => [["uwn0Ob"]],
+    parseResponse: notImplemented,
+  });
+
+  const Capture = def({
+    cacheControl: "max-age=44236800",
+    keyType: CaptureId,
+    valueType: z.object({
+      captureId: CaptureId,
+      gameId: GameId,
+      timestamp: z.number(),
+      imageUrl: z.string(),
+      videoUrl: z.string().optional(),
+      stateId: StateId.optional(),
+    }),
+    columns: {},
+    seedKeys: seedKeys.Capture,
+    makeRequest: (captureId) => [["g6aH1", [captureId]]],
     parseResponse: notImplemented,
   });
 
@@ -346,6 +371,8 @@ const tableDefinitions = (() => {
     MyGames,
     MyPurchases,
     MyFriends,
+    MyRecentPlayers,
+    Capture,
   } as const;
 
   assertStatic as as.StrictlyExtends<typeof defs, zoddb.TableDefinitions>;

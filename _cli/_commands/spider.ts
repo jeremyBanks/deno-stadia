@@ -12,6 +12,8 @@ import { Client } from "../../stadia/client.ts";
 import { Proto } from "../../_common/proto.ts";
 import { sleep } from "../../_common/async.ts";
 
+// deno-lint-ignore-file no-explicit-any
+
 export const flags: FlagOpts = {
   string: "sqlite",
   default: {
@@ -20,58 +22,66 @@ export const flags: FlagOpts = {
 };
 
 export const command = async (client: Client, flags: FlagArgs) => {
-  // TODO: manually do this then shove it in StadiaDatabase
-
   const stadia = new StadiaDatabase(flags.sqlite);
   const db = stadia.database;
   const defs = stadia.tableDefinitions;
 
-  return void await Promise.all([
-    (async () => {
+  return void await Promise.all(
+    ([
+      "Player",
+      "Game",
+      "Sku",
+    ] as const).map(async <Name extends keyof typeof defs>(name: Name) => {
+      const table = db[name];
+      const def = defs[name];
 
-    }),
-    (async () => {
-      for (;;) {
-        sleep(60);
+      const cacheControl = def.cacheControl ?? "max-age=5529600";
 
-        const game = db.Game.first({
-          orderBy: SQL`_lastUpdatedTimestamp asc`,
-        });
+      const cacheAllowed = cacheControl !== "no-store,max-age=0";
 
-        const context = new DatabaseRequestContext(stadia, Infinity);
-        const requestBatch = await defs.Game.makeRequest(
-          game.key,
-          context,
-        );
-
-        const responseBatch = await client.fetchRpcBatch(requestBatch);
-
-        const updated = await defs.Game.parseResponse(
-          responseBatch.responses,
-          game.key,
-        );
-
-        db.Game.update({
-          key: game.key,
-          value: updated,
-          _lastUpdatedTimestamp: context.requestTimestamp,
-          _request: requestBatch as Array<Proto>,
-          _response: responseBatch.responses,
-        });
-
-        let discovered = 0;
-        for (const skuId of updated.skuIds) {
-          if(db.Sku.insert({
-            key: skuId,
-          })) {
-            discovered += 1;
-          }
-        }
-
-        if (discovered) {
-          log.info(`Discovered ${discovered} new Skus from Game ${game.key}`);
-        }
+      let cacheMaxAgeSeconds = cacheAllowed ? +Infinity : -Infinity;
+      if (/^max-age=\d+$/.test(cacheControl)) {
+        cacheMaxAgeSeconds = Number(cacheControl.split('=')[1]);
       }
-    })(),
-  ]);
+
+      for (;;) {
+        try {
+          const next = table.first({
+            orderBy: SQL`_lastUpdatedTimestamp asc`
+          });
+
+          if (next._lastUpdatedTimestamp && next._lastUpdatedTimestamp + cacheMaxAgeSeconds * 1000 >= Date.now()) {
+            log.info(`All ${name} records are up-to-date.`);
+            await sleep(Math.random() * 60 * 16);
+          }
+
+          const context = new DatabaseRequestContext(stadia);
+
+          const requestBatch = await def.makeRequest(
+            next.key as never,
+            context,
+          );
+          const responseBatch = await client.fetchRpcBatch(requestBatch);
+          const updated = await def.parseResponse(
+            responseBatch.responses,
+            next.key as never,
+          );
+
+          table.update({
+            key: next.key,
+            value: updated,
+            _lastUpdatedTimestamp: context.requestTimestamp,
+            _request: requestBatch as Array<Proto>,
+            _response: responseBatch.responses,
+          } as any);
+
+          log.info(`Updated ${Deno.inspect(updated)}`);
+        } catch (error) {
+          log.error(`Error while updating ${name}: ${error}`);
+          await sleep(Math.random() * 60 * 2);
+        }
+        await sleep(Math.random() * 60);
+      }
+    })
+  );
 };

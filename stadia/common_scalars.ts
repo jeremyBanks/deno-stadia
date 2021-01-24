@@ -17,6 +17,11 @@ export const PlayerName = z.string().min(3).max(15);
 export const PlayerNumber = z.string().length(4).regex(
   /^(0000|[1-9][0-9]{3})$/,
 );
+export const GUID = z.string().regex(
+  /^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$/,
+);
+export const CaptureId = GUID;
+export const StateId = GUID;
 
 export type GameId = z.infer<typeof GameId>;
 export type SkuId = z.infer<typeof SkuId>;
@@ -25,3 +30,5 @@ export type PlayerId = z.infer<typeof PlayerId>;
 export type StoreListId = z.infer<typeof StoreListId>;
 export type PlayerName = z.infer<typeof PlayerName>;
 export type PlayerNumber = z.infer<typeof PlayerNumber>;
+export type CaptureId = z.infer<typeof CaptureId>;
+export type StateId = z.infer<typeof StateId>;
