@@ -74,7 +74,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
           if (
             record._lastUpdateAttemptedTimestamp &&
-            record._lastUpdateAttemptedTimestamp + cacheMaxAgeSeconds * 1000 >= Date.now()
+            record._lastUpdateAttemptedTimestamp + cacheMaxAgeSeconds * 1000 >=
+              Date.now()
           ) {
             log.info(`All ${name} records are up-to-date.`);
             await sleep(Math.random() * 60 * 16);
