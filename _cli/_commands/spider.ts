@@ -1,3 +1,5 @@
+// deno-lint-ignore-file no-explicit-any
+
 import { FlagArgs, FlagOpts, log } from "../../deps.ts";
 import {
   DatabaseRequestContext,
@@ -11,8 +13,6 @@ import { SQL } from "../../_common/sql.ts";
 import { Client } from "../../stadia/client.ts";
 import { Proto } from "../../_common/proto.ts";
 import { sleep } from "../../_common/async.ts";
-
-// deno-lint-ignore-file no-explicit-any
 
 export const flags: FlagOpts = {
   string: "sqlite",
@@ -28,10 +28,23 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   return void await Promise.all(
     ([
-      "Player",
-      "Game",
-      "Sku",
-    ] as const).map(async <Name extends keyof typeof defs>(name: Name) => {
+      ...new Set(
+        [
+          "MyGames",
+          "MyPurchases",
+          "MyFriends",
+          "MyRecentPlayers",
+          "Player",
+          "Game",
+          "Sku",
+          "StoreList",
+          "PlayerProgression",
+          "PlayerSearch",
+          "Capture",
+          ...Object.keys(defs),
+        ],
+      ) as Set<keyof typeof defs>,
+    ]).map(async <Name extends keyof typeof defs>(name: Name, i: number) => {
       const table = db[name];
       const def = defs[name];
 
@@ -41,48 +54,63 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
       let cacheMaxAgeSeconds = cacheAllowed ? +Infinity : -Infinity;
       if (/^max-age=\d+$/.test(cacheControl)) {
-        cacheMaxAgeSeconds = Number(cacheControl.split('=')[1]);
+        cacheMaxAgeSeconds = Number(cacheControl.split("=")[1]);
       }
 
       for (;;) {
+        sleep(i);
+
         try {
-          const next = table.first({
-            orderBy: SQL`_lastUpdatedTimestamp asc, rowid asc`
+          const record = table.first({
+            orderBy: SQL`
+              _lastUpdateAttemptedTimestamp asc,
+              _lastUpdatedTimestamp asc,
+              rowid asc
+            `,
           });
 
-          if (next._lastUpdatedTimestamp && next._lastUpdatedTimestamp + cacheMaxAgeSeconds * 1000 >= Date.now()) {
+          if (
+            record._lastUpdateAttemptedTimestamp &&
+            record._lastUpdateAttemptedTimestamp + cacheMaxAgeSeconds * 1000 >= Date.now()
+          ) {
             log.info(`All ${name} records are up-to-date.`);
             await sleep(Math.random() * 60 * 16);
+            continue;
           }
 
           const context = new DatabaseRequestContext(stadia);
 
+
+          record._lastUpdateAttemptedTimestamp = context.requestTimestamp;
+          table.update(record as any);
+
           const requestBatch = await def.makeRequest(
-            next.key as never,
+            record.key as never,
             context,
           );
           const responseBatch = await client.fetchRpcBatch(requestBatch);
-          const updated = await def.parseResponse(
+          const updatedValue = await def.parseResponse(
             responseBatch.responses,
-            next.key as never,
+            record.key as never,
             context,
           );
 
-          table.update({
-            key: next.key,
-            value: updated,
-            _lastUpdatedTimestamp: context.requestTimestamp,
-            _request: requestBatch as Array<Proto>,
-            _response: responseBatch.responses,
-          } as any);
+          if (cacheAllowed) {
+            record.value = updatedValue;
+            record._lastUpdatedTimestamp = context.requestTimestamp;
+            record._request = requestBatch as Array<Proto>;
+            record._response = responseBatch.responses;
+            table.update(record as any);
 
-          log.info(`Updated ${Deno.inspect(updated)}`);
+            log.info(`Updated ${Deno.inspect(updatedValue)}`);
+          } else {
+            log.info(`Fetched non-cachable ${Deno.inspect(updatedValue)}`);
+          }
         } catch (error) {
           log.error(`Error while updating ${name}: ${error}`);
-          await sleep(Math.random() * 60 * 2);
+          await sleep(Math.random() * 60 * 8);
         }
-        await sleep(Math.random() * 60);
       }
-    })
+    }),
   );
 };

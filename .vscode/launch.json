@@ -13,7 +13,7 @@
       "console": "internalConsole",
       "runtimeArgs": [
         "run",
-        "--inspect",
+        "--inspect-brk",
         "--allow-all",
         "./stadia.ts",
         "spider"

@@ -51,7 +51,7 @@ export const def = <
     response: ProtoMessage,
     key: Unbox<KeyType>,
     context: RequestContext,
-  ) => Unbox<ValueType>;
+  ) => Unbox<ValueType> | Promise<Unbox<ValueType>>;
 }) => {
   const rowType = z.object(
     {
@@ -60,11 +60,13 @@ export const def = <
       _request: ProtoMessage.optional(),
       _response: ProtoMessage.optional(),
       _lastUpdatedTimestamp: z.number().positive().optional(),
+      _lastUpdateAttemptedTimestamp: z.number().positive().optional(),
     } as const,
   );
 
   (definition.columns as any)["key"] = "unique";
   (definition.columns as any)["_lastUpdatedTimestamp"] = "indexed";
+  (definition.columns as any)["_lastUpdateAttemptedTimestamp"] = "indexed";
 
   const d = {
     ...definition,
@@ -123,7 +125,7 @@ abstract class RequestContext {
     keyValue: Unbox<DependencyKeyType>,
   ): Promise<Unbox<DependencyValueType>>;
 
-  abstract seedDiscovery<
+  abstract seedChild<
     DependencyKeyType extends z.ZodTypeAny,
   >(
     definition: {
@@ -131,6 +133,18 @@ abstract class RequestContext {
     },
     keyValue: Unbox<DependencyKeyType>,
   ): Promise<boolean>;
+
+  abstract updateChild<
+    DependencyKeyType extends z.ZodTypeAny,
+    DependencyValueType extends z.ZodTypeAny,
+  >(
+    definition: {
+      keyType: DependencyKeyType;
+      valueType: DependencyValueType;
+    },
+    keyValue: Unbox<DependencyKeyType>,
+    valueValue: Unbox<DependencyValueType>,
+  ): Promise<unknown>;
 }
 
 export class DatabaseRequestContext extends RequestContext {
@@ -157,7 +171,7 @@ export class DatabaseRequestContext extends RequestContext {
     return await notImplemented() ?? definition ?? keyValue;
   }
 
-  async seedDiscovery<
+  async seedChild<
     DependencyKeyType extends z.ZodTypeAny,
   >(
     definition: {
@@ -165,6 +179,20 @@ export class DatabaseRequestContext extends RequestContext {
     },
     keyValue: Unbox<DependencyKeyType>,
   ): Promise<boolean> {
+    return await notImplemented() ?? definition ?? keyValue;
+  }
+
+  async updateChild<
+    DependencyKeyType extends z.ZodTypeAny,
+    DependencyValueType extends z.ZodTypeAny,
+  >(
+    definition: {
+      keyType: DependencyKeyType;
+      valueType: DependencyValueType;
+    },
+    keyValue: Unbox<DependencyKeyType>,
+    valueValue: Unbox<DependencyValueType>,
+  ): Promise<unknown> {
     return await notImplemented() ?? definition ?? keyValue;
   }
 }
@@ -199,7 +227,7 @@ const tableDefinitions = (() => {
         ],
       ];
     },
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const Game = def({
@@ -253,7 +281,7 @@ const tableDefinitions = (() => {
     },
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const PlayerProgression = def({
@@ -269,7 +297,7 @@ const tableDefinitions = (() => {
         [null, gameId, playerId],
       ]);
     },
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const StoreList = def({
@@ -284,7 +312,7 @@ const tableDefinitions = (() => {
     makeRequest: (listId) => [
       ["ZAm7We", [null, null, null, null, null, listId]],
     ],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const PlayerSearch = def({
@@ -296,7 +324,7 @@ const tableDefinitions = (() => {
     makeRequest: (playerPrefix) => [
       ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
     ],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const MyGames = def({
@@ -306,7 +334,7 @@ const tableDefinitions = (() => {
     columns: {},
     seedKeys: ["myGames"],
     makeRequest: () => [["T2ZnGf"]],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const MyRecentPlayers = def({
@@ -319,7 +347,7 @@ const tableDefinitions = (() => {
     })),
     columns: {},
     seedKeys: ["myRecentPlayers"],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const MyFriends = def({
@@ -332,7 +360,7 @@ const tableDefinitions = (() => {
     columns: {},
     seedKeys: ["myFriends"],
     makeRequest: () => [["Z5HRnb"]],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const MyPurchases = def({
@@ -342,7 +370,7 @@ const tableDefinitions = (() => {
     columns: {},
     seedKeys: ["myPurchases"],
     makeRequest: () => [["uwn0Ob"]],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const Capture = def({
@@ -359,7 +387,7 @@ const tableDefinitions = (() => {
     columns: {},
     seedKeys: seedKeys.Capture,
     makeRequest: (captureId) => [["g6aH1", [captureId]]],
-    parseResponse: notImplemented,
+    parseResponse: () => notImplemented(),
   });
 
   const defs = {
