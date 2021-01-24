@@ -50,6 +50,7 @@ export const def = <
   parseResponse: (
     response: ProtoMessage,
     key: Unbox<KeyType>,
+    context: RequestContext,
   ) => Unbox<ValueType>;
 }) => {
   const rowType = z.object(

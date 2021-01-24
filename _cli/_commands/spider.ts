@@ -47,7 +47,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
       for (;;) {
         try {
           const next = table.first({
-            orderBy: SQL`_lastUpdatedTimestamp asc`
+            orderBy: SQL`_lastUpdatedTimestamp asc, rowid asc`
           });
 
           if (next._lastUpdatedTimestamp && next._lastUpdatedTimestamp + cacheMaxAgeSeconds * 1000 >= Date.now()) {
@@ -65,6 +65,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           const updated = await def.parseResponse(
             responseBatch.responses,
             next.key as never,
+            context,
           );
 
           table.update({
