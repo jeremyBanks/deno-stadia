@@ -10,7 +10,7 @@
       "type": "pwa-node",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "deno",
-      "console": "internalConsole",
+      "console": "integratedTerminal",
       "runtimeArgs": [
         "run",
         "--inspect-brk",
@@ -20,8 +20,7 @@
       ],
       "attachSimplePort": 9229,
       "env": {
-        "DENO_STADIA_GOOGLE_EMAIL": "nobody@jeremy.ca",
-        "DENO_STADIA_LOG_LEVEL": "DEBUG",
+        "DENO_STADIA_LOG_LEVEL": "INFO",
       }
     }
   ]

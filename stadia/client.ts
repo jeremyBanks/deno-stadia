@@ -198,7 +198,7 @@ export class Client {
     const envelopes = text.split(/\n\d+\n/).slice(1).map((x) =>
       (json.decode(x) as any)[0]
     );
-    log.debug("envelopes: " + Deno.inspect(envelopes, { iterableLimit: 4 }));
+
     const responseEnvelopes = envelopes.filter((x: any) => x[0] === "wrb.fr")
       .sort(
         (a: any, b: any) => Number(a[6]) - Number(b[6]),

@@ -16,6 +16,7 @@ import { sleep } from "../../_common/async.ts";
 
 export const flags: FlagOpts = {
   string: "sqlite",
+  boolean: "migrate",
   default: {
     sqlite: "./spider.sqlite",
   },
@@ -31,17 +32,17 @@ export const command = async (client: Client, flags: FlagArgs) => {
       ...new Set(
         [
           "MyGames",
-          "MyPurchases",
-          "MyFriends",
-          "MyRecentPlayers",
-          "Player",
+          // "MyPurchases",
+          // "MyFriends",
+          // "MyRecentPlayers",
+          // "Player",
           "Game",
-          "Sku",
-          "StoreList",
-          "PlayerProgression",
-          "PlayerSearch",
-          "Capture",
-          ...Object.keys(defs),
+          // "Sku",
+          // "StoreList",
+          // "PlayerProgression",
+          // "PlayerSearch",
+          // "Capture",
+          // ...Object.keys(defs),
         ],
       ) as Set<keyof typeof defs>,
     ]).map(async <Name extends keyof typeof defs>(name: Name, i: number) => {
@@ -56,6 +57,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
       if (/^max-age=\d+$/.test(cacheControl)) {
         cacheMaxAgeSeconds = Number(cacheControl.split("=")[1]);
       }
+
+      cacheMaxAgeSeconds = Math.max(60 * 4, cacheMaxAgeSeconds);
 
       for (;;) {
         sleep(i);
@@ -79,7 +82,6 @@ export const command = async (client: Client, flags: FlagArgs) => {
           }
 
           const context = new DatabaseRequestContext(stadia);
-
 
           record._lastUpdateAttemptedTimestamp = context.requestTimestamp;
           table.update(record as any);
@@ -108,7 +110,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           }
         } catch (error) {
           log.error(`Error while updating ${name}: ${error}`);
-          await sleep(Math.random() * 60 * 8);
+          await sleep(Math.random() * 60);
         }
       }
     }),

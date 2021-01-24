@@ -6,6 +6,7 @@ import { log, z } from "../deps.ts";
 import * as zoddb from "../_common/zoddb.ts";
 import { SQL } from "../_common/sql.ts";
 import seedKeys from "./seed_keys.ts";
+import json from "../_common/json.ts";
 import {
   as,
   assertStatic,
@@ -99,6 +100,10 @@ export class StadiaDatabase {
           } as any)
         ) {
           count += 1;
+        } else {
+          log.info(`${tableName} was previously seeded.`);
+          // This table has already been seeded, skip the rest.
+          break;
         }
       }
     }
@@ -211,6 +216,7 @@ const tableDefinitions = (() => {
       "value.name": "indexed",
       "value.number": "virtual",
     },
+    seedKeys: seedKeys.Player,
     makeRequest(playerId) {
       return [
         [
@@ -227,7 +233,10 @@ const tableDefinitions = (() => {
         ],
       ];
     },
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const Game = def({
@@ -281,7 +290,10 @@ const tableDefinitions = (() => {
     },
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const PlayerProgression = def({
@@ -297,7 +309,10 @@ const tableDefinitions = (() => {
         [null, gameId, playerId],
       ]);
     },
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const StoreList = def({
@@ -312,7 +327,10 @@ const tableDefinitions = (() => {
     makeRequest: (listId) => [
       ["ZAm7We", [null, null, null, null, null, listId]],
     ],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const PlayerSearch = def({
@@ -324,17 +342,29 @@ const tableDefinitions = (() => {
     makeRequest: (playerPrefix) => [
       ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
     ],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const MyGames = def({
     cacheControl: "no-store,max-age=0",
     keyType: z.literal("myGames"),
-    valueType: z.array(GameId),
+    valueType: z.array(z.object({
+      gameId: GameId,
+      skuId: SkuId,
+    })),
     columns: {},
     seedKeys: ["myGames"],
     makeRequest: () => [["T2ZnGf"]],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos: any, _, context) =>
+      protos?.[0]?.[2]?.map((p: any) => {
+        const sku = skuFromProto.parse(p[1]) ?? [];
+        context.seedChild(Sku, sku.skuId);
+        context.seedChild(Game, expect(sku.gameId));
+        return sku;
+      }),
   });
 
   const MyRecentPlayers = def({
@@ -347,7 +377,10 @@ const tableDefinitions = (() => {
     })),
     columns: {},
     seedKeys: ["myRecentPlayers"],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const MyFriends = def({
@@ -360,7 +393,10 @@ const tableDefinitions = (() => {
     columns: {},
     seedKeys: ["myFriends"],
     makeRequest: () => [["Z5HRnb"]],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const MyPurchases = def({
@@ -370,7 +406,10 @@ const tableDefinitions = (() => {
     columns: {},
     seedKeys: ["myPurchases"],
     makeRequest: () => [["uwn0Ob"]],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const Capture = def({
@@ -387,7 +426,10 @@ const tableDefinitions = (() => {
     columns: {},
     seedKeys: seedKeys.Capture,
     makeRequest: (captureId) => [["g6aH1", [captureId]]],
-    parseResponse: () => notImplemented(),
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return notImplemented();
+    },
   });
 
   const defs = {
