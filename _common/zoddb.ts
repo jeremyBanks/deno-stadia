@@ -280,7 +280,7 @@ export class Database<
     const table = this.tables[tableName];
 
     let columns = SQL`
-      rowid integer primary key autoincrement not null,
+      rowId integer primary key autoincrement not null,
       json text not null check (json_valid(json))`;
 
     let indexCreations = [];

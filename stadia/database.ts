@@ -247,7 +247,7 @@ const tableDefinitions = (() => {
       skuIds: z.array(SkuId),
     }),
     columns: {
-      skuId: "indexed",
+      "value.skuId": "indexed",
     },
     seedKeys: seedKeys.Game,
     makeRequest: (gameId) => [
