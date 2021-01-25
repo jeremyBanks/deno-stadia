@@ -31,16 +31,16 @@ export const command = async (client: Client, flags: FlagArgs) => {
     ([
       ...new Set(
         [
-          "MyGames",
+          // "Player",
+          "Game",
+          "Sku",
+          "StoreList",
+          // "PlayerProgression",
+          // "PlayerSearch",
+          // "MyGames",
           // "MyPurchases",
           // "MyFriends",
           // "MyRecentPlayers",
-          // "Player",
-          "Game",
-          // "Sku",
-          // "StoreList",
-          // "PlayerProgression",
-          // "PlayerSearch",
           // "Capture",
           // ...Object.keys(defs),
         ],
@@ -58,7 +58,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
         cacheMaxAgeSeconds = Number(cacheControl.split("=")[1]);
       }
 
-      cacheMaxAgeSeconds = Math.max(60 * 4, cacheMaxAgeSeconds);
+      cacheMaxAgeSeconds = Math.max(60 * 60 * 24 * 7, cacheMaxAgeSeconds);
 
       for (;;) {
         sleep(i);
@@ -110,7 +110,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
             log.info(`Fetched non-cachable ${Deno.inspect(updatedValue)}`);
           }
         } catch (error) {
-          log.error(`Error while updating ${name}: ${error}`);
+          log.error(`Error while updating ${name}: ${error.stack ?? error}`);
           await sleep(Math.random() * 60);
         }
       }

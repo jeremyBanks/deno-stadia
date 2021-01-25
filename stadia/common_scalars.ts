@@ -2,26 +2,37 @@
 
 import { zod as z } from "../deps.ts";
 
-const PositiveIntegerString = z.string().nonempty().regex(/^[1-9][0-9]*$/);
+const PositiveIntegerString = z.string().nonempty().regex(/^[1-9][0-9]*$/, {
+  message: "string was not a positive integer",
+});
 
 export const GameId = z.string().regex(
   /^[0-9a-f]+(rcp1)$/,
+  { message: "not a valid GameId" },
 ) as z.Schema<`${string}rcp1`>;
-export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
+export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/, {
+  message: "not a valid SkuId",
+});
 export const OrganizationId = z.string().regex(
   /^[0-9a-f]+(pup1)$/,
+  { message: "not a valid OrganizationId" },
 ) as z.Schema<`${string}pup1`>;
 export const PlayerId = PositiveIntegerString;
 export const StoreListId = PositiveIntegerString;
-export const PlayerName = z.string().min(3).max(15);
-export const PlayerNumber = z.string().length(4).regex(
+export const PlayerName = z.string().regex(/^[a-z][a-z0-9]{2,14}$/i, {
+  message: "not a valid PlayerName",
+});
+export const GamertagPrefix = z.string().regex(
+  /^[a-z][a-z0-9]{1,14}(\#(0000|[1-9][0-9]{3}))?$/,
+  { message: "not a valid GamertagPrefix" },
+);
+export const PlayerNumber = z.string().regex(
   /^(0000|[1-9][0-9]{3})$/,
+  { message: "not a valid PlayerNumber" },
 );
-export const GUID = z.string().regex(
-  /^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$/,
-);
-export const CaptureId = GUID;
-export const StateId = GUID;
+export const UUID = z.string().uuid();
+export const CaptureId = UUID;
+export const StateId = UUID;
 
 export type GameId = z.infer<typeof GameId>;
 export type SkuId = z.infer<typeof SkuId>;
@@ -29,6 +40,7 @@ export type OrganizationId = z.infer<typeof OrganizationId>;
 export type PlayerId = z.infer<typeof PlayerId>;
 export type StoreListId = z.infer<typeof StoreListId>;
 export type PlayerName = z.infer<typeof PlayerName>;
+export type GamertagPrefix = z.infer<typeof GamertagPrefix>;
 export type PlayerNumber = z.infer<typeof PlayerNumber>;
 export type CaptureId = z.infer<typeof CaptureId>;
 export type StateId = z.infer<typeof StateId>;

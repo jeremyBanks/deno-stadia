@@ -1,4 +1,14 @@
+import {
+  CaptureId,
+  GameId,
+  GamertagPrefix,
+  PlayerId,
+  SkuId,
+  StoreListId,
+} from "./common_scalars.ts";
+
 export default {
+  /** all known game ids, sorted */
   Game: [
     "20e792017ab34ad89b70dc17a5c72d68rcp1",
     "c911998e4f8d4c6ea6712c5ad33e4a54rcp1",
@@ -142,8 +152,9 @@ export default {
     "f5f9708a422a44cc876c240cfa07221drcp1",
     "f7afcff709e74227a5648aacadf03815rcp1",
     "ffda0b7e397243f8956f92f89b6902c4rcp1",
-  ],
+  ] as readonly GameId[],
 
+  /** all known sku ids, sorted */
   Sku: [
     "59c8314ac82a456ba61d08988b15b550",
     "6ed658c7e6564de6acf724f979172bb6p",
@@ -659,8 +670,9 @@ export default {
     "fe5459c281d9443ca8f0e420f59936fc",
     "fe895d5b4ea040dab0901fad890ec092",
     "fea737af05af4408aaae16417011014f",
-  ],
+  ] as readonly SkuId[],
 
+  /** the 1024 lowest known player ids, sorted, plus some arbitrarily chosen. */
   Player: [
     "5478196876050978967",
     "956082794034380385",
@@ -1826,29 +1838,33 @@ export default {
     "9963275888408698",
     "9969947350142673",
     "9989634530844051",
-  ],
+  ] as readonly PlayerId[],
 
+  /** the essential "all games" store id 3, plus some arbitrarily chosen. */
   StoreList: [
     "3",
     "4",
     "14",
     "22",
     "45",
-    "90",
     "76",
     "101",
     "2001",
     "2002",
-  ],
+  ] as readonly StoreListId[],
 
+  /** assorted shared captures (some with video, picture, state) */
   Capture: [
-    "6b9501c8-d4a1-4ef7-b49c-52e3cac77dbf",
     "6b89ab76-9a9b-4530-bb65-fbc891865fc3",
-    "f720fcdc-5c48-4f3e-ae15-e5ffc9cc23f0",
+    "6b9501c8-d4a1-4ef7-b49c-52e3cac77dbf",
     "da4f8814-a1af-409f-910d-942f71c8ec69",
-  ],
+    "f720fcdc-5c48-4f3e-ae15-e5ffc9cc23f0",
+  ] as readonly CaptureId[],
 
+  /** the 128 most popular known player names, then an exhaustive list of all
+      26 * 36 two-character name prefixes, ordered by frequency. */
   PlayerSearch: [
+    "bot",
     "alex",
     "king",
     "ghost",
@@ -2805,5 +2821,5 @@ export default {
     "j7",
     "j8",
     "j9",
-  ],
+  ] as readonly GamertagPrefix[],
 } as const;

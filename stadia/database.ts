@@ -7,15 +7,17 @@ import * as zoddb from "../_common/zoddb.ts";
 import { SQL } from "../_common/sql.ts";
 import seedKeys from "./seed_keys.ts";
 import json from "../_common/json.ts";
+import { as, assertStatic } from "../_common/utility_types/mod.ts";
 import {
-  as,
-  assertStatic,
-  AsyncCallback,
-} from "../_common/utility_types/mod.ts";
-import { assert, expect, notImplemented } from "../_common/assertions.ts";
+  assert,
+  expect,
+  notImplemented,
+  untyped,
+} from "../_common/assertions.ts";
 import {
   CaptureId,
   GameId,
+  GamertagPrefix,
   PlayerId,
   PlayerName,
   PlayerNumber,
@@ -27,7 +29,7 @@ import { ColumnDefinitions } from "../_common/zoddb.ts";
 import { NoInfer } from "../_common/utility_types/mod.ts";
 import { Proto, ProtoMessage } from "../_common/proto.ts";
 import { skuFromProto } from "./response_parsers.ts";
-import { Sku } from "./models.ts";
+import * as models from "./models.ts";
 
 type Unbox<T extends z.ZodTypeAny> = NoInfer<
   z.infer<NoInfer<T>>
@@ -39,6 +41,7 @@ export const def = <
   CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
   ThisColumnDefinitions extends ColumnDefinitions,
 >(definition: {
+  name: string;
   keyType: KeyType;
   valueType: ValueType;
   columns: ThisColumnDefinitions;
@@ -68,11 +71,16 @@ export const def = <
   (definition.columns as any)["key"] = "unique";
   (definition.columns as any)["_lastUpdatedTimestamp"] = "indexed";
   (definition.columns as any)["_lastUpdateAttemptedTimestamp"] = "indexed";
+  (definition.columns as any)["_request"] = "virtual";
+  (definition.columns as any)["_response"] = "virtual";
+  (definition.columns as any)["value"] = "virtual";
 
   const d = {
     ...definition,
     rowType,
   } as const;
+
+  assertStatic as as.StrictlyExtends<typeof d, zoddb.TableDefinition>;
 
   return d;
 };
@@ -114,42 +122,24 @@ export class StadiaDatabase {
 
 abstract class RequestContext {
   /** Timestamp at which this request was initiated. */
-  abstract requestTimestamp: number;
+  readonly requestTimestamp = Date.now();
   /** Timestamp before which data will be considered stale/expired for the
   purposes of this request. */
   abstract minFreshTimestamp: number;
 
   abstract getDependency<
-    DependencyKeyType extends z.ZodTypeAny,
-    DependencyValueType extends z.ZodTypeAny,
+    Definition extends ReturnType<typeof def>,
   >(
-    definition: {
-      keyType: DependencyKeyType;
-      valueType: DependencyValueType;
-    },
-    keyValue: Unbox<DependencyKeyType>,
-  ): Promise<Unbox<DependencyValueType>>;
+    dependency: Definition,
+    keyValue: Unbox<Definition["keyType"]>,
+  ): Promise<Unbox<Definition["valueType"]>>;
 
-  abstract seedChild<
-    DependencyKeyType extends z.ZodTypeAny,
+  abstract seed<
+    Definition extends ReturnType<typeof def>,
   >(
-    definition: {
-      keyType: DependencyKeyType;
-    },
-    keyValue: Unbox<DependencyKeyType>,
+    definition: Definition,
+    childKey: Unbox<Definition["keyType"]>,
   ): Promise<boolean>;
-
-  abstract updateChild<
-    DependencyKeyType extends z.ZodTypeAny,
-    DependencyValueType extends z.ZodTypeAny,
-  >(
-    definition: {
-      keyType: DependencyKeyType;
-      valueType: DependencyValueType;
-    },
-    keyValue: Unbox<DependencyKeyType>,
-    valueValue: Unbox<DependencyValueType>,
-  ): Promise<unknown>;
 }
 
 export class DatabaseRequestContext extends RequestContext {
@@ -160,50 +150,46 @@ export class DatabaseRequestContext extends RequestContext {
     super();
   }
 
-  readonly requestTimestamp = Date.now();
   readonly minFreshTimestamp = this.requestTimestamp - this.maxAgeSeconds;
 
+  // deno-lint-ignore require-await
   async getDependency<
-    DependencyKeyType extends z.ZodTypeAny,
-    DependencyValueType extends z.ZodTypeAny,
+    Definition extends ReturnType<typeof def>,
   >(
-    definition: {
-      keyType: DependencyKeyType;
-      valueType: DependencyValueType;
-    },
-    keyValue: Unbox<DependencyKeyType>,
-  ): Promise<Unbox<DependencyValueType>> {
-    return await notImplemented() ?? definition ?? keyValue;
+    definition: Definition,
+    dependencyKey: Unbox<Definition["keyType"]>,
+  ): Promise<Unbox<Definition["valueType"]>> {
+    const table: zoddb.Table<Definition["rowType"]> =
+      (this.database.database.tables as any)[definition.name];
+    const existing = table.get({
+      where: SQL`key = ${dependencyKey}`,
+    });
+    if (existing) {
+      return existing;
+    } else {
+      return notImplemented("fetching non-cached dependencies not implemented");
+    }
   }
 
-  async seedChild<
-    DependencyKeyType extends z.ZodTypeAny,
+  // deno-lint-ignore require-await
+  async seed<
+    Definition extends ReturnType<typeof def>,
   >(
-    definition: {
-      keyType: DependencyKeyType;
-    },
-    keyValue: Unbox<DependencyKeyType>,
+    definition: Definition,
+    childKey: Unbox<Definition["keyType"]>,
   ): Promise<boolean> {
-    return await notImplemented() ?? definition ?? keyValue;
-  }
+    const table: zoddb.Table<Definition["rowType"]> =
+      (this.database.database.tables as any)[definition.name];
 
-  async updateChild<
-    DependencyKeyType extends z.ZodTypeAny,
-    DependencyValueType extends z.ZodTypeAny,
-  >(
-    definition: {
-      keyType: DependencyKeyType;
-      valueType: DependencyValueType;
-    },
-    keyValue: Unbox<DependencyKeyType>,
-    valueValue: Unbox<DependencyValueType>,
-  ): Promise<unknown> {
-    return await notImplemented() ?? definition ?? keyValue;
+    return table.insert({
+      key: definition.keyType.parse(childKey) as any,
+    } as any);
   }
 }
 
 const tableDefinitions = (() => {
   const Player = def({
+    name: "Player",
     cacheControl: "max-age=11059200",
     keyType: PlayerId,
     valueType: z.object({
@@ -240,6 +226,7 @@ const tableDefinitions = (() => {
   });
 
   const Game = def({
+    name: "Game",
     cacheControl: "max-age=57600",
     keyType: GameId,
     valueType: z.object({
@@ -258,7 +245,7 @@ const tableDefinitions = (() => {
       const gameProto: Proto = (proto as any)[1][1][0][1][9];
       const gameSku = skuFromProto.parse(gameProto);
 
-      const listedSkus: Array<Sku> | null = (proto as any)[0]?.[0]?.map((
+      const listedSkus: Array<models.Sku> | null = (proto as any)[0]?.[0]?.map((
         x: any,
       ) => skuFromProto.parse(x[9]));
 
@@ -280,23 +267,25 @@ const tableDefinitions = (() => {
   });
 
   const Sku = def({
+    name: "Sku",
     cacheControl: "max-age=1382400",
     keyType: SkuId,
-    valueType: z.object({
-      name: z.string(),
-    }),
+    valueType: models.Sku,
     columns: {
       "value.name": "indexed",
     },
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
-    parseResponse: (protos) => {
-      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return notImplemented();
+    parseResponse: (protos: any, key, context) => {
+      const sku = skuFromProto.parse(protos[16]);
+      assert(sku.skuId === key);
+      context.seed(untyped(Game), sku.gameId);
+      return sku;
     },
   });
 
   const PlayerProgression = def({
+    name: "PlayerProgression",
     keyType: PlayerId,
     valueType: z.object({}),
     columns: {},
@@ -311,31 +300,45 @@ const tableDefinitions = (() => {
     },
     parseResponse: (protos) => {
       log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return notImplemented();
+      return {};
     },
   });
 
   const StoreList = def({
+    name: "StoreList",
     cacheControl: "max-age=1920",
     keyType: StoreListId,
     columns: {},
-    valueType: z.object({
-      name: z.string().nonempty(),
-      skuIds: z.array(SkuId),
-    }),
+    valueType: z.array(z.object({
+      skuId: SkuId,
+      gameId: GameId,
+    })),
     seedKeys: seedKeys.StoreList,
     makeRequest: (listId) => [
-      ["ZAm7We", [null, null, null, null, null, listId]],
+      ["ZAm7We", [null, null, null, null, null, Number(listId)]],
     ],
-    parseResponse: (protos) => {
-      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return notImplemented();
+    parseResponse: (protos: any, key, context) => {
+      const results: Array<{ skuId: SkuId; gameId: GameId }> = [];
+      for (const p of protos[0]?.[0] ?? []) {
+        const d = expect(p?.[9]);
+        const sku = skuFromProto.parse(d);
+        const skuId = sku.skuId;
+        const gameId = expect(sku.gameId);
+        context.seed(Sku, skuId);
+        context.seed(untyped(Game), gameId);
+        results.push({
+          skuId,
+          gameId,
+        });
+      }
+      return results;
     },
   });
 
   const PlayerSearch = def({
+    name: "PlayerSearch",
     cacheControl: "max-age=5529600",
-    keyType: z.string().min(2).max(20).regex(/^[a-z][a-z0-9]+$/),
+    keyType: GamertagPrefix.min(2),
     valueType: z.array(PlayerId),
     columns: {},
     seedKeys: seedKeys.PlayerSearch,
@@ -344,11 +347,12 @@ const tableDefinitions = (() => {
     ],
     parseResponse: (protos) => {
       log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return notImplemented();
+      return [];
     },
   });
 
   const MyGames = def({
+    name: "MyGames",
     cacheControl: "no-store,max-age=0",
     keyType: z.literal("myGames"),
     valueType: z.array(z.object({
@@ -361,13 +365,14 @@ const tableDefinitions = (() => {
     parseResponse: (protos: any, _, context) =>
       protos?.[0]?.[2]?.map((p: any) => {
         const sku = skuFromProto.parse(p[1]) ?? [];
-        context.seedChild(Sku, sku.skuId);
-        context.seedChild(Game, expect(sku.gameId));
+        context.seed(Sku, sku.skuId);
+        context.seed(untyped(Game), expect(sku.gameId));
         return sku;
       }),
   });
 
   const MyRecentPlayers = def({
+    name: "MyRecentPlayers",
     cacheControl: "no-store,max-age=0",
     keyType: z.literal("myRecentPlayers"),
     makeRequest: () => [["nsSFNb"]],
@@ -384,6 +389,7 @@ const tableDefinitions = (() => {
   });
 
   const MyFriends = def({
+    name: "MyFriends",
     cacheControl: "no-store,max-age=0",
     keyType: z.literal("myFriends"),
     valueType: z.object({
@@ -400,6 +406,7 @@ const tableDefinitions = (() => {
   });
 
   const MyPurchases = def({
+    name: "MyPurchases",
     cacheControl: "no-store,max-age=0",
     keyType: z.literal("myPurchases"),
     valueType: z.array(SkuId),
@@ -413,6 +420,7 @@ const tableDefinitions = (() => {
   });
 
   const Capture = def({
+    name: "Capture",
     cacheControl: "max-age=44236800",
     keyType: CaptureId,
     valueType: z.object({
