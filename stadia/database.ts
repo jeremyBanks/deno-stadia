@@ -201,6 +201,8 @@ const tableDefinitions = (() => {
     columns: {
       "value.name": "indexed",
       "value.number": "virtual",
+      "value.friendPlayerIds": "virtual",
+      "value.playedGameIds": "virtual",
     },
     seedKeys: seedKeys.Player,
     makeRequest(playerId) {
@@ -272,7 +274,10 @@ const tableDefinitions = (() => {
     keyType: SkuId,
     valueType: models.Sku,
     columns: {
-      "value.name": "indexed",
+      "value.gameId": "indexed",
+      "value.skuType": "indexed",
+      "value.name": "virtual",
+      "value.description": "virtual",
     },
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
