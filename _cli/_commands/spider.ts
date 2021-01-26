@@ -34,7 +34,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           // "Player",
           "Game",
           "Sku",
-          "StoreList",
+          // "StoreList",
           // "PlayerProgression",
           // "PlayerSearch",
           // "MyGames",

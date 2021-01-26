@@ -246,7 +246,13 @@ const tableDefinitions = (() => {
       ["ZAm7We", [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]]],
       ["LrvzJb", [null, null, [[gameId]]]],
     ],
-    parseResponse: (proto, gameId) => {
+    parseResponse: (proto: any, gameId) => {
+      if (proto[0]?.[0] === null && proto[1]?.length === 0) {
+        throw new Error(
+          `found no skus for game ${gameId}. this should only be the case for subscriptions, so it should not be common. not currently supported`,
+        );
+      }
+
       const gameProto: Proto = (proto as any)[1][1][0][1][9];
       const gameSku = skuFromProto.parse(gameProto);
 
@@ -285,11 +291,50 @@ const tableDefinitions = (() => {
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
     parseResponse: (protos: any, key, context) => {
+      if (protos[0] === null) {
+        log.warning(
+          `requested sku ${key} appears to have been deleted. this should not be frequent.`,
+        );
+        const deleted: models.DeletedSku = {
+          type: "sku",
+          skuType: "Deleted",
+          skuId: key,
+          coverImageUrl: null,
+          description: null,
+          developerOrganizationIds: null,
+          gameId: null,
+          internalName: null,
+          name: null,
+          publisherOrganizationId: null,
+          timestampA: null,
+          timestampB: null,
+        };
+        return deleted;
+      }
+
       const sku = skuFromProto.parse(protos[0][16]);
-      assert(
-        sku.skuId === key,
-        `response sku ${sku.skuId} did not match request sku ${key}`,
-      );
+      if (sku.skuId !== key) {
+        log.warning(
+          `response sku ${sku.skuId} did not match request sku ${key}. this should be not be frequent.`,
+        );
+        context.seed(Sku, sku.skuId);
+        const alias: models.AliasSku = {
+          type: "sku",
+          skuType: "Alias",
+          skuId: key,
+          targetSkuId: sku.skuId,
+          coverImageUrl: null,
+          description: null,
+          developerOrganizationIds: null,
+          gameId: null,
+          internalName: null,
+          name: null,
+          publisherOrganizationId: null,
+          timestampA: null,
+          timestampB: null,
+        };
+        return alias;
+      }
       context.seed(untyped(Game), sku.gameId);
       return sku;
     },

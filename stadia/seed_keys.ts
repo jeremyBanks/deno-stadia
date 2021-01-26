@@ -2822,4 +2822,9 @@ export default {
     "j8",
     "j9",
   ] as readonly GamertagPrefix[],
+
+  Subscription: [
+    1,
+    3,
+  ],
 } as const;

@@ -8,6 +8,7 @@ import {
   PlayerName,
   PlayerNumber,
   SkuId,
+  SubscriptionId,
 } from "./common_scalars.ts";
 import { SkuTypeId } from "./response_protos.ts";
 
@@ -16,7 +17,7 @@ export const SkuType = z.enum([
   "Addon",
   "Bundle",
   "ExternalSubscription",
-  "BundleSubscription",
+  "StadiaSubscription",
   "AddonSubscription",
   "AddonBundle",
   "PreorderBundle",
@@ -50,15 +51,6 @@ export const SkuCommon = ModelBase.extend({
   publisherOrganizationId: OrganizationId.nullable().optional(),
   developerOrganizationIds: OrganizationId.array().nullable().optional(),
 });
-
-export const UnknownSku = SkuCommon.extend({
-  skuType: z.null(),
-  gameId: z.null(),
-  name: z.null(),
-  description: z.null(),
-  internalName: z.null(),
-});
-
 export const GameSku = SkuCommon.extend({
   skuType: z.literal("Game"),
 });
@@ -71,12 +63,14 @@ export const BundleSku = SkuCommon.extend({
   skuType: z.literal("Bundle"),
 });
 
-export const BundleSubscriptionSku = SkuCommon.extend({
-  skuType: z.literal("BundleSubscription"),
+export const StadiaSubscriptionSku = SkuCommon.extend({
+  skuType: z.literal("StadiaSubscription"),
+  subscriptionId: SubscriptionId,
 });
 
 export const ExternalSubscriptionSku = SkuCommon.extend({
   skuType: z.literal("ExternalSubscription"),
+  subscriptionId: SubscriptionId,
 });
 
 export const AddonSubscriptionSku = SkuCommon.extend({
@@ -95,31 +89,56 @@ export const PreorderBundleSku = SkuCommon.extend({
   skuType: z.literal("PreorderBundle"),
 });
 
+const NonSkuSkuCommon = SkuCommon.extend({
+  gameId: z.null(),
+  name: z.null(),
+  description: z.null(),
+  internalName: z.null(),
+  coverImageUrl: z.null(),
+  timestampA: z.null(),
+  timestampB: z.null(),
+  publisherOrganizationId: z.null(),
+  developerOrganizationIds: z.null(),
+});
+
+export const AliasSku = NonSkuSkuCommon.extend({
+  skuType: z.literal("Alias"),
+  targetSkuId: SkuId,
+});
+
+export const DeletedSku = NonSkuSkuCommon.extend({
+  skuType: z.literal("Deleted"),
+});
+
 export const Sku = z.union([
-  UnknownSku,
-  GameSku,
-  AddonSku,
-  BundleSku,
-  BundleSubscriptionSku,
-  AddonSubscriptionSku,
   AddonBundleSku,
+  AddonSku,
+  AddonSubscriptionSku,
+  AliasSku,
+  DeletedSku,
+  BundleSku,
+  StadiaSubscriptionSku,
   ExternalSubscriptionSku,
-  PreorderSku,
+  GameSku,
   PreorderBundleSku,
+  PreorderSku,
 ]);
 export type Sku = z.infer<typeof Sku>;
+export type AliasSku = z.infer<typeof AliasSku>;
+export type DeletedSku = z.infer<typeof DeletedSku>;
 
 export const SkuTypes = {
-  Game: GameSku,
   Addon: AddonSku,
-  Bundle: BundleSku,
-  BundleSubscription: BundleSubscriptionSku,
-  AddonSubscription: AddonSubscriptionSku,
   AddonBundle: AddonBundleSku,
+  AddonSubscription: AddonSubscriptionSku,
+  Alias: AliasSku,
+  Deleted: DeletedSku,
+  Bundle: BundleSku,
+  StadiaSubscription: StadiaSubscriptionSku,
   ExternalSubscription: ExternalSubscriptionSku,
+  Game: GameSku,
   Preorder: PreorderSku,
   PreorderBundle: PreorderBundleSku,
-  Unknown: UnknownSku,
 } as const;
 
 export const Player = ModelBase.extend({

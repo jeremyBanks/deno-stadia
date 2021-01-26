@@ -25,6 +25,7 @@ export const skuFromProto = z.any().transform((proto: any): models.Sku => {
     timestampB: (proto[26] as any)?.[0] ?? null,
     publisherOrganizationId: proto[15],
     developerOrganizationIds: proto[16],
+    subscriptionId: (proto[27] as any) ?? undefined,
   });
 });
 
@@ -43,7 +44,7 @@ const skuTypesById: Record<response.SkuTypeId, models.SkuType> = {
   2: "Addon",
   3: "Bundle",
   4: "ExternalSubscription",
-  5: "BundleSubscription",
+  5: "StadiaSubscription",
   6: "AddonSubscription",
   9: "AddonBundle",
   10: "PreorderBundle",
