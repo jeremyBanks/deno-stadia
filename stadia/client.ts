@@ -206,7 +206,9 @@ export class Client {
     const responses = responseEnvelopes.map((r: any) =>
       json.decode(r[2])
     ) as Array<Array<Proto>>;
-    log.debug("responses: " + Deno.inspect(responses, { iterableLimit: 4 }));
+    log.debug(
+      "RPC RESPONSE BATCH: " + Deno.inspect(responses, { iterableLimit: 4 }),
+    );
 
     return {
       httpResponse,

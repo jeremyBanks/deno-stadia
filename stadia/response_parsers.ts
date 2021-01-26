@@ -8,9 +8,9 @@ import * as models from "./models.ts";
 import { expect } from "../_common/assertions.ts";
 import { Proto } from "../_common/proto.ts";
 
-export const skuFromProto = Proto.transform((proto: any): models.Sku => {
+export const skuFromProto = z.any().transform((proto: any): models.Sku => {
   const skuType = skuTypeFromId.parse(z.number().parse(proto[6]));
-  return (models.SkuTypes as any)[skuType].parse({
+  return models.SkuTypes[skuType].parse({
     type: "sku",
     proto: proto,
     skuType,
@@ -28,7 +28,7 @@ export const skuFromProto = Proto.transform((proto: any): models.Sku => {
   });
 });
 
-export const playerFromProto = response.Player.transform((proto) => {
+export const playerFromProto = z.any().transform((proto) => {
   return models.Player.parse({});
 });
 

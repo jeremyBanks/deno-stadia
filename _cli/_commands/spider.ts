@@ -61,6 +61,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
       cacheMaxAgeSeconds = Math.max(60 * 60 * 24 * 7, cacheMaxAgeSeconds);
 
       for (;;) {
+        try {
+          db.sql(SQL`commit transaction`);
+        } catch (error) { error }
+        db.sql(SQL`begin deferred transaction`);
         sleep(i);
 
         try {
@@ -78,9 +82,14 @@ export const command = async (client: Client, flags: FlagArgs) => {
               Date.now()
           ) {
             log.info(`All ${name} records are up-to-date.`);
+            try {
+              db.sql(SQL`commit transaction`);
+            } catch (error) { error }
             await sleep(Math.random() * 60 * 16);
             continue;
           }
+
+          log.info(`Spidering ${name} ${record.key}`);
 
           const context = new DatabaseRequestContext(stadia);
 

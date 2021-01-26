@@ -93,6 +93,8 @@ export class StadiaDatabase {
   readonly tableDefinitions = tableDefinitions;
   readonly database = zoddb.open(this.path, this.tableDefinitions);
   readonly seeded = (() => {
+    this.database.sql(SQL`begin deferred transaction`);
+
     let count = 0;
     for (
       const tableName of Object.keys(
@@ -116,6 +118,7 @@ export class StadiaDatabase {
       }
     }
 
+    this.database.sql(SQL`commit transaction`);
     log.info(`Seeded ${count} records`);
   })();
 }
@@ -282,8 +285,11 @@ const tableDefinitions = (() => {
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
     parseResponse: (protos: any, key, context) => {
-      const sku = skuFromProto.parse(protos[16]);
-      assert(sku.skuId === key);
+      const sku = skuFromProto.parse(protos[0][16]);
+      assert(
+        sku.skuId === key,
+        `response sku ${sku.skuId} did not match request sku ${key}`,
+      );
       context.seed(untyped(Game), sku.gameId);
       return sku;
     },

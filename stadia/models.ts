@@ -91,6 +91,10 @@ export const PreorderSku = SkuCommon.extend({
   skuType: z.literal("Preorder"),
 });
 
+export const PreorderBundleSku = SkuCommon.extend({
+  skuType: z.literal("PreorderBundle"),
+});
+
 export const Sku = z.union([
   UnknownSku,
   GameSku,
@@ -101,6 +105,7 @@ export const Sku = z.union([
   AddonBundleSku,
   ExternalSubscriptionSku,
   PreorderSku,
+  PreorderBundleSku,
 ]);
 export type Sku = z.infer<typeof Sku>;
 
@@ -113,6 +118,7 @@ export const SkuTypes = {
   AddonBundle: AddonBundleSku,
   ExternalSubscription: ExternalSubscriptionSku,
   Preorder: PreorderSku,
+  PreorderBundle: PreorderBundleSku,
   Unknown: UnknownSku,
 } as const;
 
