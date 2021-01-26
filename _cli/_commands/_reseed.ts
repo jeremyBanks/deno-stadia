@@ -20,7 +20,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
   const db = stadia.database;
   const defs = stadia.tableDefinitions;
 
-  print(`
+  print(`\
 import {
   CaptureId,
   GameId,
@@ -34,7 +34,7 @@ import {
 export default {
   Capture: [
     ${seed_keys.Capture.map(json.encode).sort().join(`,
-    `)}
+    `)},
   ] as readonly CaptureId[],
 
   Game: [
@@ -43,7 +43,7 @@ export default {
         orderBy: SQL`key asc`
       })].map(p => p.key)
     ])].map(json.encode).join(`,
-    `)}
+    `)},
   ] as readonly GameId[],
 
   Player: [
@@ -55,7 +55,7 @@ export default {
         orderBy: SQL`key asc`
       })].map(p => p.key)
     ])].slice(0, 1024).map(json.encode).join(`,
-    `)}
+    `)},
   ] as readonly PlayerId[],
 
   PlayerSearch: [
@@ -63,7 +63,7 @@ export default {
   /* TODO: the 128 most popular known player names, then an exhaustive list of
      all 26 * 36 two-character name prefixes, ordered by frequency. */
       seed_keys.PlayerSearch.map(json.encode).join(`,
-    `)}
+    `)},
   ] as readonly GamertagPrefix[],
 
   Sku: [
@@ -72,17 +72,17 @@ export default {
         orderBy: SQL`key asc`
       })].map(p => p.key)
     ])].map(json.encode).join(`,
-    `)}
+    `)},
   ] as readonly SkuId[],
 
   StoreList: [
     ${[...new Set([
       "3",
-      ...[...db.tables.Sku.select({
+      ...[...db.tables.StoreList.select({
         orderBy: SQL`key asc`
       })].map(p => p.key)
     ])].map(json.encode).join(`,
-    `)}
+    `)},
   ] as readonly StoreListId[],
 
   Subscription: [
@@ -91,7 +91,7 @@ export default {
         orderBy: SQL`key asc`
       })].map(p => p.key)
     ])].map(json.encode).join(`,
-    `)}
+    `)},
   ] as readonly SubscriptionId[],
 } as const;
 `);
