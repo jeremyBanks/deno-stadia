@@ -77,7 +77,7 @@ export default {
 
   StoreList: [
     ${[...new Set([
-      "3",
+      3,
       ...[...db.tables.StoreList.select({
         orderBy: SQL`key asc`
       })].map(p => p.key)
