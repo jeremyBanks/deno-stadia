@@ -24,6 +24,7 @@ import {
   SkuId,
   StateId,
   StoreListId,
+  SubscriptionId,
 } from "./common_scalars.ts";
 import { ColumnDefinitions } from "../_common/zoddb.ts";
 import { NoInfer } from "../_common/utility_types/mod.ts";
@@ -36,10 +37,12 @@ type Unbox<T extends z.ZodTypeAny> = NoInfer<
 >;
 
 export const def = <
-  KeyType extends z.ZodType<string, z.ZodTypeDef, string>,
+  KeyType extends z.ZodType<string | number, z.ZodTypeDef, string | number>,
   ValueType extends z.ZodTypeAny,
   CacheControl extends `no-store,max-age=0` | `max-age=${string}` | undefined,
-  ThisColumnDefinitions extends ColumnDefinitions,
+  ThisColumnDefinitions extends {
+    [Key in keyof ColumnDefinitions]: ColumnDefinitions[Key];
+  },
 >(definition: {
   name: string;
   keyType: KeyType;
@@ -68,12 +71,18 @@ export const def = <
     } as const,
   );
 
-  (definition.columns as any)["key"] = "unique";
-  (definition.columns as any)["_lastUpdatedTimestamp"] = "indexed";
-  (definition.columns as any)["_lastUpdateAttemptedTimestamp"] = "indexed";
-  (definition.columns as any)["_request"] = "virtual";
-  (definition.columns as any)["_response"] = "virtual";
-  (definition.columns as any)["value"] = "virtual";
+  const columns = untyped(definition.columns);
+  for (const key of Object.keys(columns)) {
+    columns[`value.${key}`] = columns[key];
+    delete columns[key];
+  }
+
+  untyped(definition.columns)["key"] = "unique";
+  untyped(definition.columns)["_lastUpdatedTimestamp"] = "indexed";
+  untyped(definition.columns)["_lastUpdateAttemptedTimestamp"] = "indexed";
+  untyped(definition.columns)["_request"] = "virtual";
+  untyped(definition.columns)["_response"] = "virtual";
+  untyped(definition.columns)["value"] = "virtual";
 
   const d = {
     ...definition,
@@ -165,7 +174,7 @@ export class DatabaseRequestContext extends RequestContext {
     const table: zoddb.Table<Definition["rowType"]> =
       (this.database.database.tables as any)[definition.name];
     const existing = table.get({
-      where: SQL`key = ${dependencyKey}`,
+      where: SQL`key = ${dependencyKey as string | number}`,
     });
     if (existing) {
       return existing;
@@ -317,7 +326,7 @@ const tableDefinitions = (() => {
         log.warning(
           `response sku ${sku.skuId} did not match request sku ${key}. this should be not be frequent.`,
         );
-        context.seed(Sku, sku.skuId);
+        context.seed(untyped(Sku), sku.skuId);
         const alias: models.AliasSku = {
           type: "sku",
           skuType: "Alias",
@@ -340,6 +349,20 @@ const tableDefinitions = (() => {
     },
   });
 
+  const Subscription = def({
+    name: "Subscription",
+    keyType: SubscriptionId,
+    valueType: z.object({}),
+    columns: {},
+    cacheControl: "max-age=14400",
+    seedKeys: seedKeys.Subscription,
+    makeRequest: (subscriptionId) => [["Z5yYme", [subscriptionId]]],
+    parseResponse: (protos) => {
+      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
+      return {};
+    },
+  });
+
   const PlayerProgression = def({
     name: "PlayerProgression",
     keyType: PlayerId,
@@ -348,8 +371,8 @@ const tableDefinitions = (() => {
     cacheControl: "max-age=115200",
     seedKeys: seedKeys.Player,
     async makeRequest(playerId, context) {
-      const player = await context.getDependency(Player, playerId);
-      return player.playedGameIds.map((gameId) => [
+      const player = await context.getDependency(untyped(Player), playerId);
+      return player.playedGameIds.map((gameId: GameId) => [
         "e7h9qd",
         [null, gameId, playerId],
       ]);
@@ -371,7 +394,7 @@ const tableDefinitions = (() => {
     })),
     seedKeys: seedKeys.StoreList,
     makeRequest: (listId) => [
-      ["ZAm7We", [null, null, null, null, null, Number(listId)]],
+      ["ZAm7We", [null, null, null, null, null, listId]],
     ],
     parseResponse: (protos: any, key, context) => {
       const results: Array<{ skuId: SkuId; gameId: GameId }> = [];
@@ -380,7 +403,7 @@ const tableDefinitions = (() => {
         const sku = skuFromProto.parse(d);
         const skuId = sku.skuId;
         const gameId = expect(sku.gameId);
-        context.seed(Sku, skuId);
+        context.seed(untyped(Sku), skuId);
         context.seed(untyped(Game), gameId);
         results.push({
           skuId,
@@ -421,7 +444,7 @@ const tableDefinitions = (() => {
     parseResponse: (protos: any, _, context) =>
       protos?.[0]?.[2]?.map((p: any) => {
         const sku = skuFromProto.parse(p[1]) ?? [];
-        context.seed(Sku, sku.skuId);
+        context.seed(untyped(Sku), sku.skuId);
         context.seed(untyped(Game), expect(sku.gameId));
         return sku;
       }),
@@ -500,6 +523,7 @@ const tableDefinitions = (() => {
     Player,
     Game,
     Sku,
+    Subscription,
     StoreList,
     PlayerProgression,
     PlayerSearch,

@@ -188,10 +188,12 @@ export class Table<
   }
 
   *select(options?: {
+    top?: number,
     where?: SQLExpression;
     orderBy?: SQLExpression;
     unchecked?: "unchecked";
   }): Iterable<Value> {
+    let limit = options?.top ?? Infinity;
     for (
       const [json] of this.database.sql(
         SQL`select json from ${this}
@@ -199,6 +201,11 @@ export class Table<
         order by ${options?.orderBy ?? SQL`rowid asc`}`,
       )
     ) {
+      if (limit <= 0) {
+        break;
+      } else {
+        limit -= 1;
+      }
       const uncheckedValue = jsonDecode(json);
       let value;
       if (options?.unchecked !== "unchecked") {
@@ -283,7 +290,7 @@ export class Database<
       rowId integer primary key autoincrement not null,
       json text not null check (json_valid(json))`;
 
-    let indexCreations = [];
+    const indexCreations = [];
 
     for (
       let [columnName, columnType] of Object.entries(
@@ -293,17 +300,17 @@ export class Database<
       columnName = ColumnName.parse(columnName);
       columnType = ColumnType.parse(columnType);
 
-      const id = encodeSQLiteIdentifier(columnName);
+      const id = encodeSQLiteIdentifier(columnName.split(/\./g).pop()!);
 
       const extraction = new SQLExpression([`'$.${columnName}'`]);
       if (columnType === "virtual") {
         columns = SQL`${columns},
-          ${id} unknown generated always as (
+          ${id} dynamic generated always as (
             json_extract(json, ${extraction})
           ) virtual`;
       } else if (columnType === "indexed") {
         columns = SQL`${columns},
-          ${id} unknown generated always as (
+          ${id} dynamic generated always as (
             json_extract(json, ${extraction})
           ) stored`;
         indexCreations.push(
@@ -316,7 +323,7 @@ export class Database<
         );
       } else if (columnType === "unique") {
         columns = SQL`${columns},
-          ${id} unknown generated always as (
+          ${id} dynamic generated always as (
             json_extract(json, ${extraction})
           ) stored`;
         indexCreations.push(

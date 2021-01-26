@@ -18,7 +18,7 @@ export const OrganizationId = z.string().regex(
   { message: "not a valid OrganizationId" },
 ) as z.Schema<`${string}pup1`>;
 export const PlayerId = PositiveIntegerString;
-export const StoreListId = PositiveIntegerString;
+export const StoreListId = z.number().int().positive();
 export const SubscriptionId = z.number().int().positive();
 export const PlayerName = z.string().regex(/^[a-z][a-z0-9]{2,14}$/i, {
   message: "not a valid PlayerName",
@@ -31,9 +31,8 @@ export const PlayerNumber = z.string().regex(
   /^(0000|[1-9][0-9]{3})$/,
   { message: "not a valid PlayerNumber" },
 );
-export const UUID = z.string().uuid();
-export const CaptureId = UUID;
-export const StateId = UUID;
+export const CaptureId = z.string().uuid();
+export const StateId = z.string().uuid();
 
 export type GameId = z.infer<typeof GameId>;
 export type SkuId = z.infer<typeof SkuId>;

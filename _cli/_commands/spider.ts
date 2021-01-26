@@ -5,10 +5,6 @@ import {
   DatabaseRequestContext,
   StadiaDatabase,
 } from "../../stadia/database.ts";
-import { z } from "../../deps.ts";
-import { as, assertStatic } from "../../_common/utility_types/mod.ts";
-import { eprintln } from "../../_common/io.ts";
-import { PlayerId } from "../../stadia/common_scalars.ts";
 import { SQL } from "../../_common/sql.ts";
 import { Client } from "../../stadia/client.ts";
 import { Proto } from "../../_common/proto.ts";
@@ -34,7 +30,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           // "Player",
           "Game",
           "Sku",
-          // "StoreList",
+          "StoreList",
           // "PlayerProgression",
           // "PlayerSearch",
           // "MyGames",
