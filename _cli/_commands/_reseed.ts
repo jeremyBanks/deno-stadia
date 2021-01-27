@@ -18,15 +18,6 @@ export const command = async (client: Client, flags: FlagArgs) => {
   const stadia = new StadiaDatabase(flags.sqlite);
   const db = stadia.database;
 
-  const userIds = (await Deno.readTextFile("../seed_ids.ignored/users.txt")).split(/\n/g).filter(Boolean);
-  db.sql(SQL`begin deferred transaction`);
-  let count = 0;
-  for (const userId of userIds) {
-    count += stadia.database.tables.Player.insert({key: userId}) ? 1 : 0;
-  }
-  log.debug(`Seeded ${count} players`)
-  db.sql(SQL`commit transaction`);
-
   print(`\
 import {
   CaptureId,
@@ -57,6 +48,8 @@ export default {
     ${[...new Set([
       "956082794034380385",
       "5478196876050978967",
+      "6820190109831870452",
+      "12195660895651674916",
       ...[...db.tables.Player.select({
           top: 512,
           orderBy: SQL`key asc`

@@ -1,5 +1,5 @@
 import { Client } from "../../../stadia/client.ts";
-import { FlagArgs, FlagOpts, log, types } from "../../../deps.ts";
+import { FlagArgs, FlagOpts, log } from "../../../deps.ts";
 import * as json from "../../../_common/json.ts";
 
 import index from "./index.html.ts";
@@ -7,6 +7,8 @@ import manifest from "./manifest.json.ts";
 import vercel from "./vercel.json.ts";
 
 import { throttled } from "../../../_common/async.ts";
+import { ThenType } from "../../../_common/utility_types/mod.ts";
+import { expect } from "../../../_common/assertions.ts";
 
 export const flags: FlagOpts = {
   string: ["name"],
@@ -22,7 +24,22 @@ const loadImage = throttled(
   async (s: string) => canvas.loadImage(s),
 );
 
-export type Games = types.ThenType<ReturnType<typeof command>>;
+export type Game = {
+  gameId: string,
+  skuId: string,
+  name: string,
+  storeName: string,
+  slug: string,
+  description: string,
+  coverThumbnailData: string,
+  coverImageUrl: string,
+  timestampA: number,
+  timestampB: number,
+  inStadiaPro: boolean,
+  inUbisoftPlus: boolean,
+};
+
+export type Games = Array<Game>;
 
 export const command = async (client: Client, flags: FlagArgs) => {
   try {
@@ -53,10 +70,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   log.debug("Loaded game list, processing and generating thumbnails...");
 
-  const games = [];
+  const games: Games = [];
 
   for (const game of allGamesListPage) {
-    if (game.skuType !== "game") {
+    if (game.skuType !== "Game") {
       continue;
     }
 
@@ -84,7 +101,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
       timestampB,
     } = game;
 
-    const storeName = name;
+    const storeName: string = name!;
     name = cleanName(storeName!);
     timestampA ??= 0;
     timestampB ??= 0;
@@ -96,20 +113,21 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
     log.debug(`Processed /${slug} ${name} ${gameId} ${coverThumbnailData}`);
 
-    games.push({
-      gameId,
+    const g: Game = {
+      gameId: expect(gameId),
       skuId,
       name,
       storeName,
       slug,
-      description,
+      description: description!,
       coverThumbnailData,
-      coverImageUrl,
+      coverImageUrl: coverImageUrl!,
       timestampA,
       timestampB,
       inStadiaPro,
       inUbisoftPlus,
-    });
+    };
+    games.push(g);
   }
 
   games.sort((a, b) =>

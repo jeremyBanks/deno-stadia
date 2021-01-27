@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/2Koq8lHPF4UK5Rb68kqwpKjBl5N6xXq03El2GMhMlTWvbEJZBZBbwVMK6WsFKhJ9314f_b6N4Pr5nq9w1_hAaJFRm0_WS5TsOr2sjYHPqcW80Xcj1cvbNYVT4x0=s192-p-rp"
+        }
+      ],
+      "name": "Phoenix Point",
+      "url": "/phoenix-point"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/Fi6OpP_sEhUhKHg9J_cZgnawNjtDxjQoW-vYcXzGlxO13R-ak-f4KXFwDtC2Pi8HHxD7tREdK1C2Os_vA0WuOF_Pwm0BWNEmpSCvBtDAGr80vaebf0uwcuX1xgA=s192-p-rp"
         }
       ],
@@ -103,16 +113,6 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/qpyAXMoC_TSs6OW0sY7lKCCgAKErYZU84K84c0_G_cd8VrC9yzROe7Ls_t_6nX8T-GpKgn9X0m7TB9NBBjbdNXMRprlsRViKex1qhVZhSQ3eeY9awOSlzecbmw=s192-p-rp"
-        }
-      ],
-      "name": "Cyberpunk 2077",
-      "url": "/cyberpunk-2077"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/6NWdWi3AvjtAbWHTY8X8bHgawyMMM_B8QQdbD4N7jm4-ZxFrlzdW_MD_BApG_dRgbXF4TMvbLGErTJYLsG5cI7mxQMYHaFref2Q6zc_0tzpE9y1diSVf7yxh6-Q=s192-p-rp"
         }
       ],
@@ -123,7 +123,17 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/17hmuvPpXyGK0UlL4pxfotqOEzKzg750WmX6-8yzE997ymZp4TThXSmnj3JRnOY9DINlgST-ziEtAYtX-f0FiyfeO3ad7mrW8mX_jJ7cqObRHUaPWkJFBY301CiV=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/WhlzLTOXOUC2xLDCncd5CoN8y7h9mO0HEMDRuyTaNnoDuAvSdk5o14BAoNU5QPLEsKbuWVUOEXR7xpk2xClVzBh365g7JaPUdIO_GieG8RSLenRK-m-EuHAl7A=s192-p-rp"
+        }
+      ],
+      "name": "Cyberpunk 2077",
+      "url": "/cyberpunk-2077"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/ZYPaOwBfUgNtozbMqc8ynvlNrJFl6z_8OuccayOoTIgFPA4PhCT9kLP26SoSeLSTwsjtzJUA9uBq51FH1SYLPhn4188rdc2WPYh-787M-lybd-DLHPaptNqtcglN=s192-p-rp"
         }
       ],
       "name": "Watch Dogs 2",
@@ -163,21 +173,11 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/JVdQJB13FpModl83h7Gm0_-QQnCRo210BYcmSUPpnsoIXcvMLoqGyp6evH0fGs4yMVxHcQc3nJgNnfLJFCSzd31W_80XAQISjrj6i1DucNVnaV-nIdTaG8VPaw=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/f9E-y6IdsI5aY_4_3ChkS6iIsmMfPHoAf9MU3rJ6kHZZERmpT6rl4tMdSfObjTUy6Xu6VpujCOoryFGggPWU9opfKjGEMSAloifyazfZpW658O_2xyv1VCDnVA=s192-p-rp"
         }
       ],
       "name": "Valkyria Chronicles 4",
       "url": "/valkyria-chronicles-4"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/s8X-0BCYqwybicQDTu43tvqV5BCXaDJ_AwLOAEmIT5jmsrSuPy9rUCNh-nOmpNVeKRFNFOdCVs6ulxOuOaH7UA0Q5Zo2hlvpZ7yZKymvefrj56uFML4M64t0vJYf=s192-p-rp"
-        }
-      ],
-      "name": "Figment",
-      "url": "/figment"
     }
   ],
   "start_url": "/",

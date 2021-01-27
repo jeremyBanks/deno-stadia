@@ -10,9 +10,12 @@ import {
 
 export default {
   Capture: [
+    "3bd0db7a-e77b-4f41-ae0a-384692538c39",
+    "3fa81249-8c98-46e5-8e3e-78199f18eae1",
     "6b89ab76-9a9b-4530-bb65-fbc891865fc3",
     "6b9501c8-d4a1-4ef7-b49c-52e3cac77dbf",
     "da4f8814-a1af-409f-910d-942f71c8ec69",
+    "f3689008-1349-4b59-accc-c2017b7a5ca8",
     "f720fcdc-5c48-4f3e-ae15-e5ffc9cc23f0",
   ] as readonly CaptureId[],
 
@@ -39,6 +42,7 @@ export default {
     "20e792017ab34ad89b70dc17a5c72d68rcp1",
     "2152a1e96d5b47b18a5df7ca9bb0751frcp1",
     "232ff8abc7f74421a477e9e09dbf487drcp1",
+    "242d8ba9ba48460c88560a847a0c7c96rcp1",
     "243c716cb0834b5bbce536902dd23a5frcp1",
     "2677ffb357f946e29b4e86a9f18ea55frcp1",
     "2847419bbb5146ed877a308d9884f504rcp1",
@@ -163,6 +167,8 @@ export default {
   Player: [
     "956082794034380385",
     "5478196876050978967",
+    "6820190109831870452",
+    "12195660895651674916",
     "5904879799764",
     "13804771615282",
     "20593111342991",
