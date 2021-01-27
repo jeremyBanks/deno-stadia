@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/cddb29b222924d11b2bf03a82fee477arcp1",
+      "source": "/epistory-typing-chronicles",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/f001c122cb70445d8a247d5b6f6334cbrcp1",
       "source": "/gods-will-fall",
       "statusCode": 301

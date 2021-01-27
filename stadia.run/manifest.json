@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/u2kns9dOOZsVAeCW8eZ9zcpTHXUzsP0-7XQUiQfIx5Yb5enfwvEZGJwKypP4J7ewTi7_G3A214i7HFnwD4Nf6F1Pavtr7fpHFIPN8Rl6izj-J4YZ63OP56USE_SC=s192-p-rp"
+        }
+      ],
+      "name": "Epistory - Typing Chronicles",
+      "url": "/epistory-typing-chronicles"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/-XNRgB9e5qoGMjyNhzcgFfggQXk9sj1GC_sR93XaflJzVb_2kzHpW5BeEHhKqJqNeRcCO6f0eWQOoaLmoY-F71eRlRD3DOyV9PsUTVUyEOmUNRjOHJnNxghYeA=s192-p-rp"
         }
       ],
@@ -53,7 +63,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/8v-ffnVsL258SEYW5rmPNrrrKJRrtts3cJc_TkqAEgZ_n7bxLIX5bOTX0Xyc7YUcXHEi8hYqTQW88bUMBpmU9iyrT2B9MGVrav-jYhByvopdboqPzzU-ARlrfU8=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/T_ZPvEs7Z0VGi36l4FeaDsnifHA9ZtTB5EC48aBiOiF78wDXBVoBbXi8p20yy5IVfQBbtEyJI8RnayZ9EZSbIP6wfxoVTH9i7uSI6VVHpsQvBhFUY3ef39YGm4E=s192-p-rp"
         }
       ],
       "name": "Madden NFL 21",
@@ -83,7 +93,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/DMtkXG_4RB60IzNcu653Kb1mPV8_J8mtQwarUEyhdnw256psmPTmgULz4QPMwsO7yDFnx8-RcP05_tFwK1lemmYGfDvHpFxQYxQ9Wtp1NKoltyXjo1P7E-fxcMY=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/4iVGnHNseR7My-V_bT5n2FV0Y8Fdkfwb8JyDBdev3gXdaNcrSt8Kt-fA9YvWJmtLw3nTmY1Fgg2uf2-Fhufh2DOkCniZzsBTn4PQ1W3amAQSlo-rPLQeSQ5_Kg0=s192-p-rp"
         }
       ],
       "name": "Cthulhu Saves Christmas",
@@ -113,7 +123,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/dgAKKZw__Du40rcLGVnhjZ221F_fUshr7VQCY8TchliCJkz5w7-TipnksP1-MhRVb2hz2vuuBCuCgc_UzItU4lqG4sONvIUiDJ9Mo41SuRaOjlsxQwGOm3g_z48=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/aYOgDKmKK60pzlC2nQgYrn2kbrr8BYL-0HfpJu4GGNGTpnn-WMYPvv8l1xROK1FtoS7SDLoNvVq6hh96nNu_zpbzIWuGwshfYyqfpBScobwi2bS9znkfemcp5uQ=s192-p-rp"
         }
       ],
       "name": "Lara Croft and the Guardian of Light",
@@ -168,16 +178,6 @@
       ],
       "name": "Cyberpunk 2077",
       "url": "/cyberpunk-2077"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/ZYPaOwBfUgNtozbMqc8ynvlNrJFl6z_8OuccayOoTIgFPA4PhCT9kLP26SoSeLSTwsjtzJUA9uBq51FH1SYLPhn4188rdc2WPYh-787M-lybd-DLHPaptNqtcglN=s192-p-rp"
-        }
-      ],
-      "name": "Watch Dogs 2",
-      "url": "/watch-dogs-2"
     }
   ],
   "start_url": "/",
