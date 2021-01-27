@@ -7,7 +7,6 @@ import { StadiaDatabase } from "../../stadia/database.ts";
 import SQL from "../../_common/sql.ts";
 import json from "../../_common/json.ts";
 
-
 export const flags: FlagOpts = {
   string: "sqlite",
   default: {
@@ -18,7 +17,15 @@ export const flags: FlagOpts = {
 export const command = async (client: Client, flags: FlagArgs) => {
   const stadia = new StadiaDatabase(flags.sqlite);
   const db = stadia.database;
-  const defs = stadia.tableDefinitions;
+
+  const userIds = (await Deno.readTextFile("../seed_ids.ignored/users.txt")).split(/\n/g).filter(Boolean);
+  db.sql(SQL`begin deferred transaction`);
+  let count = 0;
+  for (const userId of userIds) {
+    count += stadia.database.tables.Player.insert({key: userId}) ? 1 : 0;
+  }
+  log.debug(`Seeded ${count} players`)
+  db.sql(SQL`commit transaction`);
 
   print(`\
 import {
@@ -51,10 +58,14 @@ export default {
       "956082794034380385",
       "5478196876050978967",
       ...[...db.tables.Player.select({
-        top: 1024,
-        orderBy: SQL`key asc`
-      })].map(p => p.key)
-    ])].slice(0, 1024).map(json.encode).join(`,
+          top: 512,
+          orderBy: SQL`key asc`
+        }), ...[...db.tables.Player.select({
+          top: 512,
+          orderBy: SQL`key desc`
+        })].reverse()
+      ].map(p => p.key)
+    ])].map(json.encode).join(`,
     `)},
   ] as readonly PlayerId[],
 
