@@ -59,7 +59,9 @@ export const command = async (client: Client, flags: FlagArgs) => {
       for (;;) {
         try {
           db.sql(SQL`commit transaction`);
-        } catch (error) { error }
+        } catch (error) {
+          error;
+        }
         db.sql(SQL`begin deferred transaction`);
         sleep(i);
 
@@ -80,7 +82,9 @@ export const command = async (client: Client, flags: FlagArgs) => {
             log.info(`All ${name} records are up-to-date.`);
             try {
               db.sql(SQL`commit transaction`);
-            } catch (error) { error }
+            } catch (error) {
+              error;
+            }
             await sleep(Math.random() * 60 * 16);
             continue;
           }

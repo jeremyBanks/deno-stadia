@@ -188,7 +188,7 @@ export class Table<
   }
 
   *select(options?: {
-    top?: number,
+    top?: number;
     where?: SQLExpression;
     orderBy?: SQLExpression;
     unchecked?: "unchecked";

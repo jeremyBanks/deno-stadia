@@ -15,7 +15,7 @@ const commands: Record<
   spider,
   rpc,
   _reseed: reseed,
-  "stadia.run": stadiaDotRun
+  "stadia.run": stadiaDotRun,
 };
 
 export default commands;

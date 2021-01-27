@@ -25,18 +25,18 @@ const loadImage = throttled(
 );
 
 export type Game = {
-  gameId: string,
-  skuId: string,
-  name: string,
-  storeName: string,
-  slug: string,
-  description: string,
-  coverThumbnailData: string,
-  coverImageUrl: string,
-  timestampA: number,
-  timestampB: number,
-  inStadiaPro: boolean,
-  inUbisoftPlus: boolean,
+  gameId: string;
+  skuId: string;
+  name: string;
+  storeName: string;
+  slug: string;
+  description: string;
+  coverThumbnailData: string;
+  coverImageUrl: string;
+  timestampA: number;
+  timestampB: number;
+  inStadiaPro: boolean;
+  inUbisoftPlus: boolean;
 };
 
 export type Games = Array<Game>;
