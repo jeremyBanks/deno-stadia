@@ -9,6 +9,11 @@
       "statusCode": 301
     },
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/22c6d03e67474644a139de4f04a08c11rcp1",
+      "source": "/journey-to-the-savage-planet",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/df0f55ed73d946b8a70398fea9805e2drcp1",
       "source": "/tohu",
       "statusCode": 301

@@ -33,6 +33,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/eIrebyNjqBGXnc1HEb0qvbr2ZZNwjSFNPoE1zYmepzf9M5h8i6MqRZdG1tlrxECAElLXrMwKuGAqdAsqiYK0IPDHQcQAeLfTN7k37buWXDsEUuIWhV6KHG7rx6bF=s192-p-rp"
+        }
+      ],
+      "name": "Journey to the Savage Planet",
+      "url": "/journey-to-the-savage-planet"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/jCALAdsuwjXdxWGsD71OwbTfsB-0xXwS_F9YEb-C8FYrjG1ojYcFESfxdNkhTZ2Mq30Erag3tkxXUbHneZ1UxmHZ24P7C7aCIcMt5-0VC5bR26a1z2R4OTHPg8E=s192-p-rp"
         }
       ],
@@ -168,16 +178,6 @@
       ],
       "name": "Watch Dogs 2",
       "url": "/watch-dogs-2"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/3hm2FT6L-wIbH-TG-k1FoedRTAeZGezCJ7CUfxgDd8NC14MkUrIoaYoIOdKNnK4tCHix76PGl68Wa7_bGDrX2pk-3izjeLvzcgCK3txwULDP0lh8OEXZKSv16jE=s192-p-rp"
-        }
-      ],
-      "name": "Watch Dogs",
-      "url": "/watch-dogs"
     }
   ],
   "start_url": "/",
