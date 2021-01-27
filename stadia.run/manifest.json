@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/-XNRgB9e5qoGMjyNhzcgFfggQXk9sj1GC_sR93XaflJzVb_2kzHpW5BeEHhKqJqNeRcCO6f0eWQOoaLmoY-F71eRlRD3DOyV9PsUTVUyEOmUNRjOHJnNxghYeA=s192-p-rp"
+        }
+      ],
+      "name": "Gods Will Fall",
+      "url": "/gods-will-fall"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/jCALAdsuwjXdxWGsD71OwbTfsB-0xXwS_F9YEb-C8FYrjG1ojYcFESfxdNkhTZ2Mq30Erag3tkxXUbHneZ1UxmHZ24P7C7aCIcMt5-0VC5bR26a1z2R4OTHPg8E=s192-p-rp"
         }
       ],
@@ -93,7 +103,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/6kuNW4EfC1jmkjW79Sc557aqROzj2NycZqitv4uDw-GQtyFUsD9BMgmwjrhTQ6FEf3tw0CbzRuG3ao61pFpE83PQF5uOk_7GdXPEYrJNKy2RuqkWubrv6BGv2mw=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/dgAKKZw__Du40rcLGVnhjZ221F_fUshr7VQCY8TchliCJkz5w7-TipnksP1-MhRVb2hz2vuuBCuCgc_UzItU4lqG4sONvIUiDJ9Mo41SuRaOjlsxQwGOm3g_z48=s192-p-rp"
         }
       ],
       "name": "Lara Croft and the Guardian of Light",
@@ -163,21 +173,11 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/4X6X5UNxYWH6T6TYZH9hYCb1np8pOhv_DpMw7Ng5TiVw6ylfzOaAtoaBBysbTOeJoNZ0pdPvAtsaJjUQsSeGCXfm3y-vblKq3K1N48Pph23g00CfcZ3uDZmb9tY=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/3hm2FT6L-wIbH-TG-k1FoedRTAeZGezCJ7CUfxgDd8NC14MkUrIoaYoIOdKNnK4tCHix76PGl68Wa7_bGDrX2pk-3izjeLvzcgCK3txwULDP0lh8OEXZKSv16jE=s192-p-rp"
         }
       ],
       "name": "Watch Dogs",
       "url": "/watch-dogs"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/2ZPVcNDFiQG1_3xCW8cARoV-1e77WBxNK0tNKhiBcVdVDyzbdjYdUo9Fz5sVQRIpJRVrq-BjIKDvbvuJeT00dwVRjLXDRB03WhiOCMPpDf3sHkV_fmpmKcq2Nxw=s192-p-rp"
-        }
-      ],
-      "name": "Destroy All Humans!",
-      "url": "/destroy-all-humans"
     }
   ],
   "start_url": "/",
