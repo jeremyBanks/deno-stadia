@@ -1,5 +1,7 @@
 /** You probably want this. */
 
+// deno-lint-ignore-file no-explicit-any
+
 import { Json } from "../_common/json.ts";
 import * as json from "../_common/json.ts";
 import { Proto } from "../_common/proto.ts";
@@ -8,9 +10,8 @@ import { log, z } from "../deps.ts";
 import { playerFromProto, skuFromProto } from "./response_parsers.ts";
 import { throttled } from "../_common/async.ts";
 import * as models from "../stadia/models.ts";
-import * as database from "../stadia/models.ts";
 
-const minRequestIntervalSeconds = 420 / 69;
+const minRequestIntervalSeconds = 1.2;
 const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
 
 const stadiaRoot = new URL("https://stadia.google.com/");
@@ -153,14 +154,14 @@ export class Client {
   }
 
   async fetchRpcBatch(
-    rpcidRequestPairs: Array<[string, Proto]>,
+    rpcidRequestPairs: Array<[string, Proto?]>,
   ) {
     // https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
     const rpcids = rpcidRequestPairs.map(([rpcid, _request]) => rpcid);
 
     const fReq = json.encode([
       rpcidRequestPairs.map(([rpcid, request], index) => {
-        return [rpcid, json.encode(request), null, String(index + 1)];
+        return [rpcid, json.encode(request ?? []), null, String(index + 1)];
       }),
     ]);
 
@@ -196,7 +197,7 @@ export class Client {
     const envelopes = text.split(/\n\d+\n/).slice(1).map((x) =>
       (json.decode(x) as any)[0]
     );
-    log.debug("envelopes: " + Deno.inspect(envelopes, { iterableLimit: 4 }));
+
     const responseEnvelopes = envelopes.filter((x: any) => x[0] === "wrb.fr")
       .sort(
         (a: any, b: any) => Number(a[6]) - Number(b[6]),
@@ -204,7 +205,9 @@ export class Client {
     const responses = responseEnvelopes.map((r: any) =>
       json.decode(r[2])
     ) as Array<Array<Proto>>;
-    log.debug("responses: " + Deno.inspect(responses, { iterableLimit: 4 }));
+    log.debug(
+      "RPC RESPONSE BATCH: " + Deno.inspect(responses, { iterableLimit: 4 }),
+    );
 
     return {
       httpResponse,
@@ -263,10 +266,6 @@ export class Client {
     if (captures.length == pageSize) {
       yield* this.fetchCaptures(nextPageToken);
     }
-  }
-
-  async f() {
-    this.fetchRpc("v2jaIb", []);
   }
 
   async fetchStoreList(listId: number): Promise<Array<models.Sku>> {

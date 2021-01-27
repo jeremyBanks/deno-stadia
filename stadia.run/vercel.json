@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/18ea8c5d2f7e4f40ad783a512da8ef91rcp1",
+      "source": "/phoenix-point",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a3725b4a70aa4447b4c193125f3a2529rcp1",
       "source": "/scott-pilgrim-vs-the-world",
       "statusCode": 301
@@ -44,13 +49,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/49697e672bc34e7d8a5f73f78cb580d0rcp1",
-      "source": "/cyberpunk-2077",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a089691b36254f77bc66a75052fc7cf6rcp1",
+      "source": "/unto-the-end",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a089691b36254f77bc66a75052fc7cf6rcp1",
-      "source": "/unto-the-end",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/49697e672bc34e7d8a5f73f78cb580d0rcp1",
+      "source": "/cyberpunk-2077",
       "statusCode": 301
     },
     {

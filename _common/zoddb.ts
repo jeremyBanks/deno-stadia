@@ -188,10 +188,12 @@ export class Table<
   }
 
   *select(options?: {
+    top?: number;
     where?: SQLExpression;
     orderBy?: SQLExpression;
     unchecked?: "unchecked";
   }): Iterable<Value> {
+    let limit = options?.top ?? Infinity;
     for (
       const [json] of this.database.sql(
         SQL`select json from ${this}
@@ -199,6 +201,11 @@ export class Table<
         order by ${options?.orderBy ?? SQL`rowid asc`}`,
       )
     ) {
+      if (limit <= 0) {
+        break;
+      } else {
+        limit -= 1;
+      }
       const uncheckedValue = jsonDecode(json);
       let value;
       if (options?.unchecked !== "unchecked") {
@@ -208,6 +215,17 @@ export class Table<
       }
       yield value;
     }
+  }
+
+  first(options?: {
+    where?: SQLExpression;
+    orderBy?: SQLExpression;
+    unchecked?: "unchecked";
+  }): Value {
+    for (const value of this.select(options)) {
+      return value;
+    }
+    throw new TypeError("no results found for first()");
   }
 
   get(options?: {
@@ -269,10 +287,10 @@ export class Database<
     const table = this.tables[tableName];
 
     let columns = SQL`
-      rowid integer primary key autoincrement not null,
+      rowId integer primary key autoincrement not null,
       json text not null check (json_valid(json))`;
 
-    let indexCreations = [];
+    const indexCreations = [];
 
     for (
       let [columnName, columnType] of Object.entries(
@@ -282,17 +300,17 @@ export class Database<
       columnName = ColumnName.parse(columnName);
       columnType = ColumnType.parse(columnType);
 
-      const id = encodeSQLiteIdentifier(columnName);
+      const id = encodeSQLiteIdentifier(columnName.split(/\./g).pop()!);
 
       const extraction = new SQLExpression([`'$.${columnName}'`]);
       if (columnType === "virtual") {
         columns = SQL`${columns},
-          ${id} unknown generated always as (
+          ${id} generated always as (
             json_extract(json, ${extraction})
           ) virtual`;
       } else if (columnType === "indexed") {
         columns = SQL`${columns},
-          ${id} unknown generated always as (
+          ${id} generated always as (
             json_extract(json, ${extraction})
           ) stored`;
         indexCreations.push(
@@ -305,7 +323,7 @@ export class Database<
         );
       } else if (columnType === "unique") {
         columns = SQL`${columns},
-          ${id} unknown generated always as (
+          ${id} generated always as (
             json_extract(json, ${extraction})
           ) stored`;
         indexCreations.push(

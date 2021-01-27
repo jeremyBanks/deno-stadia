@@ -1,7 +1,5 @@
 {
     "deno.enable": true,
-    "deno.lint": true,
-    "deno.unstable": true,
     "editor.formatOnSave": true,
     "files.exclude": {
         "**/*.bak": true,
@@ -15,4 +13,6 @@
         "canvaskit.wasm": true,
     },
     "remote.WSL.fileWatcher.polling": true,
+    "debug.javascript.unmapMissingSources": true,
+    "deno.unstable": true,
 }

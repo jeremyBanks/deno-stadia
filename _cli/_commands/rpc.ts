@@ -4,6 +4,8 @@ import { color, FlagArgs, FlagOpts, log } from "../../deps.ts";
 import * as json from "../../_common/json.ts";
 import { Proto } from "../../_common/proto.ts";
 
+// deno-lint-ignore-file no-explicit-any
+
 export const flags: FlagOpts = {
   boolean: ["json"],
 };
@@ -14,7 +16,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
   const pairs: Array<[string, Proto]> = [];
 
   for (const arg of args) {
-    let [rpcId] = arg.split(/\b/, 1);
+    const [rpcId] = arg.split(/\b/, 1);
     let rpcArgsJson = arg.slice(rpcId.length).trim();
     if (rpcArgsJson.startsWith("(") && rpcArgsJson.endsWith(")")) {
       rpcArgsJson = `[${rpcArgsJson.slice(1, -1)}]`;

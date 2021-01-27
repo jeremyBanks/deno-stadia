@@ -36,7 +36,7 @@ export const SkuCountries = UNKNOWN || z.string().nonempty().array().nonempty();
 export const SkuPublisher = OrganizationId;
 export const SkuDevelopers = OrganizationId.array().nonempty();
 
-export let Sku = z.tuple([
+export const Sku = z.tuple([
   /*  0 */ SkuId,
   /*  1 */ SkuName,
   /*  2 */ SkuImages,

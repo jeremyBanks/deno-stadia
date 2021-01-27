@@ -15,6 +15,24 @@ export function assert<T>(
   }
 }
 
+/** Converts a value to the untyped `any` type. */
+// deno-lint-ignore no-explicit-any
+export function untyped(x: any): any {
+  return x;
+}
+
+/** Converts a value to the untyped `unknown` type. */
+// deno-lint-ignore no-explicit-any
+export function unknown(x: any): unknown {
+  return x;
+}
+
+/** Converts `any` or `unknown`-typed values to `never`. */
+export function typed<T>(x: T): unknown extends T ? never : T {
+  // deno-lint-ignore no-explicit-any
+  return x as any;
+}
+
 export function expect<T>(
   value: T,
   message?: string,
@@ -27,11 +45,12 @@ export class NotImplementedError extends Error {
   name = "NotImplementedError";
 }
 
-export const notImplemented = (message?: any): any => {
+// deno-lint-ignore no-explicit-any
+export const notImplemented = (message?: string): any => {
   throw new NotImplementedError(message ?? `not implemented in ${caller()}`);
 };
 
-export const unreachable = (message?: any): never => {
+export const unreachable = (message?: string): never => {
   throw new TypeError(
     message ??
       `logic error: this code was expected to be unreachable in ${caller()}`,

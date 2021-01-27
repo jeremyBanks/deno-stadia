@@ -1,13 +1,15 @@
 /** Parsers from response proto types to corresponding local model types. */
 
+// deno-lint-ignore-file no-explicit-any
+
 import { zod as z } from "../deps.ts";
 import * as response from "./response_protos.ts";
 import * as models from "./models.ts";
 import { expect } from "../_common/assertions.ts";
 
-export const skuFromProto = response.Sku.transform((proto) => {
+export const skuFromProto = z.any().transform((proto: any): models.Sku => {
   const skuType = skuTypeFromId.parse(z.number().parse(proto[6]));
-  return models.Sku.parse({
+  return models.SkuTypes[skuType].parse({
     type: "sku",
     proto: proto,
     skuType,
@@ -22,10 +24,11 @@ export const skuFromProto = response.Sku.transform((proto) => {
     timestampB: (proto[26] as any)?.[0] ?? null,
     publisherOrganizationId: proto[15],
     developerOrganizationIds: proto[16],
+    subscriptionId: (proto[27] as any) ?? undefined,
   });
 });
 
-export const playerFromProto = response.Player.transform((proto) => {
+export const playerFromProto = z.any().transform((proto) => {
   return models.Player.parse({});
 });
 
@@ -40,7 +43,7 @@ const skuTypesById: Record<response.SkuTypeId, models.SkuType> = {
   2: "Addon",
   3: "Bundle",
   4: "ExternalSubscription",
-  5: "BundleSubscription",
+  5: "StadiaSubscription",
   6: "AddonSubscription",
   9: "AddonBundle",
   10: "PreorderBundle",
