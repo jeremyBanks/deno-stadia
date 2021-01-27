@@ -4,6 +4,16 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/df0f55ed73d946b8a70398fea9805e2drcp1",
+      "source": "/tohu",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/0e6c703afde840148204847447b9c21drcp1",
+      "source": "/madden-nfl-21",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/18ea8c5d2f7e4f40ad783a512da8ef91rcp1",
       "source": "/phoenix-point",
       "statusCode": 301

@@ -23,6 +23,26 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/jCALAdsuwjXdxWGsD71OwbTfsB-0xXwS_F9YEb-C8FYrjG1ojYcFESfxdNkhTZ2Mq30Erag3tkxXUbHneZ1UxmHZ24P7C7aCIcMt5-0VC5bR26a1z2R4OTHPg8E=s192-p-rp"
+        }
+      ],
+      "name": "TOHU",
+      "url": "/tohu"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/8v-ffnVsL258SEYW5rmPNrrrKJRrtts3cJc_TkqAEgZ_n7bxLIX5bOTX0Xyc7YUcXHEi8hYqTQW88bUMBpmU9iyrT2B9MGVrav-jYhByvopdboqPzzU-ARlrfU8=s192-p-rp"
+        }
+      ],
+      "name": "Madden NFL 21",
+      "url": "/madden-nfl-21"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/2Koq8lHPF4UK5Rb68kqwpKjBl5N6xXq03El2GMhMlTWvbEJZBZBbwVMK6WsFKhJ9314f_b6N4Pr5nq9w1_hAaJFRm0_WS5TsOr2sjYHPqcW80Xcj1cvbNYVT4x0=s192-p-rp"
         }
       ],
@@ -123,7 +143,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/WhlzLTOXOUC2xLDCncd5CoN8y7h9mO0HEMDRuyTaNnoDuAvSdk5o14BAoNU5QPLEsKbuWVUOEXR7xpk2xClVzBh365g7JaPUdIO_GieG8RSLenRK-m-EuHAl7A=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/meAX4SRRsbxGe5rOoyiY9hnCLU7-uRRoeGa7OXJPiEM9Aw-JnPEMlyImMIuphM29FTEl0SB0FLP4Lhjq1AGS7SpYspEbTFbXNJEkqmw6hkgpHtcocAc-UHiimVd0=s192-p-rp"
         }
       ],
       "name": "Cyberpunk 2077",
@@ -153,31 +173,11 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/B-Q8yML3LIUhHqa4DEpIoa5ePHfBiPlsLNFxraEMliQcN_DtfAGVbwf8hvK71j-CuTDjYfketP4G_D2I7nhwmCtgSFROjZiKW6pB2KOA99gP0X-TRXApk6eJnZE=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/2ZPVcNDFiQG1_3xCW8cARoV-1e77WBxNK0tNKhiBcVdVDyzbdjYdUo9Fz5sVQRIpJRVrq-BjIKDvbvuJeT00dwVRjLXDRB03WhiOCMPpDf3sHkV_fmpmKcq2Nxw=s192-p-rp"
         }
       ],
       "name": "Destroy All Humans!",
       "url": "/destroy-all-humans"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/ObGM2Pp6KJAdciM_-sz3ZIsD7E0-Xp2YGsNLcq_qAHZmDWofk_35US8MMryMS6PbqoO4_fP7YW4pMYSuQDX3rdM6USqB4XlpMMhBmpsOvQoQCMnrm1wtBb4XLI_l=s192-p-rp"
-        }
-      ],
-      "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
-      "url": "/spongebob-squarepants-battle-for-bikini-bottom"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/f9E-y6IdsI5aY_4_3ChkS6iIsmMfPHoAf9MU3rJ6kHZZERmpT6rl4tMdSfObjTUy6Xu6VpujCOoryFGggPWU9opfKjGEMSAloifyazfZpW658O_2xyv1VCDnVA=s192-p-rp"
-        }
-      ],
-      "name": "Valkyria Chronicles 4",
-      "url": "/valkyria-chronicles-4"
     }
   ],
   "start_url": "/",
