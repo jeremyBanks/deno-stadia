@@ -101,8 +101,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
       timestampB,
     } = game;
 
-    const storeName: string = name!;
-    name = cleanName(storeName!);
+    const storeName: string = expect(name);
+    name = cleanName(storeName);
     timestampA ??= 0;
     timestampB ??= 0;
 
