@@ -135,9 +135,10 @@ export class StadiaDatabase {
 abstract class RequestContext {
   /** Timestamp at which this request was initiated. */
   readonly requestTimestamp = Date.now();
+
   /** Timestamp before which data will be considered stale/expired for the
-  purposes of this request. */
-  abstract minFreshTimestamp: number;
+      purposes of this request, or undefined to use each record's default. */
+  abstract minFreshTimestamp?: number;
 
   abstract getDependency<
     Definition extends ReturnType<typeof def>,
@@ -193,9 +194,19 @@ export class DatabaseRequestContext extends RequestContext {
     const table: zoddb.Table<Definition["rowType"]> =
       (this.database.database.tables as any)[definition.name];
 
-    return table.insert({
-      key: definition.keyType.parse(childKey) as any,
-    } as any);
+    const key = definition.keyType.parse(childKey);
+    if (
+      !table.get({
+        where: SQL`key = ${key}`,
+      }) && table.insert({
+        key,
+      } as any)
+    ) {
+      log.info(`Discovered ${definition.name} ${key}`);
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
@@ -424,9 +435,15 @@ const tableDefinitions = (() => {
     makeRequest: (playerPrefix) => [
       ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
     ],
-    parseResponse: (protos) => {
-      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return [];
+    parseResponse: ([proto]: any, prefix, context) => {
+      const playerIds = proto[1].map((p: any) => p[0][5]) as Array<PlayerId>;
+      for (const playerId of playerIds) {
+        context.seed(untyped(Player), playerId);
+      }
+      if (playerIds.length >= 100) {
+        log.warning(`TODO: take a closer look, >= 100 matches for ${prefix}`);
+      }
+      return playerIds;
     },
   });
 

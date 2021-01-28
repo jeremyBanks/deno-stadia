@@ -28,16 +28,16 @@ export const command = async (client: Client, flags: FlagArgs) => {
       ...new Set(
         [
           // "Player",
-          "Game",
-          "Sku",
-          "StoreList",
+          // "Game",
+          // "Sku",
+          // "StoreList",
           // "PlayerProgression",
-          // "PlayerSearch",
+          "PlayerSearch",
           // "MyGames",
           // "MyPurchases",
           // "MyFriends",
           // "MyRecentPlayers",
-          // "Capture",
+          "Capture",
           // ...Object.keys(defs),
         ],
       ) as Set<keyof typeof defs>,
@@ -74,10 +74,12 @@ export const command = async (client: Client, flags: FlagArgs) => {
             `,
           });
 
+          const context = new DatabaseRequestContext(stadia);
+
           if (
             record._lastUpdateAttemptedTimestamp &&
             record._lastUpdateAttemptedTimestamp + cacheMaxAgeSeconds * 1000 >=
-              Date.now()
+            context.requestTimestamp
           ) {
             log.info(`All ${name} records are up-to-date.`);
             try {
@@ -90,8 +92,6 @@ export const command = async (client: Client, flags: FlagArgs) => {
           }
 
           log.info(`Spidering ${name} ${record.key}`);
-
-          const context = new DatabaseRequestContext(stadia);
 
           record._lastUpdateAttemptedTimestamp = context.requestTimestamp;
           table.update(record as any);
