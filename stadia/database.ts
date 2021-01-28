@@ -211,10 +211,10 @@ const tableDefinitions = (() => {
       playedGameIds: z.array(GameId),
     }),
     columns: {
-      "value.name": "indexed",
-      "value.number": "virtual",
-      "value.friendPlayerIds": "virtual",
-      "value.playedGameIds": "virtual",
+      name: "indexed",
+      number: "virtual",
+      friendPlayerIds: "virtual",
+      playedGameIds: "virtual",
     },
     seedKeys: seedKeys.Player,
     makeRequest(playerId) {
@@ -248,7 +248,7 @@ const tableDefinitions = (() => {
       skuIds: z.array(SkuId),
     }),
     columns: {
-      "value.skuId": "indexed",
+      skuId: "indexed",
     },
     seedKeys: seedKeys.Game,
     makeRequest: (gameId) => [
@@ -292,10 +292,10 @@ const tableDefinitions = (() => {
     keyType: SkuId,
     valueType: models.Sku,
     columns: {
-      "value.gameId": "indexed",
-      "value.skuType": "indexed",
-      "value.name": "virtual",
-      "value.description": "virtual",
+      gameId: "indexed",
+      skuType: "indexed",
+      name: "indexed",
+      description: "virtual",
     },
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],

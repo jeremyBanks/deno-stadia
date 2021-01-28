@@ -205,6 +205,7 @@ export const slugify = (name: string, separator = "-") =>
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^[\- :]+)|([\- :]+$)/g, "")
+    .replace(/-world-of-assassination$/g, "")
     .replace(/\-/g, separator);
 
 const rgbToU6 = (rgb: [number, number, number]): number => {

@@ -305,12 +305,12 @@ export class Database<
       const extraction = new SQLExpression([`'$.${columnName}'`]);
       if (columnType === "virtual") {
         columns = SQL`${columns},
-          ${id} generated always as (
+          ${id} blob generated always as (
             json_extract(json, ${extraction})
           ) virtual`;
       } else if (columnType === "indexed") {
         columns = SQL`${columns},
-          ${id} generated always as (
+          ${id} blob generated always as (
             json_extract(json, ${extraction})
           ) stored`;
         indexCreations.push(
@@ -323,7 +323,7 @@ export class Database<
         );
       } else if (columnType === "unique") {
         columns = SQL`${columns},
-          ${id} generated always as (
+          ${id} blob generated always as (
             json_extract(json, ${extraction})
           ) stored`;
         indexCreations.push(
