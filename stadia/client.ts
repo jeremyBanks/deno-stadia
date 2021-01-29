@@ -11,8 +11,7 @@ import { playerFromProto, skuFromProto } from "./response_parsers.ts";
 import { throttled } from "../_common/async.ts";
 import * as models from "../stadia/models.ts";
 
-const minRequestIntervalSeconds = 1.2;
-const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
+const fetch = throttled(Math.PI, globalThis.fetch);
 
 const stadiaRoot = new URL("https://stadia.google.com/");
 const allowedRoots = [

@@ -61,11 +61,11 @@ export default {
         ...[
           ...db.tables.Player.select({
             top: 512,
-            orderBy: SQL`key asc`,
+            orderBy: SQL`cast(key as float) asc`,
           }),
           ...[...db.tables.Player.select({
             top: 512,
-            orderBy: SQL`key desc`,
+            orderBy: SQL`cast(key as float) desc`,
           })].reverse(),
         ].map((p) => p.key),
       ]),

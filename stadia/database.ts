@@ -12,6 +12,7 @@ import {
   assert,
   expect,
   notImplemented,
+  unreachable,
   untyped,
 } from "../_common/assertions.ts";
 import {
@@ -29,7 +30,7 @@ import {
 import { ColumnDefinitions } from "../_common/zoddb.ts";
 import { NoInfer } from "../_common/utility_types/mod.ts";
 import { Proto, ProtoMessage } from "../_common/proto.ts";
-import { skuFromProto } from "./response_parsers.ts";
+import { playerFromProto, skuFromProto } from "./response_parsers.ts";
 import * as models from "./models.ts";
 
 type Unbox<T extends z.ZodTypeAny> = NoInfer<
@@ -244,9 +245,31 @@ const tableDefinitions = (() => {
         ],
       ];
     },
-    parseResponse: (protos) => {
-      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return notImplemented();
+    parseResponse: (protos: any, playerId, context) => {
+      const [profileProto, friendProto, gamesProto] = protos;
+
+      const name = expect(profileProto[5][0][0]);
+      const number = expect(profileProto[5][0][1]);
+      const playedGameIds = gamesProto?.[0] ?? [];
+
+      const friendPlayerIds = (friendProto?.[0] ?? []).map((p: any) => p[5]);
+
+      for (const gameId of playedGameIds) {
+        context.seed(untyped(Game), gameId);
+      }
+
+      for (const playerId of friendPlayerIds) {
+        context.seed(untyped(Player), playerId);
+      }
+
+      context.seed(untyped(PlayerProgression), playerId);
+
+      return {
+        name,
+        number,
+        friendPlayerIds,
+        playedGameIds,
+      };
     },
   });
 
@@ -380,7 +403,7 @@ const tableDefinitions = (() => {
     valueType: z.object({}),
     columns: {},
     cacheControl: "max-age=115200",
-    seedKeys: seedKeys.Player,
+    seedKeys: [],
     async makeRequest(playerId, context) {
       const player = await context.getDependency(untyped(Player), playerId);
       return player.playedGameIds.map((gameId: GameId) => [
@@ -436,12 +459,33 @@ const tableDefinitions = (() => {
       ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
     ],
     parseResponse: ([proto]: any, prefix, context) => {
+      if (!proto?.[1]?.length) {
+        log.info(`No results for PlayerSearch ${prefix}.`);
+        return [];
+      }
+
       const playerIds = proto[1].map((p: any) => p[0][5]) as Array<PlayerId>;
       for (const playerId of playerIds) {
         context.seed(untyped(Player), playerId);
       }
       if (playerIds.length >= 100) {
-        log.warning(`TODO: take a closer look, >= 100 matches for ${prefix}`);
+        if (prefix.length < 15) {
+          for (const c of "abcdefghijklmnopqrstuvwxyz0123456789") {
+            context.seed(untyped(PlayerSearch), prefix + c);
+          }
+        } else if (prefix.length === 15) {
+          for (const d of "0123456789") {
+            context.seed(untyped(PlayerSearch), prefix + "#" + d);
+          }
+        } else if (prefix.length < 20) {
+          for (const d of "0123456789") {
+            context.seed(untyped(PlayerSearch), prefix + d);
+          }
+        } else {
+          return unreachable(
+            `Are there really 100 matches for ${prefix}? Seems unlikely.`,
+          );
+        }
       }
       return playerIds;
     },

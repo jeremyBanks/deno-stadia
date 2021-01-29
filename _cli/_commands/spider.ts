@@ -37,7 +37,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           // "MyPurchases",
           // "MyFriends",
           // "MyRecentPlayers",
-          "Capture",
+          // "Capture",
           // ...Object.keys(defs),
         ],
       ) as Set<keyof typeof defs>,
@@ -64,6 +64,9 @@ export const command = async (client: Client, flags: FlagArgs) => {
         }
         db.sql(SQL`begin deferred transaction`);
         sleep(i);
+
+        log.debug(`Known ${name}: ${table.count()}`);
+        log.debug(`Loaded ${name}: ${table.count({where: SQL`_lastUpdatedTimestamp is not null`})}`);
 
         try {
           const record = table.first({
