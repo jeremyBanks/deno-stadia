@@ -1,5 +1,5 @@
-import { Client } from "../../../stadia/client.ts";
-import { FlagArgs, FlagOpts, log } from "../../../deps.ts";
+import { Client } from "../../../stadia.ts";
+import { FlagArgs, FlagOpts, log } from "../../../_deps.ts";
 import * as json from "../../../_common/json.ts";
 
 import index from "./index.html.ts";
@@ -42,7 +42,7 @@ export type Games = Array<Game>;
 
 export const command = async (client: Client, flags: FlagArgs) => {
   try {
-    // this is a huge import, so we put it here instead of ./deps since it's not
+    // this is a huge import, so we put it here instead of ./_deps since it's not
     // required for the library, only this command.
     canvas ??= await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
   } catch (error) {

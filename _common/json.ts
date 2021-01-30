@@ -1,4 +1,4 @@
-import { z } from "../deps.ts";
+import { z } from "../_deps.ts";
 
 export type Json = null | number | string | boolean | Json[] | {
   [key: string]: Json;

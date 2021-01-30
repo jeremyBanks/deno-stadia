@@ -1,7 +1,7 @@
 import { discoverProfiles } from "../_chrome/mod.ts";
-import { flags, log } from "../deps.ts";
+import { flags, log } from "../_deps.ts";
 import * as clui from "../_common/clui.ts";
-import { Client, GoogleCookies } from "../stadia/client.ts";
+import { Client, GoogleCookies } from "../stadia.ts";
 
 export const makeClient = async (flags: flags.Args): Promise<Client> => {
   let env;

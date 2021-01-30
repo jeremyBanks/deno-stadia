@@ -1,4 +1,4 @@
-import { color, flags, flags as stdFlags, log } from "../deps.ts";
+import { color, flags, flags as stdFlags, log } from "../_deps.ts";
 
 import { eprint, eprintln } from "../_common/io.ts";
 import commands from "./_commands/mod.ts";

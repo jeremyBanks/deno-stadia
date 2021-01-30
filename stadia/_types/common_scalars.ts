@@ -1,6 +1,6 @@
 /** Scalar types that are common to models and protos. */
 
-import { zod as z } from "../deps.ts";
+import { z } from "../../_deps.ts";
 
 const PositiveIntegerString = z.string().nonempty().regex(/^[1-9][0-9]*$/, {
   message: "string was not a positive integer",

@@ -16,8 +16,9 @@ Google Stadia account.
 **⚠️ Until its 1.0 release, this tool is incomplete and unsupported. Features
 may not be implemented, or may not function as described. Come back later. ⚠️**
 
-To use this tool you'll need to install [Deno, a secure runtime for TypeScript
-and JavaScript](https://deno.land/). On Linux, you may do so by running:
+To use this tool you'll need to install
+[Deno, a secure runtime for TypeScript and JavaScript](https://deno.land/). On
+Linux, you may do so by running:
 
 ```
 $ curl -fsSL https://deno.land/x/install/install.sh | sh
@@ -79,7 +80,6 @@ COMMANDS:
         stadia rpc method_id [...json_args]
 
         stadia captures
-
 ```
 
 ## Disclaimer
@@ -95,8 +95,8 @@ Copyright Jeremy Banks and
 
 Licensed under either of
 
- * [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
- * [MIT license](http://opensource.org/licenses/MIT)
+- [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+- [MIT license](http://opensource.org/licenses/MIT)
 
 at your option.
 

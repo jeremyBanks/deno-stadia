@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
 /** Rebuilds generated code. */
-import { brotli, Sha3d256 } from "./deps.ts";
+import { brotli, Sha3d256 } from "./_deps.ts";
 
 const main = async () => {
   if (new URL(import.meta.url).protocol === "file:") {
@@ -89,7 +89,7 @@ const main = async () => {
 
   Deno.chdir("..");
 
-  await run("deno", "fmt");
+  await run("deno", "fmt", "--unstable", "--ignore=.git");
 
   const usage = (new TextDecoder()).decode(
     await Deno.run({
@@ -247,7 +247,7 @@ export default new Uint8Array
     lines.push(`\
 // @generated
 // deno-fmt-ignore-file
-import { brotli } from "../../deps.ts";
+import { brotli } from "../../_deps.ts";
 export const
   size = ${size},
   type = ${JSON.stringify(type)},

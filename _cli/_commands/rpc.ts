@@ -1,6 +1,6 @@
-import { Client } from "../../stadia/client.ts";
+import { Client } from "../../stadia.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
-import { color, FlagArgs, FlagOpts, log } from "../../deps.ts";
+import { color, FlagArgs, FlagOpts, log } from "../../_deps.ts";
 import * as json from "../../_common/json.ts";
 import { Proto } from "../../_common/proto.ts";
 

@@ -1,12 +1,12 @@
 // deno-lint-ignore-file no-explicit-any
 
-import { FlagArgs, FlagOpts, log } from "../../deps.ts";
+import { FlagArgs, FlagOpts, log } from "../../_deps.ts";
 import {
   DatabaseRequestContext,
   StadiaDatabase,
-} from "../../stadia/database.ts";
+} from "../../stadia/_database/mod.ts";
 import { SQL } from "../../_common/sql.ts";
-import { Client } from "../../stadia/client.ts";
+import { Client } from "../../stadia.ts";
 import { Proto } from "../../_common/proto.ts";
 import { sleep } from "../../_common/async.ts";
 
@@ -27,10 +27,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
     ([
       ...new Set(
         [
-          "Player",
-          "Game",
-          "Sku",
-          "StoreList",
+          // "Player",
+          // "Game",
+          // "Sku",
+          // "StoreList",
           // "PlayerProgression",
           "PlayerSearch",
           // "MyGames",
@@ -77,7 +77,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
             orderBy: SQL`
               _lastUpdateAttemptedTimestamp asc,
               _lastUpdatedTimestamp asc,
-              rowId desc
+              rowId asc
             `,
           });
 

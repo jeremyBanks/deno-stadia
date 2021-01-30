@@ -1,6 +1,6 @@
 // @generated
 // deno-fmt-ignore-file
-import { brotli } from "../../deps.ts";
+import { brotli } from "../../_deps.ts";
 export const size = 1_674_907,
   type = "application/vnd.microsoft.portable-executable",
   hash = "21d836b272a2a5446467372cacba946935688d6a2fdd1833372f5a46f17efe63";

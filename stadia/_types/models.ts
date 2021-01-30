@@ -1,6 +1,6 @@
 /** Local model types. */
 
-import { z } from "../deps.ts";
+import { z } from "../../_deps.ts";
 import {
   GameId,
   OrganizationId,

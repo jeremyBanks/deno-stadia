@@ -1,4 +1,4 @@
-import { log, sqlite, z } from "../deps.ts";
+import { log, sqlite, z } from "../_deps.ts";
 import { unreachable } from "./assertions.ts";
 import { decode as jsonDecode, encode as jsonEncode } from "./json.ts";
 import {

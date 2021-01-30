@@ -1,9 +1,9 @@
-import { Client } from "../../stadia/client.ts";
+import { Client } from "../../stadia.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
-import { color, FlagArgs, FlagOpts, log } from "../../deps.ts";
+import { color, FlagArgs, FlagOpts, log } from "../../_deps.ts";
 
-import seed_keys from "../../stadia/seed_keys.ts";
-import { StadiaDatabase } from "../../stadia/database.ts";
+import seed_keys from "../../stadia/_seed/keys.ts";
+import { StadiaDatabase } from "../../stadia/_database/mod.ts";
 import SQL from "../../_common/sql.ts";
 import json from "../../_common/json.ts";
 

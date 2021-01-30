@@ -2,10 +2,10 @@
 
 // deno-lint-ignore-file no-explicit-any
 
-import { zod as z } from "../deps.ts";
+import { z } from "../../_deps.ts";
 import * as response from "./response_protos.ts";
 import * as models from "./models.ts";
-import { expect, notImplemented } from "../_common/assertions.ts";
+import { expect, notImplemented } from "../../_common/assertions.ts";
 
 export const skuFromProto = z.any().transform((proto: any): models.Sku => {
   const skuType = skuTypeFromId.parse(z.number().parse(proto[6]));

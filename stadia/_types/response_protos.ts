@@ -1,7 +1,7 @@
 /** Proto types used in Stadia frontend RPC responses. */
 
-import { z } from "../deps.ts";
-import { Proto } from "../_common/proto.ts";
+import { z } from "../../_deps.ts";
+import { Proto } from "../../_common/proto.ts";
 
 const UNKNOWN = Proto;
 

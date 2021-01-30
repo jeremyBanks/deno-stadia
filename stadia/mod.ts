@@ -1,4 +1,4 @@
-/** You probably want this. */
+export * from "./_types/models.ts";
 
 // deno-lint-ignore-file no-explicit-any
 
@@ -6,10 +6,10 @@ import { Json } from "../_common/json.ts";
 import * as json from "../_common/json.ts";
 import { Proto } from "../_common/proto.ts";
 import { safeEval } from "../_common/sandbox.ts";
-import { log, z } from "../deps.ts";
-import { playerFromProto, skuFromProto } from "./response_parsers.ts";
+import { log, z } from "../_deps.ts";
+import { playerFromProto, skuFromProto } from "./_types/response_parsers.ts";
 import { throttled } from "../_common/async.ts";
-import * as models from "../stadia/models.ts";
+import * as models from "../stadia/_types/models.ts";
 
 const fetch = throttled(Math.E, globalThis.fetch);
 
