@@ -29,7 +29,7 @@ import {
   SkuId,
   StoreListId,
   SubscriptionId,
-} from "./common_scalars.ts";
+} from "../_types/common_scalars.ts";
 
 export default {
   Game: [
@@ -70,10 +70,12 @@ export default {
           ...db.tables.Player.select({
             top: 512,
             orderBy: SQL`cast(key as float) asc`,
+            where: SQL`cast(key as float) > 1000`,
           }),
           ...[...db.tables.Player.select({
             top: 512,
             orderBy: SQL`cast(key as float) desc`,
+            where: SQL`cast(key as float) > 1000`,
           })].reverse(),
         ].map((p) => p.key),
       ]),

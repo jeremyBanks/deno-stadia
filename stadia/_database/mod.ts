@@ -483,18 +483,7 @@ const tableDefinitions = (() => {
             suffixes.push(..."abcdefghijklmnopqrstuvwxyz0123456789");
           }
           if (prefix.length >= 3) {
-            suffixes.push(
-              "#0000",
-              "#1",
-              "#2",
-              "#3",
-              "#4",
-              "#5",
-              "#6",
-              "#7",
-              "#8",
-              "#9",
-            );
+            suffixes.push("#");
           }
         }
 
