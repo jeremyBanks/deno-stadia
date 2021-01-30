@@ -123,7 +123,7 @@ export class StadiaDatabase {
         } else {
           log.info(`${tableName} was previously seeded.`);
           // This table has already been seeded, skip the rest.
-          break;
+          // break;
         }
       }
     }

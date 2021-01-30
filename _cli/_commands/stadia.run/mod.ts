@@ -7,7 +7,6 @@ import manifest from "./manifest.json.ts";
 import vercel from "./vercel.json.ts";
 
 import { throttled } from "../../../_common/async.ts";
-import { ThenType } from "../../../_common/utility_types/mod.ts";
 import { expect } from "../../../_common/assertions.ts";
 
 export const flags: FlagOpts = {
@@ -59,6 +58,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   // TODO: replace this with something based on the new spider client model
   // TODO: make the spider threads cancellable using an AbortSignal.
+  // TODO: sort (alternatingly?) based on recency and popularity
   const allGamesListPage = await client.fetchStoreList(3);
   const stadiaProListPage = await client.fetchStoreList(2001);
   const ubisoftPlusListPage = await client.fetchStoreList(2002);
@@ -207,13 +207,15 @@ export const slugify = (name: string, separator = "-") =>
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^[\- :]+)|([\- :]+$)/g, "")
+    .replace(/^playerunknowns-battlegrounds$/g, "pubg")
+    .replace(/^red-dead-redemption-2$/g, "rdr2")
+    .replace(/^superhot-mind-control-delete$/g, "superhot-mcd")
     .replace(/^(hitman)-world-of-assassination$/g, "$1")
     .replace(/^(sekiro)-shadows-die-twice$/g, "$1")
     .replace(/^(hotline-miami-2)-wrong-number$/g, "$1")
     .replace(/^(rock-of-ages-3)-make-and-break$/g, "$1")
     .replace(/^(monster-boy)-and-the-cursed-kingdom$/g, "$1")
     .replace(/^(zombie-army-4)-dead-war$/g, "$1")
-    .replace(/^playerunknowns-battlegrounds$/g, "pubg")
     .replace(/^(steamworld-quest)-hand-of-gilgamech$/g, "$1")
     .replace(/\-/g, separator);
 

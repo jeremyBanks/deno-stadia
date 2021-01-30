@@ -32,13 +32,6 @@ import {
 } from "./common_scalars.ts";
 
 export default {
-  Capture: [
-    ${
-    seed_keys.Capture.map(json.encode).sort().join(`,
-    `)
-  },
-  ] as readonly CaptureId[],
-
   Game: [
     ${
     [
@@ -51,6 +44,19 @@ export default {
     `)
   },
   ] as readonly GameId[],
+
+  Sku: [
+    ${
+    [
+      ...new Set([
+        ...[...db.tables.Sku.select({
+          orderBy: SQL`key asc`,
+        })].map((p) => p.key),
+      ]),
+    ].map(json.encode).join(`,
+    `)
+  },
+  ] as readonly SkuId[],
 
   Player: [
     ${
@@ -75,6 +81,40 @@ export default {
     `)
   },
   ] as readonly PlayerId[],
+
+  StoreList: [
+    ${
+    [
+      ...new Set([
+        3,
+        ...[...db.tables.StoreList.select({
+          orderBy: SQL`key asc`,
+        })].map((p) => p.key),
+      ]),
+    ].map(json.encode).join(`,
+    `)
+  },
+  ] as readonly StoreListId[],
+
+  Subscription: [
+    ${
+    [
+      ...new Set([
+        ...[...db.tables.Subscription.select({
+          orderBy: SQL`key asc`,
+        })].map((p) => p.key),
+      ]),
+    ].map(json.encode).join(`,
+    `)
+  },
+  ] as readonly SubscriptionId[],
+
+  Capture: [
+    ${
+    seed_keys.Capture.map(json.encode).sort().join(`,
+    `)
+  },
+  ] as readonly CaptureId[],
 
   PlayerSearch: [
     ${
@@ -121,46 +161,6 @@ export default {
     `)
   },
   ] as readonly GamertagPrefix[],
-
-  Sku: [
-    ${
-    [
-      ...new Set([
-        ...[...db.tables.Sku.select({
-          orderBy: SQL`key asc`,
-        })].map((p) => p.key),
-      ]),
-    ].map(json.encode).join(`,
-    `)
-  },
-  ] as readonly SkuId[],
-
-  StoreList: [
-    ${
-    [
-      ...new Set([
-        3,
-        ...[...db.tables.StoreList.select({
-          orderBy: SQL`key asc`,
-        })].map((p) => p.key),
-      ]),
-    ].map(json.encode).join(`,
-    `)
-  },
-  ] as readonly StoreListId[],
-
-  Subscription: [
-    ${
-    [
-      ...new Set([
-        ...[...db.tables.Subscription.select({
-          orderBy: SQL`key asc`,
-        })].map((p) => p.key),
-      ]),
-    ].map(json.encode).join(`,
-    `)
-  },
-  ] as readonly SubscriptionId[],
 } as const;
 `);
 };
