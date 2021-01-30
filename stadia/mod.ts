@@ -4,7 +4,7 @@ export * from "./_types/models.ts";
 
 import { Json } from "../_common/json.ts";
 import * as json from "../_common/json.ts";
-import { Proto } from "../_common/proto.ts";
+import { ProtoMessage } from "../_common/proto.ts";
 import { safeEval } from "../_common/sandbox.ts";
 import { log, z } from "../_deps.ts";
 import { playerFromProto, skuFromProto } from "./_types/response_parsers.ts";
@@ -95,7 +95,7 @@ export class Client {
       path: url.pathname,
     };
 
-    log.info(`${method} ${url} ${body} for Google user ${this.googleId}`);
+    log.debug(`${method} ${url} ${body} for Google user ${this.googleId}`);
 
     const httpResponse = await fetch(url, { headers, body, method });
 
@@ -153,7 +153,7 @@ export class Client {
   }
 
   async fetchRpcBatch(
-    rpcidRequestPairs: Array<[string, Proto?]>,
+    rpcidRequestPairs: Array<[string, ProtoMessage?]>,
   ) {
     // https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
     const rpcids = rpcidRequestPairs.map(([rpcid, _request]) => rpcid);
@@ -203,7 +203,7 @@ export class Client {
       );
     const responses = responseEnvelopes.map((r: any) =>
       json.decode(r[2])
-    ) as Array<Array<Proto>>;
+    ) as Array<ProtoMessage>;
     log.debug(
       "RPC RESPONSE BATCH: " + Deno.inspect(responses, { iterableLimit: 4 }),
     );
@@ -216,7 +216,7 @@ export class Client {
 
   async fetchRpc(
     rpcId: string,
-    request: Proto,
+    request: ProtoMessage,
   ) {
     const { httpResponse, responses: [response] } = await this.fetchRpcBatch(
       [[rpcId, request]],
@@ -272,7 +272,7 @@ export class Client {
       "ZAm7We",
       [null, null, null, null, null, listId],
     );
-    return ((response.response as any)[0] as Proto[][][]).map((proto) =>
+    return ((response.response as any)[0] as ProtoMessage[][]).map((proto) =>
       skuFromProto.parse(proto[9])
     );
   }

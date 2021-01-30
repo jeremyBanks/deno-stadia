@@ -1,13 +1,13 @@
 // deno-lint-ignore-file no-explicit-any
 
-import { FlagArgs, FlagOpts, log } from "../../_deps.ts";
+import { FlagArgs, FlagOpts, log, z } from "../../_deps.ts";
 import {
   DatabaseRequestContext,
   StadiaDatabase,
 } from "../../stadia/_database/mod.ts";
 import { SQL } from "../../_common/sql.ts";
 import { Client } from "../../stadia.ts";
-import { Proto } from "../../_common/proto.ts";
+import { ProtoMessage } from "../../_common/proto.ts";
 import { sleep } from "../../_common/async.ts";
 
 export const flags: FlagOpts = {
@@ -77,7 +77,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
             orderBy: SQL`
               _lastUpdateAttemptedTimestamp asc,
               _lastUpdatedTimestamp asc,
-              rowId asc
+              rowId desc
             `,
           });
 
@@ -117,13 +117,19 @@ export const command = async (client: Client, flags: FlagArgs) => {
           if (cacheAllowed) {
             record.value = updatedValue;
             record._lastUpdatedTimestamp = context.requestTimestamp;
-            record._request = requestBatch as Array<Proto>;
+            record._request = z.array(ProtoMessage).parse(requestBatch);
             record._response = responseBatch.responses;
             table.update(record as any);
 
-            log.info(`Updated ${Deno.inspect(updatedValue)}`);
+            log.debug(
+              `Updated ${Deno.inspect(updatedValue)}, ${name} ${record.key}`,
+            );
           } else {
-            log.info(`Fetched non-cachable ${Deno.inspect(updatedValue)}`);
+            log.debug(
+              `Fetched non-cachable ${
+                Deno.inspect(updatedValue)
+              }, ${name} ${record.key}`,
+            );
           }
         } catch (error) {
           log.error(`Error while updating ${name}: ${error.stack ?? error}`);

@@ -29,7 +29,7 @@ import {
 } from "../_types/common_scalars.ts";
 import { ColumnDefinitions } from "../../_common/zoddb.ts";
 import { NoInfer } from "../../_common/typing/mod.ts";
-import { Proto, ProtoMessage } from "../../_common/proto.ts";
+import { ProtoMessage } from "../../_common/proto.ts";
 import { playerFromProto, skuFromProto } from "../_types/response_parsers.ts";
 import * as models from "../_types/models.ts";
 
@@ -120,10 +120,6 @@ export class StadiaDatabase {
           } as any)
         ) {
           count += 1;
-        } else {
-          log.info(`${tableName} was previously seeded.`);
-          // This table has already been seeded, skip the rest.
-          // break;
         }
       }
     }
@@ -296,7 +292,7 @@ const tableDefinitions = (() => {
         );
       }
 
-      const gameProto: Proto = (proto as any)[1][1][0][1][9];
+      const gameProto: ProtoMessage = (proto as any)[1][1][0][1][9];
       const gameSku = skuFromProto.parse(gameProto);
 
       const listedSkus: Array<models.Sku> | null = (proto as any)[0]?.[0]?.map((
@@ -469,26 +465,47 @@ const tableDefinitions = (() => {
       }
 
       const playerIds = proto[1].map((p: any) => p[0][5]) as Array<PlayerId>;
+      log.info(`${playerIds.length} results for PlayerSearch ${prefix}.`);
       for (const playerId of playerIds) {
         context.seed(untyped(Player), playerId);
       }
       if (playerIds.length >= 100) {
-        if (prefix.length < 15) {
-          for (const c of "abcdefghijklmnopqrstuvwxyz0123456789") {
-            context.seed(untyped(PlayerSearch), prefix + c);
-          }
-        } else if (prefix.length === 15) {
-          for (const d of "0123456789") {
-            context.seed(untyped(PlayerSearch), prefix + "#" + d);
-          }
-        } else if (prefix.length < 20) {
-          for (const d of "0123456789") {
-            context.seed(untyped(PlayerSearch), prefix + d);
+        const suffixes = [];
+        if (prefix === "") {
+          suffixes.push(..."abcdefghijklmnopqrstuvwxyz");
+        } else if (prefix.includes("#")) {
+          const digits = prefix.length - prefix.indexOf("#") - 1;
+          if (digits < 4) {
+            suffixes.push(..."0123456789");
           }
         } else {
+          if (prefix.length < 15) {
+            suffixes.push(..."abcdefghijklmnopqrstuvwxyz0123456789");
+          }
+          if (prefix.length >= 3) {
+            suffixes.push(
+              "#0000",
+              "#1",
+              "#2",
+              "#3",
+              "#4",
+              "#5",
+              "#6",
+              "#7",
+              "#8",
+              "#9",
+            );
+          }
+        }
+
+        if (suffixes.length === 0) {
           return unreachable(
             `Are there really 100 matches for ${prefix}? Seems unlikely.`,
           );
+        }
+
+        for (const suffix of suffixes) {
+          context.seed(untyped(PlayerSearch), prefix + suffix);
         }
       }
       return playerIds;

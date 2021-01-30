@@ -24,7 +24,7 @@ export const PlayerName = z.string().regex(/^[a-z][a-z0-9]{2,14}$/i, {
   message: "not a valid PlayerName",
 });
 export const GamertagPrefix = z.string().regex(
-  /^[a-z][a-z0-9]{1,14}(\#(0000|[1-9][0-9]{3}))?$/,
+  /^[a-z][a-z0-9]{1,15}(#(([1-9][0-9]{0,3})|0{0,4})?)?$/,
   { message: "not a valid GamertagPrefix" },
 );
 export const PlayerNumber = z.string().regex(

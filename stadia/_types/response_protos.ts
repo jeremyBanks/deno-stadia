@@ -1,9 +1,6 @@
 /** Proto types used in Stadia frontend RPC responses. */
 
 import { z } from "../../_deps.ts";
-import { Proto } from "../../_common/proto.ts";
-
-const UNKNOWN = Proto;
 
 export const GameId = z.string().regex(/^[0-9a-f]+(rcp1)$/);
 export const SkuId = z.string().regex(/^[0-9a-f]+(p)?$/);
@@ -26,13 +23,15 @@ export const NullableTimestamp = z.union([
   z.tuple([]),
 ]).nullable();
 export const SkuName = z.string().nonempty();
-export const SkuImages = UNKNOWN;
+export const SkuImages = z.unknown();
 export const SkuInternalName = z.string().nonempty();
 export const SkuDescription = z.string().nonempty();
 export const SkuTimestampA = NullableTimestamp;
 export const SkuTimestampB = NullableTimestamp;
-export const SkuLanguages = UNKNOWN || z.string().nonempty().array().nonempty();
-export const SkuCountries = UNKNOWN || z.string().nonempty().array().nonempty();
+export const SkuLanguages = z.unknown() ||
+  z.string().nonempty().array().nonempty();
+export const SkuCountries = z.unknown() ||
+  z.string().nonempty().array().nonempty();
 export const SkuPublisher = OrganizationId;
 export const SkuDevelopers = OrganizationId.array().nonempty();
 
@@ -40,41 +39,41 @@ export const Sku = z.tuple([
   /*  0 */ SkuId,
   /*  1 */ SkuName,
   /*  2 */ SkuImages,
-  /*  3 */ UNKNOWN,
+  /*  3 */ z.unknown(),
   /*  4 */ GameId.nullable(),
   /*  5 */ SkuInternalName,
   /*  6 */ SkuTypeId,
-  /*  7 */ UNKNOWN,
-  /*  8 */ UNKNOWN,
+  /*  7 */ z.unknown(),
+  /*  8 */ z.unknown(),
   /*  9 */ SkuDescription,
   /* 10 */ SkuTimestampA,
-  /* 11 */ UNKNOWN,
-  /* 12 */ UNKNOWN,
-  /* 13 */ UNKNOWN,
-  /* 14 */ UNKNOWN,
+  /* 11 */ z.unknown(),
+  /* 12 */ z.unknown(),
+  /* 13 */ z.unknown(),
+  /* 14 */ z.unknown(),
   /* 15 */ SkuPublisher,
   /* 16 */ SkuDevelopers,
-  /* 17 */ UNKNOWN,
-  /* 18 */ UNKNOWN,
-  /* 19 */ UNKNOWN,
-  /* 20 */ UNKNOWN,
-  /* 21 */ UNKNOWN,
-  /* 22 */ UNKNOWN,
-  /* 23 */ UNKNOWN,
+  /* 17 */ z.unknown(),
+  /* 18 */ z.unknown(),
+  /* 19 */ z.unknown(),
+  /* 20 */ z.unknown(),
+  /* 21 */ z.unknown(),
+  /* 22 */ z.unknown(),
+  /* 23 */ z.unknown(),
   /* 24 */ SkuLanguages,
   /* 25 */ SkuCountries,
   /* 26 */ SkuTimestampB,
-  /* 27 */ UNKNOWN,
-  /* 28 */ UNKNOWN,
-  /* 29 */ UNKNOWN,
-  /* 30 */ UNKNOWN,
-  /* 31 */ UNKNOWN,
-  /* 32 */ UNKNOWN,
-  /* 33 */ UNKNOWN,
-  /* 34 */ UNKNOWN,
-  /* 35 */ UNKNOWN,
-  /* 36 */ UNKNOWN,
-  /* 37 */ UNKNOWN,
+  /* 27 */ z.unknown(),
+  /* 28 */ z.unknown(),
+  /* 29 */ z.unknown(),
+  /* 30 */ z.unknown(),
+  /* 31 */ z.unknown(),
+  /* 32 */ z.unknown(),
+  /* 33 */ z.unknown(),
+  /* 34 */ z.unknown(),
+  /* 35 */ z.unknown(),
+  /* 36 */ z.unknown(),
+  /* 37 */ z.unknown(),
 ]);
 
 export const PlayerId = z.string().regex(/^\d+$/);
@@ -98,20 +97,20 @@ export const Player = z.tuple([
     z.tuple([AvatarId, AvatarUrl]),
     z.tuple([
       z.tuple([PlayerName, PlayerNumber]),
-      UNKNOWN,
-      UNKNOWN,
-      UNKNOWN,
-      UNKNOWN,
-      UNKNOWN,
-      UNKNOWN,
+      z.unknown(),
+      z.unknown(),
+      z.unknown(),
+      z.unknown(),
+      z.unknown(),
+      z.unknown(),
       PlayerId,
     ]),
     PlayerCanonicalName,
-    UNKNOWN,
+    z.unknown(),
     PlayerId,
-    UNKNOWN,
-    UNKNOWN,
+    z.unknown(),
+    z.unknown(),
   ]),
-  UNKNOWN,
-  UNKNOWN,
+  z.unknown(),
+  z.unknown(),
 ]);
