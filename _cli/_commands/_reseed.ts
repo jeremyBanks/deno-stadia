@@ -18,6 +18,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
   const stadia = new StadiaDatabase(flags.sqlite);
   const db = stadia.database;
 
+  // updates seed_keys.ts
+
   print(`\
 import {
   CaptureId,
@@ -76,9 +78,46 @@ export default {
 
   PlayerSearch: [
     ${
-    /* TODO: the 128 most popular known player names, then an exhaustive list of
-     all 26 * 36 two-character name prefixes, ordered by frequency. */
-    seed_keys.PlayerSearch.map(json.encode).join(`,
+    [
+      ...new Set([
+        // the most frequent full names
+        ...[...db.sql(SQL`
+          select
+            lower(p.name) as frequentName,
+            count(*) as playerCount
+          from
+            Player p
+          where
+            frequentName is not null
+          group by
+            frequentName
+          order by
+            playerCount desc
+          limit
+            128
+        `)].map(([name, _count]) => name),
+
+        // all two-character name prefixes, ordered by frequency
+        ...[...db.sql(SQL`
+          select
+            substr(lower(p.name), 0, 3) as namePrefix,
+            count(*) as prefixCount
+          from
+            Player p
+          where
+            namePrefix is not null
+          group by
+            namePrefix
+          order by
+            prefixCount desc
+        `)].map(([prefix, _count]) => prefix),
+        ...[
+          ...[..."abcdefghijklmnopqrstuvwxyz"].flatMap((c) =>
+            [..."abcdefghijklmnopqrstuvwxyz0123456789"].map((d) => c + d)
+          ),
+        ],
+      ]),
+    ].map(json.encode).join(`,
     `)
   },
   ] as readonly GamertagPrefix[],

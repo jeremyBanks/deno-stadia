@@ -66,7 +66,11 @@ export const command = async (client: Client, flags: FlagArgs) => {
         sleep(i);
 
         log.debug(`Known ${name}: ${table.count()}`);
-        log.debug(`Loaded ${name}: ${table.count({where: SQL`_lastUpdatedTimestamp is not null`})}`);
+        log.debug(
+          `Loaded ${name}: ${
+            table.count({ where: SQL`_lastUpdatedTimestamp is not null` })
+          }`,
+        );
 
         try {
           const record = table.first({
@@ -82,7 +86,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           if (
             record._lastUpdateAttemptedTimestamp &&
             record._lastUpdateAttemptedTimestamp + cacheMaxAgeSeconds * 1000 >=
-            context.requestTimestamp
+              context.requestTimestamp
           ) {
             log.info(`All ${name} records are up-to-date.`);
             try {

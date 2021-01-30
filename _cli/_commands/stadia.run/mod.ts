@@ -207,7 +207,14 @@ export const slugify = (name: string, separator = "-") =>
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^[\- :]+)|([\- :]+$)/g, "")
-    .replace(/-world-of-assassination$/g, "")
+    .replace(/^(hitman)-world-of-assassination$/g, "$1")
+    .replace(/^(sekiro)-shadows-die-twice$/g, "$1")
+    .replace(/^(hotline-miami-2)-wrong-number$/g, "$1")
+    .replace(/^(rock-of-ages-3)-make-and-break$/g, "$1")
+    .replace(/^(monster-boy)-and-the-cursed-kingdom$/g, "$1")
+    .replace(/^(zombie-army-4)-dead-war$/g, "$1")
+    .replace(/^playerunknowns-battlegrounds$/g, "pubg")
+    .replace(/^(steamworld-quest)-hand-of-gilgamech$/g, "$1")
     .replace(/\-/g, separator);
 
 const rgbToU6 = (rgb: [number, number, number]): number => {
