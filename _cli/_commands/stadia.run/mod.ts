@@ -57,6 +57,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   const name = flags.name;
 
+  // TODO: replace this with something based on the new spider client model
+  // TODO: make the spider threads cancellable using an AbortSignal.
   const allGamesListPage = await client.fetchStoreList(3);
   const stadiaProListPage = await client.fetchStoreList(2001);
   const ubisoftPlusListPage = await client.fetchStoreList(2002);

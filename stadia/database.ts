@@ -289,7 +289,7 @@ const tableDefinitions = (() => {
       ["ZAm7We", [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]]],
       ["LrvzJb", [null, null, [[gameId]]]],
     ],
-    parseResponse: (proto: any, gameId) => {
+    parseResponse: (proto: any, gameId, context) => {
       if (proto[0]?.[0] === null && proto[1]?.length === 0) {
         throw new Error(
           `found no skus for game ${gameId}. this should only be the case for subscriptions, so it should not be common. not currently supported`,
@@ -310,6 +310,10 @@ const tableDefinitions = (() => {
       }
 
       const skus = listedSkus ?? [gameSku];
+
+      for (const sku of skus) {
+        context.seed(untyped(Sku), sku.skuId);
+      }
 
       assert(gameId === gameSku.gameId);
 

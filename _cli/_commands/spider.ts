@@ -27,10 +27,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
     ([
       ...new Set(
         [
-          // "Player",
-          // "Game",
-          // "Sku",
-          // "StoreList",
+          "Player",
+          "Game",
+          "Sku",
+          "StoreList",
           // "PlayerProgression",
           "PlayerSearch",
           // "MyGames",
