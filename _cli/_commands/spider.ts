@@ -77,7 +77,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
             _lastUpdateAttemptedTimestamp asc,
             _lastUpdatedTimestamp asc,
             length(key) asc,
-            rowId asc
+            rowId desc
           `,
         });
 
