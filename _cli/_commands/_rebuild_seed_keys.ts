@@ -63,21 +63,17 @@ export default {
     [
       ...new Set([
         "956082794034380385",
+        ...[...db.tables.Player.select({
+          top: 510,
+          orderBy: SQL`cast(key as float) asc`,
+        })].map((p) => p.key),
         "5478196876050978967",
         "6820190109831870452",
         "12195660895651674916",
-        ...[
-          ...db.tables.Player.select({
-            top: 512,
-            orderBy: SQL`cast(key as float) asc`,
-            where: SQL`cast(key as float) > 1000`,
-          }),
-          ...[...db.tables.Player.select({
-            top: 512,
-            orderBy: SQL`cast(key as float) desc`,
-            where: SQL`cast(key as float) > 1000`,
-          })].reverse(),
-        ].map((p) => p.key),
+        ...[...db.tables.Player.select({
+          top: 510,
+          orderBy: SQL`cast(key as float) desc`,
+        })].reverse().map((p) => p.key),
       ]),
     ].map(json.encode).join(`,
     `)
@@ -86,14 +82,7 @@ export default {
 
   StoreList: [
     ${
-    [
-      ...new Set([
-        3,
-        ...[...db.tables.StoreList.select({
-          orderBy: SQL`key asc`,
-        })].map((p) => p.key),
-      ]),
-    ].map(json.encode).join(`,
+    [...seed_keys.StoreList].sort((a, b) => a - b).map(json.encode).join(`,
     `)
   },
   ] as readonly StoreListId[],
@@ -113,7 +102,7 @@ export default {
 
   Capture: [
     ${
-    seed_keys.Capture.map(json.encode).sort().join(`,
+    [...seed_keys.Capture].sort().map(json.encode).join(`,
     `)
   },
   ] as readonly CaptureId[],
@@ -139,6 +128,8 @@ export default {
             128
         `)].map(([name, _count]) => name),
 
+        // TODO: also include the most popular name for each avatar
+
         // all two-character name prefixes, ordered by frequency
         ...[...db.sql(SQL`
           select
@@ -154,7 +145,7 @@ export default {
             prefixCount desc
         `)].map(([prefix, _count]) => prefix),
         ...[
-          ...[..."abcdefghijklmnopqrstuvwxyz"].flatMap((c) =>
+          ...[..."abcdefghijklmnopqrstuvwxyz0123456789"].flatMap((c) =>
             [..."abcdefghijklmnopqrstuvwxyz0123456789"].map((d) => c + d)
           ),
         ],
