@@ -89,8 +89,6 @@ const main = async () => {
 
   Deno.chdir("..");
 
-  await run("deno", "fmt", "--unstable", "--ignore=.git");
-
   const usage = (new TextDecoder()).decode(
     await Deno.run({
       cmd: ["deno", "run", "--quiet", "--allow-all", "./stadia.ts"],
@@ -172,6 +170,8 @@ dual licensed as above, without any additional terms or conditions.
 `;
 
   await Deno.writeTextFile("./README.md", readme);
+
+  await run("deno", "fmt", "--unstable", "--ignore=.git");
 
   if (
     !await run(
