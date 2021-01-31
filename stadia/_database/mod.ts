@@ -476,7 +476,10 @@ const tableDefinitions = (() => {
         } else if (prefix.includes("#")) {
           const digits = prefix.length - prefix.indexOf("#") - 1;
           if (digits < 4) {
-            suffixes.push(..."0123456789");
+            if (digits > 0) {
+              suffixes.push("0");
+            }
+            suffixes.push(..."123456789");
           }
         } else {
           if (prefix.length < 15) {

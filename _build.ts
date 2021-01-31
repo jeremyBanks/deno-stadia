@@ -108,6 +108,8 @@ const main = async () => {
 [<img alt="unreleased commits on trunk" src="https://img.shields.io/github/commits-since/jeremyBanks/gaming/latest/trunk?label=unreleased&logo=git&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/commits/trunk)
 [<img alt="github actions checks of trunk" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/actions)
 [<img alt="unmerged pull requests for trunk" src="https://img.shields.io/github/issues-search?query=repo%3AjeremyBanks%2Fgaming%20is%3Apr%20is%3Aopen%20base%3Atrunk&label=unmerged&logo=github&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/pulls?q=is%3Apr+is%3Aopen+base%3Atrunk)
+[<img alt="deno doc for trunk" src="https://img.shields.io/badge/deno_doc-trunk-851?logo=gitbook&style=flat-square&logoColor=white" height="20">](https://doc.deno.land/https/raw.githubusercontent.com/jeremyBanks/gaming/trunk/stadia.ts)
+
 <br>
 [<img alt="stadia: in progress" src="https://img.shields.io/badge/stadia-in_progress-yellow?logo=stadia&logoColor=D72D30&style=flat-square" height="20">](https://stadia.com/)
 [<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-no-663333?logo=xbox&logoColor=107C10&style=flat-square" height="20">](https://xbox.com/)

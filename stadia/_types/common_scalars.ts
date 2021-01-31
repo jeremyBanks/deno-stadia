@@ -17,7 +17,7 @@ export const OrganizationId = z.string().regex(
   /^[0-9a-f]+(pup1)$/,
   { message: "not a valid OrganizationId" },
 ) as z.Schema<`${string}pup1`>;
-export const PlayerId = PositiveIntegerString.min(4);
+export const PlayerId = PositiveIntegerString.min(8);
 export const StoreListId = z.number().int().positive();
 export const SubscriptionId = z.number().int().positive();
 export const PlayerName = z.string().regex(/^[a-z][a-z0-9]{2,14}$/i, {

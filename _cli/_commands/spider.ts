@@ -72,15 +72,16 @@ export const command = async (client: Client, flags: FlagArgs) => {
           }`,
         );
 
-        try {
-          const record = table.first({
-            orderBy: SQL`
-              _lastUpdateAttemptedTimestamp asc,
-              _lastUpdatedTimestamp asc,
-              rowId desc
-            `,
-          });
+        const record = table.first({
+          orderBy: SQL`
+            _lastUpdateAttemptedTimestamp asc,
+            _lastUpdatedTimestamp asc,
+            length(key) asc,
+            rowId asc
+          `,
+        });
 
+        try {
           const context = new DatabaseRequestContext(stadia);
 
           if (
@@ -132,7 +133,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
             );
           }
         } catch (error) {
-          log.error(`Error while updating ${name}: ${error.stack ?? error}`);
+          log.error(
+            `Error while updating ${name} ${record.key}: ${error.stack ??
+              error}`,
+          );
           await sleep(Math.random() * 60);
         }
       }
