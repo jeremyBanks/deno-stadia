@@ -28,9 +28,9 @@ export const command = async (client: Client, flags: FlagArgs) => {
       ...new Set(
         [
           "Player",
-          // "Game",
-          // "Sku",
-          // "StoreList",
+          "Game",
+          "Sku",
+          "StoreList",
           // "PlayerProgression",
           "PlayerSearch",
           // "MyGames",
@@ -54,7 +54,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
         cacheMaxAgeSeconds = Number(cacheControl.split("=")[1]);
       }
 
-      cacheMaxAgeSeconds = Math.max(60 * 60 * 24 * 7, cacheMaxAgeSeconds);
+      cacheMaxAgeSeconds = Math.max(60 * 60 * 24 * 2, cacheMaxAgeSeconds);
 
       for (;;) {
         try {
@@ -93,7 +93,6 @@ export const command = async (client: Client, flags: FlagArgs) => {
             try {
               db.sql(SQL`commit transaction`);
             } catch (error) {
-              error;
             }
             await sleep(Math.random() * 60 * 16);
             continue;
