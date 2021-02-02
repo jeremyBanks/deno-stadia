@@ -32,7 +32,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           // "Sku",
           // "StoreList",
           // "PlayerProgression",
-          // "PlayerSearch",
+          "PlayerSearch",
           // "MyGames",
           // "MyPurchases",
           // "MyFriends",
@@ -76,8 +76,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
           orderBy: SQL`
             _lastUpdateAttemptedTimestamp asc,
             _lastUpdatedTimestamp asc,
-            length(key) asc,
-            rowId desc
+            random()
           `,
         });
 
