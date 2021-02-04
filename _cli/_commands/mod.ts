@@ -1,6 +1,7 @@
 import { flags } from "../../_deps.ts";
 import { Client } from "../../stadia.ts";
 
+import * as export_ from "./export.ts";
 import * as rpc from "./rpc.ts";
 import * as spider from "./spider.ts";
 import * as rebuildSeedKeys from "./_rebuild_seed_keys.ts";
@@ -11,10 +12,12 @@ const commands: Record<
   {
     flags: Partial<flags.ArgParsingOptions>;
     command: (client: Client, flags: flags.Args) => Promise<unknown>;
+    skipSeeding?: boolean;
   }
 > = {
   spider,
   rpc,
+  export: export_,
   "_rebuild_seed_keys": rebuildSeedKeys,
   "_stadia.run": stadiaDotRun,
 };

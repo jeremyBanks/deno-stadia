@@ -19,15 +19,14 @@ export const flags: FlagOpts = {
 };
 
 export const command = async (client: Client, flags: FlagArgs) => {
-  const stadia = new StadiaDatabase(flags.sqlite);
-  const db = stadia.database;
-  const defs = stadia.tableDefinitions;
+  const db = client.database.database;
+  const defs = client.database.tableDefinitions;
 
   return void await Promise.all(
     ([
       ...new Set(
         [
-          "Player",
+          // "Player",
           // "Game",
           // "Sku",
           // "StoreList",
@@ -58,11 +57,11 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
       for (;;) {
         try {
-          db.sql(SQL`commit transaction`);
+          db.sql(SQL`release spidering`);
         } catch (error) {
           error;
         }
-        db.sql(SQL`begin deferred transaction`);
+        db.sql(SQL`savepoint spidering`);
         sleep(i);
 
         log.debug(`Known ${name}: ${table.count()}`);
@@ -76,12 +75,12 @@ export const command = async (client: Client, flags: FlagArgs) => {
           orderBy: SQL`
             _lastUpdateAttemptedTimestamp asc,
             _lastUpdatedTimestamp asc,
-            random()
+            length(key) asc
           `,
         });
 
         try {
-          const context = new DatabaseRequestContext(stadia);
+          const context = new DatabaseRequestContext(client.database);
 
           if (
             record._lastUpdateAttemptedTimestamp &&
@@ -90,9 +89,10 @@ export const command = async (client: Client, flags: FlagArgs) => {
           ) {
             log.info(`All ${name} records are up-to-date.`);
             try {
-              db.sql(SQL`commit transaction`);
+              db.sql(SQL`release spidering`);
             } catch (error) {
             }
+            db.sql(SQL`savepoint spidering`);
             await sleep(Math.random() * 60 * 16);
             continue;
           }

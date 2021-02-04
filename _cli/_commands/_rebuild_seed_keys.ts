@@ -15,10 +15,7 @@ export const flags: FlagOpts = {
 };
 
 export const command = async (client: Client, flags: FlagArgs) => {
-  const stadia = new StadiaDatabase(flags.sqlite);
-  const db = stadia.database;
-
-  // updates seed_keys.ts
+  const db = client.database.database;
 
   print(`\
 import {
@@ -62,16 +59,19 @@ export default {
     ${
     [
       ...new Set([
-        "956082794034380385",
         ...[...db.tables.Player.select({
-          top: 510,
+          limit: 512,
           orderBy: SQL`cast(key as float) asc`,
         })].map((p) => p.key),
-        "5478196876050978967",
-        "6820190109831870452",
-        "12195660895651674916",
         ...[...db.tables.Player.select({
-          top: 510,
+          where: SQL`length(key) = 17`,
+          limit: 1,
+          orderBy: SQL`cast(key as float) desc`,
+        })].map((p) => p.key),
+        "956082794034380385",
+        "5478196876050978967",
+        ...[...db.tables.Player.select({
+          limit: 509,
           orderBy: SQL`cast(key as float) desc`,
         })].reverse().map((p) => p.key),
       ]),
@@ -110,6 +110,8 @@ export default {
   PlayerSearch: [
     ${
     [
+      // TODO: also include the most popular name for each avatar
+
       ...new Set([
         // the most frequent full names
         ...[...db.sql(SQL`
@@ -128,7 +130,24 @@ export default {
             128
         `)].map(([name, _count]) => name),
 
-        // TODO: also include the most popular name for each avatar
+        ...[15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3].flatMap((size) =>
+          [...db.sql(SQL`
+          select
+            substr(lower(p.name), 0, ${size + 1}) as namePrefix,
+            count(*) as prefixCount
+          from
+            Player p
+          where
+            namePrefix is not null
+            and length(p.name) >= ${size}
+          group by
+            namePrefix
+          order by
+            prefixCount desc
+          limit
+            8
+        `)].map(([name, _count]) => name)
+        ),
 
         // all two-character name prefixes, ordered by frequency
         ...[...db.sql(SQL`

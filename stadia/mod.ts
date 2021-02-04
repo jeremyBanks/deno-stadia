@@ -10,6 +10,7 @@ import { log, z } from "../_deps.ts";
 import { playerFromProto, skuFromProto } from "./_types/response_parsers.ts";
 import { throttled } from "../_common/async.ts";
 import * as models from "../stadia/_types/models.ts";
+import { StadiaDatabase } from "./_database/mod.ts";
 
 const fetch = throttled(Math.E, globalThis.fetch);
 
@@ -51,14 +52,18 @@ export class GoogleCookies {
 
 export class Client {
   public readonly googleId: string;
-  private readonly googleCookies: GoogleCookies;
+  readonly #googleCookies: GoogleCookies;
+  public readonly database: StadiaDatabase;
 
   public constructor(
     googleId: string,
     googleCookies: GoogleCookies,
+    sqlite: string = ":memory:",
+    skipSeeding = false,
   ) {
     this.googleId = googleId;
-    this.googleCookies = googleCookies;
+    this.#googleCookies = googleCookies;
+    this.database = new StadiaDatabase(sqlite, skipSeeding);
   }
 
   public async fetchHttp(path: string, body?: RequestInit["body"]) {
@@ -78,7 +83,9 @@ export class Client {
         "Safari/537.36",
       ].join(" "),
 
-      "cookie": Object.entries(this.googleCookies).map(([k, v]) => `${k}=${v};`)
+      "cookie": Object.entries(this.#googleCookies).map(([k, v]) =>
+        `${k}=${v};`
+      )
         .join(" "),
 
       "origin": "https://stadia.google.com",

@@ -1,5 +1,5 @@
 import { log, sqlite, z } from "../_deps.ts";
-import { unreachable } from "./assertions.ts";
+import { assert, unreachable } from "./assertions.ts";
 import { decode as jsonDecode, encode as jsonEncode } from "./json.ts";
 import {
   encodeSQLiteIdentifier,
@@ -188,24 +188,21 @@ export class Table<
   }
 
   *select(options?: {
-    top?: number;
+    limit?: number;
     where?: SQLExpression;
     orderBy?: SQLExpression;
     unchecked?: "unchecked";
   }): Iterable<Value> {
-    let limit = options?.top ?? Infinity;
+    let limit = z.number().int().optional().parse(options?.limit) ?? -1;
     for (
       const [json] of this.database.sql(
-        SQL`select json from ${this}
+        SQL`select
+        json from ${this}
         where ${options?.where ?? SQL`true`}
-        order by ${options?.orderBy ?? SQL`rowid asc`}`,
+        order by ${options?.orderBy ?? SQL`rowid asc`}
+        limit ${limit}`,
       )
     ) {
-      if (limit <= 0) {
-        break;
-      } else {
-        limit -= 1;
-      }
       const uncheckedValue = jsonDecode(json);
       let value;
       if (options?.unchecked !== "unchecked") {

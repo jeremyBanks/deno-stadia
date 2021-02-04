@@ -98,12 +98,17 @@ export const def = <
 export class StadiaDatabase {
   constructor(
     readonly path: string,
+    readonly skipSeeding = false,
   ) {}
 
   readonly tableDefinitions = tableDefinitions;
   readonly database = zoddb.open(this.path, this.tableDefinitions);
   readonly seeded = (() => {
-    this.database.sql(SQL`begin deferred transaction`);
+    if (this.skipSeeding) {
+      log.info("Skipping seeding");
+      return;
+    }
+    this.database.sql(SQL`savepoint seeding`);
 
     let count = 0;
     for (
@@ -124,7 +129,7 @@ export class StadiaDatabase {
       }
     }
 
-    this.database.sql(SQL`commit transaction`);
+    this.database.sql(SQL`release seeding`);
     log.info(`Seeded ${count} records`);
   })();
 }

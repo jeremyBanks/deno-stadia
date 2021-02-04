@@ -173,7 +173,7 @@ export const cleanName = (name: string) =>
     .replace(/- The Official Videogame\b/gi, "")
     .replace(/^Tom Clancy's/gi, "")
     .replace(/^STAR WARS/gi, "Star Wars")
-    .replace(/^Dragon Ball Xenoverse/gi, "Dragon Ball Xenoverse")
+    .replace(/^DRAGON BALL XENOVERSE/gi, "Dragon Ball Xenoverse")
     .replace(/^WATCH_DOGS/gi, "Watch Dogs")
     .replace(/^OCTOPATH TRAVELER/gi, "Octopath Traveler")
     .replace(/^DOOM/gi, "Doom")
