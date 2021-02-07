@@ -75,7 +75,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
           orderBy: SQL`
             _lastUpdateAttemptedTimestamp asc,
             _lastUpdatedTimestamp asc,
-            length(key) asc
+            length(key) asc,
+            random() asc
           `,
         });
 
@@ -95,7 +96,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
             db.sql(SQL`savepoint spidering`);
             await sleep(Math.random() * 60 * 16);
             continue;
-          }
+          }+
 
           log.info(`Spidering ${name} ${record.key}`);
 

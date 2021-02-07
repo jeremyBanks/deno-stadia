@@ -28,9 +28,17 @@ export const skuFromProto = z.any().transform((proto: any): models.Sku => {
   });
 });
 
-export const playerFromProto = z.any().transform((proto) => {
-  return notImplemented();
-});
+export const shallowPlayerFromProto = z.any().transform(
+  (proto): models.Player => {
+    return models.Player.parse({
+      type: "player",
+      playerId: expect(proto[5]),
+      name: expect(proto[0][0]),
+      number: expect(proto[0][1]),
+      avatarImageUrl: expect(proto[1][1]),
+    });
+  },
+);
 
 export const skuTypeFromId = response.SkuTypeId.transform((id) =>
   models.SkuType.parse(

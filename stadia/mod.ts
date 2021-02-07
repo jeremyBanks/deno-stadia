@@ -7,7 +7,7 @@ import * as json from "../_common/json.ts";
 import { ProtoMessage } from "../_common/proto.ts";
 import { safeEval } from "../_common/sandbox.ts";
 import { log, z } from "../_deps.ts";
-import { playerFromProto, skuFromProto } from "./_types/response_parsers.ts";
+import { skuFromProto } from "./_types/response_parsers.ts";
 import { throttled } from "../_common/async.ts";
 import * as models from "../stadia/_types/models.ts";
 import { StadiaDatabase } from "./_database/mod.ts";
@@ -215,6 +215,9 @@ export class Client {
       "RPC RESPONSE BATCH: " + Deno.inspect(responses, { iterableLimit: 4 }),
     );
 
+    // XXX: are we incorrectly assuming these will come back in the same order?
+    // look at user 11581666539686832029.
+
     return {
       httpResponse,
       responses,
@@ -272,120 +275,5 @@ export class Client {
     if (captures.length == pageSize) {
       yield* this.fetchCaptures(nextPageToken);
     }
-  }
-
-  async fetchStoreList(listId: number): Promise<Array<models.Sku>> {
-    const response = await this.fetchRpc(
-      "ZAm7We",
-      [null, null, null, null, null, listId],
-    );
-    return ((response.response as any)[0] as ProtoMessage[][]).map((proto) =>
-      skuFromProto.parse(proto[9])
-    );
-  }
-
-  async fetchSku(skuId: string): Promise<models.Sku> {
-    const response = await this.fetchRpc(
-      "FWhQV",
-      [null, skuId],
-    );
-
-    return skuFromProto.parse((response.response as any)[16]);
-  }
-
-  async fetchGame(gameId: string): Promise<Array<models.Sku>> {
-    const response = await this.fetchRpc(
-      "ZAm7We",
-      [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]],
-    );
-
-    return (response.response as any)[0].map((x: any) =>
-      skuFromProto.parse(x[9])
-    );
-  }
-
-  async fetchPlayer(
-    playerId: string,
-    includeStatus = true,
-  ): Promise<{
-    player: models.Player;
-    friends: models.PlayerFriends | null;
-    playedGames: models.PlayerGames | null;
-    gameStats: models.PlayerGameStats | null;
-  }> {
-    const { responses: [playerResponse, friendsResponse, gamesResponse] } =
-      await this.fetchRpcBatch([
-        [
-          "D0Amud",
-          [null, includeStatus, null, null, playerId],
-        ],
-        [
-          "Z5HRnb",
-          [null, includeStatus, playerId],
-        ],
-        [
-          "Q6jt8c",
-          [null, null, null, playerId],
-        ],
-      ]);
-
-    const player = playerFromProto.parse((playerResponse as any)[5]);
-
-    const friendPlayerIds =
-      (friendsResponse as any)?.[0]?.map((x: any) =>
-        playerFromProto.parse(x).playerId
-      ) ??
-        null;
-
-    const friends = friendPlayerIds
-      ? models.PlayerFriends.parse({
-        type: "player.friends",
-        proto: friendsResponse,
-        playerId,
-        friendPlayerIds,
-      })
-      : null;
-
-    const playedGameIds = (gamesResponse as any)?.[0] ?? null;
-    const playedGames: models.PlayerGames | null = playedGameIds
-      ? {
-        type: "player.games",
-        playerId,
-        playedGameIds,
-      }
-      : null;
-
-    const gameStats: models.PlayerGameStats | null = playedGameIds
-      ? {
-        type: "player.gamestats",
-        playerId,
-        proto: await this.fetchPlayerGameStats(
-          playerId,
-          playedGameIds,
-        ),
-      }
-      : null;
-
-    return { player, friends, playedGames, gameStats };
-  }
-
-  async fetchPlayerGameStats(
-    playerId: string,
-    gameIds: Array<string>,
-  ): Promise<unknown> {
-    const { responses } = await this.fetchRpcBatch(
-      gameIds.map((gameId) => [
-        "e7h9qd",
-        [null, gameId, playerId],
-      ]),
-    );
-
-    return responses?.[0]?.[0];
-  }
-
-  async fetchPlayerSearch(namePrefix: string) {
-    namePrefix = z.string().min(2).max(20).parse(namePrefix);
-    const q = namePrefix.slice(0, 1) + " " + namePrefix.slice(1);
-    await this.fetchRpc("FdyJ0", [q]);
   }
 }

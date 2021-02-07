@@ -338,7 +338,11 @@ export class Database<
 
     this.sql(SQL`create table if not exists ${table} (${columns})`);
     for (const statement of indexCreations) {
-      this.sql(statement);
+      try {
+        this.sql(statement);
+      } catch (error) {
+        log.error(`failed to create index\n\n${statement.strings}\n\n${error.stack}}`);
+      }
     }
   });
 }

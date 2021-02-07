@@ -5,7 +5,7 @@ import * as export_ from "./export.ts";
 import * as rpc from "./rpc.ts";
 import * as spider from "./spider.ts";
 import * as rebuildSeedKeys from "./_rebuild_seed_keys.ts";
-import * as stadiaDotRun from "./_stadia.run/mod.ts";
+// import * as stadiaDotRun from "./_stadia.run/mod.ts";
 
 const commands: Record<
   string,
@@ -19,7 +19,7 @@ const commands: Record<
   rpc,
   export: export_,
   "_rebuild_seed_keys": rebuildSeedKeys,
-  "_stadia.run": stadiaDotRun,
+  // "_stadia.run": stadiaDotRun,
 };
 
 export default commands;
