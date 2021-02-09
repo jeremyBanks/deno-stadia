@@ -341,7 +341,9 @@ export class Database<
       try {
         this.sql(statement);
       } catch (error) {
-        log.error(`failed to create index\n\n${statement.strings}\n\n${error.stack}}`);
+        log.error(
+          `failed to create index\n\n${statement.strings}\n\n${error.stack}}`,
+        );
       }
     }
   });

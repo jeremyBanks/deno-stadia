@@ -7,9 +7,7 @@ import * as json from "../_common/json.ts";
 import { ProtoMessage } from "../_common/proto.ts";
 import { safeEval } from "../_common/sandbox.ts";
 import { log, z } from "../_deps.ts";
-import { skuFromProto } from "./_types/response_parsers.ts";
 import { throttled } from "../_common/async.ts";
-import * as models from "../stadia/_types/models.ts";
 import { StadiaDatabase } from "./_database/mod.ts";
 
 const fetch = throttled(Math.E, globalThis.fetch);
