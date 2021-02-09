@@ -80,7 +80,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
         } as any);
       } catch (error) {
         log.error(`failed to insert ${modelName} ${row.key}: ${error.stack}`);
-        log.error(Deno.inspect(row, {depth: 6}));
+        log.error(Deno.inspect(row, { depth: 6 }));
         await sleep(4.0);
       }
     }

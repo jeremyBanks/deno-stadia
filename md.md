@@ -1,13 +1,10 @@
-
 ```ts
 import {
-  StadiaClient,
   GoogleCredentials,
-} from 'https://deno.land/x/gaming/stadia.ts';
+  StadiaClient,
+} from "https://deno.land/x/gaming/stadia.ts";
 
-const credentials = await GoogleCredentials.findLocal({
-
-});
+const credentials = await GoogleCredentials.findLocal({});
 
 // What is our goal?
 // Comparing achivements?
@@ -25,7 +22,5 @@ const jeremy: stadia.Player = await stadia.user({
 });
 
 for (const game of jeremy.played) {
-
 }
-
 ```

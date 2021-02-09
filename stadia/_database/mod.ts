@@ -71,7 +71,8 @@ export const def = <
       _request: ProtoMessage.optional(),
       _response: ProtoMessage.optional(),
       _lastUpdatedTimestamp: z.number().positive().nullable().optional(),
-      _lastUpdateAttemptedTimestamp: z.number().positive().nullable().optional(),
+      _lastUpdateAttemptedTimestamp: z.number().positive().nullable()
+        .optional(),
     } as const,
   );
 
@@ -271,7 +272,9 @@ const tableDefinitions = (() => {
 
       const friendProtos = friendProto?.[0];
 
-      const friends = (friendProtos ?? []).map((p: any) => shallowPlayerFromProto.parse(p));
+      const friends = (friendProtos ?? []).map((p: any) =>
+        shallowPlayerFromProto.parse(p)
+      );
 
       friends.forEach((player: models.Player) =>
         context.update(untyped(Player), player.playerId, player, {

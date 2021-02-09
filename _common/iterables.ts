@@ -69,7 +69,7 @@ export const compare = (
 
   // order arrays by recursive comparison of corresponding items
 
-  if (typeof a === 'object') {
+  if (typeof a === "object") {
     assert(a instanceof Array);
     assert(b instanceof Array);
 
@@ -146,4 +146,4 @@ export const first = <Input>(input: Iterable<Input>): Input | void => {
   for (const item of input) {
     return item;
   }
-}
+};

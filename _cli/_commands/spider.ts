@@ -96,9 +96,8 @@ export const command = async (client: Client, flags: FlagArgs) => {
             db.sql(SQL`savepoint spidering`);
             await sleep(Math.random() * 60 * 16);
             continue;
-          }+
-
-          log.info(`Spidering ${name} ${record.key}`);
+          }
+          +log.info(`Spidering ${name} ${record.key}`);
 
           record._lastUpdateAttemptedTimestamp = context.requestTimestamp;
           table.update(record as any);
