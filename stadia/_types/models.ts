@@ -1,6 +1,6 @@
 /** Local model types. */
 
-import { z } from "../deps.ts";
+import { z } from "../../_deps.ts";
 import {
   GameId,
   OrganizationId,
@@ -143,34 +143,16 @@ export const SkuTypes = {
 
 export const Player = ModelBase.extend({
   type: z.literal("player"),
+  avatarImageUrl: z.string(),
   playerId: PlayerId,
-  name: PlayerName.nullable(),
-  number: PlayerNumber.nullable(),
+  name: PlayerName,
+  number: PlayerNumber,
+  playedGameIds: GameId.array().nullable().optional(),
+  friendPlayerIds: PlayerId.array().nullable().optional(),
 });
 export type Player = z.infer<typeof Player>;
 
-export const PlayerFriends = ModelBase.extend({
-  type: z.literal("player.friends"),
-  playerId: PlayerId,
-  friendPlayerIds: PlayerId.array().nullable(),
-});
-export type PlayerFriends = z.infer<typeof PlayerFriends>;
-
-export const PlayerGames = ModelBase.extend({
-  type: z.literal("player.games"),
-  playerId: PlayerId,
-  playedGameIds: GameId.array().nullable(),
-});
-export type PlayerGames = z.infer<typeof PlayerGames>;
-
-export const PlayerGameStats = ModelBase.extend({
-  type: z.literal("player.gamestats"),
-  playerId: PlayerId,
-  stats: z.unknown(),
-});
-export type PlayerGameStats = z.infer<typeof PlayerGameStats>;
-
 export const Model = z.union(
-  [Sku, Game, Player, PlayerFriends, PlayerGames, PlayerGameStats],
+  [Sku, Game, Player],
 );
 export type Model = z.infer<typeof Model>;

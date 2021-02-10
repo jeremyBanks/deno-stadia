@@ -1,13 +1,13 @@
 // deno-lint-ignore-file no-explicit-any
 
-import { FlagArgs, FlagOpts, log } from "../../deps.ts";
+import { FlagArgs, FlagOpts, log, z } from "../../_deps.ts";
 import {
   DatabaseRequestContext,
   StadiaDatabase,
-} from "../../stadia/database.ts";
+} from "../../stadia/_database/mod.ts";
 import { SQL } from "../../_common/sql.ts";
-import { Client } from "../../stadia/client.ts";
-import { Proto } from "../../_common/proto.ts";
+import { Client } from "../../stadia.ts";
+import { ProtoMessage } from "../../_common/proto.ts";
 import { sleep } from "../../_common/async.ts";
 
 export const flags: FlagOpts = {
@@ -19,20 +19,19 @@ export const flags: FlagOpts = {
 };
 
 export const command = async (client: Client, flags: FlagArgs) => {
-  const stadia = new StadiaDatabase(flags.sqlite);
-  const db = stadia.database;
-  const defs = stadia.tableDefinitions;
+  const db = client.database.database;
+  const defs = client.database.tableDefinitions;
 
   return void await Promise.all(
     ([
       ...new Set(
         [
           // "Player",
-          "Game",
-          "Sku",
-          "StoreList",
+          // "Game",
+          // "Sku",
+          // "StoreList",
           // "PlayerProgression",
-          // "PlayerSearch",
+          "PlayerSearch",
           // "MyGames",
           // "MyPurchases",
           // "MyFriends",
@@ -54,44 +53,52 @@ export const command = async (client: Client, flags: FlagArgs) => {
         cacheMaxAgeSeconds = Number(cacheControl.split("=")[1]);
       }
 
-      cacheMaxAgeSeconds = Math.max(60 * 60 * 24 * 7, cacheMaxAgeSeconds);
+      cacheMaxAgeSeconds = Math.max(60 * 60 * 24 * 2, cacheMaxAgeSeconds);
 
       for (;;) {
         try {
-          db.sql(SQL`commit transaction`);
+          db.sql(SQL`release spidering`);
         } catch (error) {
           error;
         }
-        db.sql(SQL`begin deferred transaction`);
+        db.sql(SQL`savepoint spidering`);
         sleep(i);
 
+        log.debug(`Known ${name}: ${table.count()}`);
+        log.debug(
+          `Loaded ${name}: ${
+            table.count({ where: SQL`_lastUpdatedTimestamp is not null` })
+          }`,
+        );
+
+        const record = table.first({
+          orderBy: SQL`
+            _lastUpdateAttemptedTimestamp asc,
+            _lastUpdatedTimestamp asc,
+            length(key) asc,
+            random() asc
+          `,
+        });
+
         try {
-          const record = table.first({
-            orderBy: SQL`
-              _lastUpdateAttemptedTimestamp asc,
-              _lastUpdatedTimestamp asc,
-              rowId asc
-            `,
-          });
+          const context = new DatabaseRequestContext(client.database);
 
           if (
             record._lastUpdateAttemptedTimestamp &&
             record._lastUpdateAttemptedTimestamp + cacheMaxAgeSeconds * 1000 >=
-              Date.now()
+              context.requestTimestamp
           ) {
             log.info(`All ${name} records are up-to-date.`);
             try {
-              db.sql(SQL`commit transaction`);
+              db.sql(SQL`release spidering`);
             } catch (error) {
-              error;
             }
+            db.sql(SQL`savepoint spidering`);
             await sleep(Math.random() * 60 * 16);
             continue;
-          }
+          }+
 
           log.info(`Spidering ${name} ${record.key}`);
-
-          const context = new DatabaseRequestContext(stadia);
 
           record._lastUpdateAttemptedTimestamp = context.requestTimestamp;
           table.update(record as any);
@@ -110,16 +117,25 @@ export const command = async (client: Client, flags: FlagArgs) => {
           if (cacheAllowed) {
             record.value = updatedValue;
             record._lastUpdatedTimestamp = context.requestTimestamp;
-            record._request = requestBatch as Array<Proto>;
+            record._request = z.array(ProtoMessage).parse(requestBatch);
             record._response = responseBatch.responses;
             table.update(record as any);
 
-            log.info(`Updated ${Deno.inspect(updatedValue)}`);
+            log.debug(
+              `Updated ${Deno.inspect(updatedValue)}, ${name} ${record.key}`,
+            );
           } else {
-            log.info(`Fetched non-cachable ${Deno.inspect(updatedValue)}`);
+            log.debug(
+              `Fetched non-cachable ${
+                Deno.inspect(updatedValue)
+              }, ${name} ${record.key}`,
+            );
           }
         } catch (error) {
-          log.error(`Error while updating ${name}: ${error.stack ?? error}`);
+          log.error(
+            `Error while updating ${name} ${record.key}: ${error.stack ??
+              error}`,
+          );
           await sleep(Math.random() * 60);
         }
       }

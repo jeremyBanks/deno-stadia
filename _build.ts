@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
 /** Rebuilds generated code. */
-import { brotli, Sha3d256 } from "./deps.ts";
+import { brotli, Sha3d256 } from "./_deps.ts";
 
 const main = async () => {
   if (new URL(import.meta.url).protocol === "file:") {
@@ -89,8 +89,6 @@ const main = async () => {
 
   Deno.chdir("..");
 
-  await run("deno", "fmt");
-
   const usage = (new TextDecoder()).decode(
     await Deno.run({
       cmd: ["deno", "run", "--quiet", "--allow-all", "./stadia.ts"],
@@ -109,6 +107,7 @@ const main = async () => {
 [<img alt="github actions checks of trunk" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/actions)
 [<img alt="unmerged pull requests for trunk" src="https://img.shields.io/github/issues-search?query=repo%3AjeremyBanks%2Fgaming%20is%3Apr%20is%3Aopen%20base%3Atrunk&label=unmerged&logo=github&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/pulls?q=is%3Apr+is%3Aopen+base%3Atrunk)
 <br>
+[<img alt="deno doc for trunk" src="https://img.shields.io/badge/deno_doc-trunk-851?logo=gitbook&style=flat-square&logoColor=white" height="20">](https://doc.deno.land/https/raw.githubusercontent.com/jeremyBanks/gaming/trunk/stadia.ts)
 [<img alt="stadia: in progress" src="https://img.shields.io/badge/stadia-in_progress-yellow?logo=stadia&logoColor=D72D30&style=flat-square" height="20">](https://stadia.com/)
 [<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-no-663333?logo=xbox&logoColor=107C10&style=flat-square" height="20">](https://xbox.com/)
 [<img alt="PlayStation: not supported" src="https://img.shields.io/badge/playstation-no-663333?logo=playstation&logoColor=003087&style=flat-square">](https://playstation.com/)
@@ -171,6 +170,8 @@ dual licensed as above, without any additional terms or conditions.
 `;
 
   await Deno.writeTextFile("./README.md", readme);
+
+  await run("deno", "fmt", "--unstable", "--ignore=.git");
 
   if (
     !await run(
@@ -247,7 +248,7 @@ export default new Uint8Array
     lines.push(`\
 // @generated
 // deno-fmt-ignore-file
-import { brotli } from "../../deps.ts";
+import { brotli } from "../../_deps.ts";
 export const
   size = ${size},
   type = ${JSON.stringify(type)},

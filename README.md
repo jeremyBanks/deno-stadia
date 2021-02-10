@@ -5,6 +5,7 @@
 [<img alt="github actions checks of trunk" src="https://img.shields.io/github/checks-status/jeremyBanks/gaming/trunk?logo=github-actions&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/actions)
 [<img alt="unmerged pull requests for trunk" src="https://img.shields.io/github/issues-search?query=repo%3AjeremyBanks%2Fgaming%20is%3Apr%20is%3Aopen%20base%3Atrunk&label=unmerged&logo=github&style=flat-square&logoColor=white" height="20">](https://github.com/jeremyBanks/gaming/pulls?q=is%3Apr+is%3Aopen+base%3Atrunk)
 <br>
+[<img alt="deno doc for trunk" src="https://img.shields.io/badge/deno_doc-trunk-851?logo=gitbook&style=flat-square&logoColor=white" height="20">](https://doc.deno.land/https/raw.githubusercontent.com/jeremyBanks/gaming/trunk/stadia.ts)
 [<img alt="stadia: in progress" src="https://img.shields.io/badge/stadia-in_progress-yellow?logo=stadia&logoColor=D72D30&style=flat-square" height="20">](https://stadia.com/)
 [<img alt="xbox: not supported" src="https://img.shields.io/badge/xbox-no-663333?logo=xbox&logoColor=107C10&style=flat-square" height="20">](https://xbox.com/)
 [<img alt="PlayStation: not supported" src="https://img.shields.io/badge/playstation-no-663333?logo=playstation&logoColor=003087&style=flat-square">](https://playstation.com/)
@@ -16,8 +17,9 @@ Google Stadia account.
 **⚠️ Until its 1.0 release, this tool is incomplete and unsupported. Features
 may not be implemented, or may not function as described. Come back later. ⚠️**
 
-To use this tool you'll need to install [Deno, a secure runtime for TypeScript
-and JavaScript](https://deno.land/). On Linux, you may do so by running:
+To use this tool you'll need to install
+[Deno, a secure runtime for TypeScript and JavaScript](https://deno.land/). On
+Linux, you may do so by running:
 
 ```
 $ curl -fsSL https://deno.land/x/install/install.sh | sh
@@ -79,7 +81,6 @@ COMMANDS:
         stadia rpc method_id [...json_args]
 
         stadia captures
-
 ```
 
 ## Disclaimer
@@ -95,8 +96,8 @@ Copyright Jeremy Banks and
 
 Licensed under either of
 
- * [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
- * [MIT license](http://opensource.org/licenses/MIT)
+- [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+- [MIT license](http://opensource.org/licenses/MIT)
 
 at your option.
 

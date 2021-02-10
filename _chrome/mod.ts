@@ -1,4 +1,4 @@
-import { log, sqlite } from "../deps.ts";
+import { log, sqlite } from "../_deps.ts";
 import SQL from "../_common/sql.ts";
 import { assert } from "../_common/assertions.ts";
 

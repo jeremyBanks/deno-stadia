@@ -1,18 +1,16 @@
-/** You probably want this. */
+export * from "./_types/models.ts";
 
 // deno-lint-ignore-file no-explicit-any
 
 import { Json } from "../_common/json.ts";
 import * as json from "../_common/json.ts";
-import { Proto } from "../_common/proto.ts";
+import { ProtoMessage } from "../_common/proto.ts";
 import { safeEval } from "../_common/sandbox.ts";
-import { log, z } from "../deps.ts";
-import { playerFromProto, skuFromProto } from "./response_parsers.ts";
+import { log, z } from "../_deps.ts";
 import { throttled } from "../_common/async.ts";
-import * as models from "../stadia/models.ts";
+import { StadiaDatabase } from "./_database/mod.ts";
 
-const minRequestIntervalSeconds = 1.2;
-const fetch = throttled(minRequestIntervalSeconds, globalThis.fetch);
+const fetch = throttled(Math.E, globalThis.fetch);
 
 const stadiaRoot = new URL("https://stadia.google.com/");
 const allowedRoots = [
@@ -52,14 +50,18 @@ export class GoogleCookies {
 
 export class Client {
   public readonly googleId: string;
-  private readonly googleCookies: GoogleCookies;
+  readonly #googleCookies: GoogleCookies;
+  public readonly database: StadiaDatabase;
 
   public constructor(
     googleId: string,
     googleCookies: GoogleCookies,
+    sqlite: string = ":memory:",
+    skipSeeding = false,
   ) {
     this.googleId = googleId;
-    this.googleCookies = googleCookies;
+    this.#googleCookies = googleCookies;
+    this.database = new StadiaDatabase(sqlite, skipSeeding);
   }
 
   public async fetchHttp(path: string, body?: RequestInit["body"]) {
@@ -79,7 +81,9 @@ export class Client {
         "Safari/537.36",
       ].join(" "),
 
-      "cookie": Object.entries(this.googleCookies).map(([k, v]) => `${k}=${v};`)
+      "cookie": Object.entries(this.#googleCookies).map(([k, v]) =>
+        `${k}=${v};`
+      )
         .join(" "),
 
       "origin": "https://stadia.google.com",
@@ -96,7 +100,7 @@ export class Client {
       path: url.pathname,
     };
 
-    log.info(`${method} ${url} ${body} for Google user ${this.googleId}`);
+    log.debug(`${method} ${url} ${body} for Google user ${this.googleId}`);
 
     const httpResponse = await fetch(url, { headers, body, method });
 
@@ -154,7 +158,7 @@ export class Client {
   }
 
   async fetchRpcBatch(
-    rpcidRequestPairs: Array<[string, Proto?]>,
+    rpcidRequestPairs: Array<[string, ProtoMessage?]>,
   ) {
     // https://kovatch.medium.com/deciphering-google-batchexecute-74991e4e446c
     const rpcids = rpcidRequestPairs.map(([rpcid, _request]) => rpcid);
@@ -204,10 +208,13 @@ export class Client {
       );
     const responses = responseEnvelopes.map((r: any) =>
       json.decode(r[2])
-    ) as Array<Array<Proto>>;
+    ) as Array<ProtoMessage>;
     log.debug(
       "RPC RESPONSE BATCH: " + Deno.inspect(responses, { iterableLimit: 4 }),
     );
+
+    // XXX: are we incorrectly assuming these will come back in the same order?
+    // look at user 11581666539686832029.
 
     return {
       httpResponse,
@@ -217,7 +224,7 @@ export class Client {
 
   async fetchRpc(
     rpcId: string,
-    request: Proto,
+    request: ProtoMessage,
   ) {
     const { httpResponse, responses: [response] } = await this.fetchRpcBatch(
       [[rpcId, request]],
@@ -266,120 +273,5 @@ export class Client {
     if (captures.length == pageSize) {
       yield* this.fetchCaptures(nextPageToken);
     }
-  }
-
-  async fetchStoreList(listId: number): Promise<Array<models.Sku>> {
-    const response = await this.fetchRpc(
-      "ZAm7We",
-      [null, null, null, null, null, listId],
-    );
-    return ((response.response as any)[0] as Proto[][][]).map((proto) =>
-      skuFromProto.parse(proto[9])
-    );
-  }
-
-  async fetchSku(skuId: string): Promise<models.Sku> {
-    const response = await this.fetchRpc(
-      "FWhQV",
-      [null, skuId],
-    );
-
-    return skuFromProto.parse((response.response as any)[16]);
-  }
-
-  async fetchGame(gameId: string): Promise<Array<models.Sku>> {
-    const response = await this.fetchRpc(
-      "ZAm7We",
-      [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]],
-    );
-
-    return (response.response as any)[0].map((x: any) =>
-      skuFromProto.parse(x[9])
-    );
-  }
-
-  async fetchPlayer(
-    playerId: string,
-    includeStatus = true,
-  ): Promise<{
-    player: models.Player;
-    friends: models.PlayerFriends | null;
-    playedGames: models.PlayerGames | null;
-    gameStats: models.PlayerGameStats | null;
-  }> {
-    const { responses: [playerResponse, friendsResponse, gamesResponse] } =
-      await this.fetchRpcBatch([
-        [
-          "D0Amud",
-          [null, includeStatus, null, null, playerId],
-        ],
-        [
-          "Z5HRnb",
-          [null, includeStatus, playerId],
-        ],
-        [
-          "Q6jt8c",
-          [null, null, null, playerId],
-        ],
-      ]);
-
-    const player = playerFromProto.parse((playerResponse as any)[5]);
-
-    const friendPlayerIds =
-      (friendsResponse as any)?.[0]?.map((x: any) =>
-        playerFromProto.parse(x).playerId
-      ) ??
-        null;
-
-    const friends = friendPlayerIds
-      ? models.PlayerFriends.parse({
-        type: "player.friends",
-        proto: friendsResponse,
-        playerId,
-        friendPlayerIds,
-      })
-      : null;
-
-    const playedGameIds = (gamesResponse as any)?.[0] ?? null;
-    const playedGames: models.PlayerGames | null = playedGameIds
-      ? {
-        type: "player.games",
-        playerId,
-        playedGameIds,
-      }
-      : null;
-
-    const gameStats: models.PlayerGameStats | null = playedGameIds
-      ? {
-        type: "player.gamestats",
-        playerId,
-        proto: await this.fetchPlayerGameStats(
-          playerId,
-          playedGameIds,
-        ),
-      }
-      : null;
-
-    return { player, friends, playedGames, gameStats };
-  }
-
-  async fetchPlayerGameStats(
-    playerId: string,
-    gameIds: Array<string>,
-  ): Promise<unknown> {
-    const { responses } = await this.fetchRpcBatch(
-      gameIds.map((gameId) => [
-        "e7h9qd",
-        [null, gameId, playerId],
-      ]),
-    );
-
-    return responses?.[0]?.[0];
-  }
-
-  async fetchPlayerSearch(namePrefix: string) {
-    namePrefix = z.string().min(2).max(20).parse(namePrefix);
-    const q = namePrefix.slice(0, 1) + " " + namePrefix.slice(1);
-    await this.fetchRpc("FdyJ0", [q]);
   }
 }

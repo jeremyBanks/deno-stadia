@@ -1,4 +1,4 @@
-import { log, Sha3d256 } from "../deps.ts";
+import { log, Sha3d256 } from "../_deps.ts";
 
 import { getTempDir } from "../_common/paths.ts";
 

@@ -1,6 +1,6 @@
 /** Scalar types that are common to models and protos. */
 
-import { zod as z } from "../deps.ts";
+import { z } from "../../_deps.ts";
 
 const PositiveIntegerString = z.string().nonempty().regex(/^[1-9][0-9]*$/, {
   message: "string was not a positive integer",
@@ -17,18 +17,18 @@ export const OrganizationId = z.string().regex(
   /^[0-9a-f]+(pup1)$/,
   { message: "not a valid OrganizationId" },
 ) as z.Schema<`${string}pup1`>;
-export const PlayerId = PositiveIntegerString;
+export const PlayerId = PositiveIntegerString.min(8);
 export const StoreListId = z.number().int().positive();
 export const SubscriptionId = z.number().int().positive();
-export const PlayerName = z.string().regex(/^[a-z][a-z0-9]{2,14}$/i, {
+export const PlayerName = z.string().regex(/^[a-z0-9]{3,15}$/i, {
   message: "not a valid PlayerName",
 });
 export const GamertagPrefix = z.string().regex(
-  /^[a-z][a-z0-9]{1,14}(\#(0000|[1-9][0-9]{3}))?$/,
+  /^[a-z0-9]{1,15}(#(([1-9][0-9]{0,3})|0{0,4})?)?$/,
   { message: "not a valid GamertagPrefix" },
 );
 export const PlayerNumber = z.string().regex(
-  /^(0000|[1-9][0-9]{3})$/,
+  /^(0000|([1-9][0-9]{3}))$/,
   { message: "not a valid PlayerNumber" },
 );
 export const CaptureId = z.string().uuid();

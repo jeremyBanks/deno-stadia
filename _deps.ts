@@ -1,3 +1,5 @@
+/** All external dependencies. */
+
 export { deferred } from "https://deno.land/std@0.79.0/async/deferred.ts";
 export * as color from "https://deno.land/std@0.79.0/fmt/colors.ts";
 export * as flags from "https://deno.land/std@0.79.0/flags/mod.ts";
@@ -17,7 +19,6 @@ export * as path from "https://deno.land/std@0.79.0/path/mod.ts";
 export * as brotli from "https://deno.land/x/brotli@v0.1.4/mod.ts";
 export * as sqlite from "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/mod.ts";
 
-export * as z from "https://deno.land/x/zod@v3-snapshot-2021-01-21/deno/lib/mod.ts";
-export * as zod from "https://deno.land/x/zod@v3-snapshot-2021-01-21/deno/lib/mod.ts";
+export * as z from "https://cdn.jsdelivr.net/gh/colinhacks/zod@vv3/deno/lib/mod.ts";
 
-export * as typing from "./_common/utility_types/mod.ts";
+export * as pdf from "https://cdn.skypack.dev/pdf-lib@^1.16.0?dts";

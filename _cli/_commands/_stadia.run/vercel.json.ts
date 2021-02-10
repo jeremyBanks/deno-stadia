@@ -9,7 +9,7 @@ export const json = ({ games }: { games: Games }) => {
     },
     rewrites: [
       {
-        source: "/([a-z0-9\-]+)",
+        source: "/(([a-z0-9\-\+_ ]|%20|)+)",
         destination: "/index.html",
       },
     ],

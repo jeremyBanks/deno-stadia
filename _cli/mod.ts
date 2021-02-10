@@ -1,4 +1,4 @@
-import { color, flags, flags as stdFlags, log } from "../deps.ts";
+import { color, flags, flags as stdFlags, log } from "../_deps.ts";
 
 import { eprint, eprintln } from "../_common/io.ts";
 import commands from "./_commands/mod.ts";
@@ -92,17 +92,23 @@ ${cyan("COMMANDS:")}
     });
 
   const rootFlags = parseFlags(args, {
-    string: ["google-email", "google-cookie"],
+    string: ["google-email", "google-cookie", "sqlite"],
     boolean: ["offline"],
+    default: {
+      sqlite: "./stadia.sqlite",
+    },
   });
-
-  const client = await makeClient(rootFlags);
 
   const [commandName, ...commandArgs] = rootFlags["_"].map(String);
 
   const commandMatch = commands[commandName];
 
   if (commandMatch) {
+    const client = await makeClient(
+      rootFlags,
+      commandMatch.skipSeeding ?? false,
+    );
+
     const { command, flags: flagConfig } = commandMatch;
     const flags = parseFlags(commandArgs, flagConfig);
     await command(client, flags);

@@ -1,9 +1,12 @@
 import { discoverProfiles } from "../_chrome/mod.ts";
-import { flags, log } from "../deps.ts";
+import { flags, log, z } from "../_deps.ts";
 import * as clui from "../_common/clui.ts";
-import { Client, GoogleCookies } from "../stadia/client.ts";
+import { Client, GoogleCookies } from "../stadia.ts";
 
-export const makeClient = async (flags: flags.Args): Promise<Client> => {
+export const makeClient = async (
+  flags: flags.Args,
+  skipSeeding: boolean,
+): Promise<Client> => {
   let env;
   try {
     env = Deno.env.toObject();
@@ -15,12 +18,21 @@ export const makeClient = async (flags: flags.Args): Promise<Client> => {
   flags["google-cookie"] ??= env["DENO_STADIA_GOOGLE_COOKIE"];
   flags["google-email"] ??= env["DENO_STADIA_GOOGLE_EMAIL"];
 
+  const sqlitePath = z.string().optional().parse(flags["sqlite"]);
+
   if (flags.offline) {
-    return new Client("", GoogleCookies.fromString(""));
+    return new Client(
+      "",
+      GoogleCookies.fromString(""),
+      sqlitePath,
+      skipSeeding,
+    );
   } else if (flags["google-cookie"]) {
     return new Client(
       "",
       GoogleCookies.fromString(flags["google-cookie"]),
+      sqlitePath,
+      skipSeeding,
     );
   } else {
     const targetEmail = flags["google-email"];
@@ -84,6 +96,11 @@ export const makeClient = async (flags: flags.Args): Promise<Client> => {
 
     log.info(`Using ${profile.chromeProfile}`);
 
-    return new Client(profile.googleId!, profile.googleCookies);
+    return new Client(
+      profile.googleId!,
+      profile.googleCookies,
+      sqlitePath,
+      skipSeeding,
+    );
   }
 };

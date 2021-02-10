@@ -43,7 +43,7 @@ jobs:
       - name: build stadia.run
         id: build
         run: |
-          stadia stadia.run
+          stadia _stadia.run
           git status
           declare had_changes="$(
             [[ -n "$(git status --porcelain)" ]] && echo true || echo false

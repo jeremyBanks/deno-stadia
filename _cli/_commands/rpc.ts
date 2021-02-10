@@ -1,8 +1,8 @@
-import { Client } from "../../stadia/client.ts";
+import { Client } from "../../stadia.ts";
 import { eprintln, print, println } from "../../_common/io.ts";
-import { color, FlagArgs, FlagOpts, log } from "../../deps.ts";
+import { color, FlagArgs, FlagOpts, log } from "../../_deps.ts";
 import * as json from "../../_common/json.ts";
-import { Proto } from "../../_common/proto.ts";
+import { ProtoMessage } from "../../_common/proto.ts";
 
 // deno-lint-ignore-file no-explicit-any
 
@@ -13,7 +13,7 @@ export const flags: FlagOpts = {
 export const command = async (client: Client, flags: FlagArgs) => {
   const args = flags["_"] as Array<string>;
 
-  const pairs: Array<[string, Proto]> = [];
+  const pairs: Array<[string, ProtoMessage]> = [];
 
   for (const arg of args) {
     const [rpcId] = arg.split(/\b/, 1);
@@ -22,7 +22,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
       rpcArgsJson = `[${rpcArgsJson.slice(1, -1)}]`;
     }
 
-    const rpcArgs = json.decode(rpcArgsJson) as Proto;
+    const rpcArgs = ProtoMessage.parse(json.decode(rpcArgsJson));
     pairs.push([rpcId, rpcArgs]);
   }
 

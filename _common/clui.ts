@@ -1,4 +1,4 @@
-import { BufReader } from "../deps.ts";
+import { BufReader } from "../_deps.ts";
 
 // deno-lint-ignore ban-types
 type NotUndefined = string | number | boolean | symbol | object | null | bigint;

@@ -1,21 +1,25 @@
-import { flags } from "../../deps.ts";
-import { Client } from "../../stadia/client.ts";
+import { flags } from "../../_deps.ts";
+import { Client } from "../../stadia.ts";
+
+import * as export_ from "./export.ts";
 import * as rpc from "./rpc.ts";
 import * as spider from "./spider.ts";
-import * as reseed from "./_reseed.ts";
-import * as stadiaDotRun from "./stadia.run/mod.ts";
+import * as rebuildSeedKeys from "./_rebuild_seed_keys.ts";
+// import * as stadiaDotRun from "./_stadia.run/mod.ts";
 
 const commands: Record<
   string,
   {
     flags: Partial<flags.ArgParsingOptions>;
     command: (client: Client, flags: flags.Args) => Promise<unknown>;
+    skipSeeding?: boolean;
   }
 > = {
   spider,
   rpc,
-  _reseed: reseed,
-  "stadia.run": stadiaDotRun,
+  export: export_,
+  "_rebuild_seed_keys": rebuildSeedKeys,
+  // "_stadia.run": stadiaDotRun,
 };
 
 export default commands;

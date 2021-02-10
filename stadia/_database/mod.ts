@@ -2,18 +2,19 @@
 
 // deno-lint-ignore-file no-explicit-any
 
-import { log, z } from "../deps.ts";
-import * as zoddb from "../_common/zoddb.ts";
-import { SQL } from "../_common/sql.ts";
-import seedKeys from "./seed_keys.ts";
-import json from "../_common/json.ts";
-import { as, assertStatic } from "../_common/utility_types/mod.ts";
+import { log, z } from "../../_deps.ts";
+import * as zoddb from "../../_common/zoddb.ts";
+import { SQL } from "../../_common/sql.ts";
+import seedKeys from "../_seed/keys.ts";
+import json from "../../_common/json.ts";
+import { as, assertStatic } from "../../_common/typing/mod.ts";
 import {
   assert,
   expect,
   notImplemented,
+  unreachable,
   untyped,
-} from "../_common/assertions.ts";
+} from "../../_common/assertions.ts";
 import {
   CaptureId,
   GameId,
@@ -25,12 +26,15 @@ import {
   StateId,
   StoreListId,
   SubscriptionId,
-} from "./common_scalars.ts";
-import { ColumnDefinitions } from "../_common/zoddb.ts";
-import { NoInfer } from "../_common/utility_types/mod.ts";
-import { Proto, ProtoMessage } from "../_common/proto.ts";
-import { skuFromProto } from "./response_parsers.ts";
-import * as models from "./models.ts";
+} from "../_types/common_scalars.ts";
+import { ColumnDefinitions } from "../../_common/zoddb.ts";
+import { NoInfer } from "../../_common/typing/mod.ts";
+import { ProtoMessage } from "../../_common/proto.ts";
+import {
+  shallowPlayerFromProto,
+  skuFromProto,
+} from "../_types/response_parsers.ts";
+import * as models from "../_types/models.ts";
 
 type Unbox<T extends z.ZodTypeAny> = NoInfer<
   z.infer<NoInfer<T>>
@@ -66,8 +70,8 @@ export const def = <
       value: definition.valueType.optional(),
       _request: ProtoMessage.optional(),
       _response: ProtoMessage.optional(),
-      _lastUpdatedTimestamp: z.number().positive().optional(),
-      _lastUpdateAttemptedTimestamp: z.number().positive().optional(),
+      _lastUpdatedTimestamp: z.number().positive().nullable().optional(),
+      _lastUpdateAttemptedTimestamp: z.number().positive().nullable().optional(),
     } as const,
   );
 
@@ -97,12 +101,17 @@ export const def = <
 export class StadiaDatabase {
   constructor(
     readonly path: string,
+    readonly skipSeeding = false,
   ) {}
 
   readonly tableDefinitions = tableDefinitions;
   readonly database = zoddb.open(this.path, this.tableDefinitions);
   readonly seeded = (() => {
-    this.database.sql(SQL`begin deferred transaction`);
+    if (this.skipSeeding) {
+      log.info("Skipping seeding");
+      return;
+    }
+    this.database.sql(SQL`savepoint seeding`);
 
     let count = 0;
     for (
@@ -114,20 +123,16 @@ export class StadiaDatabase {
       const table = this.database.tables[tableName];
       for (const key of (definition.seedKeys ?? [])) {
         if (
-          table.insert({
+          table.update({
             key: definition.keyType.parse(key) as any,
           } as any)
         ) {
           count += 1;
-        } else {
-          log.info(`${tableName} was previously seeded.`);
-          // This table has already been seeded, skip the rest.
-          break;
         }
       }
     }
 
-    this.database.sql(SQL`commit transaction`);
+    this.database.sql(SQL`release seeding`);
     log.info(`Seeded ${count} records`);
   })();
 }
@@ -135,23 +140,28 @@ export class StadiaDatabase {
 abstract class RequestContext {
   /** Timestamp at which this request was initiated. */
   readonly requestTimestamp = Date.now();
-  /** Timestamp before which data will be considered stale/expired for the
-  purposes of this request. */
-  abstract minFreshTimestamp: number;
 
-  abstract getDependency<
+  /** Timestamp before which data will be considered stale/expired for the
+      purposes of this request, or undefined to use each record's default. */
+  abstract minFreshTimestamp?: number;
+
+  abstract getParent<
     Definition extends ReturnType<typeof def>,
   >(
     dependency: Definition,
-    keyValue: Unbox<Definition["keyType"]>,
-  ): Promise<Unbox<Definition["valueType"]>>;
+    parentKey: Unbox<Definition["keyType"]>,
+  ): Unbox<Definition["valueType"]>;
 
-  abstract seed<
+  abstract update<
     Definition extends ReturnType<typeof def>,
   >(
     definition: Definition,
-    childKey: Unbox<Definition["keyType"]>,
-  ): Promise<boolean>;
+    key: Unbox<Definition["keyType"]>,
+    value?: Unbox<Definition["valueType"]>,
+    options?: {
+      incomplete?: boolean;
+    },
+  ): unknown;
 }
 
 export class DatabaseRequestContext extends RequestContext {
@@ -164,38 +174,59 @@ export class DatabaseRequestContext extends RequestContext {
 
   readonly minFreshTimestamp = this.requestTimestamp - this.maxAgeSeconds;
 
-  // deno-lint-ignore require-await
-  async getDependency<
+  getParent<
     Definition extends ReturnType<typeof def>,
   >(
     definition: Definition,
-    dependencyKey: Unbox<Definition["keyType"]>,
-  ): Promise<Unbox<Definition["valueType"]>> {
+    parentKey: Unbox<Definition["keyType"]>,
+  ): Unbox<Definition["valueType"]> {
     const table: zoddb.Table<Definition["rowType"]> =
       (this.database.database.tables as any)[definition.name];
     const existing = table.get({
-      where: SQL`key = ${dependencyKey as string | number}`,
+      where: SQL`key = ${parentKey as string | number}`,
     });
     if (existing) {
       return existing;
     } else {
-      return notImplemented("fetching non-cached dependencies not implemented");
+      throw new Error(`parent ${definition.name} ${parentKey} not known`);
     }
   }
 
-  // deno-lint-ignore require-await
-  async seed<
+  update<
     Definition extends ReturnType<typeof def>,
   >(
     definition: Definition,
-    childKey: Unbox<Definition["keyType"]>,
-  ): Promise<boolean> {
+    key: Unbox<Definition["keyType"]>,
+    value?: Unbox<Definition["valueType"]>,
+    options?: { incomplete?: boolean },
+  ) {
     const table: zoddb.Table<Definition["rowType"]> =
       (this.database.database.tables as any)[definition.name];
 
-    return table.insert({
-      key: definition.keyType.parse(childKey) as any,
-    } as any);
+    const parsedKey = definition.keyType.parse(key);
+
+    const existing = table.get({
+      where: SQL`key = ${parsedKey}`,
+    }) as any;
+
+    if (existing?.value !== undefined) {
+      if (value === undefined || options?.incomplete) {
+        // do not replace known value with undefined or incomplete
+        return false;
+      }
+    }
+
+    const row = {
+      key: parsedKey,
+      _lastUpdatedTimestamp: this.requestTimestamp,
+      _lastUpdateAttemptedTimestamp: existing?._lastUpdateAttemptedTimestamp ||
+        undefined,
+    } as any;
+    if (value) {
+      row.value = value;
+    }
+    table.update(row);
+    return true;
   }
 }
 
@@ -204,17 +235,13 @@ const tableDefinitions = (() => {
     name: "Player",
     cacheControl: "max-age=11059200",
     keyType: PlayerId,
-    valueType: z.object({
-      name: PlayerName,
-      number: PlayerNumber,
-      friendPlayerIds: z.array(PlayerId),
-      playedGameIds: z.array(GameId),
-    }),
+    valueType: models.Player,
     columns: {
-      "value.name": "indexed",
-      "value.number": "virtual",
-      "value.friendPlayerIds": "virtual",
-      "value.playedGameIds": "virtual",
+      name: "indexed",
+      number: "virtual",
+      friendPlayerIds: "virtual",
+      playedGameIds: "virtual",
+      avatarImageUrl: "indexed",
     },
     seedKeys: seedKeys.Player,
     makeRequest(playerId) {
@@ -233,9 +260,34 @@ const tableDefinitions = (() => {
         ],
       ];
     },
-    parseResponse: (protos) => {
-      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return notImplemented();
+    parseResponse: (protos: any, playerId, context) => {
+      const [profileProto, friendProto, gamesProto] = protos;
+
+      const player = shallowPlayerFromProto.parse(profileProto[5]);
+
+      expect(playerId === player.playerId);
+
+      player.playedGameIds = gamesProto?.[0] ?? [];
+
+      const friendProtos = friendProto?.[0];
+
+      const friends = (friendProtos ?? []).map((p: any) => shallowPlayerFromProto.parse(p));
+
+      friends.forEach((player: models.Player) =>
+        context.update(untyped(Player), player.playerId, player, {
+          incomplete: true,
+        })
+      );
+
+      player.friendPlayerIds = friends.map((p: models.Player) => p.playerId);
+
+      for (const gameId of player.playedGameIds!) {
+        context.update(untyped(Game), gameId);
+      }
+
+      context.update(untyped(PlayerProgression), playerId);
+
+      return player;
     },
   });
 
@@ -248,21 +300,21 @@ const tableDefinitions = (() => {
       skuIds: z.array(SkuId),
     }),
     columns: {
-      "value.skuId": "indexed",
+      skuId: "indexed",
     },
     seedKeys: seedKeys.Game,
     makeRequest: (gameId) => [
       ["ZAm7We", [gameId, [1, 2, 3, 4, 6, 7, 8, 9, 10]]],
       ["LrvzJb", [null, null, [[gameId]]]],
     ],
-    parseResponse: (proto: any, gameId) => {
+    parseResponse: (proto: any, gameId, context) => {
       if (proto[0]?.[0] === null && proto[1]?.length === 0) {
         throw new Error(
           `found no skus for game ${gameId}. this should only be the case for subscriptions, so it should not be common. not currently supported`,
         );
       }
 
-      const gameProto: Proto = (proto as any)[1][1][0][1][9];
+      const gameProto: ProtoMessage = (proto as any)[1][1][0][1][9];
       const gameSku = skuFromProto.parse(gameProto);
 
       const listedSkus: Array<models.Sku> | null = (proto as any)[0]?.[0]?.map((
@@ -276,6 +328,10 @@ const tableDefinitions = (() => {
       }
 
       const skus = listedSkus ?? [gameSku];
+
+      for (const sku of skus) {
+        context.update(untyped(Sku), sku.skuId, sku);
+      }
 
       assert(gameId === gameSku.gameId);
 
@@ -292,10 +348,10 @@ const tableDefinitions = (() => {
     keyType: SkuId,
     valueType: models.Sku,
     columns: {
-      "value.gameId": "indexed",
-      "value.skuType": "indexed",
-      "value.name": "virtual",
-      "value.description": "virtual",
+      gameId: "indexed",
+      skuType: "indexed",
+      name: "indexed",
+      description: "virtual",
     },
     seedKeys: seedKeys.Sku,
     makeRequest: (skuId) => [["FWhQV", [null, skuId]]],
@@ -326,7 +382,7 @@ const tableDefinitions = (() => {
         log.warning(
           `response sku ${sku.skuId} did not match request sku ${key}. this should be not be frequent.`,
         );
-        context.seed(untyped(Sku), sku.skuId);
+        context.update(untyped(Sku), sku.skuId, sku);
         const alias: models.AliasSku = {
           type: "sku",
           skuType: "Alias",
@@ -344,7 +400,7 @@ const tableDefinitions = (() => {
         };
         return alias;
       }
-      context.seed(untyped(Game), sku.gameId);
+      context.update(untyped(Game), sku.gameId);
       return sku;
     },
   });
@@ -369,9 +425,9 @@ const tableDefinitions = (() => {
     valueType: z.object({}),
     columns: {},
     cacheControl: "max-age=115200",
-    seedKeys: seedKeys.Player,
+    seedKeys: [],
     async makeRequest(playerId, context) {
-      const player = await context.getDependency(untyped(Player), playerId);
+      const player = await context.getParent(untyped(Player), playerId);
       return player.playedGameIds.map((gameId: GameId) => [
         "e7h9qd",
         [null, gameId, playerId],
@@ -403,8 +459,8 @@ const tableDefinitions = (() => {
         const sku = skuFromProto.parse(d);
         const skuId = sku.skuId;
         const gameId = expect(sku.gameId);
-        context.seed(untyped(Sku), skuId);
-        context.seed(untyped(Game), gameId);
+        context.update(untyped(Sku), skuId, sku);
+        context.update(untyped(Game), gameId);
         results.push({
           skuId,
           gameId,
@@ -424,9 +480,56 @@ const tableDefinitions = (() => {
     makeRequest: (playerPrefix) => [
       ["FdyJ0", [playerPrefix.slice(0, 1) + " " + playerPrefix.slice(1)]],
     ],
-    parseResponse: (protos) => {
-      log.info(`UNSUPPORTED RESPONSE FOR NOW: ${Deno.inspect(protos)}`);
-      return [];
+    parseResponse: ([proto]: any, prefix, context) => {
+      if (!proto?.[1]?.length) {
+        log.debug(`No results for PlayerSearch ${prefix}.`);
+        return [];
+      }
+
+      const players = proto[1].map((p: any) =>
+        shallowPlayerFromProto.parse(p[0])
+      ) as Array<models.Player>;
+
+      players.forEach((player: models.Player) =>
+        context.update(untyped(Player), player.playerId, player, {
+          incomplete: true,
+        })
+      );
+
+      log.debug(`${players.length} results for PlayerSearch ${prefix}.`);
+
+      if (players.length >= 100) {
+        const suffixes = [];
+        if (prefix === "") {
+          suffixes.push(..."abcdefghijklmnopqrstuvwxyz");
+        } else if (prefix.includes("#")) {
+          const digits = prefix.length - prefix.indexOf("#") - 1;
+          if (digits < 4) {
+            if (digits > 0) {
+              suffixes.push("0");
+            }
+            suffixes.push(..."123456789");
+          }
+        } else {
+          if (prefix.length < 15) {
+            suffixes.push(..."abcdefghijklmnopqrstuvwxyz0123456789");
+          }
+          if (prefix.length >= 3) {
+            suffixes.push("#");
+          }
+        }
+
+        if (suffixes.length === 0) {
+          return unreachable(
+            `Are there really 100 matches for ${prefix}? Seems unlikely.`,
+          );
+        }
+
+        for (const suffix of suffixes) {
+          context.update(untyped(PlayerSearch), prefix + suffix);
+        }
+      }
+      return players.map((p) => p.playerId);
     },
   });
 
@@ -444,8 +547,8 @@ const tableDefinitions = (() => {
     parseResponse: (protos: any, _, context) =>
       protos?.[0]?.[2]?.map((p: any) => {
         const sku = skuFromProto.parse(p[1]) ?? [];
-        context.seed(untyped(Sku), sku.skuId);
-        context.seed(untyped(Game), expect(sku.gameId));
+        context.update(untyped(Sku), sku.skuId, sku);
+        context.update(untyped(Game), expect(sku.gameId));
         return sku;
       }),
   });

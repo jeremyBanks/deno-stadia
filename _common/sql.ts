@@ -1,4 +1,4 @@
-import { log } from "../deps.ts";
+import { log } from "../_deps.ts";
 import json, { Json } from "./json.ts";
 
 export const toSQL = Symbol("toSQL");

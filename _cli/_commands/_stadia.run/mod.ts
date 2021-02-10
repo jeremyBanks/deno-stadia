@@ -1,5 +1,5 @@
-import { Client } from "../../../stadia/client.ts";
-import { FlagArgs, FlagOpts, log } from "../../../deps.ts";
+import { Client } from "../../../stadia.ts";
+import { FlagArgs, FlagOpts, log } from "../../../_deps.ts";
 import * as json from "../../../_common/json.ts";
 
 import index from "./index.html.ts";
@@ -7,7 +7,6 @@ import manifest from "./manifest.json.ts";
 import vercel from "./vercel.json.ts";
 
 import { throttled } from "../../../_common/async.ts";
-import { ThenType } from "../../../_common/utility_types/mod.ts";
 import { expect } from "../../../_common/assertions.ts";
 
 export const flags: FlagOpts = {
@@ -43,7 +42,7 @@ export type Games = Array<Game>;
 
 export const command = async (client: Client, flags: FlagArgs) => {
   try {
-    // this is a huge import, so we put it here instead of ./deps since it's not
+    // this is a huge import, so we put it here instead of ./_deps since it's not
     // required for the library, only this command.
     canvas ??= await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
   } catch (error) {
@@ -57,6 +56,9 @@ export const command = async (client: Client, flags: FlagArgs) => {
 
   const name = flags.name;
 
+  // TODO: replace this with something based on the new spider client model
+  // TODO: make the spider threads cancellable using an AbortSignal.
+  // TODO: sort (alternatingly?) based on recency and popularity
   const allGamesListPage = await client.fetchStoreList(3);
   const stadiaProListPage = await client.fetchStoreList(2001);
   const ubisoftPlusListPage = await client.fetchStoreList(2002);
@@ -171,7 +173,7 @@ export const cleanName = (name: string) =>
     .replace(/- The Official Videogame\b/gi, "")
     .replace(/^Tom Clancy's/gi, "")
     .replace(/^STAR WARS/gi, "Star Wars")
-    .replace(/^Dragon Ball Xenoverse/gi, "Dragon Ball Xenoverse")
+    .replace(/^DRAGON BALL XENOVERSE/gi, "Dragon Ball Xenoverse")
     .replace(/^WATCH_DOGS/gi, "Watch Dogs")
     .replace(/^OCTOPATH TRAVELER/gi, "Octopath Traveler")
     .replace(/^DOOM/gi, "Doom")
@@ -205,6 +207,16 @@ export const slugify = (name: string, separator = "-") =>
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^[\- :]+)|([\- :]+$)/g, "")
+    .replace(/^playerunknowns-battlegrounds$/g, "pubg")
+    .replace(/^red-dead-redemption-2$/g, "rdr2")
+    .replace(/^superhot-mind-control-delete$/g, "superhot-mcd")
+    .replace(/^(hitman)-world-of-assassination$/g, "$1")
+    .replace(/^(sekiro)-shadows-die-twice$/g, "$1")
+    .replace(/^(hotline-miami-2)-wrong-number$/g, "$1")
+    .replace(/^(rock-of-ages-3)-make-and-break$/g, "$1")
+    .replace(/^(monster-boy)-and-the-cursed-kingdom$/g, "$1")
+    .replace(/^(zombie-army-4)-dead-war$/g, "$1")
+    .replace(/^(steamworld-quest)-hand-of-gilgamech$/g, "$1")
     .replace(/\-/g, separator);
 
 const rgbToU6 = (rgb: [number, number, number]): number => {
