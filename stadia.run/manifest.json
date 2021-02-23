@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/X-ACUFHVLROQUo08SHsVrOw6K1biSnKP9-942WBbfYQRyioPAhA-ClFAR9VGXR1zupBws4RRqc0gAtYLd-WvybiNsLobMBJLc9yREx6UWUQjEmEq7DIhGn-8Kw=s192-p-rp"
+        }
+      ],
+      "name": "Terraria",
+      "url": "/terraria"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/a3FM99e_49iixSPAp-YqLxHVK1sCApAn8PAKmkhYUH1pBm5HXt7E7qn-CXQgunl6q5L4AbP4XfECBaSGHIXbi4NHma-Wt1QN8EfHZlTM1BNwrZfOgWuz1LwDYA=s192-p-rp"
         }
       ],
@@ -63,7 +73,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/HICUiDIC8bVVQK7FEMXRVlWZpKAzsrOlQdIW52RP8wAoMX94uwNOzeVBGPDOUgepKcbatL8DRin6h5ZPJnAh5fQn7_SjDDtoZTsrpTCG2QrmDkTapapi0lvkPjM=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/MuNdQUI7yLWLaYwNNF3ndM8wC0tYOyjKGgqr9TMOzqo_XVpWE2KoLe0RND0xmKMGujwah5BnMjhGp4thNKdZ9v2k87p7zIo3Rxp9ZGlKN79hDH0tKKyRd6c0Y2k=s192-p-rp"
         }
       ],
       "name": "Monster Jam Steel Titans 2",
@@ -168,16 +178,6 @@
       ],
       "name": "PIKUNIKU",
       "url": "/pikuniku"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/hzGMNTqUZCvP6hh3Fd0--4zC3JdiVdi3HN44fGWiZmY0G9eqvijsIhK1g-_n6Qi55R9x2hrc7WLnG7ARqZ-fxgFYQOKpiQFn4YNkPFvjqLLlsFr0lGsa40N5Rxr0=s192-p-rp"
-        }
-      ],
-      "name": "Epistory - Typing Chronicles",
-      "url": "/epistory-typing-chronicles"
     }
   ],
   "start_url": "/",
