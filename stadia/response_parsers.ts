@@ -18,7 +18,8 @@ export const skuFromProto = z.any().transform((proto: any): models.Sku => {
     name: proto[1],
     description: proto[9] ?? null,
     internalName: proto[5],
-    coverImageUrl: (proto[2] as any)?.find(Boolean)?.[0]?.[0]?.[1]?.split(/=/)[0],
+    coverImageUrl:
+      (proto[2] as any)?.find(Boolean)?.[0]?.[0]?.[1]?.split(/=/)[0],
     childSkuIds: (proto[14] as any)?.[0]?.map((x: any) => x[0]),
     timestampA: (proto[10] as any)?.[0] ?? null,
     timestampB: (proto[26] as any)?.[0] ?? null,
