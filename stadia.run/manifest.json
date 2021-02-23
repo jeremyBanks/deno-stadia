@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/a3FM99e_49iixSPAp-YqLxHVK1sCApAn8PAKmkhYUH1pBm5HXt7E7qn-CXQgunl6q5L4AbP4XfECBaSGHIXbi4NHma-Wt1QN8EfHZlTM1BNwrZfOgWuz1LwDYA=s192-p-rp"
+        }
+      ],
+      "name": "FIFA 21",
+      "url": "/fifa-21"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/JM9nCWFfG0YKRdnknUhLH_FajjnSAN9iY81c6EWFIn7BSvLz7LwdUPG009ElYmI25mLph31g1w6wDDc55vS14JmJ6AJMj9Ioq1OeEu6OePf5zCDZpfpM916j-GI=s192-p-rp"
         }
       ],
@@ -168,16 +178,6 @@
       ],
       "name": "Epistory - Typing Chronicles",
       "url": "/epistory-typing-chronicles"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/J-EBC8ZTS4GJgsx2hV04qRRA9QXSO4gWbFiUNWzlrPHjbG1Mr2Fpo2Ih6e3H9_6xlvi0IV0rg0MGq4DGvE0uGP0WKjFfh-Bxr17IlAPNhCEM2ByWn9NX8ePBkA=s192-p-rp"
-        }
-      ],
-      "name": "Gods Will Fall",
-      "url": "/gods-will-fall"
     }
   ],
   "start_url": "/",

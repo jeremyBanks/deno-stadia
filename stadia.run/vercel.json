@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2c4539adc1e641c0bb2cd0e4032eec75rcp1",
+      "source": "/fifa-21",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/6cf458a458cd4b2e8161c740c4844621rcp1",
       "source": "/dragon-quest-xi-s-echoes-of-an-elusive-age",
       "statusCode": 301
