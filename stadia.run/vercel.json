@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c87989ee2285400c8ac96b8e52f57991rcp1",
+      "source": "/hellpoint",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/9fb7a46ff38a4c1d842e9ddd35b24d00rcp1",
       "source": "/welcome-to-elk",
       "statusCode": 301

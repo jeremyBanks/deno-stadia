@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/pPl8FYclGR7trXz1-3kz4IsOzNARqdliSddm5fe1PoElYcFDyK7Y53Kdn5dRUKVRlU2VgQksgPZRI4RNbPOooM54SLPRGs2QPqBoKAhfgnyOe0bhJ4HihqFMRA=s192-p-rp"
+        }
+      ],
+      "name": "Hellpoint",
+      "url": "/hellpoint"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/2v3gPDqlkWJz4KzbghWUAFRhlldozvpUvHAerRNQB9KUqFQ7Dlu2u1XDPtp__zdeeR_2irw3-98BowfjL0y0ypZ2tf7y4mn78Eko47aAg3tSz5O-liYCTQSjTQ=s192-p-rp"
         }
       ],
@@ -93,7 +103,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/JLR0n2tYkAShFNEejulo8emZrnTNiHQLWkcm91GwRvxqZge4gNK-It3A0pLSdILi-VWT0S2I0d6ryP1r4KBotMinXPLLehdnzfRgXUVYW3z4WKbWAHW4PwMGjg=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/DWDF6-bWPipn5Me3407m8Zkwu6GDr-6Q2j_9VpuPz3N9Zjq8zWNjSgBSds5p1pytdJtuy33VYAc0jKXLEPQLJioEhKFda2ZsqgQo82PFSiQLQUmwnS0oRa60UQ=s192-p-rp"
         }
       ],
       "name": "Gods Will Fall",
@@ -103,7 +113,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/d4aM4HTPvvkB2xtn4kKjRVjgqyr8RZetMDa8fvp8rtZGyvSbICRIy3maixy1JDPP_YbdpYpNNTHURCotHRBodKxtIBryTWEi6N4uhX3SBffvnywu8ITiUbr8FQg=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/MQBFkmQEkTFwwjAwIcW0wDTIjVXmi0z1U-bXORL5_pSg5sOx5zzTV1nUY7TYXQ3xRZ1WSbEkKlY175btjtXNEA4ysZvx16Yhm5wvzCWD6f5aeh9rwZ2Qfe518_8=s192-p-rp"
         }
       ],
       "name": "Journey to the Savage Planet",
@@ -123,7 +133,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/xPz838powB-4UAZhaqeTEx52ZdFdMgY_iUcKvMbz3MxWySWjB21bhjHtSLK-8E3boDhkEEbTeYytsT8aDXzAosPutbJNoaIBx5PXjYsdxmw-sLoow0oDKpv2j3I=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/IGcTUxJJR0O5sbby_uFnnj38uejY0FdNkaN740ZymB6-ERGfiYF2EfZNHrNXiFwPbAk8qkqzKvDWsaXksFrCqZiJE3J1YMQc8V2C3tz6aetSUulVf0RRPPUILUg=s192-p-rp"
         }
       ],
       "name": "Madden NFL 21",
@@ -168,16 +178,6 @@
       ],
       "name": "Reigns",
       "url": "/reigns"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/QC88BXTxpGWM2Gh3hos_VUIU2FfXjbUENFxupvqHb7MosJgvps5xpwZDAi-ORoLZfICWA7y5doEx3o9JdoepAmbqEeaebChuKKKiGj0jnRbZA1CY2RzlnLHCdw=s192-p-rp"
-        }
-      ],
-      "name": "Enter The Gungeon",
-      "url": "/enter-the-gungeon"
     }
   ],
   "start_url": "/",
