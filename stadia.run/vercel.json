@@ -4,6 +4,16 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/5903b3b139194aefa713f216669ee334rcp1",
+      "source": "/pixeljunk-raiders",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2c8b9ab112e5460db922dc7353381256rcp1",
+      "source": "/avicii-invector",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c87989ee2285400c8ac96b8e52f57991rcp1",
       "source": "/hellpoint",
       "statusCode": 301

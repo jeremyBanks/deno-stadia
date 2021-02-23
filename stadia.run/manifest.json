@@ -23,6 +23,26 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/FeObD5Kt-FWr4QQqZziZo_6-_NMdhu4uzAcoNjFcoYSHh1TWJop6s3GVF6UTotUxQm3Fuizh8DgLMCkSVjPzjZD4DmW9FVMGgSy_S4Oyd1w5x2qGVc4oHyj7=s192-p-rp"
+        }
+      ],
+      "name": "PixelJunk Raiders",
+      "url": "/pixeljunk-raiders"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/QkQzx0yQ0qOUO703Pp0mFwfwtI_MyFg29i7mLcdvySD3TDJ8X1xC9ikNKsZ7tcytgC_9u6bJW-m0ZC8FxGuzVljpPG3Qu8is9nkIWis1yKsUvOOzAwhLrYWjGQ=s192-p-rp"
+        }
+      ],
+      "name": "AVICII Invector",
+      "url": "/avicii-invector"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/_ZVYiUQzyPXePGNPegSgl-afOnbaTPvp9FJVtSma2Zpcbd-D0-gELz8vpNgqGMzPmgRfHP-yFSxvI9pqjSWIpQI_Er5teLh6ws47eWr19saGYVp9CEuZQrJ6Rg=s192-p-rp"
         }
       ],
@@ -158,26 +178,6 @@
       ],
       "name": "Scott Pilgrim vs. The World",
       "url": "/scott-pilgrim-vs-the-world"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/ORq40kvPuhg-ju58dDFn6CWQHZMq4gEJliLyzg37dRdm9v2GJO3ELm2agN31ULTky06ITQ1_qYqjzYILfv3syeDfLBVXWHdFtOJC4ISDxYhi6WfMIaRQC4pOvc8=s192-p-rp"
-        }
-      ],
-      "name": "Cthulhu Saves Christmas",
-      "url": "/cthulhu-saves-christmas"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/0OyWjszqFjGdN6R0V2DEVDNtw0VChGWeMCQDMCPFb6vNwea4RHw73P5elzd06ec3ZKOXXlar0hsFW4rGt463sfbY6RsdVtY7qMdazuaa9kaqN5XTADBpFswK3i4=s192-p-rp"
-        }
-      ],
-      "name": "Reigns",
-      "url": "/reigns"
     }
   ],
   "start_url": "/",

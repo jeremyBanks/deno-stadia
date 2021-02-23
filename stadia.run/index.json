@@ -1,6 +1,34 @@
 {
   "games": [
     {
+      "coverImageUrl": "https://lh3.googleusercontent.com/FeObD5Kt-FWr4QQqZziZo_6-_NMdhu4uzAcoNjFcoYSHh1TWJop6s3GVF6UTotUxQm3Fuizh8DgLMCkSVjPzjZD4DmW9FVMGgSy_S4Oyd1w5x2qGVc4oHyj7",
+      "coverThumbnailData": "ZZZdZdZZcccdcccccccc4c5dPLQ4LdKKddddKd5OOOO4Pd4P6995KK9965A9515A",
+      "description": "SOS! Tantal is under attack by fiendish aliens bent on harvesting the population's life force! Shake off that hypersleep and slash, smash, raid and rescue your way through hundreds of unique missions, all while unraveling the mystery of the enigmatic Keepers. Use State Share to share stages with the turrets, mines and other imprints you've left behind, or jump into another mercenary's stage and use their imprints to your strategic advantage.",
+      "gameId": "5903b3b139194aefa713f216669ee334rcp1",
+      "inStadiaPro": true,
+      "inUbisoftPlus": false,
+      "name": "PixelJunk Raiders",
+      "skuId": "45405fbb56ad4f9fa280d60a6bb57b08p",
+      "slug": "pixeljunk-raiders",
+      "storeName": "PixelJunk Raiders",
+      "timestampA": 1614585600,
+      "timestampB": 1614585600
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/QkQzx0yQ0qOUO703Pp0mFwfwtI_MyFg29i7mLcdvySD3TDJ8X1xC9ikNKsZ7tcytgC_9u6bJW-m0ZC8FxGuzVljpPG3Qu8is9nkIWis1yKsUvOOzAwhLrYWjGQ",
+      "coverThumbnailData": "-VpFJXqmvW___Wqq-FGFz_vr-FFKJ_rm-FFeeF_mFFzzzzFmGFWFFFFmXGFF--Fm",
+      "description": "Belt up and blast into the rhythmic regions of unexplored space in AVICII Invector. Created in collaboration with the late superstar DJ, AVICII Invector is a pulse-pounding, frenetic rhythm-action experience. Soar through vocal melodies, sweep each fade and attack every beat in 25 of AVICII’s biggest hits, including global chart toppers: Without You, Wake Me Up and Lay Me Down.",
+      "gameId": "2c8b9ab112e5460db922dc7353381256rcp1",
+      "inStadiaPro": true,
+      "inUbisoftPlus": false,
+      "name": "AVICII Invector",
+      "skuId": "afb2b66ddd744605a3d01acbeaf3ba01p",
+      "slug": "avicii-invector",
+      "storeName": "AVICII Invector",
+      "timestampA": 1575964800,
+      "timestampB": 1614585600
+    },
+    {
       "coverImageUrl": "https://lh3.googleusercontent.com/_ZVYiUQzyPXePGNPegSgl-afOnbaTPvp9FJVtSma2Zpcbd-D0-gELz8vpNgqGMzPmgRfHP-yFSxvI9pqjSWIpQI_Er5teLh6ws47eWr19saGYVp9CEuZQrJ6Rg",
       "coverThumbnailData": "--H0HH000-LLeL000HLffLH0--LffL00--KLQL00-_KfQLa0-tKfLLG0---GG000",
       "description": "Hellpoint is an Action RPG soaked in the intoxicating dark sci-fi horror atmosphere. Explore Irid Novo, a derelict space station, unravel its secrets and twisted history. Battle gut-wrenching creatures and almighty Cosmic Gods. Should the challenge be too great, play with a friend in local or online coop.",
@@ -215,7 +243,7 @@
       "coverThumbnailData": "--------AA-A4---zKKK4-4------L4--4---K0------Qj-----KQj---00KKQ-",
       "description": "Sit on the throne as a benevolent (or malevolent) medieval monarch of the modern age and swipe your royal controller either left or right to impose your will upon the kingdom. Survive the seemingly never-ending gauntlet of requests from your advisors, peasants, allies, and enemies while maintaining balance between the influential factions of your kingdom. But beware; each decision you make might have implications and unfortunate consequences down the road that could put your reign and family’s dynasty at risk!",
       "gameId": "2677ffb357f946e29b4e86a9f18ea55frcp1",
-      "inStadiaPro": false,
+      "inStadiaPro": true,
       "inUbisoftPlus": false,
       "name": "Reigns",
       "skuId": "0b415b02e06f452f8be948daf77787c1p",
@@ -481,7 +509,7 @@
       "coverThumbnailData": "ZZJJFJF-cfcZZJe-tfJcccZ-JL-tcJc-ddxytJcF_zdJxxcKJjJdzcd-JJJJcJ50",
       "description": "Hello Neighbor Multiplayer. Secret Neighbor is a Multiplayer Social Horror Game where a group of intruders try to rescue their friend from the Neighbor's creepy basement. Only problem is one of the intruders is the Neighbor in disguise.",
       "gameId": "8f8d583a2ae843e0b31fa653cea5d27drcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "Secret Neighbor",
       "skuId": "5f1dfba8e3d64b3bbd4979c504cea096p",
@@ -523,7 +551,7 @@
       "coverThumbnailData": "tttdddddeFeutzzeuzLGKKeLuz00LOKQeeeK-O0-04KLK-400440K0-0--------",
       "description": "Real Trucks. Real Action. Monster Jam! Monster Jam Steel Titans delivers the complete Monster Jam experience for everybody to enjoy!\n\nAll the trucks, stunts, stadiums, racing and massive air in one game! Play in various game modes including Stadium and outdoor Racing, various Stunt Challenges and Destruction modes!",
       "gameId": "e7506ec75c8046dfa7879fe604505ca7rcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "Monster Jam Steel Titans",
       "skuId": "2af064a6b4814ae6a280ab8018842623p",
@@ -607,7 +635,7 @@
       "coverThumbnailData": "FttttttF-F9QAQFFFFFFFFKFF0FUUFGFF0FPU-GFF0F4UFGF-0-4UFFFGHFG_GGF",
       "description": "Prove your mettle in the world’s biggest simultaneous multiplayer PAC-MAN experience! Jump into 64-player games and show everyone who's the leader of the PAC! Invade other players' mazes, eat their dots and power ups - even other players! - and dominate the mazes! But watch out: viewers can vote on power-ups that can cause you - or your opponents! - to stumble on the field and be eliminated from battle! Invade, defend, and rack up high scores across a field of 64 interconnected mazes. Take advantage of brand-new power-ups, spy on neighboring boards, and much more! Spectator interactivity means even viewers are part of all the thrilling action! And customize your PAC-MAN and your home maze with fun skins to show off unique looks!",
       "gameId": "9affbc684aeb422086bfb5d0c8bf2f55rcp1",
-      "inStadiaPro": false,
+      "inStadiaPro": true,
       "inUbisoftPlus": false,
       "name": "PAC-MAN Mega Tunnel Battle",
       "skuId": "9a25de2639254575abb6f2d58d5c57e5",
@@ -855,7 +883,7 @@
       "timestampB": 1601395200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/qNUQsfxY2yUbuCeYV8LVo24CgXuZ1cLff1fsid0mcjTT77cEXyORrR3OZqkqH_ZOxIbu63kqLdXiTo60mk9Bhmr-LGfSKuH8Eqjosesazy6BaxpaNkWTVlCieJw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/m-tRxo91-GKnMrFFWKrnnNS37KCgJexrIi-mCtNl8gMv8zTmxiWaU9q9MHP1znJnZmXKveVAFMth8rTQ20B0QUjPdOvB7lJxdSQgut7IW9B9kjMUBGQW6S1302c",
       "coverThumbnailData": "LPPLLePKKLPK4KLKPPPK4PQePKfQKLKLLL5jQP445Q6-jQ55PLLQQQQP445L444K",
       "description": "Serious Sam 4 reignites the classic FPS series in a high-powered prequel loaded with an explosive arsenal, intergalactic carnage, and perfectly timed one-liners.",
       "gameId": "b3bd32ef05444a189dcdc88f8e85d7f2rcp1",
@@ -953,7 +981,7 @@
       "timestampB": 1599289200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/rJsAlV09DECAaJFh93MkqRxt1c-sWLTH18hyhAKVBQ5AvRBDS1N0FA92Q_EOa-dKsK6BSz4xD8__8eeEXn0TD9UdJOKcJevSXKrD_uyV81agsPcXXJ8dKCgTG76P",
+      "coverImageUrl": "https://lh3.googleusercontent.com/EhG1eufXdMweh4u1Ov9jz-FZ6DnCCoC5e9owHBUaHEQ39UzfGrv_Sj-uzBO3V2xAgomuOTGj1NpKv4gHvsAQKqeqQD_X5ymzicITMUopNXdQet826XVQaTk_bqdV",
       "coverThumbnailData": "eezKeeeKejeef0feeKeKf4ejjKKeLGKKeKJFKKKKetF--F-KKe-F---KKK---LKJ",
       "description": "Marvel’s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay*. Assemble into a team of up to four players online, master extraordinary abilities, customize a growing roster of Heroes, and defend the Earth from escalating threats.\n\n* Free Square Enix Members account required.",
       "gameId": "232ff8abc7f74421a477e9e09dbf487drcp1",
@@ -1797,7 +1825,7 @@
       "coverThumbnailData": "--F-----FFFKFe-F_FFFFzzF_VFzG4U___za-Ke___aaue0v_aaabee_K_a__KKF",
       "description": "Kine is a 3D narrative puzzle game about three daring machines that aspire to be musicians. Embark across a theatrical dreamscape by solving a wide variety of increasingly difficult 3D puzzles. Guide Euler, Quat, and Roo as they struggle to form a band, build bonds, and find their big break!",
       "gameId": "da94f3aa88b24eb6ae6fdff798f73355rcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "Kine",
       "skuId": "8d3124a81f6444219acd3d99c90a5658",
