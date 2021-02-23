@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/JM9nCWFfG0YKRdnknUhLH_FajjnSAN9iY81c6EWFIn7BSvLz7LwdUPG009ElYmI25mLph31g1w6wDDc55vS14JmJ6AJMj9Ioq1OeEu6OePf5zCDZpfpM916j-GI=s192-p-rp"
+        }
+      ],
+      "name": "DRAGON QUEST XI S: Echoes of an Elusive Age",
+      "url": "/dragon-quest-xi-s-echoes-of-an-elusive-age"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/CTHZ4cdii4X3ilpeNBPjzHTOeNgHCE1nLKhqHa0gm0YsvN-tcxunbGP2u5wAh2AmnrPks9qsZEWk4kzUA5ym_PZaKtIhO5PD0paRm5H-u6aLBQIlOgFmP60oPYYi=s192-p-rp"
         }
       ],
@@ -43,7 +53,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/1B-XKAse8iQUnqaTAloB70zlsydx5so2LpMrapbZeQ0MDLpPIl0RoG_1e6RcI_anivf9YOz1GCqfAZCKDobLDj1105XkJ_7W9HdxTvgHPWdiFphU_vryCpJ8biU=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/HICUiDIC8bVVQK7FEMXRVlWZpKAzsrOlQdIW52RP8wAoMX94uwNOzeVBGPDOUgepKcbatL8DRin6h5ZPJnAh5fQn7_SjDDtoZTsrpTCG2QrmDkTapapi0lvkPjM=s192-p-rp"
         }
       ],
       "name": "Monster Jam Steel Titans 2",
@@ -163,21 +173,11 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/q2_akFCifCT7mmYf4uftjX2fASzqeRcN3_AmDueh6cKRkmHnVbEmrIvwIx3Oxx2hpuHyd-E-CoXh8t2NkTJ3ItrHcgH1aF_Ph9DmB10xnPmv1Eu-IQJqnMgFvw=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/J-EBC8ZTS4GJgsx2hV04qRRA9QXSO4gWbFiUNWzlrPHjbG1Mr2Fpo2Ih6e3H9_6xlvi0IV0rg0MGq4DGvE0uGP0WKjFfh-Bxr17IlAPNhCEM2ByWn9NX8ePBkA=s192-p-rp"
         }
       ],
       "name": "Gods Will Fall",
       "url": "/gods-will-fall"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/EoqK4maq2AwC2Xb7Ckm3eJmFyu6a_0hGE-3uzQOJrwbUWMjQgArT5RGcz1e-0rZs_NGEdA77mKvBEN8bsRxaz9o0cZLI_eDURtxAg1boX4ncx2prolQjJjPALqk=s192-p-rp"
-        }
-      ],
-      "name": "Journey to the Savage Planet",
-      "url": "/journey-to-the-savage-planet"
     }
   ],
   "start_url": "/",
