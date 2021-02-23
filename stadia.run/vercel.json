@@ -4,6 +4,36 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/9fb7a46ff38a4c1d842e9ddd35b24d00rcp1",
+      "source": "/welcome-to-elk",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/d5a3bd3f904647e1b72b346be7330c39rcp1",
+      "source": "/a-place-for-the-unwilling",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/bd913a37ecfe4b8d8c68280f4e1781bbrcp1",
+      "source": "/shantae-half-genie-hero",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/4fe5de76fee2427591e4a61d046a20d0rcp1",
+      "source": "/shantae-riskys-revenge-directors-cut",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/0175bc876f55414ca207b2ea6691cfb2rcp1",
+      "source": "/little-nightmares-ii",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c02a86f966b044569ee03f80fbc86035rcp1",
+      "source": "/pikuniku",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/cddb29b222924d11b2bf03a82fee477arcp1",
       "source": "/epistory-typing-chronicles",
       "statusCode": 301
@@ -584,13 +614,13 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/be080ad40b434ca289166031d3e88623rcp1",
-      "source": "/borderlands-3",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/80a70c13987841b3a2aedbcac54784abrcp1",
+      "source": "/dragon-ball-xenoverse-2",
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/80a70c13987841b3a2aedbcac54784abrcp1",
-      "source": "/dragon-ball-xenoverse-2",
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/be080ad40b434ca289166031d3e88623rcp1",
+      "source": "/borderlands-3",
       "statusCode": 301
     },
     {
@@ -684,11 +714,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1",
-      "source": "/tomb-raider",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2afad3696b394f669b49e4c0b6016958rcp1",
       "source": "/nba-2k20",
       "statusCode": 301
@@ -696,6 +721,11 @@
     {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a031419410cc48469ff8954ea0732640rcp1",
       "source": "/trials-rising",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1",
+      "source": "/tomb-raider",
       "statusCode": 301
     },
     {
