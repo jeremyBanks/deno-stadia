@@ -1,6 +1,20 @@
 {
   "games": [
     {
+      "coverImageUrl": "https://lh3.googleusercontent.com/aAKYK9CDpxJ_Vb5psvFXq7IEOyDGv5r2wKf4avizwgtr8BNiJ_Y-N6xvnpipHQJZAxb7F9NJzqMq1GveNpJ412Hj0R676mL5LUt2-pDxm-vnTDpDWrQZ2xf8NY-1",
+      "coverThumbnailData": "JJJeFF--JQzQJF--uQe-dF--e0FJF--ZKPdeJF--FK-JJF--JJ-JF---FJJJF---",
+      "description": "Unleash your desire for 2-wheeled excitement. Make your cross \"super\"! Become a true champion. A new career mode will accompany you along the stages of your successes. Prove you are number one by starting from scratch and winning in the 450SX category. Over 100 riders, the highest number of bikers of the 450SX and 250SX classes that the series has ever seen, and finally also Ken Roczen. Everything is more super! Explore, improve and race with other 3 friends on beautiful islands with their fantastic landscapes in the new compound. You are the creator of your own fun. With the new track editor the gaming experience goes up a notch. Create your super tracks and share them online with the community. Customize bikes and riders with over 100 official brands!",
+      "gameId": "a62130f4b41b4878a00f8ec444df6b01rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Monster Energy Supercross 4",
+      "skuId": "5e700b58ae2546a2b5c4cc13da8f37a2p",
+      "slug": "monster-energy-supercross-4",
+      "storeName": "Monster Energy Supercross - The Official Videogame 4",
+      "timestampA": 1615449600,
+      "timestampB": 1615449600
+    },
+    {
       "coverImageUrl": "https://lh3.googleusercontent.com/7J9Byyfmp4SOUmzraxtiRsca1jcHziJJwLC-TOuTVOGzMXM6n6RNZEhLq6uyqylpkKk53gPA6Ol2cUnH8jqqrvBPW4wi0ujG3bR9R6RaA58iRteL7LWlPQGW2SE",
       "coverThumbnailData": "FKez-vaKGKGz-zeKGKaG-eKGFKKK--GG-Gea-eKFFFezzeKKF-FK--eFF-FK--eF",
       "description": "Saints Row®: The Third™ - Remastered gives you control of the Saints at the height of their power, and you live the life to show for it. This is your City. These are your rules. Remastered with enhanced graphics, Steelport the original city of sin, has never looked so good as it drowns in sex, drugs and guns. Take a tank skydiving, call in a satellite-targeted airstrike on a Mexican wrestling gang, and fight against a highly-trained military force by your lonesome in the most outlandish gameplay scenarios ever seen.",
@@ -43,7 +57,7 @@
       "timestampB": 1614672000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/BELrMBnl1Gm4RKqq1clTrstJfaz3bZuxWXTSGzLMY8CuWUf-SSYPfl1zrdc8Su48VsUT6va7z3968YQ5Z8hdwSadStQjoC4CFmn_fck-aHjTfhFV4VVDEjXf",
+      "coverImageUrl": "https://lh3.googleusercontent.com/UOUAVbfJk3-lhNJtZXU2l_vS7JPMIk0bdRYGDj0aOqmXWZdpw_Xk6G1Uf5BkE4hfil3AZGTqpWfIQRHbhfr3WWPpTlN9bUamJP3LRdWzd5XJRMTCNf6Pv2UW",
       "coverThumbnailData": "ZZZdZdZZcccdcccccccc4c5dPLQ4LdKKddddKd5OOOO4Pd4P6995KK9965A9515A",
       "description": "SOS! Tantal is under attack by fiendish aliens bent on harvesting the population's life force! Shake off that hypersleep and slash, smash, raid and rescue your way through hundreds of unique missions, all while unraveling the mystery of the enigmatic Keepers. Use State Share to share stages with the turrets, mines and other imprints you've left behind, or jump into another mercenary's stage and use their imprints to your strategic advantage.",
       "gameId": "5903b3b139194aefa713f216669ee334rcp1",
@@ -71,7 +85,7 @@
       "timestampB": 1614585600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/_ZVYiUQzyPXePGNPegSgl-afOnbaTPvp9FJVtSma2Zpcbd-D0-gELz8vpNgqGMzPmgRfHP-yFSxvI9pqjSWIpQI_Er5teLh6ws47eWr19saGYVp9CEuZQrJ6Rg",
+      "coverImageUrl": "https://lh3.googleusercontent.com/SaBF_ufG3NU1JSIB1bzwO4hQZQ6iu0cCVWH4cPywhBd9owK1ws74sCgNXdFF-bAVAziVhx38AYvqKt4YVsMxyalo3lLLZ2t1Wjo0k34_13u053Txk4Lrxt2AgA",
       "coverThumbnailData": "--H0HH000-LLeL000HLffLH0--LffL00--KLQL00-_KfQLa0-tKfLLG0---GG000",
       "description": "Hellpoint is an Action RPG soaked in the intoxicating dark sci-fi horror atmosphere. Explore Irid Novo, a derelict space station, unravel its secrets and twisted history. Battle gut-wrenching creatures and almighty Cosmic Gods. Should the challenge be too great, play with a friend in local or online coop.",
       "gameId": "c87989ee2285400c8ac96b8e52f57991rcp1",
@@ -81,7 +95,7 @@
       "skuId": "068991be4dcb45419a11d3b8c9adc3d1p",
       "slug": "hellpoint",
       "storeName": "Hellpoint",
-      "timestampA": 1596092400,
+      "timestampA": 1596006000,
       "timestampB": 1614240000
     },
     {
@@ -113,7 +127,7 @@
       "timestampB": 1614067200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/OaDK0gZVODF65VpXSRGzghdtZoj6ULdBwEHVhDR6Q93rix1tPM5puvvjJG6-89T805Ul3lwgwve9kxprn3Z6a__v6ei8ITl_Xqq-MFt2RzC0Ny4RUkH_qxHhuPo",
+      "coverImageUrl": "https://lh3.googleusercontent.com/zQh5yOQ2Yy8lGdy_xKiG_QD6_iDKJaC6PTeCddz8yQ8FZ0RQMyLRMS5VhhQtSmlC4FksQe_AlIG0d_lNw3PSTP8L2Sc_xTNwTVquhqmAGcaoVhA1xpnS3QrkWr4",
       "coverThumbnailData": "AAAAAAAAAAzAAW0AQzeAiaKAAQtALQaAAK5Aa2JAAAAAG15AAAAAz-KAAAAAAAAA",
       "description": "This all-inclusive version comes with all of the previously released content, Modes, and Costumes!\nSave the day as belly dancing half-genie Shantae! Conquer Sequin Land as the evil Risky Boots in ‘Pirate Queen’s Quest’! Swap between Sky, Bolo, and Rottytops in ‘Friends to the End’! And finally, wall-jump as Ninja Shantae, soak up sun as Beach Shantae, serve justice as Officer Shantae!\nAlso includes Tinkerbat Transformation, Blue Shantae &amp; Classic Risky costumes!",
       "gameId": "bd913a37ecfe4b8d8c68280f4e1781bbrcp1",
@@ -197,7 +211,7 @@
       "timestampB": 1611907200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/oXaoC7R4u2NW7DdNz3l9728I9e6BwxZ3NJvuCMsqDLIXOVMptvwaKpfNjIyRyzZPnKaSAU4jiWE9TzK189Vsf7LLVtHG7LtTfa5vUAXBwoUgxB11EtJDInBC87k",
+      "coverImageUrl": "https://lh3.googleusercontent.com/EoqK4maq2AwC2Xb7Ckm3eJmFyu6a_0hGE-3uzQOJrwbUWMjQgArT5RGcz1e-0rZs_NGEdA77mKvBEN8bsRxaz9o0cZLI_eDURtxAg1boX4ncx2prolQjJjPALqk",
       "coverThumbnailData": "-F----K-0-GKKe_-0-ezeWHJ0evzzzKJ0_bPPQ_JJdaPK5KKJe0605KK344PPPK4",
       "description": "WELCOME TO THE PIONEER PROGRAM! As the newest recruit of Kindred Aerospace - The 4th best interstellar space exploration company - Your job is to determine if the planet ARY-26 is fit for humans. You may be short on equipment and experience, but you'll figure it out!",
       "gameId": "22c6d03e67474644a139de4f04a08c11rcp1",
@@ -533,7 +547,7 @@
       "timestampB": 1606982400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/ASXABPhwkZsUIvLU9FsJuLbhYFfMsimDOPcUygAl6CiMMKogL3MkJ9PCH52EQBQTTroO6LpKQQi7_j8fkT8Jag_R0ffml1w4CKpnA6OTf7XkzSutS6ehgj9fNZs",
+      "coverImageUrl": "https://lh3.googleusercontent.com/vSV6jZAojvIscFHJ-cfKHGuiAuxsTwUhI8GjbNYmZkqdjAy-sE9YHERvQba0UkhS4RipyncJC1VWNePYvgIeFUFoCdwUkNX11YyhKQAX5wN0u8OeaswEbrGLBM8",
       "coverThumbnailData": "_ieddKeyKPetP5esK_eeKKKuzKzKt0eeKeejeKyy-dKejKLe3_j9eeeK3Keee_JK",
       "description": "Immortals Fenyx Rising™ brings grand mythological adventure to life.\nPlay as Fenyx, a new, winged demigod on a quest to save the Greek gods. The fate of the world is at stake – you are the gods’ last hope.\nWield the powers of the gods, like Achilles' sword and Daidalos' wings, to battle powerful enemies and solve ancient puzzles.\nFight iconic mythological beasts like Cyclops and Medusa in dynamic combat in the air and on the ground.\nUse your skills and diverse weapons, including self-guided arrows, telekinesis, and more, for devastating damage.\nDiscover a stylized open world across seven unique regions, each inspired by the gods.",
       "gameId": "161f276db10947a199cd0260ed4dc248rcp1",
@@ -967,7 +981,7 @@
       "timestampB": 1600758000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/MqVxLoHalpHQ66WVcrr5m8nGx3LjbyA67w0iEUbwbVu_lMDx0bt3XfrnQOM6LPN_19N1QkPrRSFZHoVTymXN0AeEgcRRwMNIJepnJwigGchpTCtfBuW_PgktAQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/K5z9aW0r2JJ9Gzy3_9zw84ID0PVAT2OD1GxB_OoTMAWGnFlTACA_9VZPUsysP4CeUCpn0mikUwEBFvVn7MJEefCVdbDByNhTijcu4S_1gRIS3ZQ8iigYqVnC3Q",
       "coverThumbnailData": "eaaK_eKKfeeL_OKK0efz2KKKKJPPLFKKKdKLfLK_Kdd-KeK-edeF0uK-dee-KueG",
       "description": "The world of WWE is your battleground with all-new, over the top, in-your-face arcade action as your favorite WWE Superstars and Legends battle it out in outlandish interactive environments around the world. Compete in your favorite match types with an arsenal of exaggerated maneuvers, special abilities, and devastating power-ups, including Steel Cage, Royal Rumble, Fatal Four Way and more, as Mauro Ranallo and Jerry “The King” Lawler call all the mayhem!  Are you ready to enter the battleground?",
       "gameId": "f28e66bbd0984c77ac6a54e8cc3007bdrcp1",
@@ -1513,7 +1527,7 @@
       "timestampB": 1589295600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/ACeWBkEydxg_LW9NV9rXl3eFxRMp2aT2IvDFOsArdBFMmjBAa9AmHsEDp272l-UwTrWfebZqyRPzWBf4hxKScOEknKtnRra4PbOPUqTa6v-dKig7XyuJ9ivBcQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/s5Ur8jJX36t4ifFJi0qqV-tsPW3MJGjhZVzL_vhWq5lV7j579DDSVDCYkK0aRnRpzlLvkdZA32avCjevL0LA3iy0GR6NOFioXYza7eUJ98_6XUrxD3bo-iwdxw",
       "coverThumbnailData": "-------------Je-----JKJF-11-JAAJ---e_KKJ--FJ_dKJ----_J-F---KJ--J",
       "description": "Hitler’s hordes are back for more in this spine-chilling shooter! Occult enemies, epic weapons and a new campaign for 1-4 players await, as you fight to save humankind from undead Armageddon!",
       "gameId": "cba537cccfe3470b8784f88660ea5f09rcp1",
