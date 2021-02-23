@@ -1,15 +1,15 @@
 {
   "problemMatcher": [
-      {
-          "owner": "deno-lint",
-          "severity": "warning",
-          "pattern": [
-              {
-                  "regexp": "^\\(([a-z\\-_]+)\\)(.+?)$",
-                  "code": 1,
-                  "message": 2
-              }
-          ]
-      }
+    {
+      "owner": "deno-lint",
+      "severity": "warning",
+      "pattern": [
+        {
+          "regexp": "^\\(([a-z\\-_]+)\\)(.+?)$",
+          "code": 1,
+          "message": 2
+        }
+      ]
+    }
   ]
 }

@@ -20,7 +20,7 @@
       ],
       "attachSimplePort": 9229,
       "env": {
-        "DENO_STADIA_LOG_LEVEL": "INFO",
+        "DENO_STADIA_LOG_LEVEL": "INFO"
       }
     }
   ]
