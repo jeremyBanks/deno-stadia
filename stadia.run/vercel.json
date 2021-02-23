@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8d30307256df491c9d578792d11bd474rcp1",
+      "source": "/saints-row-the-third",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3fa9461d9fbd4fb3855039d9b64ca736rcp1",
       "source": "/monster-jam-steel-titans-2",
       "statusCode": 301

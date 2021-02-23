@@ -1,7 +1,21 @@
 {
   "games": [
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/55uy9IKop_4g2Mj_7vUA7Dbsdmjyi5pxemzQPrKupdaPjKgR6zcnnfJFd1cw2X4qsdtw2RV7J5ir44EvEvtj4J1Quf8Oz2LqUwnNNFIf5fw1FvydIQ5ONY-thpQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/7J9Byyfmp4SOUmzraxtiRsca1jcHziJJwLC-TOuTVOGzMXM6n6RNZEhLq6uyqylpkKk53gPA6Ol2cUnH8jqqrvBPW4wi0ujG3bR9R6RaA58iRteL7LWlPQGW2SE",
+      "coverThumbnailData": "FKez-vaKGKGz-zeKGKaG-eKGFKKK--GG-Gea-eKFFFezzeKKF-FK--eFF-FK--eF",
+      "description": "Saints Row®: The Third™ - Remastered gives you control of the Saints at the height of their power, and you live the life to show for it. This is your City. These are your rules. Remastered with enhanced graphics, Steelport the original city of sin, has never looked so good as it drowns in sex, drugs and guns. Take a tank skydiving, call in a satellite-targeted airstrike on a Mexican wrestling gang, and fight against a highly-trained military force by your lonesome in the most outlandish gameplay scenarios ever seen.",
+      "gameId": "8d30307256df491c9d578792d11bd474rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Saints Row: The Third",
+      "skuId": "100d5974a44743d89ceeae4db9246a41p",
+      "slug": "saints-row-the-third",
+      "storeName": "Saints Row®: The Third™ - Remastered",
+      "timestampA": 1590130800,
+      "timestampB": 1614931200
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/jHXmJ0PYRkWqoa-HHwYaoDPhvUdDVkVGIE_DX1eKdaoOcc9J5POCXfWjtfrMBpPWfpjrc8M1l9G_ndIgAvpkb7Fd6uCfKXN5WJp2M03SktgwS5CrmK47F7rM7Tc",
       "coverThumbnailData": "ZZ_ZZZdZZZ_deZZddeeZPd4ddK-_P-Ke4zz3KdOK48K8P0-K8KKK444KLKLK4KLK",
       "description": "More Trucks! New Worlds! \n\nPlay with your friends in brand new online and split-screen multiplayer modes! \n\nExplore 5 huge outdoor worlds and unlock their secrets! \n\nChoose from 38 official trucks and upgrade them over the course of your career! \n\nCompete in authentic stadium events and race in various modes to become the ultimate champion!",
       "gameId": "3fa9461d9fbd4fb3855039d9b64ca736rcp1",
@@ -99,7 +113,7 @@
       "timestampB": 1614067200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/KuxD2D80cBmeP-Vfy15PF9-1nJPHLmC_OFP-Uan8NlcYcGsXfmkX4nfqDl2gLQYfvPLu6RFQLyB2Yfbeb7HV69fx82am31ZY_oDj9v2BqbzzjrOl7rjyGuBMX7s",
+      "coverImageUrl": "https://lh3.googleusercontent.com/OaDK0gZVODF65VpXSRGzghdtZoj6ULdBwEHVhDR6Q93rix1tPM5puvvjJG6-89T805Ul3lwgwve9kxprn3Z6a__v6ei8ITl_Xqq-MFt2RzC0Ny4RUkH_qxHhuPo",
       "coverThumbnailData": "AAAAAAAAAAzAAW0AQzeAiaKAAQtALQaAAK5Aa2JAAAAAG15AAAAAz-KAAAAAAAAA",
       "description": "This all-inclusive version comes with all of the previously released content, Modes, and Costumes!\nSave the day as belly dancing half-genie Shantae! Conquer Sequin Land as the evil Risky Boots in ‘Pirate Queen’s Quest’! Swap between Sky, Bolo, and Rottytops in ‘Friends to the End’! And finally, wall-jump as Ninja Shantae, soak up sun as Beach Shantae, serve justice as Officer Shantae!\nAlso includes Tinkerbat Transformation, Blue Shantae &amp; Classic Risky costumes!",
       "gameId": "bd913a37ecfe4b8d8c68280f4e1781bbrcp1",
@@ -211,7 +225,7 @@
       "timestampB": 1611820800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/26KCUzAs6q3WF6zu2VjrNy5jQwusYTlAdGVPPffq2EdiRQlv3blVYEBu2wSm25vVS1r58EdHI5PJuX95DQN7JU7Zu45S508sQOrNGLbkVwVCCW5IOfaaFLSqHkM",
+      "coverImageUrl": "https://lh3.googleusercontent.com/zMhleHqoZuTybhR_U20i8LVKEQ-fRjTmJZQP1lkuC69PiSLIWE4iYKazP5GjF2E0AGYpUIU868lIWGzgxbX9TAmEB068hfM2WEuzwFQciyQlWDlMDCn7Pzm3K1M",
       "coverThumbnailData": "izzzzzzz4KyyyKzz-K0Kz-zzK-yFyKzz-zK--zzz-z0eeezzzz-4KuuzzzzzzGKz",
       "description": "Rise to fame in Madden NFL 21.  \n\nMadden NFL 21 delivers new features and modes including:\n\nFace of the Franchise: Rise to Fame: Rise to fame and become immortalized .\n\nTake Control: Master innovative running enhancements and live playbooks.\n\nX-Factor 2.0: New X-Factor abilities.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "0e6c703afde840148204847447b9c21drcp1",
@@ -519,7 +533,7 @@
       "timestampB": 1606982400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/dhjHKBD_7mOJOLTEpyUr7IBNUiphrUv2I1jBGBckkeSYvOBkAWp70K_a5YXGk219-9Trm-ZBI-pCDidnsBL3F5g28iHYDi1WL_gdEb4Mw1HU5XnrI_sAlzN0EZ8",
+      "coverImageUrl": "https://lh3.googleusercontent.com/emeaeEiH1XnS1v6WeTkgw2v_2Q4gdrGEOtos24qC-ADMHLyal79D-2iBujEuISVgozPtfl8G3em1Fap7-j3QtgnaBr4hT2TT5iTX-KWBF1iRLZBox5S64JGpqMs",
       "coverThumbnailData": "_ieddKeyKPetP5esK_eeKKKuzKzKt0eeKeejeKyy-dKejKLe3_j9eeeK3Keee_JK",
       "description": "Immortals Fenyx Rising™ brings grand mythological adventure to life.\nPlay as Fenyx, a new, winged demigod on a quest to save the Greek gods. The fate of the world is at stake – you are the gods’ last hope.\nWield the powers of the gods, like Achilles' sword and Daidalos' wings, to battle powerful enemies and solve ancient puzzles.\nFight iconic mythological beasts like Cyclops and Medusa in dynamic combat in the air and on the ground.\nUse your skills and diverse weapons, including self-guided arrows, telekinesis, and more, for devastating damage.\nDiscover a stylized open world across seven unique regions, each inspired by the gods.",
       "gameId": "161f276db10947a199cd0260ed4dc248rcp1",
@@ -547,7 +561,7 @@
       "timestampB": 1606834800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Ud1292jGtOJ9wtRf9iQ91mstZKcRBEGJnQcj4Ooha8TYl6_Woa_eJat0sAqlCJ_G3TqPk5cuyHoOOuCpHrf8R72NnIEU6lYzCtP94VTdsfjrE2kj3P2BFp8CA8g",
+      "coverImageUrl": "https://lh3.googleusercontent.com/eOmDODR85rdHif-INEAN3eSxPNgGaADlNPAtFd35e2EZshhoYE-VJFyLSoZJ9FlT8gPY3mdq5fquJ_o2Hbf5n-NCstNeZYn2P3sP4RQJniGNfyq6Z8ljEsvpRwI",
       "coverThumbnailData": "GGGGGGGGG_KGKezGKKKKKKKKaKKKKKKK______F_KKKK__-KKKK__K-GGGGGG-G-",
       "description": "The remnants of human civilization are threatened by gigantic creatures breeding beneath the earth. You must control powerful mechs from the future to hold off this alien threat. Each attempt to save the world presents a new randomly generated challenge in this turn-based strategy game from the makers of FTL.",
       "gameId": "1a871cfe8a7d4ebc8592c2ad4bc07150rcp1",
@@ -631,7 +645,7 @@
       "timestampB": 1606204800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/tGNGDlsPo_qAhys6zy5RjyqgERBnRchEiWN_Q64b0YjvfEOKO8Pi0Wy330Tjq0VEG6EKUiZ0OznvSdVcSeelfLihYuoxBS0Bq8Fn7uh3KGpeOKyOhaz6mdKTEQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/NPrW6mf7DqXtD_YWPEgjfH7kSYCPS_Z7xHvqpFSy-1yvvyYzg-ShMb15PO9fUrLZb4Aj4b3lF_FvGDhSumsgg2LV1xT9kMyIjfSSLqz2Q7mt2oFibpYJz-B3lA",
       "coverThumbnailData": "J-zzzz--eF-2eFFGfKKMFFFFeKF_J_JJKLLF_FK_aLKx-JJdae_0KGFKJGK-GGFz",
       "description": "Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Welcome to the Resistance. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities.Take your recruits online and team up with your friends as you complete missions and challenging endgame content.",
       "gameId": "deb490c166544813bf2ab73f4c6e2aa0rcp1",
@@ -953,7 +967,7 @@
       "timestampB": 1600758000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Qcm8VtopIhlK6UazRwBGo8hHgQ9Br7uUsa5lqkrNc67H00sHYMWVEW_Qs0i5l0HhfI-vHCOqFhuyba6HgMtaqNolUqibQtynfZV12VziEpzOY_QwkflWErezMQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/oUcvaCE9rqLU9UA2m4vASYxyv79ydpPCxpqXHBtvLLQsWK3sQl8yQTanBUgTFw3CuxwARctWaCNk_-JuzhVERXr5AfK7TIo00vkbaFmxCe38KdaHZQyFNkW7jg",
       "coverThumbnailData": "eaaK_eKKfeeL_OKK0efz2KKKKJPPLFKKKdKLfLK_Kdd-KeK-edeF0uK-dee-KueG",
       "description": "The world of WWE is your battleground with all-new, over the top, in-your-face arcade action as your favorite WWE Superstars and Legends battle it out in outlandish interactive environments around the world. Compete in your favorite match types with an arsenal of exaggerated maneuvers, special abilities, and devastating power-ups, including Steel Cage, Royal Rumble, Fatal Four Way and more, as Mauro Ranallo and Jerry “The King” Lawler call all the mayhem!  Are you ready to enter the battleground?",
       "gameId": "f28e66bbd0984c77ac6a54e8cc3007bdrcp1",
@@ -1009,7 +1023,7 @@
       "timestampB": 1599202800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/1-kLp0cnN6Q_RvRCDO-F7eXj2bIBF1KGJbMrRtdyCTfpDigus5PIiLZQAGv7WQfmfCTtNezUbZWsdR2zkE3CEGwa79WHdlYrzH9fJn-LOfFSw16P-zclX4KMK2Ml",
+      "coverImageUrl": "https://lh3.googleusercontent.com/On8Oz3OysFW-aI5FI5fGBwk5lgIwE_bfmZ-1QfBLuqNIYC2ZoFSP8H-M6yRGB6lnm4HaXa6N1IKyqjLkWJzJw_ocpIBsScZIMq4j6pC4uC4NhVB1riKUxwCanu06",
       "coverThumbnailData": "eezKeeeKejeef0feeKeKf4ejjKKeLGKKeKJFKKKKetF--F-KKe-F---KKK---LKJ",
       "description": "Marvel’s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay*. Assemble into a team of up to four players online, master extraordinary abilities, customize a growing roster of Heroes, and defend the Earth from escalating threats.\n\n* Free Square Enix Members account required.",
       "gameId": "232ff8abc7f74421a477e9e09dbf487drcp1",
@@ -1107,7 +1121,7 @@
       "timestampB": 1598029200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/L96OaiBqcEaHxjnYRANNOKLbHdE3N9uJWXsaqdhhkg4eOLgYBm59otuxghQcOSOrexDaY_qgIUQTMpZvYaHBtG2rzmIGU3pNnWIjjncPLMyAiSVnSAtXFWI4gKI",
+      "coverImageUrl": "https://lh3.googleusercontent.com/kQ-IIirPmWNI6_b3E7frjOkg1aFpCLf09rd47ZgQrCI3FT8Ga2okhjxfO640lfwiEkPPp6b2QaQilwTCf_PTpSElD8TUlNrfHaGeN2HNGSqZMcNW8VEsVvv8aX4",
       "coverThumbnailData": "zyyyy_yyzyzyzJyzzyzyy_izzzJ22-PzyOzfOJezK334Ko3-3-4KKeee343OdKKK",
       "description": "Play against the pros. Play with your crew. In PGA TOUR 2K21, you can play by the rules or create your own.\n\nFeaturing an all-new PGA TOUR Career Mode with licensed courses and 12 licensed pros to compete against in your quest for the FedExCup.\n\nCreate your dream course with our deep course creator to share with other players and run your own clubhouse with Online Societies.",
       "gameId": "6a2ac2fc8e684c41b5c14981dcb454fdrcp1",
@@ -1653,7 +1667,7 @@
       "timestampB": 1584716400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/nbjnozUPocW_ri4L7aCke0XIEa6b_U7mXSu7osQyQNfUgzyYlr4P-r_Ize7W9deM1DkgJV3XXrDGLWbPeeaTv5RiobX4UKotTPV4vBNPCGxDplmQeozdi62uLg",
+      "coverImageUrl": "https://lh3.googleusercontent.com/F9xVIDu7XD9Nw68Sz7G0XTPUMTqefdNPJnQe7sYxf8S3bdE46uHssrgNDAP1qycr8zxX5y9ZFBSfIVI8duqipGfTmodgBA_u1oPsK8UybOn41yxqg6EtwOS8Ng",
       "coverThumbnailData": "e-euuKKeu-eKLKKKz-efzLKez-KjeLKze0-PP-KPKK-zKKG4-0KeK0-0--KK----",
       "description": "HISTORY WILL REMEMBER. In The Division 2, the fate of the free world is on the line. Lead a team of elite agents into a post-pandemic Washington DC to restore order and prevent the collapse of the city. The Division 2 is an online, action shooter RPG experience, where exploration and player-progression are essential. Liberate Washington DC – Save a country on the brink of collapse as you explore an open, dynamic and hostile world. Stronger with your team – Specialize and fight together with your friends in online co-op or against others in competitive adversial PVP mode. Genre-defining endgame – Choose a unique class specialization to take on the toughest challenges with friends.",
       "gameId": "d43cd46c81734ca48e1a615310d0237crcp1",
@@ -1793,7 +1807,7 @@
       "timestampB": 1576594800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/fzdk7XJi09nDuauHm8aXusW80LxeEShAD4wNdn0OwTyRj50o8U1kQrTQwsYXgtY6QwYet8RtWcQZQIlo7vwJ3E1ce-D0lY_1ANOCJYT2tF6O__aCppmPGD5o_A",
+      "coverImageUrl": "https://lh3.googleusercontent.com/NUXPMSPsfFk0tqMVg2qsfKwp0ciU0UX10LIFfK71AsDw7VFqyeIhR4Xb6560qelBh1uuaqq6CICv-3H5E-N8cnunsP9u6oI2lf3ubpWy_2kLa7p7GHD7emrLuw",
       "coverThumbnailData": "JZ__JZZJZ_AAKE_JZt-jj4_JJuujQutJZejdUvuJKyu50L_ZLdL0_Hu_1030L8O_",
       "description": "The original shooter-looter returns, packing bazillions of guns and a mayhem-fueled adventure! Blast through new worlds and enemies as one of four new Vault Hunters. Play solo or with friends to take on insane enemies, score loads of loot and save your home from the most ruthless cult leaders in the galaxy.",
       "gameId": "be080ad40b434ca289166031d3e88623rcp1",
@@ -1835,7 +1849,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/TI1PWXCuH739YBSZev3xdW0gaCIKLxuMX77jGqIOMMgNMFL8gSeGbpbK7-txwqlUAyrYOLyAIkdlOQcCFy3mkEPDDhQ6T_I8d_ISPV6a3a3ObcnBX6VodClyh9M",
+      "coverImageUrl": "https://lh3.googleusercontent.com/bjeKXwJJCFCP-q0kyAXY2SkzGpF0VG51xrJfK8vFCSPYhNvNOaistBoIoGAN3y4lXoXDcWjHNWzqyMJyMiOIRA0naHNGqA466rkJZ8BypSbuxryTdOlFfSx6-yM",
       "coverThumbnailData": "HIMIQQQQIN4zQPQQHbbzfZQPaLazbdaaaaaabGaaaK__a___a_K____________K",
       "description": "Wherever life takes you, Just Dance 2020 will keep you dancing for hours with an insane amount of content for the whole family to enjoy! Just Dance 2020 comes with over 40 new and fun songs, and access to more than 400 songs available with Just Dance Unlimited.",
       "gameId": "4b7f307c37364d659118bf7d435733c7rcp1",
@@ -1947,7 +1961,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/JjonzQsl_7YLcuosQP1Cp5wo1ou0iDr9xWwdKX41--RCggGJWEEBPxK9f6rvzh-fIblsPT2-Yo9savb5S3m1AsFV_Fy64_TZfD2rfpeId9GZKIc8vgX-Eud6lN8",
+      "coverImageUrl": "https://lh3.googleusercontent.com/QCap_qurjaigeQMDmKTF2O_zV46pVZ1WqOvwTH6xHMe_npcyDzyftLV_QCDYXdYGqAha5GS2cagvM99rTBC6lcrjHtbNC_WQwofwWCbggDnlNgcnE4S0X8FVVIg",
       "coverThumbnailData": "uyyyyueuKPKPLee4zzzfzK4QezKeO3KQKeK4O3F0-0K4KKK0--KP4L4K44LKLPL4",
       "description": "In Farming Simulator 19 you’ll take control of vehicles and machines faithfully recreated from all the leading brands in the industry, including John Deere, Case IH, New Holland, Challenger, Fendt, Massey Ferguson, Valtra, Krone, Deutz-Fahr and many more. Explore new American and European environments in which to develop and expand your farm. Enjoy many exciting new farming activities, including new machinery and crops with cotton and oat! Tend to your livestock of pigs, cows, sheep, and chickens - or ride your horses for the first time.",
       "gameId": "ebf235012b054269af70eee901bc85cfrcp1",
