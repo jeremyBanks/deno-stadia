@@ -1,6 +1,34 @@
 {
   "games": [
     {
+      "coverImageUrl": "https://lh3.googleusercontent.com/upvTpSGHEVVWhFgkpTCC1F1Jy20RM5Iyl2XeSI5iMf6l1yCpYBI4Qq8BaT8P3AXj2VvB_9mQAAyJGwEkhnRXaHil3tnLlrxqx9i-PQU4vOeXDEeroNVwBhow2aA",
+      "coverThumbnailData": "ZZ_ZZZdZZZ_deZZddeeZPd4ddK-_P-Ke4zz3KdOK48K8P0-K8KKK444KLKLK4KLK",
+      "description": "More Trucks! New Worlds! \n\nPlay with your friends in brand new online and split-screen multiplayer modes! \n\nExplore 5 huge outdoor worlds and unlock their secrets! \n\nChoose from 38 official trucks and upgrade them over the course of your career! \n\nCompete in authentic stadium events and race in various modes to become the ultimate champion!",
+      "gameId": "3fa9461d9fbd4fb3855039d9b64ca736rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Monster Jam Steel Titans 2",
+      "skuId": "9fcd42244f3a456fa24dbc536564e457p",
+      "slug": "monster-jam-steel-titans-2",
+      "storeName": "Monster Jam Steel Titans 2",
+      "timestampA": 1614672000,
+      "timestampB": 1614672000
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/AVb6mePnZO1a85IP-OXgaXnrjHKddvcJP7QUuOns9NQein5PnQJ6KFW9hfRU5o3d9IF3ZeL43QCEihK6VxyErc4wUcI0aePzvyebeKYSBC4F6cEuMqIV3XMm",
+      "coverThumbnailData": "F-------FJFaaJJ-KZJKKJG-FJcIZFFKFJZYHJFFJZcHHZFFJJc0FZFF-FF-JJFF",
+      "description": "A merciless alien species that feeds on human brains (duh) has invaded the Earth. Who can stand up to them? You, obviously! Save the world—or at least yourself. Send aliens to oblivion in It Came From Space and Ate Our Brains—a unique top-down arcade shooter.\n\nAddicting gameplay elements, co-op mode, and a way to turn aliens into goo? It’s all here! Explore atmospheric locations with a flashlight and a weapon powerful enough to blast those unwanted intergalactic guests back into space. Survive hordes of enemies trying to corner you and get inside your skull… at least until you set a new high score and die like a badass!",
+      "gameId": "004b82924b0441c5a2ba6488cca19b90rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "It Came From Space And Ate Our Brains",
+      "skuId": "cf6b0ff80be24b3591051fb31a0765c0p",
+      "slug": "it-came-from-space-and-ate-our-brains",
+      "storeName": "It Came From Space And Ate Our Brains",
+      "timestampA": 1426748400,
+      "timestampB": 1614672000
+    },
+    {
       "coverImageUrl": "https://lh3.googleusercontent.com/FeObD5Kt-FWr4QQqZziZo_6-_NMdhu4uzAcoNjFcoYSHh1TWJop6s3GVF6UTotUxQm3Fuizh8DgLMCkSVjPzjZD4DmW9FVMGgSy_S4Oyd1w5x2qGVc4oHyj7",
       "coverThumbnailData": "ZZZdZdZZcccdcccccccc4c5dPLQ4LdKKddddKd5OOOO4Pd4P6995KK9965A9515A",
       "description": "SOS! Tantal is under attack by fiendish aliens bent on harvesting the population's life force! Shake off that hypersleep and slash, smash, raid and rescue your way through hundreds of unique missions, all while unraveling the mystery of the enigmatic Keepers. Use State Share to share stages with the turrets, mines and other imprints you've left behind, or jump into another mercenary's stage and use their imprints to your strategic advantage.",
@@ -379,7 +407,7 @@
       "timestampB": 1607500800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/V9lwOLEOZMw5prfGqqWDVOklkzGtWSQk9TaHkJhK4eE0Lzh9VvY-ctJUlD1tN50loZVobPqpiAUJUiN6jlgotKMpFGMEOxoeKjFS9q9OqGmxFvEy28KV5wwxEHI",
+      "coverImageUrl": "https://lh3.googleusercontent.com/l2SYeRvhDlJn5V2UjPWyfh9k_I0Dvr9nksO-VnEG3z54WVvl-kil_D-DhEo0xNb7zSrPK76zqdX3QD2_6w6NLX3A27yL5G-RS3W4GhnngsqFAjjYIx48hjkM9oI",
       "coverThumbnailData": "50LKKAL554JAAA5550KALA5004KuKKL-00KKdtK-40KKjK4-50KKQL4040-KKK4-",
       "description": "The cult-classic returns! Terrorize the people of 1950's Earth in the role of the evil alien Crypto-137. Harvest their DNA and bring down the US government in the faithful remake of the legendary alien invasion action adventure. Annihilate puny humans using an assortment of alien weaponry and psychic abilities. Reduce their cities to rubble  with your flying Saucer! One giant step on mankind!",
       "gameId": "0fd3103549b54c7e89afd6eed83672cercp1",
@@ -533,7 +561,7 @@
       "timestampB": 1606834800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/LnS8_R-H2APxCwR0v6a0hVnl21b0oy69prhNr2hQ6ZUEJYTJcB8UCldRY0--0Ida2hKV0T_8Wx2MwKp_3WqluoKryokdq68pOQNWozEMa-fAXHJVIMdNp82mTg",
+      "coverImageUrl": "https://lh3.googleusercontent.com/uD9o2hFVrg0RShlKDlfsEDzrgZrO0iZRGEamgaq60cNuTlEn6S4yDLvr9fWEN-sF8Dj3eh8wxnGCAeqhUNMMd9YtlWJbolT8plada3SCeYYP4PLEfj09jhzDlA",
       "coverThumbnailData": "LfPPKK_JeKKzzGKJKQfeaK5KKLefKK5KKLffK-KJKLLLQKJFKKLQLKJFKKajKKKF",
       "description": "EVERSPACE™ combines fast-paced combat with roguelike elements, great visuals and a captivating story. It takes you on a challenging journey through an ever-changing, beautifully crafted universe full of surprises. Shoot, craft and loot your way to victory while the odds are stacked against you.",
       "gameId": "44752f1774ca4508a2c45e57121d7e8frcp1",
@@ -981,7 +1009,7 @@
       "timestampB": 1599289200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/EhG1eufXdMweh4u1Ov9jz-FZ6DnCCoC5e9owHBUaHEQ39UzfGrv_Sj-uzBO3V2xAgomuOTGj1NpKv4gHvsAQKqeqQD_X5ymzicITMUopNXdQet826XVQaTk_bqdV",
+      "coverImageUrl": "https://lh3.googleusercontent.com/1-kLp0cnN6Q_RvRCDO-F7eXj2bIBF1KGJbMrRtdyCTfpDigus5PIiLZQAGv7WQfmfCTtNezUbZWsdR2zkE3CEGwa79WHdlYrzH9fJn-LOfFSw16P-zclX4KMK2Ml",
       "coverThumbnailData": "eezKeeeKejeef0feeKeKf4ejjKKeLGKKeKJFKKKKetF--F-KKe-F---KKK---LKJ",
       "description": "Marvel’s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay*. Assemble into a team of up to four players online, master extraordinary abilities, customize a growing roster of Heroes, and defend the Earth from escalating threats.\n\n* Free Square Enix Members account required.",
       "gameId": "232ff8abc7f74421a477e9e09dbf487drcp1",
@@ -1079,7 +1107,7 @@
       "timestampB": 1598029200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Or7gg1z0vPlji6jSirFxh6p0KlQQn0SpUd_Fjik_Q0p3X2KelyKFSqRUz0Y-WCCmgW9ZcpY-uFVQpSftmQA1yKiey9DJo7rswvVC6fVYx1s45T52fnZ5ccLGUc8",
+      "coverImageUrl": "https://lh3.googleusercontent.com/0WbbYiT2e_03-cD9brrZ9fAAmN-FG_F2ekOmUmyHmF_HH1Wni1SZvhfIk8vP98mp1pAoIcdyUU8eg7OvLIi2uX03UV0PmRSynJ-mTtTOz6zRrbgRjvZ-7tVsAyw",
       "coverThumbnailData": "zyyyy_yyzyzyzJyzzyzyy_izzzJ22-PzyOzfOJezK334Ko3-3-4KKeee343OdKKK",
       "description": "Play against the pros. Play with your crew. In PGA TOUR 2K21, you can play by the rules or create your own.\n\nFeaturing an all-new PGA TOUR Career Mode with licensed courses and 12 licensed pros to compete against in your quest for the FedExCup.\n\nCreate your dream course with our deep course creator to share with other players and run your own clubhouse with Online Societies.",
       "gameId": "6a2ac2fc8e684c41b5c14981dcb454fdrcp1",
@@ -1275,7 +1303,7 @@
       "timestampB": 1593615600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/8OLduSr-2niBXZ71j_TFoUz-comeOiQAduuGfc9ik8JgZiGi4SZFiFyZ4MbM5TVE_gx0jmYz6jRzsOH4bsa3PCNCygZ4nV4_H2iCYmKeafs_cMBpiGgiJpM141Y",
+      "coverImageUrl": "https://lh3.googleusercontent.com/L7nO__0BhJQF8DueIAeLWGJb-qzyvWeRjoShXPClobmfhRRmCRHDxIS0uhBL9iUWNZK1IBWLGmCJQtnRA2YEoJZqe33UhH11KR_2VqcR_FBqi4Be8aFxRnhy9tc",
       "coverThumbnailData": "pZcssytztjjttzyzssssyLHzyedLZfLztzezzTQzyd1HQPLztLHH0j1zzHILKHPy",
       "description": "A legendary series returns with a grand new adventure! Enjoy a colorful action-adventure game made alongside Ryuichi Nishizawa, creator of the original Wonder Boy in Monster World series. Monster Boy and the Cursed Kingdom borrows the best from the classic series to deliver a fresh, modern adventure with fun gameplay, memorable music and gorgeous hand drawn animations. Can Jin save Monster World Kingdom? Help our young hero defeat challenging enemies, discover hidden locations, upgrade powerful equipment, and more! You'll also unlock special forms with unique skills used to open new paths where mighty bosses and secret treasures await.",
       "gameId": "ef14fb2f692c4b42b4b092d3e7864cd8rcp1",
@@ -1975,7 +2003,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/vyqW2VtkZqNrhF8b4Mq3WuCmjuwciJScciowxHaZrUPG9PlwJURYZFlkPYs73SwCwuDUg6VjEAum2uzonV0RfRNYe7z78pL1v64Rb3YWQiUhV0kHs0_EpZ0HGKU",
+      "coverImageUrl": "https://lh3.googleusercontent.com/xq4JWQtBQm1LonMn2h7xOwwq723YOkmGWcLtSprSwo6f9G7hmuLq7WWzLuZ2f4Ut5Bd5Ly3-_11hSIEL5xBOL59T1GzkeJWwuDTnJrq7Co7TbSasAs1c_exLKDQ",
       "coverThumbnailData": "04KK4----40KK0----4KKK3---0KKKJ---3KKKK---JKiOK3--JKeKKJ--JKKKKJ",
       "description": "Dive into the world of Destiny 2 to explore the mysteries of the solar system and experience responsive first-person shooter combat.\n\nAn Immersive Story\nYou are a Guardian, defender of the Last City of humanity in a solar system under siege by infamous villains. Look to the stars and stand against the darkness. Your legend begins now.\n\nGuardian Classes\nChoose from the armored Titan, mystic Warlock, or swift Hunter.\n\nCooperative and Competitive Multiplayer\nPlay with or against your friends and other Guardians in various PvE and PvP game modes.\n\nExotic Weapons and Armor\nThousands of weapons, millions of options. Discover new gear combinations and define your own personal style. The hunt for the perfect arsenal begins.",
       "gameId": "20e792017ab34ad89b70dc17a5c72d68rcp1",

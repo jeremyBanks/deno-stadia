@@ -4,6 +4,16 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3fa9461d9fbd4fb3855039d9b64ca736rcp1",
+      "source": "/monster-jam-steel-titans-2",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/004b82924b0441c5a2ba6488cca19b90rcp1",
+      "source": "/it-came-from-space-and-ate-our-brains",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/5903b3b139194aefa713f216669ee334rcp1",
       "source": "/pixeljunk-raiders",
       "statusCode": 301
