@@ -90,13 +90,13 @@
   "https://deno.land/x/zod@v3-snapshot-2021-01-21/deno/lib/types/union.ts": "c931e5a976f5987f378baa59208a9d7de37f5be34fd34520511c8c83017fa12c",
   "https://deno.land/x/zod@v3-snapshot-2021-01-21/deno/lib/types/unknown.ts": "2e97dbc5b38a3d6017c82dbbc10e9b91a55efb1091ccb749516fdb6cbae30671",
   "https://deno.land/x/zod@v3-snapshot-2021-01-21/deno/lib/types/void.ts": "5d44db648eaf6539b088974450d947658a751610350468dead70ffee29074abc",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/build/sqlite.js": "9eaba43078bb69f6ccbe3f46918986427aef5aa4ee4009070f4a96e01cbf5bd8",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/build/vfs.js": "ce3b69b82a1723cad2bf06dfee774f461bcc49502a20ec8b99198ceff46cd046",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/mod.ts": "1fc2fdc6aca3ffa8b3f4893c2858871e1bb24ab833d1ed732eba911ad44fb495",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/src/constants.ts": "6032b1a8b2e6ed186460385b83750deb8e9b7b8c6ff100e450605c814585186e",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/src/db.ts": "f5269a3014907b6758f99c6ac08b6dc1b448415703e745fb57ea3d3f8adb2a97",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/src/error.ts": "c305a89b28ab5b56e425074849c6544d23e855b92670935d9e965ee68f9a6a9e",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/src/row_objects.ts": "cf7ad165bb14c0fd346c46a7f3ea08043ace747d1abae3787bbe4b36be11b09c",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/src/rows.ts": "1b05730096f8df626bfc9d1597a776cc5ac7d989910a20711fa28c7a8daebb0e",
-  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/master/src/wasm.ts": "9747b8c4de5542f2359a35461317f08a244fe8a0933c7e279caad27a0190e6bf"
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/build/sqlite.js": "9eaba43078bb69f6ccbe3f46918986427aef5aa4ee4009070f4a96e01cbf5bd8",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/build/vfs.js": "ce3b69b82a1723cad2bf06dfee774f461bcc49502a20ec8b99198ceff46cd046",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/mod.ts": "1fc2fdc6aca3ffa8b3f4893c2858871e1bb24ab833d1ed732eba911ad44fb495",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/src/constants.ts": "6032b1a8b2e6ed186460385b83750deb8e9b7b8c6ff100e450605c814585186e",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/src/db.ts": "f5269a3014907b6758f99c6ac08b6dc1b448415703e745fb57ea3d3f8adb2a97",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/src/error.ts": "c305a89b28ab5b56e425074849c6544d23e855b92670935d9e965ee68f9a6a9e",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/src/row_objects.ts": "cf7ad165bb14c0fd346c46a7f3ea08043ace747d1abae3787bbe4b36be11b09c",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/src/rows.ts": "1b05730096f8df626bfc9d1597a776cc5ac7d989910a20711fa28c7a8daebb0e",
+  "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/src/wasm.ts": "9747b8c4de5542f2359a35461317f08a244fe8a0933c7e279caad27a0190e6bf"
 }
