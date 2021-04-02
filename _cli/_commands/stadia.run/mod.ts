@@ -7,7 +7,6 @@ import manifest from "./manifest.json.ts";
 import vercel from "./vercel.json.ts";
 
 import { throttled } from "../../../_common/async.ts";
-import { ThenType } from "../../../_common/utility_types/mod.ts";
 import { expect } from "../../../_common/assertions.ts";
 
 export const flags: FlagOpts = {

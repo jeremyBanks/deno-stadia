@@ -4,6 +4,71 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ad1e34961f2148568d215a8101df7693rcp1",
+      "source": "/outriders",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/5de3aed0b1b4439887e1cb4458f9cec8rcp1",
+      "source": "/the-legend-of-heroes-trails-of-cold-steel-iii",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/81733d32e2db41f9a58b97aa80c0b2fcrcp1",
+      "source": "/kemono-heroes",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/88396e4e44c94d43b4259e6bedbd582crcp1",
+      "source": "/cosmic-star-heroine",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8c452d1e69554c36a28b64ee8344037drcp1",
+      "source": "/resident-evil-7-biohazard",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/7ced0b517b144dd98529ceffab963791rcp1",
+      "source": "/ys-viii-lacrimosa-of-dana",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/4108770e33414848ae849cb6ad14e685rcp1",
+      "source": "/nanotale-typing-chronicles",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/01082780d6f4421c9635b22021f05ff5rcp1",
+      "source": "/disco-elysium-the-final-cut",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3f30ebc3799945fea323f8a663c35501rcp1",
+      "source": "/killer-queen-black",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/30fd580936bb43b782ec2dbdac8b2f45rcp1",
+      "source": "/trine-4-the-nightmare-prince",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/46f42ce202a6460d897fb43f43e20846rcp1",
+      "source": "/kaze-and-the-wild-masks",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ed81a01114044edcacfa52656b259d41rcp1",
+      "source": "/dirt-5",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ee055d3ed7d3485d81ee329ec554c207rcp1",
+      "source": "/murder-by-numbers",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/774b82b8c1194dc2acc13a268c4ea7c7rcp1",
       "source": "/terraria",
       "statusCode": 301
@@ -219,11 +284,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8f8d583a2ae843e0b31fa653cea5d27drcp1",
-      "source": "/secret-neighbor",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/1a871cfe8a7d4ebc8592c2ad4bc07150rcp1",
       "source": "/into-the-breach",
       "statusCode": 301
@@ -231,6 +291,11 @@
     {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/44752f1774ca4508a2c45e57121d7e8frcp1",
       "source": "/everspace",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/8f8d583a2ae843e0b31fa653cea5d27drcp1",
+      "source": "/secret-neighbor",
       "statusCode": 301
     },
     {
@@ -679,11 +744,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/18a3cc2bb111419c8ac873086d04dfaarcp1",
-      "source": "/gylt",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/4b7f307c37364d659118bf7d435733c7rcp1",
       "source": "/just-dance-2020",
       "statusCode": 301
@@ -761,6 +821,11 @@
     {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e5c6ec7bf437491ea4ac0917df8f9640rcp1",
       "source": "/rise-of-the-tomb-raider",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/18a3cc2bb111419c8ac873086d04dfaarcp1",
+      "source": "/gylt",
       "statusCode": 301
     },
     {

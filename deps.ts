@@ -15,7 +15,7 @@ export * as log from "https://deno.land/std@0.78.0/log/mod.ts";
 export * as path from "https://deno.land/std@0.79.0/path/mod.ts";
 
 export * as brotli from "https://deno.land/x/brotli@v0.1.4/mod.ts";
-export * as sqlite from "https://raw.githubusercontent.com/dyedgreen/deno-sqlite/1a77d0da5cbf0f52e348cabf73c29fc53e3b7e1c/mod.ts";
+export * as sqlite from "https://deno.land/x/sqlite@v2.4.0/mod.ts";
 
 export * as z from "https://deno.land/x/zod@v3-snapshot-2021-01-21/deno/lib/mod.ts";
 export * as zod from "https://deno.land/x/zod@v3-snapshot-2021-01-21/deno/lib/mod.ts";

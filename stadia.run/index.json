@@ -1,7 +1,189 @@
 {
   "games": [
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/X-ACUFHVLROQUo08SHsVrOw6K1biSnKP9-942WBbfYQRyioPAhA-ClFAR9VGXR1zupBws4RRqc0gAtYLd-WvybiNsLobMBJLc9yREx6UWUQjEmEq7DIhGn-8Kw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/KmzCZDLU9lTgT5NttEQiF8B7Mp70G4_UcnA6t9Bin1t5jAX-vREiVHH9f60dQwYsDQSsytrFkPn-Jwx_OFrnGvYXkcgTdA26Pr4H0BkSFNJbVx1uVgW6nX97ZR0",
+      "coverThumbnailData": "GGLQfMGGHGLfjQLGGHGjafLGGLMG_ML__GMffLLGGGLfLG0G--HLLH0--G-0G000",
+      "description": "OUTRIDERS is a 1-3 player co-op RPG shooter set in an original, dark and desperate sci-fi universe.\nAs mankind bleeds out in the trenches of Enoch, you’ll create your own Outrider and embark on a journey across the hostile planet.\nCombining intense gunplay with violent powers and an arsenal of increasingly twisted weaponry and gear-sets, OUTRIDERS offers countless hours of gameplay from one of the finest shooter developers in the industry – People Can Fly.",
+      "gameId": "ad1e34961f2148568d215a8101df7693rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "OUTRIDERS",
+      "skuId": "cd0646017c0343f986485547a0ba7832p",
+      "slug": "outriders",
+      "storeName": "OUTRIDERS",
+      "timestampA": 1617260400,
+      "timestampB": 1617292821
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/qR2pHaywknCWsHq7nbu_FKgbzhhonGUgN-KIq9Z0RLkr71K5sCxsSv0icrcbO9V2l6ruOaQBbaRAocDM0v2rrsZrSoEs9aOdBE-uIc4tHS1lKSSp4iRZPNokB5I",
+      "coverThumbnailData": "eeee__KKezKeee0KzKaJfejKKeA00KfeeK-QAKLFKF5z5QjKzeezeKeKzeezaeGe",
+      "description": "Rean Schwarzer, a military student turned war hero, finds himself at the center of a dark plot that threatens to upheave the foundations of his homeland. To face the oncoming storm, he must prepare a new generation of heroes as an instructor at the newly-formed branch campus and guide them toward an unknown future...",
+      "gameId": "5de3aed0b1b4439887e1cb4458f9cec8rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "The Legend of Heroes: Trails of Cold Steel III",
+      "skuId": "692590363fe44ae9bbf8eb28c171a9afp",
+      "slug": "the-legend-of-heroes-trails-of-cold-steel-iii",
+      "storeName": "The Legend of Heroes: Trails of Cold Steel III",
+      "timestampA": 1506585600,
+      "timestampB": 1617264000
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/gM15GvScBygFM-qgzct-2_awI7pwONMzv9f3yOuWpsszLKUCG6xyo9sxbletvZaC2YVW0OGAyQ0doUxYAHZRVL_x5erNni40N83gV3bKUxDH1vRGYrQFZgx57mAt",
+      "coverThumbnailData": "________t_tuzKL_eedu_LjL6PK6LKKP1-1-0f_4eeFuP-jQjzuy0QQezzuueL-y",
+      "description": "When the Moon God turns the inhabitants of the forest to stone, four Animal Ninja Masters must fight their way to Mt. Fuji and break his spell. Use swift moves, an arsenal of tools, and each Master’s unique abilities to save your home!",
+      "gameId": "81733d32e2db41f9a58b97aa80c0b2fcrcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Kemono Heroes",
+      "skuId": "75f3878de6e64b6084650d3dabd25abap",
+      "slug": "kemono-heroes",
+      "storeName": "Kemono Heroes",
+      "timestampA": 1582790400,
+      "timestampB": 1617260400
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/8Cv97fYxU3cPJ2JHq2I7kFeJ4syXP86wFpQETMXPp65k4y1APFBN2OogPPqp3OXXJyoU6p77SaoUoEefCSZ0a1KCADLgTIsP8T32f7wmdtegR4-FyVRt0JAvbA",
+      "coverThumbnailData": "--JJFJF--F-FF__J0F-K-KeKFdd-dJ_dKe---d_F-eF-0JK--fzL--FKFFW--_KF",
+      "description": "Alyssa L'Salle was one of the top secret agents at the Agency of Peace &amp; Intelligence on the Planet Araenu. But when she uncovers a horrible conspiracy, she has to go rogue in order to save the day! Can Alyssa save the galaxy when everyone (and everything) is out to stop her!",
+      "gameId": "88396e4e44c94d43b4259e6bedbd582crcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Cosmic Star Heroine",
+      "skuId": "8eec020af3914643b3ce2ff4332b9a4cp",
+      "slug": "cosmic-star-heroine",
+      "storeName": "Cosmic Star Heroine",
+      "timestampA": 1491894000,
+      "timestampB": 1617260400
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/1j9Lu1vrlOzu_jQ6XX94r3hkebgaRmO2csh5_embdVHLLCg1qnlxhP3WaJgUUjF8ViVyU1ln6Tmqw1WuOlbymhhAaE8Zre2jMOemwA1ZSCCD__A90mCmtEvQhGU_",
+      "coverThumbnailData": "jjjjeKjejjjjLKLjKJjMJJPJjjjjKKPK4LL5KJLKjjjjKKPKjjjjjKeKjjjjJjjj",
+      "description": "Experience one of the scariest, most highly acclaimed games of 2017 with Resident Evil 7 Gold Edition – complete with all Season Pass content. As Ethan Winters, explore the seemingly abandoned Baker farm and uncover the truth behind the disappearance of your wife, Mia. The Gold Edition contains the full game plus Banned Footage Vol. 1 and 2 extra content packs, the End of Zoe epilogue episode, and the 'Not a Hero' epilogue chapter starring Chris Redfield.",
+      "gameId": "8c452d1e69554c36a28b64ee8344037drcp1",
+      "inStadiaPro": true,
+      "inUbisoftPlus": false,
+      "name": "Resident Evil 7 biohazard",
+      "skuId": "29857d666ee24e56a7c52ce2f8f561b4p",
+      "slug": "resident-evil-7-biohazard",
+      "storeName": "Resident Evil 7 biohazard Gold Edition",
+      "timestampA": 1485244800,
+      "timestampB": 1617260400
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/vtQlEIgMUkt03wtskyq6o8aUiZ4_qVu_KtIYPBOQPWcVqwq2qWYfQD5xIgScRK1a0hHc0z2JZvrAft0NV29DGCmRRJ622NSCXT4jAbQDuUjY2-r623mwXY-6ZTfY",
+      "coverThumbnailData": "dyuzze_ddeZdzFKdZdzyzfKKdfezzzfK_uyKzzKdKeKK_KJuKd_deeK-_eedJ3KJ",
+      "description": "Ys returns with a brand new adventure for the first time in 8 years! Adol awakens shipwrecked and stranded on a cursed island. There, he and the other shipwrecked passengers he rescues form a village to challenge fearsome beasts and mysterious ruins on the isolated island. Amidst this, Adol begins to dream of a mysterious blue-haired maiden living in an unknown world. Join Adol as he unravels the riddle of the cursed isle and the blue-haired maiden Dana in Ys VIII: Lacrimosa of DANA!",
+      "gameId": "7ced0b517b144dd98529ceffab963791rcp1",
+      "inStadiaPro": true,
+      "inUbisoftPlus": false,
+      "name": "Ys VIII: Lacrimosa of DANA",
+      "skuId": "b51c2723938547a99ebfb2e3b2ae320dp",
+      "slug": "ys-viii-lacrimosa-of-dana",
+      "storeName": "Ys VIII: Lacrimosa of DANA",
+      "timestampA": 1469084400,
+      "timestampB": 1617260400
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/3VbBQq1XlLH1_jWT9MubrNGSYcRxc9jX4453mKsxGEJ6UPEzCVmxlUB5zVOKdGXGGxqPXELMdQoE80joQDJQOxsj39JUEqtxjBtTRbDgtUoFiTk9fUkb9O5GAg",
+      "coverThumbnailData": "FWGFFFFFF_dzFFFFFKKFFFF_FKFFJfKJFFGF_0yZ-FKKey_------Jd-0GK-----",
+      "description": "Nanotale - Typing Chronicles is an atmospheric typing adventure RPG set in a colorful vibrant world. Follow Rosalind, a novice Archivist, as she journeys out to explore a distant world. On her quest to gather knowledge, she collects samples of mystic natural beauties. Everything is peaceful. War is a thing of the distant past. In the shadows, a tale of dissonant magic is spreading, instilling corruption into broken hearts.",
+      "gameId": "4108770e33414848ae849cb6ad14e685rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Nanotale - Typing Chronicles",
+      "skuId": "32f70a285ee34bdfba4261237f869ad9p",
+      "slug": "nanotale-typing-chronicles",
+      "storeName": "Nanotale - Typing Chronicles",
+      "timestampA": 1571814000,
+      "timestampB": 1617174000
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/34yIrSCMrOTDaPt8sZ2henwnaNi07ozYEisckXFb8DHS0lb8zRrDGagS6IqDBnmURvju4_YPgI98Yc6PYpRBJsy0gq_QMbSPd2_ji3blT1ghL1CT1DgaDCXwHB8",
+      "coverThumbnailData": "KJJJJ5LLJKJP-zePLPz-MfPPPPf0PePKLK_KKKKKK0J5zK-0K-----JK---34---",
+      "description": "A groundbreaking role playing game. Become a hero or an absolute disaster.",
+      "gameId": "01082780d6f4421c9635b22021f05ff5rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Disco Elysium - The Final Cut",
+      "skuId": "8986c2c2aa70409bad9a76f57d2b69f1p",
+      "slug": "disco-elysium-the-final-cut",
+      "storeName": "Disco Elysium - The Final Cut",
+      "timestampA": 1571151600,
+      "timestampB": 1617116400
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/4LojcmKosyty73jMHELDULY8elRGiDcz-sSEkPdBdoqgz5iLJ8x7xHOUFVwrScLaTMo07Q5SVRnwkEND0iKhndkUBvDHqGuZwDOQoqQarFSx28lFEayENQnIzQ",
+      "coverThumbnailData": "FFFFFFFFFJFJKzdFFFFzzFFFFFJdZJJFFFJZZJJFFJZJsZJFFJwZssJdFZsZFsZJ",
+      "description": "Killer Queen Black, inspired by the hit arcade game, Killer Queen, let's you fight for your hive with three ways to win. Will you claim your victory by hopping on the snail, hoarding berries, or wiping out the enemy's queen? Play Killer Queen Black casually in quickplay matches, up the intensity in ranked matches, or invite friends to a private room. Easy to play, hard to master, fun for all! An epic, platform strategy game for up to eight players online or locally.",
+      "gameId": "3f30ebc3799945fea323f8a663c35501rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Killer Queen Black",
+      "skuId": "70065c4266c5464ca068d225cd341902p",
+      "slug": "killer-queen-black",
+      "storeName": "Killer Queen Black",
+      "timestampA": 1570694400,
+      "timestampB": 1617091200
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/CC1sLFem7Lvo7w2W9Vnq0BwkDYKPN8PaoIlgeUlbyQbE-9xRF_gZ8bg_Om8uo3RV4TR65ARMCZ-_YxQRY3kI-5Qx_wWYiyWwod-sm3YVIhYem28KRiuHNlh5aw",
+      "coverThumbnailData": "--FJZcJ--eKFZZJ-_e-FFFJ-JZLKKKyt-FKKFFKe--aeL------KL------e----",
+      "description": "The Trine series returns to the magic of 2.5D with Trine 4: The Nightmare Prince! The three heroes of the best-selling adventure series are back, sent on a quest to retrieve the troubled young Prince Selius. Amadeus the Wizard, Pontius the Knight, and Zoya the Thief are joined together once again on a thrilling quest through fantastical fairytale landscapes teeming with danger. Prince Selius suffers from intensely dark dreams and, due to his magical talents, monstrous nightmares are able to slip into reality and wreak havoc on the waking world. Amadeus, Pontius, and Zoya must find the afflicted prince and resolve the desperate situation before the world is engulfed by the Nightmare Prince's shadows.",
+      "gameId": "30fd580936bb43b782ec2dbdac8b2f45rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Trine 4: The Nightmare Prince",
+      "skuId": "8f39647dac4f452ea0abb9aec508295fp",
+      "slug": "trine-4-the-nightmare-prince",
+      "storeName": "Trine 4: The Nightmare Prince",
+      "timestampA": 1570521600,
+      "timestampB": 1617091200
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/q8wlQ19Mnisjam1uHjZ4ihW5tGkBnBQKJOPN7t9x8T7Nl0D8U2gd6N1NZ2nEzNnZHohbd5D4WXVBNVdhNahxA2Mnd5Foz82DIc2nDa_zh2mzjQlmcZr1AUY05A",
+      "coverThumbnailData": "tu_ZFFVJtd_I_FZd_zK_IIMxeMfuQMKLQ1GLzAAue10fzeHF3Kj4eeKF4OOOO83-",
+      "description": "In Kaze and the Wild Masks, you journey through the Crystal Islands in 90’s classics platformer style. Play as Kaze and save your friend Hogo from a curse that spread chaos around the islands. Face enraged living vegetables by invoking the powers of the Wild Masks. Pounce ferociously like a tiger, soar through the sky like an eagle, sprint fiercely like a lizard and rule the sea like a shark.\n\nFeatures\nUnleash the skills of the Wild Masks to get powers from the tiger, eagle, lizard and shark\nUncover the secrets of the Crystal Islands in 30+ levels with over 50 bonus levels\nRelive your childhood memories of classic platformers with high quality frame by frame pixel art\nPave your way through a satisfyingly smooth, but challenging platformer",
+      "gameId": "46f42ce202a6460d897fb43f43e20846rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Kaze and the Wild Masks",
+      "skuId": "30869488eb574a879976745cf54b1956p",
+      "slug": "kaze-and-the-wild-masks",
+      "storeName": "Kaze and the Wild Masks",
+      "timestampA": 1616742000,
+      "timestampB": 1616716800
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/4rqCBBhsPYHNWQybX5xGwK3FoDDDgx-1nk7SSWM4q5soj51HOP6rkLqFldno6G1wo0nTz9zzGBS9meKu7EcWaqSRkQeutwcnJdHT0A9xEjI1P32rJFrgF3_fQ7Kz",
+      "coverThumbnailData": "AAUAMzQYYzKUEzz-fzuIU-z-eLLePUEE516--jQQ5---0f9Q54QK-PPP5I45P559",
+      "description": "Let Loose in DIRT 5 -  the boldest off-road racing experience ever, with a star-studded Career, four-player split-screen, innovative online modes, livery editor and more. Blaze a trail on global tracks, covering gravel, ice, snow and sand, with cars ranging from rally icons, to trucks, to GT heroes.",
+      "gameId": "ed81a01114044edcacfa52656b259d41rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "DIRT 5",
+      "skuId": "f0c21370f7e2488f8898ae59220c2e24p",
+      "slug": "dirt-5",
+      "storeName": "DIRT 5",
+      "timestampA": 1604649600,
+      "timestampB": 1616569200
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/1w-6qMNRRvzrrSyNUihubSwwjNIiNt9BX4HoZeCSRYpaT6eHdrjRZlbLpN2GiTl9ESWUDRkjPY7Zq3PHikIiDBPeKTfzDOlBvgybQaPNkFVoSYrX5XibSfkiF9c",
+      "coverThumbnailData": "-z0HHGKLLLPbKzHjKL_drjHejPzeKzfKeev_HKLL0feKvjLLGLyFKKULK-u_FQjG",
+      "description": "Solve Pixel Puzzles to find clues. Use the clues to interrogate witnesses. Work your way to the truth... and uncover the mystery of Murder by Numbers! Los Angeles, 1996. Honor Mizrahi was just an actress on a hit TV detective show. But when her boss ends up dead just minutes after he fires her, she finds herself starring in her own murder mystery. Teaming up with SCOUT, a reconnaissance robot thrown away after a mysterious incident, she sets out to clear her name - and a new detective duo is born!",
+      "gameId": "ee055d3ed7d3485d81ee329ec554c207rcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Murder by Numbers",
+      "skuId": "56f0d41333854907884b544e90a4c2a0p",
+      "slug": "murder-by-numbers",
+      "storeName": "Murder by Numbers",
+      "timestampA": 1583395200,
+      "timestampB": 1616482800
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/H5W0lV9kIsf9bl8-WJGQQZ_IVIfxXUxVQmY2D2SdtFWP8JjhB1Ut6uBu1FSDLpdjiMTKesoW187wo-yuHBSA-1gkQmvHnJ8XU3V88L7FVsTfeYCbSySrkCO0qw",
       "coverThumbnailData": "Keuedee_KeeudeuKKeOSNKe_JdOOLRdJKddKdddKGKKddeKKFFKKGK_KGKKKJKKG",
       "description": "The world is at your fingertips as you fight for survival, fortune, and glory. Delve deep into cavernous expanses, test your mettle in combat, or construct your own city - In the World of Terraria, the choice is yours! \n\nBlending elements of classic action games with the freedom of sandbox-style creativity, Terraria is a unique gaming experience where both the journey and the destination are completely in the player’s control. \n\nTerraria offers more content than ever - including the brand new \"Journey's End\" Update! \nPresenting an impressive catalogue of 5,000+ items, 25+ NPCs, and 400+ enemies and blending elements of classic action games with sandbox-style creativity, Terraria is truly a unique adventure!",
       "gameId": "774b82b8c1194dc2acc13a268c4ea7c7rcp1",
@@ -15,7 +197,7 @@
       "timestampB": 1616050800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/a3FM99e_49iixSPAp-YqLxHVK1sCApAn8PAKmkhYUH1pBm5HXt7E7qn-CXQgunl6q5L4AbP4XfECBaSGHIXbi4NHma-Wt1QN8EfHZlTM1BNwrZfOgWuz1LwDYA",
+      "coverImageUrl": "https://lh3.googleusercontent.com/2ZKTRaQQuHi6RwP2UTgL7FpTd3WU_6zimQjetJKmzJLYChoUPq9EB-c3031oj_zEKdnqNUKl_imIGCUqQmKjm1ik-JSHiASkjGacUFHEa-vMq07JwY0fzYdtqg",
       "coverThumbnailData": "KKzzzzzze----zLzK--L-KKz-F_FFzPzz-aJ-K9zuKF---zzuzF_G-zzbbzzzzzz",
       "description": "Powered by Frostbite™, win as one in EA SPORTS™ FIFA 21 with new ways to team up and express yourself on the street and in the stadium:\n•  Enjoy even bigger victories together in VOLTA FOOTBALL SQUADS and FIFA Ultimate Team™ Co-Op.\n•  Manage every moment in FIFA 21 Career Mode with new innovations that create additional depth in matches, transfers and training.\n•  Experience unrivaled authenticity that gives you the most true-to-life experience of The World’s Game.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "2c4539adc1e641c0bb2cd0e4032eec75rcp1",
@@ -29,7 +211,7 @@
       "timestampB": 1615964400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/JM9nCWFfG0YKRdnknUhLH_FajjnSAN9iY81c6EWFIn7BSvLz7LwdUPG009ElYmI25mLph31g1w6wDDc55vS14JmJ6AJMj9Ioq1OeEu6OePf5zCDZpfpM916j-GI",
+      "coverImageUrl": "https://lh3.googleusercontent.com/IbgDmjdBQy29cjbGj4nPKMQ5hK1YjDHRiqrqsehdP8A7rCODjG81Y9Ajq8XZLRB_rnr1yidrS0m0RmlI6rrlKB2RWhhl62oyAtxdvH6e35Kl7uW-vpC8P8NZmTU",
       "coverThumbnailData": "uutuuuyzuuuduKzyfyyfyKLyzt_zyKzfzzuz4KKPzzee-KeKzyueKLfKyzyu-KLK",
       "description": "The Definitive Edition includes all the content from the original release of the acclaimed DRAGON QUEST XI, and adds extra character-specific scenarios, the choice of playing with the original soundtrack or a grand orchestral version of the music, the ability to switch between 2D and 3D graphic modes, a Japanese voice-acting option, and much more!\nEmbark upon an epic adventure as The Luminary: the chosen one in a world that vows to hunt him down. The Luminary and his unique band of loyal companions work together to survive an onslaught of ne’er-do-wells and overthrow the dark forces that plot to plunge the world of Erdrea into chaos. Explore the massive world of DRAGON QUEST and awaken your power in this can't-miss adventure!",
       "gameId": "6cf458a458cd4b2e8161c740c4844621rcp1",
@@ -43,7 +225,7 @@
       "timestampB": 1615878000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/CTHZ4cdii4X3ilpeNBPjzHTOeNgHCE1nLKhqHa0gm0YsvN-tcxunbGP2u5wAh2AmnrPks9qsZEWk4kzUA5ym_PZaKtIhO5PD0paRm5H-u6aLBQIlOgFmP60oPYYi",
+      "coverImageUrl": "https://lh3.googleusercontent.com/GmxrVQDHMNvH5PH1QwN602Z6fHdkmdjR3rgv9FYnk7BdNCr-VMQ-vDnqUyZAWrDItKZAcZ2m3Xh_IlkrtbCqsyMoigvvr18NjmSmR0GUiyyrHGIa6euzm70GX-3e",
       "coverThumbnailData": "JJJeFF--JQzQJF--uQe-dF--e0FJF--ZKPdeJF--FK-JJF--JJ-JF---FJJJF---",
       "description": "Unleash your desire for 2-wheeled excitement. Make your cross \"super\"! Become a true champion. A new career mode will accompany you along the stages of your successes. Prove you are number one by starting from scratch and winning in the 450SX category. Over 100 riders, the highest number of bikers of the 450SX and 250SX classes that the series has ever seen, and finally also Ken Roczen. Everything is more super! Explore, improve and race with other 3 friends on beautiful islands with their fantastic landscapes in the new compound. You are the creator of your own fun. With the new track editor the gaming experience goes up a notch. Create your super tracks and share them online with the community. Customize bikes and riders with over 100 official brands!",
       "gameId": "a62130f4b41b4878a00f8ec444df6b01rcp1",
@@ -71,7 +253,7 @@
       "timestampB": 1614931200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/MuNdQUI7yLWLaYwNNF3ndM8wC0tYOyjKGgqr9TMOzqo_XVpWE2KoLe0RND0xmKMGujwah5BnMjhGp4thNKdZ9v2k87p7zIo3Rxp9ZGlKN79hDH0tKKyRd6c0Y2k",
+      "coverImageUrl": "https://lh3.googleusercontent.com/cKyyT50hGk5_YtJBpE6nKZ0DOosfsebCftxA2djG23o3L6mTlpUPeDqb1zgbfb3zfYLkpsD62I-sFPy1Kt7c5dtGp8icspjW1-Rw7Y0xCEgxU0LX0hlpxX8Ngog",
       "coverThumbnailData": "ZZ_ZZZdZZZ_deZZddeeZPd4ddK-_P-Ke4zz3KdOK48K8P0-K8KKK444KLKLK4KLK",
       "description": "More Trucks! New Worlds! \n\nPlay with your friends in brand new online and split-screen multiplayer modes! \n\nExplore 5 huge outdoor worlds and unlock their secrets! \n\nChoose from 38 official trucks and upgrade them over the course of your career! \n\nCompete in authentic stadium events and race in various modes to become the ultimate champion!",
       "gameId": "3fa9461d9fbd4fb3855039d9b64ca736rcp1",
@@ -197,7 +379,7 @@
       "timestampB": 1614067200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/W-v_egHBeYCz8py4dyP7NmYBzxP3dDByRKH1Nt8snBhOs2g0WObGeu13DKMw8N6F-cJTjFPAJjHm1p2A3bIii8mTitqT_Bo1m7rDLdROU72GzMblCbSl_-w7EPs",
+      "coverImageUrl": "https://lh3.googleusercontent.com/gXYIZO3V5x8aTP_0hProX0iVcRleGO0Rm4NF9WNbfyRyYpPGXRgIIQetTJWnAS9eu3FH82JNLuUJdxfkrV5x0q51pCchwNfXH89_-K_a4cy7ND1pHfojpvqVvOU",
       "coverThumbnailData": "-J_dddF---JddJ---JFK_F----J__JF--JJddJJJJJdtK_-JJJJZy_JJ-FJKJ_-J",
       "description": "Return to a world of charming horror in Little Nightmares II, a suspense adventure game in which you play as Mono, a young boy trapped in a world that has been distorted by the humming transmission of a distant tower.\n\nWith Six, the girl in the yellow raincoat, as his guide, Mono sets out to discover the dark secrets of The Signal Tower. Their journey won't be easy; Mono and Six will face a host of new threats from the terrible residents of this world.\n\nWill you dare to face this collection of new, little nightmares?",
       "gameId": "0175bc876f55414ca207b2ea6691cfb2rcp1",
@@ -215,7 +397,7 @@
       "coverThumbnailData": "zzzyyzzzeeyfMyEeetyMMUy-zPeyIAyzzPfMyQzzzPOyMPbUOzzGKzjOzzzzffzz",
       "description": "Pikuniku is an absurdly wonderful puzzle-exploration game that takes place in a strange but playful world where not everything is as happy as it seems. Help peculiar characters overcome struggles, uncover a deep state conspiracy, and start a fun little revolution in this delightful dystopian adventure!",
       "gameId": "c02a86f966b044569ee03f80fbc86035rcp1",
-      "inStadiaPro": false,
+      "inStadiaPro": true,
       "inUbisoftPlus": false,
       "name": "PIKUNIKU",
       "skuId": "f1bbad79434f496bae9865248c6c136ap",
@@ -239,7 +421,7 @@
       "timestampB": 1612252800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/J-EBC8ZTS4GJgsx2hV04qRRA9QXSO4gWbFiUNWzlrPHjbG1Mr2Fpo2Ih6e3H9_6xlvi0IV0rg0MGq4DGvE0uGP0WKjFfh-Bxr17IlAPNhCEM2ByWn9NX8ePBkA",
+      "coverImageUrl": "https://lh3.googleusercontent.com/_hFST5cDnvBbloeXTOLSfFG8pZtr6TGmFXAizsDikExKZynEskFAsI6O-jihP3HjtOyMxgvE2oALGEerDElu_OZIErVYRBckPL2r6Rfk47_N0veqMZeCopuylQ",
       "coverThumbnailData": "---04PJ----0J4e0-0504PP-yeeu5454-4455P44-0455P54045LL05L04LLL4PL",
       "description": "You Are The Last Hope For Humanity\nThe gods’ torturous rule over humanity has lasted for millennia. They demand to be served with blind worship by every man, woman and child. To those who don't submit to the gods’ will; a slow and merciless death awaits.\nExperience the brutal trials of a venturous band of warriors in their desperate plight to sever the gods’ callous grip on humanity. Every man and woman who can muster a blade, having suffered the brutality of the gods’ reign for too long, will be called upon to form your clan of 8 Celtic survivors and rise up to take on the legions of horrific beasts and minions that dwell in each of the gods’ hellish realms.\nA personal tale emerges with every decision made. Succeed and see legends born. Fail, and watch lives turn to dust.",
       "gameId": "f001c122cb70445d8a247d5b6f6334cbrcp1",
@@ -267,7 +449,7 @@
       "timestampB": 1611846000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/BgLyCxwx0ZcgfBXPc_1ULzrirQksFpMfeZFAPG9O6jKbqaIsYOMt0aTLvtBi9EMJPN35ywG6PsMbZ2iZNVbMGJTPrnfjLP9HOwG4puS8kAEIIicKutOKWgKKftU",
+      "coverImageUrl": "https://lh3.googleusercontent.com/seJETVSG7jKIJVIG9Ui5pkEP1MN-6QphBaJWw_dU_m03Fu49HcD-Jc6YuqhXvS18QadZmKyRkOzS9wnajWMSClz8XN-fOrIsGCAXE37MjVVrS7w-c4Bdb-J0tjw",
       "coverThumbnailData": "eeaaeaeefeezzeeueeeeeeezffeeuKuzzvvezvzzzzfKezzzzzzzzezzLzffLezz",
       "description": "Experience a brand new adventure game set amongst a world of weird and wonderful fish planets. Explore beautiful environments, solve intricate puzzles and discover the truth about a mysterious little girl and her mechanical alter-ego, Cubus.\n\nAdventure as a little girl\nExplore vivid and atmospheric locations, meet intriguing characters, and solve elaborate puzzles - all on your quest to repair the Sacred Engine. As The Girl you are light and nimble, and so can reach areas of the world that others can't.\n\nUtilise the might of Cubus\nAt any time you can transform into The Girl’s mechanical friend, Cubus. Need something heavy lifting? Cubus has you covered.\n\nSolve intricately crafted puzzles\nYou'll need your wits about you to solve TOHU’s unique and wacky conundrums.",
       "gameId": "df0f55ed73d946b8a70398fea9805e2drcp1",
@@ -281,7 +463,7 @@
       "timestampB": 1611820800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/rsaA881iozk_lZGn__KUUKAURaDyMGDN6o7tOw1-gkGu08BeF2vxPiciU5qZs2fERuio8z7TcX80PvIN4q_nzGf2K2WOkbzQIRAEO65UY-VeJkUo6F0jYAL-wA4",
+      "coverImageUrl": "https://lh3.googleusercontent.com/ldA_z8mfPc9Nr_Ku8aqFjrsFosh0UjysXEgXEqxkFSVmsm97N5ZPVAJkDiZQQTp09pppjQeqJ0iwMBoeb8V-L2EleWdh7xKjSfcIoN_3xZ7YlpXj-Pj_4U8NrQE",
       "coverThumbnailData": "izzzzzzz4KyyyKzz-K0Kz-zzK-yFyKzz-zK--zzz-z0eeezzzz-4KuuzzzzzzGKz",
       "description": "Rise to fame in Madden NFL 21.  \n\nMadden NFL 21 delivers new features and modes including:\n\nFace of the Franchise: Rise to Fame: Rise to fame and become immortalized .\n\nTake Control: Master innovative running enhancements and live playbooks.\n\nX-Factor 2.0: New X-Factor abilities.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "0e6c703afde840148204847447b9c21drcp1",
@@ -295,7 +477,7 @@
       "timestampB": 1611820800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/BCf2w4cLG9WU4hOhM287itsji01daiFV--rapEpqfz89pSp-uEy1fG7uFN1NO4y8jSdoSMmytPKe6e_9LR_MNBytcSv6xG8uYc-9oRZoO68gaF66if-FyskpZos",
+      "coverImageUrl": "https://lh3.googleusercontent.com/f61RLKnEzBQ_1JE3nHJ_sBO_vNMQdV1PGk7Mn7MguX9EMDIchgJQPqqVhQ5hJ5C6zbPqxIVsYWNwidVM6pOu_0VqlhK_SBxvSez6BGmcHD_M8R6QbDvlTfUCdA",
       "coverThumbnailData": "zzz-4fzzzz004Kfzezde04KQ-KKKKz44eeKFze4-KKKKKd--Keu-Kd--KKKyy--K",
       "description": "Phoenix Point puts players in the midst of a desperate fight to take back the Earth from a mutating, alien menace. Featuring turn-based tactical combat on procedurally generated maps, and resource management on a global scale, Phoenix Point offers endless replayability and a brutal challenge.",
       "gameId": "18ea8c5d2f7e4f40ad783a512da8ef91rcp1",
@@ -435,7 +617,7 @@
       "timestampB": 1607500800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/w6NQzJWdHHJ59d4sTSf0TDo8BT8q6ssIWIEY4yE_XIk_7Eglpd41OwHg7h1_VfNL5gzWt8Zvm7PzMm_z8Ur2n_dHMN2jHwuuLi5cXx6ELPjKjY1_GDrEhNJQxQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/fdYGe3RBaLn7EXwKkycChjfh5S9HxukUhDN1m82eMIvf6ovaRaZDbFva6JIgnleX3WEKpj5E8WCmZsLdpIBYP4M57rrjY69SDdKwDRqtWLB6T4LmIoxHhE1VPQ",
       "coverThumbnailData": "EEEEKEAEEEePLEEEEE4-KEEAEEK-P-EAEE--K-EAEE----EEEEE--0EAE9A---E9",
       "description": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.",
       "gameId": "49697e672bc34e7d8a5f73f78cb580d0rcp1",
@@ -495,7 +677,7 @@
       "coverThumbnailData": "dddcedddcddeJJddZZdeeedJdddjjetLtddLzeK_MKKKzfPLeLeKKKfKFFFGK3FK",
       "description": "Are you ready, kids? The cult classic is back, faithfully remade in spongetastic splendor! Play as SpongeBob, Patrick and Sandy and show the evil Plankton that crime pays even less than Mr. Krabs. Want to save Bikini Bottom from lots of rampant robots? Of course you do! Want to underpants bungee jump? Why wouldn't you! Want to join forces in a brand new multiplayer mode? The battle is on!",
       "gameId": "53bd183291e340dda697167108d3dc6brcp1",
-      "inStadiaPro": false,
+      "inStadiaPro": true,
       "inUbisoftPlus": false,
       "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
       "skuId": "a25302b5cbc44d03b1440d2adaa0dd5ap",
@@ -589,7 +771,7 @@
       "timestampB": 1606982400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/vSV6jZAojvIscFHJ-cfKHGuiAuxsTwUhI8GjbNYmZkqdjAy-sE9YHERvQba0UkhS4RipyncJC1VWNePYvgIeFUFoCdwUkNX11YyhKQAX5wN0u8OeaswEbrGLBM8",
+      "coverImageUrl": "https://lh3.googleusercontent.com/HRXWf_5Kw0EMpZ_0FPfkamQ-hPmRFqRpj1HndOfeuXHNqqHhzefVCydzHIG6QtOX1bTNdyzy9JpjqBxdct_6NV0zeJvqIW5G5ewNUF_hmRIY1Qi283bo0HHbOKQ",
       "coverThumbnailData": "_ieddKeyKPetP5esK_eeKKKuzKzKt0eeKeejeKyy-dKejKLe3_j9eeeK3Keee_JK",
       "description": "Immortals Fenyx Rising™ brings grand mythological adventure to life.\nPlay as Fenyx, a new, winged demigod on a quest to save the Greek gods. The fate of the world is at stake – you are the gods’ last hope.\nWield the powers of the gods, like Achilles' sword and Daidalos' wings, to battle powerful enemies and solve ancient puzzles.\nFight iconic mythological beasts like Cyclops and Medusa in dynamic combat in the air and on the ground.\nUse your skills and diverse weapons, including self-guided arrows, telekinesis, and more, for devastating damage.\nDiscover a stylized open world across seven unique regions, each inspired by the gods.",
       "gameId": "161f276db10947a199cd0260ed4dc248rcp1",
@@ -601,20 +783,6 @@
       "storeName": "Immortals Fenyx Rising™ Stadia",
       "timestampA": 1606896000,
       "timestampB": 1606896000
-    },
-    {
-      "coverImageUrl": "https://lh3.googleusercontent.com/RIeLl6KAFyG49ZgScWe0wYAoWiC6Dx4uA3AEErxeH2zaaln9Z52E0Z7tkOcMk049voAjMi9oy7NJE7VGVYl79swe1w7WPBV5AdOG0ZlScFg7j3Sy3s_6BVyAIns",
-      "coverThumbnailData": "ZZJJFJF-cfcZZJe-tfJcccZ-JL-tcJc-ddxytJcF_zdJxxcKJjJdzcd-JJJJcJ50",
-      "description": "Hello Neighbor Multiplayer. Secret Neighbor is a Multiplayer Social Horror Game where a group of intruders try to rescue their friend from the Neighbor's creepy basement. Only problem is one of the intruders is the Neighbor in disguise.",
-      "gameId": "8f8d583a2ae843e0b31fa653cea5d27drcp1",
-      "inStadiaPro": false,
-      "inUbisoftPlus": false,
-      "name": "Secret Neighbor",
-      "skuId": "5f1dfba8e3d64b3bbd4979c504cea096p",
-      "slug": "secret-neighbor",
-      "storeName": "Secret Neighbor",
-      "timestampA": 1571929200,
-      "timestampB": 1606834800
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/eOmDODR85rdHif-INEAN3eSxPNgGaADlNPAtFd35e2EZshhoYE-VJFyLSoZJ9FlT8gPY3mdq5fquJ_o2Hbf5n-NCstNeZYn2P3sP4RQJniGNfyq6Z8ljEsvpRwI",
@@ -645,6 +813,20 @@
       "timestampB": 1606834800
     },
     {
+      "coverImageUrl": "https://lh3.googleusercontent.com/podnhDFjD-36n2kWSIn5ccnPpOfa10XxPw-IIqSzT46TrIfBrW6JiQXIsfja2hPM3ww7gsZEV61SoYTUfArdBZxikgXlfyOKON26I8u9CZwqjygw1rgft5fqTw",
+      "coverThumbnailData": "ZZJJFJF-cfcZZJe-tfJcccZ-JL-tcJc-ddxytJcF_zdJxxcKJjJdzcd-JJJJcJ50",
+      "description": "Hello Neighbor Multiplayer. Secret Neighbor is a Multiplayer Social Horror Game where a group of intruders try to rescue their friend from the Neighbor's creepy basement. Only problem is one of the intruders is the Neighbor in disguise.",
+      "gameId": "8f8d583a2ae843e0b31fa653cea5d27drcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Secret Neighbor",
+      "skuId": "5f1dfba8e3d64b3bbd4979c504cea096p",
+      "slug": "secret-neighbor",
+      "storeName": "Secret Neighbor",
+      "timestampA": 1571904000,
+      "timestampB": 1606809600
+    },
+    {
       "coverImageUrl": "https://lh3.googleusercontent.com/z7tiPtsCeptDw3g-IcGiFpzgjKBqTUhzDZK3MjiDSkfwzh1I38QuMGQ0Wfivg8BG4mpnnQfRyi7wQaIspm7SlzqaxUyvnQeKTlUmnKmdxYQ7Olkbc8Z9qtFELFI",
       "coverThumbnailData": "tttdddddeFeutzzeuzLGKKeLuz00LOKQeeeK-O0-04KLK-400440K0-0--------",
       "description": "Real Trucks. Real Action. Monster Jam! Monster Jam Steel Titans delivers the complete Monster Jam experience for everybody to enjoy!\n\nAll the trucks, stunts, stadiums, racing and massive air in one game! Play in various game modes including Stadium and outdoor Racing, various Stunt Challenges and Destruction modes!",
@@ -673,7 +855,7 @@
       "timestampB": 1606809600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/rqNN_l0kUBMqjS9jUae1XjEsWyTtFPfQATahALnEL35yPFftgHdRA1cEl6oDko5FJV6du2KTrKkKeFvZB63PpUGelNDqxUN0AZILRZj2QKcSEPgHRTRCpWM-Q3g",
+      "coverImageUrl": "https://lh3.googleusercontent.com/6EFTTcH5ykjPCJSOmSUc1369DpDGDsUUcki27cPPNARTzVW63CH1LboNyh1axDsJvy7_sms9Azhd1ZBVdZTbZUw8dga8FvYuuyKwuo3h4svCCajEGjIhyxQvpuQ",
       "coverThumbnailData": "JKJJK_K---KLLa---KKKKK4-KJFKKKK4KKK44K0---KPK-K-_-K-4KL-KK4KKM--",
       "description": "Outward offers an immersive RPG experience coupled with realistic gameplay, as well as deeply-rewarding challenges for the most avid gamers.\nAs an ordinary adventurer, you’ll not only have to hide or defend yourself against threatening creatures, but also brave the hazardous environmental conditions, protect yourself against infectious diseases, and stay hydrated. Embark on risky expeditions across untamed lands to reach new cities, undertake important missions, and discover hidden dungeons crawling with formidable enemies.\nIn order to survive in the dazzling yet deadly world of Aurai, you’ll have to be clever… and prepared. Sharing your journey with a friend, locally or online, is also greatly encouraged!",
       "gameId": "8185df0ce9d74d61aab58a12d4bf21a0rcp1",
@@ -701,7 +883,7 @@
       "timestampB": 1606204800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/zPnpGppMSPL1cLMDCQm0olpNSXVEODo5y08VZQgsJcLKh43LdNhISYo4co2PCoFNavUY7chE1rZ56p8acEsvlKN9AkCtSS1P5qeBYL1vqutlUk6T2Q38H2lbrg",
+      "coverImageUrl": "https://lh3.googleusercontent.com/oFvz7UbFPN7RL0mc3u0iX8W8bTXVKVRLio3pecUC3Kjcy-gRUr7-vZ03oedHh8ScPW1DV7kRZM5LxKTM7pnkBrAldsI2yc6MVtbb1v6cdUsdq_WB8SN7oHvS-A",
       "coverThumbnailData": "J-zzzz--eF-2eFFGfKKMFFFFeKF_J_JJKLLF_FK_aLKx-JJdae_0KGFKJGK-GGFz",
       "description": "Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Welcome to the Resistance. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities.Take your recruits online and team up with your friends as you complete missions and challenging endgame content.",
       "gameId": "deb490c166544813bf2ab73f4c6e2aa0rcp1",
@@ -771,7 +953,7 @@
       "timestampB": 1605168000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Zrf8k9rgCdwkRXdwRUMgThiEOKbHU5qn4c4iimJXoiFDxuSgnekV8zG7ZSOVxSpuUkodeFIv5HyUD_YHjHx4VydD0GGKjxwGfbAnJptnlUIuPzreNJkVI-6j_ppl",
+      "coverImageUrl": "https://lh3.googleusercontent.com/OE-gR8U8sr2jTFXM8XkMLhvaMHjWzhotgPyLwNo50UAl2MO_LnJeb9jYwxzLqIYm4YsGDZLMN6KxfJ8HBKM2tmhjimt-xc5smtF_ogDXs7juRm6gRa_LdL4sldSa",
       "coverThumbnailData": "eeyzzzzzezyzz-zzzeKzzKKzezzzzKezeeeee0-zeeezz-GzeeeKy0-K_eeKKeKu",
       "description": "Become Eivor, a legendary Viking raider on a quest for glory. Explore England's Dark Ages as you raid your enemies, grow your settlement, and build your political power. Lead epic Viking raids against Saxon troops and fortresses. Dual-wield powerful weapons and relive the visceral fighting style of the Vikings. Challenge yourself with the most varied collection of deadly enemies ever found in Assassin's Creed. Shape the growth of your character with every choice and carve your path to glory. Explore a Dark Age open world, from the shores of Norway to the kingdoms of England. Personalize your experience by growing your clan's settlement.",
       "gameId": "377f50584071472096bcda89b0839bc3rcp1",
@@ -897,9 +1079,9 @@
       "timestampB": 1603897200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/oSEBD5rwFqLRXDu4W0ahwHQ1nqaxDbIBV7iAIsvckRUGiktwdKY_lixxemA05_2IvskGsv-mlUVujoM0Xxw4qd-UcN8w6Z4QqpV-uC1TcIsOvplfacqrvMS0yw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/jlS20ej1jCCA_yMv6Ny-V1LCPTbx4rsDf-KM4KnQzjoxxwNS1Hm70ABpExCzmwER4CxTyXOd845yxsM4GozkoVdu95or-Bb0UMw21-qdULdtDxAyfgOFr8Sagg",
       "coverThumbnailData": "_yeddKeyKPetP5esKuezKKKuzKzdt0eeKeejeKyy-dKejKPe3_j9eeeK3Keee_JK",
-      "description": "Demo games are provided at no additional cost to you. Availability is subject to game publisher's permission which may be revoked at any time. Once claimed, a demo game will be available to play in your Stadia Library unless a game publisher revokes permission. Upon revocation of permission or expiration of the availability period, the demo game will no longer be available to play or as part of your Stadia Library.\nPlay as Fenyx on a quest to save the Greek gods from a dark curse. Take on mythological beasts, master the legendary powers of the gods, and defeat Typhon, the deadliest Titan in Greek mythology, in an epic fight for the ages.",
+      "description": "Try Immortals Fenyx Rising for free with the demo and get a taste of Fenyx’s godly powers. Set in an exclusive archipelago, the demo sends you on a quest filled with combat, exploration, and puzzles to discover the mysterious Secret of the Cyclops.\nDemo games are provided at no additional cost to you. Availability is subject to game publisher's permission which may be revoked at any time. Once claimed, a demo game will be available to play in your Stadia Library unless a game publisher revokes permission. Upon revocation of permission or expiration of the availability period, the demo game will no longer be available to play or as part of your Stadia Library.\nBUY NOW [https://stadia.google.com/store/details/161f276db10947a199cd0260ed4dc248rcp1/sku/e08ea1952a294f24b9ba58478f69a5ddp].",
       "gameId": "6363b82d1cc442f5af9c3ce98ceb731drcp1",
       "inStadiaPro": false,
       "inUbisoftPlus": false,
@@ -907,7 +1089,7 @@
       "skuId": "371cce816e0d4af294733dc22bbc680cp",
       "slug": "immortals-fenyx-rising-demo",
       "storeName": "Immortals Fenyx Rising™ Demo",
-      "timestampA": 1603263600,
+      "timestampA": 1603180800,
       "timestampB": 1603263600
     },
     {
@@ -925,7 +1107,7 @@
       "timestampB": 1602745200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/5KXwaYHhmNDo7d73Uwf9ZCjXBUjlgHkUU8YCrYpvDdJmD1YB2QNRfPbChAUets5vnnljirdOzNYfPDGX7cUEpNuo8xeVgxzZUK21S_QhmRBVEZz9k4UvHZvIaW8",
+      "coverImageUrl": "https://lh3.googleusercontent.com/Zdgak_YXKEDeeYpjVD5u8Pr7Co0sbmxfIbOh0D1OXKSxlpYYRnODa03SKjiqBypbSmcQXZvYAN__UfgGuF6UbEGRVnYEoE45BWM3VIGT-qN7MeLCDfv1fUyFVgA",
       "coverThumbnailData": "FFJK-FFFKeKjF_LKK-K-K4KKeFKdK5-0K--5K-jGF--4P----J0---------F---",
       "description": "Stadia Early Access Disclaimer:\nEarly Access grants you access to a game that is still in development. It is an unfinished game, which means you may encounter playability issues (including the potential loss of saved progress) and changes without notice. Access to the game may be lost if development is not completed. We encourage you to visit the publisher's website for information about the game, and to visit our help center for more information about Early Access. Learn more about early access [https://support.google.com/stadia?p=early_access] \n\nEarly Access contains Act 1 of Baldur's Gate 3, which is planned to be a 3 Act game. Act 1 contains around 25 hours of content for your first playthrough, but is designed to be played multiple times. Throughout Early Access, we will be adding content, improvements, iterations and bug-fixes as we go through community feedback. Please‌ ‌head‌ ‌to‌ ‌our‌ ‌official‌ ‌site‌ ‌to‌ ‌join‌ ‌the‌ ‌discussions!‌ Community Site [https://larian.com/forums]. \n\n Gather your party, and return to the Forgotten Realms in a tale of fellowship and betrayal, sacrifice and survival, and the lure of absolute power. Mysterious abilities are awakening inside you, drawn from a Mind Flayer parasite planted in your brain. Resist, and turn darkness against itself. Or embrace corruption, and become ultimate evil. From the creators of Divinity: Original Sin 2 comes a next-generation RPG, set in the world of Dungeons and Dragons. \n\nBaldur's Gate 3 supports Crowd Choice, a Stadia Enhanced Feature",
       "gameId": "41de509cbdbb4a13828636099c57731arcp1",
@@ -953,7 +1135,7 @@
       "timestampB": 1601535600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/KAIPQRsm4zdtnLG0xNREf_AWwXz6cwwMhDOzTNtwus6bMppHN_6210S-3fq964avO8QDvV-Sm8UhXLeYuQ8fRA5NQRLpCBFXom3KykP62b5WGQjVyvV5QdO62CBy",
+      "coverImageUrl": "https://lh3.googleusercontent.com/NwBNZR6AhW550I9pS8FPgqdFbuzjcqFMd_xURxLPJzIrW5Lig7cOyX8w0nQgZKlSL5sNxepgUof6zn8-9KTfaCYpxMLnKNlqmniaB50RlVmu0lBD-BVCP7EMvr5k",
       "coverThumbnailData": "--KKFJ----KKFLF--JK4-LKK-JKKFKKK-FKKKLK--KL--LKK-KK-0KK---Q--fK-",
       "description": "Death Is Not an Escape. \n\n Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught, tortured and killed. \n\n Survivors play in third-person and have the advantage of better situational awareness. The Killer plays in first-person and is more focused on their prey. \n\n The Survivors' goal in each encounter is to escape the Killing Ground without getting caught by the Killer - something that sounds easier than it is, especially when the environment changes every time you play.",
       "gameId": "b67e43f2b05f4ba7acc56a4b222568aarcp1",
@@ -999,7 +1181,7 @@
       "coverThumbnailData": "--Fjj-FF-KGLQG----GLLG-0-FG005400aLr0YFK-4HGG64G3-0teK-333---033",
       "description": "Hotline Miami is a high-octane action game overflowing with raw brutality, hard-boiled gunplay and skull crushing close combat. Set in an alternative 1989 Miami, you will assume the role of a mysterious antihero on a murderous rampage against the shady underworld at the behest of voices on your answering machine. Soon you'll find yourself struggling to get a grip of what is going on and why you are prone to these acts of violence.",
       "gameId": "5f54e869de4441f8998e80d2c54fa74brcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "Hotline Miami",
       "skuId": "be1bff38daf046f78cde2b36228de554",
@@ -1023,7 +1205,7 @@
       "timestampB": 1600758000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/--MRGXTp5B3Z13h10tp2oPK3gneCDDG0sRF3Wsc8tYNyOEwsxWUCrqNX_QCQZDRXBy3DtkSTfNjcLVl48oi199fAQHmQfp18XMzR8grjv89IDB3sM1Edl-Op2g",
+      "coverImageUrl": "https://lh3.googleusercontent.com/oEEKqG3eOgpvIEAMky-6bdXI3GgPXmxgDCjEyGRfTW5rcZ50xQK18AsNxV93KiC99aF8nMYfRi8QuJ66Ov3nFwK7wlMoESPVxWQVVWi3WYOQrDhx7gE7mcoUbQ",
       "coverThumbnailData": "eaaK_eKKfeeL_OKK0efz2KKKKJPPLFKKKdKLfLK_Kdd-KeK-edeF0uK-dee-KueG",
       "description": "The world of WWE is your battleground with all-new, over the top, in-your-face arcade action as your favorite WWE Superstars and Legends battle it out in outlandish interactive environments around the world. Compete in your favorite match types with an arsenal of exaggerated maneuvers, special abilities, and devastating power-ups, including Steel Cage, Royal Rumble, Fatal Four Way and more, as Mauro Ranallo and Jerry “The King” Lawler call all the mayhem!  Are you ready to enter the battleground?",
       "gameId": "f28e66bbd0984c77ac6a54e8cc3007bdrcp1",
@@ -1037,7 +1219,7 @@
       "timestampB": 1600498800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/92hr4qIBP8QfCiZ0EwthvUzDl35iT_8OnvxbLtqk1sivTzSngDvWdlFb6H40kn-Pp3-rAMmiAr6LHcL46Fm1EMrTa2-DRdcgIP38ZcY9q_5Wv8wumjmWrtjQWQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/9qY6HHKmSAYK7fsYvHmyK7Sskj9V0JTm_SLqDkKMb1X8HqjwVJRiUL9MeWalLaCXy00tZkPTyXGdlKuWh59qX8w5VtMWh3QBSV8OUCaIEXjA1xftR_dOMfSx4w",
       "coverThumbnailData": "016LzA910P6z2A610Le2EA61016EjAA5116-5jA10166Az6101M66A6101666661",
       "description": "One of the most iconic classic games which we all grew to know and love! UNO makes its return with an assortment of exciting new features such as added video chat support and an all new theme system which adds more fun!\nMatch cards either by matching color or value and play action cards to change things up. Race against others to empty your hand before everyone else in either Classic play or customize your experience with a variety of House Rules and match settings to ensure you and your friends never play the same game twice! Also, get ready to shake things up with new branded themes introducing never-before-seen Theme Cards that really change the way you play the game!",
       "gameId": "1694aaa3968344228424092f180a3e0ercp1",
@@ -1065,7 +1247,7 @@
       "timestampB": 1600182000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/lN1kUxC6alSOGTokKd2JzPkV2Noh6fGq6wHn2t1UDd8b7locyhC-c_z3SNo8I7X9wizdAWPPLweffIrAa4P8k6J04Mim0SBlMuHqc34bCHp2QUjqjGBpIfn5nas6",
+      "coverImageUrl": "https://lh3.googleusercontent.com/Kqi8QtNspU2Nr2nZSGcD6vGrIf8SbEfcgN09GzuJ31d1D6R2G1GsbfUPFm9xrxevF0oc8b1welqnWWI9C8cWk7hctOCNNfj5eJxtxMyh5yJk7w-KC17mFY0xaubu",
       "coverThumbnailData": "zzzzzzfzzzzz1z4zzzzzzzezZ-2zzzzzzzzzzeazzzzzezvzzzzzzzzzzzzz2zzz",
       "description": "NBA 2K21 is the latest title in the world-renowned, best-selling NBA 2K series, delivering an industry-leading sports video game experience. With extensive improvements upon its best-in-class graphics and gameplay, competitive and community online features, and deep, varied game modes, NBA 2K21 offers one-of-a-kind immersion into all facets of NBA basketball and culture - where Everything is Game.\nSee MyTEAM Pack Drop Rates below.",
       "gameId": "b0a2ab7cdc194582bc4d111c07c2e30drcp1",
@@ -1093,7 +1275,7 @@
       "timestampB": 1599030000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/vfs8LnrSMc41JA6HJAZBMqFTZ-ngAbK_193pHsOj1EaybBo-1mb7syCpXjaxmMYKyIe7nwkaKOypG_bF2buvNOowrqeLARoAQzUq-FnuUFFGRSgHljuc7lN81ig",
+      "coverImageUrl": "https://lh3.googleusercontent.com/r-CW_Ei4anE0RYVC9wHSw3CH50WRXK8buuXrpPnZbNTbUIvfIwRxwuyRFOKqBpTLHg2PYQKW4i7up4YH_4wcSmt7DJevjRrM5lYcKkM0T4U-KNyeHkNp-NEKrwo",
       "coverThumbnailData": "zuuetuzzuuMKKKeeuKeKKeeuedeeKPee--eefeeeKKZyzuK44K-KK----KK0----",
       "description": "Marvel’s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay*. Assemble into a team of up to four players online, master extraordinary abilities, customize a growing roster of Heroes, and defend the Earth from escalating threats.\n\n* Free Square Enix Members account required.",
       "gameId": "232ff8abc7f74421a477e9e09dbf487drcp1",
@@ -1103,11 +1285,11 @@
       "skuId": "cfc62fc3307a4ef1930e4644646c8179p",
       "slug": "marvels-avengers",
       "storeName": "Marvel's Avengers",
-      "timestampA": 1598943600,
+      "timestampA": 1598947200,
       "timestampB": 1599030000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/UpiQhh2tZW7nPEomdnFiH8-b4N7SSYE8G9MUWkoN57WQeIacchwqSFp1F2VkFU9UBb8E2R6a0CiW87vy4fblBhPxHIc0S9ktFq_Cm-cvcetbk7Qv0nWy0cnu-R8I",
+      "coverImageUrl": "https://lh3.googleusercontent.com/N1HFv8arse1mYzXu5QmHUfUD0dRRPwcjZ5INgbAJFRtk-gq5VN5ID-04v2-qf1G8ZzkJfBF40BpW2xAc8bYKPLeDQzExvixqUGV74rTugx9U3TrUo8ymHWEqAdCe",
       "coverThumbnailData": "---KKKKK----KKKK----K22-----KKF---------------------------------",
       "description": "State Share\nTo play Hitman game states that are shared with you, claim or buy the relevant bundle or add-on below. Ask the original player which content the game state uses.\n\nExperience a globetrotting adventure as Agent 47 and travel to exotic sandbox locations that are meticulously crafted and packed full of creative opportunities.\n\nWhen you purchase HITMAN 1, HITMAN 2 or HITMAN 3 on Stadia, you’ll play them seamlessly within HITMAN: World of Assassination.",
       "gameId": "990ec302c2cd4ba7817cedcf633ab20frcp1",
@@ -1149,7 +1331,7 @@
       "timestampB": 1598943600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/RJoFbYrSjlLnzr5IPoMt4OApU80-IeLGd6wsjVcW0Wc1M38K2cDWxFmvco7GvZ8Hj5bDAzT6uEKr8qW23H-T6G2Z6nL0lXJ_JWeWX_aNEXTRdsYH_KXAxffYq54",
+      "coverImageUrl": "https://lh3.googleusercontent.com/9ibSq11zlZzTnC0d7JFVCLIc4qF4C6EBhQkoH_SqTUE6FWPfzBqwLYaDyaltfZL2HZ_eijFoAYihyMyL5W59otIUNeBrR875pvK1uKNh5-iimpS6fG3nuOsSWpQ",
       "coverThumbnailData": "6zzeufjf1uzeffez1ufeeeddKeaKddddKL0PuuuuKeuFyd__J_zZu_cJdeeuJJJJ",
       "description": "The Forbidden Islands are Calling, Unlock their Secrets\nShipwrecked alone on an uncharted island, explore, adapt and navigate the land and perilous seas to stay alive.\nWith no boat, no food or tools, just the will and skill to survive, uncover this beautiful island’s resources. Craft tools and weapons to hunt and defend yourself against nature itself with its wild and fantastical creatures.\nWhilst exploring further islands and the scattered ruins across their lands, secrets of the past and glimpses of the future are revealed. Unravel the mystery and you may find more than just your way home.",
       "gameId": "657210fe20ad402b85bda8f816b80d98rcp1",
@@ -1163,7 +1345,7 @@
       "timestampB": 1598598000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/yxCiDbVwSIEvClKSe8KEBwHiR1uF806Ga5QYDrazJDcUSCogbhED1Fd9E9Uxdqjbw1sXZw8unGjqUrbHIfronsewJopzKcS2tSer66N7uabJ_rVYgxqh9A64ed4",
+      "coverImageUrl": "https://lh3.googleusercontent.com/mn9a-Nr5UFsPvNWORLJC8NtY0HiJgLW6IPbkuWfqkYEZ2-f_phc0tnN3WPPs7f0vlVnvuegWkQk4Yn7YgQBbwesGFWHni0bfFNo6g4kR4of6kniS9Q-5Ozs51zc",
       "coverThumbnailData": "eeuuuuuyuuuyJiyyuyeiezyyuyezyzzyuuzzyzzyuijzzzzdedzeee_JJJJ_dJJJ",
       "description": "Spiritfarer is a cozy management game about dying. You play Stella, ferrymaster to the deceased, a Spiritfarer. Build a boat to explore the world, then befriend and care for spirits before finally releasing them into the afterlife. Farm, mine, fish, harvest, cook, and craft your way across mystical seas. Join the adventure as Daffodil the cat, in two-player cooperative play. Spend relaxing quality time with your spirit passengers, create lasting memories, and, ultimately, learn how to say goodbye to your cherished friends.",
       "gameId": "430bbe284fb7482c9afe8e877b119269rcp1",
@@ -1177,7 +1359,7 @@
       "timestampB": 1598029200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/kQ-IIirPmWNI6_b3E7frjOkg1aFpCLf09rd47ZgQrCI3FT8Ga2okhjxfO640lfwiEkPPp6b2QaQilwTCf_PTpSElD8TUlNrfHaGeN2HNGSqZMcNW8VEsVvv8aX4",
+      "coverImageUrl": "https://lh3.googleusercontent.com/2cq62vLxfFFNlHMbP4MvVVdJcjFq_cmr_EcT0t25JZpx-wXVz6FmVMX0xzjBzaueQAQuRr9nR5LihNcTEY9PTIoUTPvyTkAQgsFB2iWYIHpA_GVj7dyvh_5jPaQ",
       "coverThumbnailData": "zyyyy_yyzyzyzJyzzyzyy_izzzJ22-PzyOzfOJezK334Ko3-3-4KKeee343OdKKK",
       "description": "Play against the pros. Play with your crew. In PGA TOUR 2K21, you can play by the rules or create your own.\n\nFeaturing an all-new PGA TOUR Career Mode with licensed courses and 12 licensed pros to compete against in your quest for the FedExCup.\n\nCreate your dream course with our deep course creator to share with other players and run your own clubhouse with Online Societies.",
       "gameId": "6a2ac2fc8e684c41b5c14981dcb454fdrcp1",
@@ -1195,7 +1377,7 @@
       "coverThumbnailData": "zzzzzzzzzzzzvzzzzzzezzzzzzLLzzzzzzKzfMzzzzKLLLzzzzzLLLzzzzzLLMzz",
       "description": "Built on the foundations of SUPERHOT and SUPERHOT VR, MIND CONTROL DELETE continues to bring you more of SUPERHOT’s signature power fantasy.\n\nTime moves only when you move. Enemies pour in from every direction. You are in complete control as you shoot, slice, and explode your way through dozens and dozens of increasingly challenging combat encounters. The closer you get to the core, the more powerful you become. You amass an arsenal of skills and weapons. You uncover snippets of precious knowledge - of the meaning that you crave so much.\n\nThe third game in the SUPERHOT franchise - MIND CONTROL DELETE gives you more insight into the world of SUPERHOT, more story, more signature gameplay. Keep dancing the slow motion ballet of destruction for so much longer than ever before. ",
       "gameId": "382fe14629e148449e7b8f94e8aecb38rcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "SUPERHOT: MIND CONTROL DELETE",
       "skuId": "f491723b366248d18843107689f3ead6",
@@ -1331,11 +1513,11 @@
       "timestampB": 1594623600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/2cWLibrpZZtT6ij0GaMtSBGp85esXpKscOrB30rKf0Ygl7uDXin171NF8Eyavk8F6aTJKM_GQdekwGAzBUn4IgKdTzVH7vIidyYVSuEccJ3MNUkZaAAOdUL36UQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/SN_pWYakbajsKbARHPBg4vCQfyNoLxsggumc99_ja8k8zdGs_O5pqokgnSZCvcunuvTv6Mt1-b6TGHF-3_vvtS1kvFTOIX7q3pxgFrdpIFqynAP9vunr584zu4c",
       "coverThumbnailData": "1120-21111efeKf111KFeP1112ee-KM11-e-zeK111--0-1L120-K-111f--e-11",
       "description": "F1® 2020 allows you to create your F1® team for the very first time and race alongside the official teams and drivers. Alternatively, challenge your friends in new split-screen with casual race options for more relaxed racing. Compete on 22 circuits, with current and classic content.",
       "gameId": "f3519f3dc3d74fbb8086520577b832e0rcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "F1 2020",
       "skuId": "60da786be741463fbbeb63ed5130bc11",
@@ -1345,7 +1527,7 @@
       "timestampB": 1593932400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/bWsliaOa9MZdqrrVG3QZ2SDWsv9O1SbsFOaisIRrK7_WnpM9B_3Ui9_t-TsjCqWxw-pl531U76YGEe0HC6qyXjTPyZfeaTpTAozLcYgN2q_QKZekJpVsflPYWWM2",
+      "coverImageUrl": "https://lh3.googleusercontent.com/MM8zgbE3_e0cypdvUGZrB846HbpKg8NssRV_DTGMDydvyRB-B0k6Nznm2b72kmTMleWa0ODc5kpm6W36KwDnbu8JCOniwxyGhoor1x_3U14slvZKh8_OLusrJbBa",
       "coverThumbnailData": "KJhKOdJK4POSSiOKJKyiiOOOONhaFOSOJNiLFONJJdiFKihJKzeKFeiOKOeOOFdK",
       "description": "Crayta, the game-making game now comes with its unique Battle Pass system! Play from thousands of games, complete challenges generated by the game creators, gain XP and unlock awesome new content with our current battle pass: Alien Conspiracy!\nCrayta brings together players of all abilities and backgrounds to create and play multiplayer games with their families, friends, and the rest of the world.\nCreate and collaborate in real-time, then share your games instantly with the Crayta community. Powerful, flexible, accessible, fun – game creation is now a game in itself!",
       "gameId": "05f66a46027747a08b930ea70374ac7frcp1",
@@ -1373,7 +1555,7 @@
       "timestampB": 1593615600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/wSGUUQ4CRuWDg32tuJhRoJj2teGoLZxUuEYoB5pGCr4lIn2LkW1UeIW6zVM0S0SR3m_6BNQiz_UuKMTGRcrnMj_mWd-FvZlN_eWsrhiqmsth0W09hKrxAxa4jDY",
+      "coverImageUrl": "https://lh3.googleusercontent.com/txTiO5Q6qExUwqlH9xD2zLwQrwyXVLuj9_v7Eur8vsXQnPkUJ2lqdnGKMoS9SfuuXRHfg2p4rp6Ap7fcZ9gfL0-sKhn3mNnZG1w8RJ2tsIozD2tkaofOT6f4F7k",
       "coverThumbnailData": "pZcssytztjjttzyzssssyLHzyedLZfLztzezzTQzyd1HQPLztLHH0j1zzHILKHPy",
       "description": "A legendary series returns with a grand new adventure! Enjoy a colorful action-adventure game made alongside Ryuichi Nishizawa, creator of the original Wonder Boy in Monster World series. Monster Boy and the Cursed Kingdom borrows the best from the classic series to deliver a fresh, modern adventure with fun gameplay, memorable music and gorgeous hand drawn animations. Can Jin save Monster World Kingdom? Help our young hero defeat challenging enemies, discover hidden locations, upgrade powerful equipment, and more! You'll also unlock special forms with unique skills used to open new paths where mighty bosses and secret treasures await.",
       "gameId": "ef14fb2f692c4b42b4b092d3e7864cd8rcp1",
@@ -1443,7 +1625,7 @@
       "timestampB": 1592924400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/gZR3NJKHfKl_zmIRPnnDdXBPebT_c_2t7f-cmUGE3Vojdr5Tvbsbs1_m3A9JG_RT1HQ4-l67CpZhHRrkeqTIoPfEIVI4jco32ea2y9VXO-Soj342lkFbcG9qLA_h",
+      "coverImageUrl": "https://lh3.googleusercontent.com/9IEXGTmAQZpkZLY1xq8a-kd4JHUC2QpFVU2-KpLrLymJ_NkSwSXLOv75tExp84nRkTixuOp1WaYSmdt-umN3C5gpRUK-OpTXujEydfu1YPbF8_WV__HZisHsXTjU",
       "coverThumbnailData": "KejzjeeKKLeeeeLK3PeKPeLKKKP4-KK-KKK-0KKK-4K0KK----K--K---K------",
       "description": "The fantasy role-playing series, The Elder Scrolls, goes online – no game subscription required. Embark upon quests across Tamriel and engage in massive player versus player battles. Experience this multiplayer role-playing game on your own or with your friends, guild mates, and thousands of alliance members. The choices are yours in the world of The Elder Scrolls Online: Tamriel Unlimited.",
       "gameId": "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
@@ -1541,7 +1723,7 @@
       "timestampB": 1590505200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/KE1nxKb-apGg4ShfY0cBl9a_876FCCj7Fu9jHXI4DFWpDtDyNtgke8XhI7R2jaAovy0yj2Ml9neRjDRXtUNQklc129qQloNxWsxL1AHym6ru-urFbGPlx3dQip4",
+      "coverImageUrl": "https://lh3.googleusercontent.com/3W9l11-5mapYZeaLNd39BrOBhDjcWqAPTTJ317obCs5UdNcIceE9CTXI1IYh2jTc0kKDAAK2pTzebuFxdLPCcf3a-9W5mvtrypHmPeYlRmFGvIXHqreYYk1qQVI",
       "coverThumbnailData": "4K00KKK04Fz-jKP0F2zMKKQK0Q-MeZP001MKfAMK0LMQMQLK05PQ1PQKK0zj22KK",
       "description": "Stadia Early Access Disclaimer:\nEarly Access grants you access to a game that is still in development. It is an unfinished game, which means you may encounter playability issues (including the potential loss of saved progress) and changes without notice. Access to the game may be lost if development is not completed. We encourage you to visit the publisher's website for information about the game, and to visit our help center for more information about Early Access.Learn more about early access [https://support.google.com/stadia?p=early_access].\n\nEmbr is planning to stay in Early Access for 12 months. Muse Games and Curve Digital want to make sure the game launches in a state that we, and you, are happy with, and we don't want to rush this process. For full release, we are looking to add 2-3 times the amount of content as well as a number of additional game modes, we are aiming to add campaigns with a series of escalating missions and narrative threads. Progression wise, we want to flesh out tools and cosmetic customization. Asset wise, we aim to expand the asset set from residential to industrial. Further work includes localization beyond just English. Please‌ ‌head‌ ‌to‌ ‌our‌ ‌official‌ ‌site‌ ‌to‌ ‌join‌ ‌the‌ ‌discussions!‌ Community Site [https://discord.gg/embr] \n\nJoin Embr, THE Emergency Services Revolution, and become an Embr Respondr™ today! Fight fires and save lives while climbing the ladder of success, all within the comfort of flexible working hours. Embr's mission is simple; bring über firefighting to everyone, everywhere.\n\nAs an Embr Respondr™️ you'll answer clients' calls for help, and bring firefighting directly to their door! Break down doors, clear gas leaks and put out fires - no job is too much for an Embr Respondr™️.",
       "gameId": "d599576cddfc400f804b889460e84cb3rcp1",
@@ -1569,7 +1751,7 @@
       "timestampB": 1589295600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/gc7RMt8lrQjvXl2Re2z0ZbpcBJnsv1wvBJeXt97745PdyFQEEfonQNU2zmgSt4zW0OoXs8KSJ_6ik2XGP0W2pQLTsgIX96qaDX3r61OuVhHQCa1h-KkEm13ZSA",
+      "coverImageUrl": "https://lh3.googleusercontent.com/2t9wugKHfD0pWEfxOru80g_mPimotHJYzWp4aMnC0hU_uguepc4ks0mJMQbnYYdMgnnh76xkZfwDZ3LEnWH4F-iqXh66bWf7BeRsLAF-egHZbpRWZ3j8nCJw5w",
       "coverThumbnailData": "-------------Je-----JKJF-11-JAAJ---e_KKJ--FJ_dKJ----_J-F---KJ--J",
       "description": "Hitler’s hordes are back for more in this spine-chilling shooter! Occult enemies, epic weapons and a new campaign for 1-4 players await, as you fight to save humankind from undead Armageddon!",
       "gameId": "cba537cccfe3470b8784f88660ea5f09rcp1",
@@ -1625,7 +1807,7 @@
       "timestampB": 1588086000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/6_fVh9j0Dkf2QMWAVHsCgGuADGXceZNNsVu-6LJgI29hCBA-XhkxC0yHOgaM6cIosaGYpjwnqnd1oTbuMYlVNKA81hvNDO9lMwfIQihzpBFkUqtg13cjbhEPyg",
+      "coverImageUrl": "https://lh3.googleusercontent.com/q1KpmbeFdIWvX_xs9izUDB-DDxpIi5Je6SpNiYkJv9WOS1x4PLOMuNoWfqFZ2APlMEaewgf4cxFll3Eh4WiTVf65KJg9mCMzMWM_4cQnuyouabybz6why-W_sQ",
       "coverThumbnailData": "ttysdtzsPuzFGzzeOKtMUzK8Oe941dJ4fKOL1KJ_e_ePJeKzeKeKKeKKKKKLaKKK",
       "description": "Get Packed is a couch co-op removals game full of calamity and physics-based carnage for 1-4 players.\n\nWhen a greedy salt mining company takes over Ditchlington, Last Ditch Removals must handle the hostile eviction.\n\nWith little time and even less caution, your ragtag removals team gets to work rapidly relocating the entire town… leaving a trail of destruction, explosions, and furniture fragments in your wake!\n\nAre you ready for some destructive fun with friends?\n\nThings you'll love:\n\n1 - 4 player local and online co-op\nCampaign and Destruction game modes\nCo-op chaos and carnage across 15 locations\n4 Customizable/Playable characters",
       "gameId": "73182869b2a644bdbef46984b96e1721rcp1",
@@ -1639,7 +1821,7 @@
       "timestampB": 1588057200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/fFwN0MRFVP8sTGCS2ESMySqKHboa5d9HNXDrJdD2Q-6GlPhRYq6k5bI8yVvmE_YTGQPoJcbv7QrYOAXnplZ4pymGqRrtDH9eRydIs7ooEcmIRPXA_xdEWbl1BgE",
+      "coverImageUrl": "https://lh3.googleusercontent.com/3hgVwPGoC_lVyedJYtPRpS7LTcnL2ZDaGdod-BdB0yFPswgzDU7N1s81s7kP_5hDwm3Yil_1H56kkR8xbJdFRFY1jjlMkfsd2E7u1rfJa4YBnJ_gIiWCus0gddIL",
       "coverThumbnailData": "___zKdd_ddz_d_d_eztttutdKuuuzeuK44QeKQfKK5f6LQQ0-04K0400---KK0--",
       "description": "This is Battle Royale. Land, loot and outwit your opponents to become the last player left standing in a thrilling game experience full of unexpected, adrenaline-pumping moments. For more information, please visit www.pubg.com.",
       "gameId": "a4c5eb3f4e614b7fadbba64cba68f849rcp1",
@@ -1649,7 +1831,7 @@
       "skuId": "71e7c4fc5ca24f0f8301da6d042bf18e",
       "slug": "playerunknowns-battlegrounds",
       "storeName": "PLAYERUNKNOWN'S BATTLEGROUNDS",
-      "timestampA": 1490338800,
+      "timestampA": 1490256000,
       "timestampB": 1588057200
     },
     {
@@ -1723,7 +1905,7 @@
       "timestampB": 1584716400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/uT3TkjvpirLGT3ilhNqQljxF30PkhyCXUO7HMEeaIhEn8nICZR4qCcRD3X4T4yGSP_UkAsIBpsOjmtOez4gM-vOB556e2ZJTJF2ny9ngS_SCamNxQ-qJlypzKw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/2aAZyBcjywAYExGbErxuxBsC1F_vQBVOIBwMyX6wYB82GYPfQsp-m8IMTzYVylXGTeK3BOlvEZpUiWwSQhBfxLroCYYQL-vpYfYYWxWiTE2GHExkQhGbtQv0bQ",
       "coverThumbnailData": "e-euuKKeu-eKLKKKz-efzLKez-KjeLKze0-PP-KPKK-zKKG4-0KeK0-0--KK----",
       "description": "HISTORY WILL REMEMBER. In The Division 2, the fate of the free world is on the line. Lead a team of elite agents into a post-pandemic Washington DC to restore order and prevent the collapse of the city. The Division 2 is an online, action shooter RPG experience, where exploration and player-progression are essential. Liberate Washington DC – Save a country on the brink of collapse as you explore an open, dynamic and hostile world. Stronger with your team – Specialize and fight together with your friends in online co-op or against others in competitive adversial PVP mode. Genre-defining endgame – Choose a unique class specialization to take on the toughest challenges with friends.",
       "gameId": "d43cd46c81734ca48e1a615310d0237crcp1",
@@ -1783,7 +1965,7 @@
       "coverThumbnailData": "-d-KK---KTU0K-KKF4KKjL0K-aL40j---K0Kj004-445Kj00--5K004---LK4044",
       "description": "Triumph over evil with the hand you’re dealt! SteamWorld Quest is the roleplaying card game you’ve been waiting for! Lead a party of aspiring heroes through a beautifully hand-drawn world and intense battles using only your wits and a handful of cards. Take on whatever threat comes your way by crafting your own deck choosing from over 100 unique punch-cards! What awaits you is a luscious treasure chest filled with gold, dragons, vivid worlds, magic, knights in shining armor as well as XP, turn-based battles and all that good RPG stuff! The game’s humorous mix of traditional fantasy and steampunk robots makes for an unforgettable experience with lots of laughs.",
       "gameId": "b845605f8eb447008f3f0d2295265ffdrcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "SteamWorld Quest: Hand of Gilgamech",
       "skuId": "a1afa4eca7b24713a9bcf3421dd85a13",
@@ -1797,7 +1979,7 @@
       "coverThumbnailData": "--10-----010-----0114-j--0Q0J-K--K-6J11---A6--J-F-_---e--3------",
       "description": "SteamWorld Dig 2 takes you on a platform mining adventure forged in Metroidvania flames. When an old trading town is struck by mysterious earthquakes, it’s up to a lone steambot and her unlikely companion to uncover what trembling terrors lie beneath.",
       "gameId": "b832835182124d4d83cb76a74a76a33frcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "SteamWorld Dig 2",
       "skuId": "90f5bd9270024986b26ee8221c1fa2e4",
@@ -1863,7 +2045,7 @@
       "timestampB": 1576594800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/WsYCBp58gcrb2D7JCT_-dkg07g3Jm2uJkrEVFJmYdwN77DE8frB9c2Q8uIZZCn6hkgpYg57D7dkmKuCZU6PjyHx1gcwuPq_KjoPc62bmpKPF5lzuoW8h8tHaMQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/ZoBH_9nWH79NVvcF08M2TQkBhdQbOrXq3yvmeRa1v97Q5swyQGyme9Bh3CnDte93DPQdG7QP47Q_IQiMy4nt7ojQxfipqsAHAW_cb0fssoOoeQKVavJNnWOk5w",
       "coverThumbnailData": "JZ__JZZJZ_AAKE_JZt-jj4_JJuujQutJZejdUvuJKyu50L_ZLdL0_Hu_1030L8O_",
       "description": "The original shooter-looter returns, packing bazillions of guns and a mayhem-fueled adventure! Blast through new worlds and enemies as one of four new Vault Hunters. Play solo or with friends to take on insane enemies, score loads of loot and save your home from the most ruthless cult leaders in the galaxy.",
       "gameId": "be080ad40b434ca289166031d3e88623rcp1",
@@ -1889,20 +2071,6 @@
       "storeName": "Darksiders Genesis",
       "timestampA": 1575558000,
       "timestampB": 1575558000
-    },
-    {
-      "coverImageUrl": "https://lh3.googleusercontent.com/KDtRQXijpw5BSMncgYlZmOEvjLgxPJ0cy9qU_Kq2NrMgadWrs7TChK5KRll5Zb4JTIOVIKeEytf5vHMs4NuP0v7ZF3ed0e8MUfGwoXOwMI1P51zNU4Tg8PYoHJE",
-      "coverThumbnailData": "FKKKJKKKFKKKFz__K-KKJeKKK0K0KzF-K0K_PKF---F-yF-F4FKJKF--JKKJKK--",
-      "description": "Face your fears in GYLT, a haunting tale about bullying and childhood nightmares, as you help Sally navigate a creepy world to rescue her missing cousin Emily. GYLT is available only on Stadia!",
-      "gameId": "18a3cc2bb111419c8ac873086d04dfaarcp1",
-      "inStadiaPro": false,
-      "inUbisoftPlus": false,
-      "name": "GYLT",
-      "skuId": "9ac5597c3f4a4e648c9ae56bac3d1b32",
-      "slug": "gylt",
-      "storeName": "GYLT",
-      "timestampA": 1574175600,
-      "timestampB": 1574175600
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/bjeKXwJJCFCP-q0kyAXY2SkzGpF0VG51xrJfK8vFCSPYhNvNOaistBoIoGAN3y4lXoXDcWjHNWzqyMJyMiOIRA0naHNGqA466rkJZ8BypSbuxryTdOlFfSx6-yM",
@@ -1975,7 +2143,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/DUpN_k_m1jWoQqzT6XIYqc_ebpDIzihbPNQi4ytwX6CaQy4npYBaNuY0Bv3oJfr2xRNSKRltVbzHkEuZJKVQpl5gi8ERo-X8NNBjL_HvLLvd5f6-Sz3yYsYksg",
+      "coverImageUrl": "https://lh3.googleusercontent.com/hcOEbOOa5W9LnICOzh0gw3gUReG2ES48fnafxK4mthqFluCZkUmFocU3WcI3MYBwlqT0xWRCPcaEkuy7RCaWJOYWi90LOwBsmhevA64jLJBK7yvH8HeyYPGp-g8",
       "coverThumbnailData": "555L-5Q9PPPP0PPQQjj4fQQ5jj5zzUjAUjjQjejQQQQLLQQj4PP0-PQQ45P5KPPP",
       "description": "Description: This is SAMURAI SHODOWN’s main game.  SAMURAI SHODOWN has enjoyed worldwide success as a blade-wielding fighting game series since its first release in 1993.  11 years have passed since the last series installment, and it is now time for SAMURAI SHODOWN to return in a brand-new game featuring high-end visuals and gameplay!  Faithfully reproducing the game mechanics and atmosphere that contributed to the success of the series, SAMURAI SHODOWN includes a revolutionary feature that learns players’ game actions and patterns in order to create CPU-controlled “ghost” characters.  With its story set one year before the very first installment, warriors and combatants from various backgrounds and with their own goals are about to battle to fulfill their destinies!",
       "gameId": "120348c2707740b99b509fad49a2f45drcp1",
@@ -2073,7 +2241,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/sFkqmCF-zdvBIQxfuiWdi_sUW_HnKV-5K1Ykn5nJccdBl2JcS8rdUSZt4Jt5-60TLFqmIFNQdqc5pp-79BtjRs9mxe8oOx8aJdpVzkJcd4fTMswNQ-NLEYzE88E",
+      "coverImageUrl": "https://lh3.googleusercontent.com/tvt-gFRSrbUHQDOvoBdnF89dz2gmrpn2FJ-oKhNNZwlNbhxtTYccw3SBxRzNSnorZPmzNiNHN57ReXL_OuA4ref2yRTUNsBlhUp8jGUDwuGpgzex88En9IaK_b0",
       "coverThumbnailData": "04KK4----40KK0----4KKK3---0KKKJ---3KKKK---JKiOK3--JKeKKJ--JKKKKJ",
       "description": "Dive into the world of Destiny 2 to explore the mysteries of the solar system and experience responsive first-person shooter combat.\n\nAn Immersive Story\nYou are a Guardian, defender of the Last City of humanity in a solar system under siege by infamous villains. Look to the stars and stand against the darkness. Your legend begins now.\n\nGuardian Classes\nChoose from the armored Titan, mystic Warlock, or swift Hunter.\n\nCooperative and Competitive Multiplayer\nPlay with or against your friends and other Guardians in various PvE and PvP game modes.\n\nExotic Weapons and Armor\nThousands of weapons, millions of options. Discover new gear combinations and define your own personal style. The hunt for the perfect arsenal begins.",
       "gameId": "20e792017ab34ad89b70dc17a5c72d68rcp1",
@@ -2127,6 +2295,20 @@
       "storeName": "Rise of the Tomb Raider: 20 Year Celebration",
       "timestampA": 1444575600,
       "timestampB": 1574175600
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/HBpdLMBJT3BV9LXMOJbqgWyyc8X0VGdXrqeGG6DW51m2W94RIVWv14m3k3cPNStidYKukoW7ET_SLs2pBxEWn32_ov96EuPwPdiIvOx_I5lCWppC0ulyTeClrHo",
+      "coverThumbnailData": "FKKKJKKKFKKKFz__J-JKJeKKK0K0KzF-44J_LKF--FF-y--F4FKJKJ--JKKFKK--",
+      "description": "Face your fears in GYLT, a haunting tale about bullying and childhood nightmares, as you help Sally navigate a creepy world to rescue her missing cousin Emily. GYLT is available only on Stadia!",
+      "gameId": "18a3cc2bb111419c8ac873086d04dfaarcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "GYLT",
+      "skuId": "9ac5597c3f4a4e648c9ae56bac3d1b32",
+      "slug": "gylt",
+      "storeName": "GYLT",
+      "timestampA": 1574150400,
+      "timestampB": 1574150400
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/_QkJm54vdjWppurf3MNWjpbsF0YDeOrsWIr0Mm-Fy13MRD2HIpqvPvXhssls75dWQ5RbyagL4EBY_Yd-2Yv3YvOsrXUn1ahEeeejmBfaCeyx-psRF4OtGsgfJPnq",
