@@ -4,6 +4,16 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/95d975e630f5443ca402b5d67c31323drcp1",
+      "source": "/the-legend-of-heroes-trails-of-cold-steel-iv",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b465998ccc1c48aaa2fb74f331ebbdd7rcp1",
+      "source": "/the-darkside-detective",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ad1e34961f2148568d215a8101df7693rcp1",
       "source": "/outriders",
       "statusCode": 301

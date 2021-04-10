@@ -23,6 +23,26 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/YdMGWs01cm2dSO5vQQl_8LERXsnd7gIPxQBZ8xNMmnSJCWUfZAMRlzu7FFrbOFCAetJ1xQ37baZgRay9LM9mgIiAZ7BqUnvNa-SneciQpB3WBIq46NfaBcm5VXg=s192-p-rp"
+        }
+      ],
+      "name": "The Legend of Heroes: Trails of Cold Steel IV",
+      "url": "/the-legend-of-heroes-trails-of-cold-steel-iv"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/uxqUWLLSiL2ttjmbK5KwzS1pZ7QB2ofbSECV-eSMUEWZsGfVdnGtzdoVweb-UZpRGTPy12pzUW_Na4YnGSz2UmnzR7MNvh0Ls7wTqhuKEu9_P7rrGtMxIN2poDHz=s192-p-rp"
+        }
+      ],
+      "name": "The Darkside Detective",
+      "url": "/the-darkside-detective"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/KmzCZDLU9lTgT5NttEQiF8B7Mp70G4_UcnA6t9Bin1t5jAX-vREiVHH9f60dQwYsDQSsytrFkPn-Jwx_OFrnGvYXkcgTdA26Pr4H0BkSFNJbVx1uVgW6nX97ZR0=s192-p-rp"
         }
       ],
@@ -133,7 +153,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/4rqCBBhsPYHNWQybX5xGwK3FoDDDgx-1nk7SSWM4q5soj51HOP6rkLqFldno6G1wo0nTz9zzGBS9meKu7EcWaqSRkQeutwcnJdHT0A9xEjI1P32rJFrgF3_fQ7Kz=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/j9-3O-4bOsch6eDNjg3_oAiZXv5qQ7yp53UQmF4oIuVPC2dV0FIQ7wZnUYV_IAndnroTM33qxO2ylsF538B5mJtpxnWEDe-Nl46957j0a8DqP--_AxTPaymF73PC=s192-p-rp"
         }
       ],
       "name": "DIRT 5",
@@ -158,26 +178,6 @@
       ],
       "name": "Terraria",
       "url": "/terraria"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/2ZKTRaQQuHi6RwP2UTgL7FpTd3WU_6zimQjetJKmzJLYChoUPq9EB-c3031oj_zEKdnqNUKl_imIGCUqQmKjm1ik-JSHiASkjGacUFHEa-vMq07JwY0fzYdtqg=s192-p-rp"
-        }
-      ],
-      "name": "FIFA 21",
-      "url": "/fifa-21"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/IbgDmjdBQy29cjbGj4nPKMQ5hK1YjDHRiqrqsehdP8A7rCODjG81Y9Ajq8XZLRB_rnr1yidrS0m0RmlI6rrlKB2RWhhl62oyAtxdvH6e35Kl7uW-vpC8P8NZmTU=s192-p-rp"
-        }
-      ],
-      "name": "DRAGON QUEST XI S: Echoes of an Elusive Age",
-      "url": "/dragon-quest-xi-s-echoes-of-an-elusive-age"
     }
   ],
   "start_url": "/",
