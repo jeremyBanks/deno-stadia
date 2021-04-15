@@ -23,7 +23,17 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/AeV4A__WcqoJW5OgJ6Q4aWzyN79Skb_7rHHTRBdyVBI8zbyH9zaVwVQ2wcMlzovhVTx2mAMB-XJN7PLXxFW4Y_TlaD-2n-WrBDDbMe0otYVV2bbIwtogBU8rZ4k=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/xRebvGlvPiXyJ30y19kwxD_PLeKCfsXQU2ZHTHhVFX1W4hi6Xb_qwMlE8FKZYCU2Z0hKaJnP-5nbKPkghoC90ReMkFufuwB29vqclPTgG8RxDi2jePjzrcFLzVV4=s192-p-rp"
+        }
+      ],
+      "name": "The Darkside Detective: A Fumble in the Dark",
+      "url": "/the-darkside-detective-a-fumble-in-the-dark"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/op-eHoX0vyfmbUWLmikwj_7dep5ZxNoOt4-eXV52xVc7ueGQuxANAbsJFmbTHTvr-rCzfvCXCR-ltsB7G3Y546OD3RIPmx7o9uV_h5ael9hKFjJMYo-1z_6Ggr4=s192-p-rp"
         }
       ],
       "name": "FLOOR KIDS",
@@ -163,21 +173,11 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/jOum0DRxCk_GFpTZsybVMAUBmsc_stH2QDkXKW15uluNY5PLJJPhRhlA1bNEUXvRnUr4Cb1T9QkhYRx3KwhPAtldNMigZqQl1ilk1PHFtDqI5PS0deHEMe0iClg0=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/e1SCKJs7riUdK7UR3HUC_x-DYVSyIYwLCVTX2mfd7BRLfevF19LCfBpfTpZFcPVFQr5kabjh_dNP42qeUTwLQvmYfZPxIMw7l9g-c7KxlwQCknmkZMtaq0RlMVd8=s192-p-rp"
         }
       ],
       "name": "DIRT 5",
       "url": "/dirt-5"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/1w-6qMNRRvzrrSyNUihubSwwjNIiNt9BX4HoZeCSRYpaT6eHdrjRZlbLpN2GiTl9ESWUDRkjPY7Zq3PHikIiDBPeKTfzDOlBvgybQaPNkFVoSYrX5XibSfkiF9c=s192-p-rp"
-        }
-      ],
-      "name": "Murder by Numbers",
-      "url": "/murder-by-numbers"
     }
   ],
   "start_url": "/",

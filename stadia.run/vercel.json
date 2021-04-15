@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/4e9c4e089aa5410cbffb3c1869d68925rcp1",
+      "source": "/the-darkside-detective-a-fumble-in-the-dark",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e184f2da322a41c9a31b3ef2c473f95arcp1",
       "source": "/floor-kids",
       "statusCode": 301
