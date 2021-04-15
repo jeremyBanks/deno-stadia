@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/9n1PnXfvMcohka69nZ7YTZEJCB9I4UsIXQTQNutAYP7v0qhZStNhoTxi8PdTOerQSqJirG_WnoOH-QZIZFB3ycEI4ooJhPnOhz90k4OkpunkpsXBVbdiSVpkgjo=s192-p-rp"
+        }
+      ],
+      "name": "FLOOR KIDS",
+      "url": "/floor-kids"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/YdMGWs01cm2dSO5vQQl_8LERXsnd7gIPxQBZ8xNMmnSJCWUfZAMRlzu7FFrbOFCAetJ1xQ37baZgRay9LM9mgIiAZ7BqUnvNa-SneciQpB3WBIq46NfaBcm5VXg=s192-p-rp"
         }
       ],
@@ -33,7 +43,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/uxqUWLLSiL2ttjmbK5KwzS1pZ7QB2ofbSECV-eSMUEWZsGfVdnGtzdoVweb-UZpRGTPy12pzUW_Na4YnGSz2UmnzR7MNvh0Ls7wTqhuKEu9_P7rrGtMxIN2poDHz=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/0YGOC6QRT23Rz36IWwc9NYJJftCgcFTUHiKjBDX23nGD2igBxsZZtgRTAcDMX2J8celJ1D2QoIYdgJGN2uCxZdLjrGGCJToYB18fiGcAM_eVjKc8tG1vlN7xEn-s=s192-p-rp"
         }
       ],
       "name": "The Darkside Detective",
@@ -113,7 +123,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/34yIrSCMrOTDaPt8sZ2henwnaNi07ozYEisckXFb8DHS0lb8zRrDGagS6IqDBnmURvju4_YPgI98Yc6PYpRBJsy0gq_QMbSPd2_ji3blT1ghL1CT1DgaDCXwHB8=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/fm98F2-KjW4liu_QHJrJr_j0iI2VVVg-Tm-IG3I2lmR9w4C7cIWvPRyCbYXmynzARVkojjQhtqVhE92CaSK-78t--8T1wjDqJdfk-t5_obhAvPSj8YoHQxupyBQ=s192-p-rp"
         }
       ],
       "name": "Disco Elysium - The Final Cut",
@@ -153,7 +163,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/j9-3O-4bOsch6eDNjg3_oAiZXv5qQ7yp53UQmF4oIuVPC2dV0FIQ7wZnUYV_IAndnroTM33qxO2ylsF538B5mJtpxnWEDe-Nl46957j0a8DqP--_AxTPaymF73PC=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/5j0oigSQI2SeIWMAeS9AyGjfh53rOSWl3uixQWH2d51WJs71ThGGpsvYOoM8BKkcV77Qmh-kOxlGKHxYto12lZpMo9WY0eEvZKMRr4mb15poITjG5a8LIcOw4ix3=s192-p-rp"
         }
       ],
       "name": "DIRT 5",
@@ -168,16 +178,6 @@
       ],
       "name": "Murder by Numbers",
       "url": "/murder-by-numbers"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/H5W0lV9kIsf9bl8-WJGQQZ_IVIfxXUxVQmY2D2SdtFWP8JjhB1Ut6uBu1FSDLpdjiMTKesoW187wo-yuHBSA-1gkQmvHnJ8XU3V88L7FVsTfeYCbSySrkCO0qw=s192-p-rp"
-        }
-      ],
-      "name": "Terraria",
-      "url": "/terraria"
     }
   ],
   "start_url": "/",

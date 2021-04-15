@@ -1,6 +1,20 @@
 {
   "games": [
     {
+      "coverImageUrl": "https://lh3.googleusercontent.com/9n1PnXfvMcohka69nZ7YTZEJCB9I4UsIXQTQNutAYP7v0qhZStNhoTxi8PdTOerQSqJirG_WnoOH-QZIZFB3ycEI4ooJhPnOhz90k4OkpunkpsXBVbdiSVpkgjo",
+      "coverThumbnailData": "zeJzzezuzKezezzeezFOKJzLeez-KezzzF004-z4PezzzfeeJzKezyeeezzeezvz",
+      "description": "Floor Kids is a new breakdance battle game featuring unique freestyle gameplay, rhythm challenges, and multiplayer sessions. Discover stylized hand-drawn graphics by award-winning animator JonJon set to an original soundtrack by world-renowned scratch DJ/producer Kid Koala. Innovative controls allow you the freedom to play the way you like with a dynamic scoring system that rewards your moves based on musicality, originality, and style. Build up your crew of bboys and bgirls, unlocking new characters and locations as you cross the city, busting hundreds of different moves and countless combinations on your journey from the corner to the club. Bring Your Skills. Build Your Crew. Find Your Style.",
+      "gameId": "e184f2da322a41c9a31b3ef2c473f95arcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "FLOOR KIDS",
+      "skuId": "c78b6a8ef7734bbf8de9c068eeadd049p",
+      "slug": "floor-kids",
+      "storeName": "FLOOR KIDS",
+      "timestampA": 1512633600,
+      "timestampB": 1618387200
+    },
+    {
       "coverImageUrl": "https://lh3.googleusercontent.com/YdMGWs01cm2dSO5vQQl_8LERXsnd7gIPxQBZ8xNMmnSJCWUfZAMRlzu7FFrbOFCAetJ1xQ37baZgRay9LM9mgIiAZ7BqUnvNa-SneciQpB3WBIq46NfaBcm5VXg",
       "coverThumbnailData": "KzeezzzzdL_ezzzzKKeKez2zJ-eKJJGzFFKKed0vJFKKzzzzzKKKdzzzzK--Kzzz",
       "description": "The long awaited finale to the epic engulfing a continent comes to a head in the final chapter of the Trails of Cold Steel saga!",
@@ -15,7 +29,7 @@
       "timestampB": 1617955200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/uxqUWLLSiL2ttjmbK5KwzS1pZ7QB2ofbSECV-eSMUEWZsGfVdnGtzdoVweb-UZpRGTPy12pzUW_Na4YnGSz2UmnzR7MNvh0Ls7wTqhuKEu9_P7rrGtMxIN2poDHz",
+      "coverImageUrl": "https://lh3.googleusercontent.com/0YGOC6QRT23Rz36IWwc9NYJJftCgcFTUHiKjBDX23nGD2igBxsZZtgRTAcDMX2J8celJ1D2QoIYdgJGN2uCxZdLjrGGCJToYB18fiGcAM_eVjKc8tG1vlN7xEn-s",
       "coverThumbnailData": "--zzz-----FKKK--FFFe----FFFttFF--FF-FFF-FFF-QFF--FF-9FF---V-KFF-",
       "description": "Grab your trench coat, tune your sixth sense and join the Darkside Division as they investigate the outright bizarre, the downright dangerous and the mildly confusing cases of Twin Lakes. Flesh-hungry tentacles, mafian zombies, and the occasional missing sock are no match for The Darkside Detective.",
       "gameId": "b465998ccc1c48aaa2fb74f331ebbdd7rcp1",
@@ -127,7 +141,7 @@
       "timestampB": 1617174000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/34yIrSCMrOTDaPt8sZ2henwnaNi07ozYEisckXFb8DHS0lb8zRrDGagS6IqDBnmURvju4_YPgI98Yc6PYpRBJsy0gq_QMbSPd2_ji3blT1ghL1CT1DgaDCXwHB8",
+      "coverImageUrl": "https://lh3.googleusercontent.com/fm98F2-KjW4liu_QHJrJr_j0iI2VVVg-Tm-IG3I2lmR9w4C7cIWvPRyCbYXmynzARVkojjQhtqVhE92CaSK-78t--8T1wjDqJdfk-t5_obhAvPSj8YoHQxupyBQ",
       "coverThumbnailData": "KJJJJ5LLJKJP-zePLPz-MfPPPPf0PePKLK_KKKKKK0J5zK-0K-----JK---34---",
       "description": "A groundbreaking role playing game. Become a hero or an absolute disaster.",
       "gameId": "01082780d6f4421c9635b22021f05ff5rcp1",
@@ -183,7 +197,7 @@
       "timestampB": 1616716800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/j9-3O-4bOsch6eDNjg3_oAiZXv5qQ7yp53UQmF4oIuVPC2dV0FIQ7wZnUYV_IAndnroTM33qxO2ylsF538B5mJtpxnWEDe-Nl46957j0a8DqP--_AxTPaymF73PC",
+      "coverImageUrl": "https://lh3.googleusercontent.com/5j0oigSQI2SeIWMAeS9AyGjfh53rOSWl3uixQWH2d51WJs71ThGGpsvYOoM8BKkcV77Qmh-kOxlGKHxYto12lZpMo9WY0eEvZKMRr4mb15poITjG5a8LIcOw4ix3",
       "coverThumbnailData": "AAUAMzQYYzKUEzz-fzuIU-z-eLLePUEE516--jQQ5---0f9Q54QK-PPP5I45P559",
       "description": "Let Loose in DIRT 5 -  the boldest off-road racing experience ever, with a star-studded Career, four-player split-screen, innovative online modes, livery editor and more. Blaze a trail on global tracks, covering gravel, ice, snow and sand, with cars ranging from rally icons, to trucks, to GT heroes.",
       "gameId": "ed81a01114044edcacfa52656b259d41rcp1",
@@ -225,7 +239,7 @@
       "timestampB": 1616050800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/FII9n1212-1tZgh-gfjWj_A3zeaFYWnhRtW8At1ca-wumLWW41VOIe8ex-gf8GRCU-hF1wOm4zWslKYg5W-SiJxCym3j_Vww3-r9HJznmQsAl9z8-p3mevgvpQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/jJXO9zkShO1XF33TKOnW7bkaWY7ifTQjgqQ6bK7-vhJmQVVrqs5p4r2Mj14dsjygWYY49l3MXFQc2Qn1pQAP8GY-2-Mm8Y_lQ9SB6c6f6txObpIB4J-LXdEa_g",
       "coverThumbnailData": "KKzzzzzze----zLzK--L-KKz-F_FFzPzz-aJ-K9zuKF---zzuzF_G-zzbbzzzzzz",
       "description": "Powered by Frostbite™, win as one in EA SPORTS™ FIFA 21 with new ways to team up and express yourself on the street and in the stadium:\n•  Enjoy even bigger victories together in VOLTA FOOTBALL SQUADS and FIFA Ultimate Team™ Co-Op.\n•  Manage every moment in FIFA 21 Career Mode with new innovations that create additional depth in matches, transfers and training.\n•  Experience unrivaled authenticity that gives you the most true-to-life experience of The World’s Game.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "2c4539adc1e641c0bb2cd0e4032eec75rcp1",
@@ -253,7 +267,7 @@
       "timestampB": 1615878000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Z-QQpXDgB9zOQh6jUEzALlz7U96IuC2qMPbgseOM09qE_GIzzm17FrEANSxd4qWfP-aEu5EbV4o5weWy-Aa6F5T1jevCh3ik5mUMmWIU-cZdZHuNs3e1rMjxxUqP",
+      "coverImageUrl": "https://lh3.googleusercontent.com/sWp_V1SYt6j-AIm3pLH8g8VAANclOOr3qHsM9ZMI3W4JzPlHRw9eVVTp4dtSHkV1vPCFEZjswos0lhH6TcZmLi0TBK29905Hi-dMAN5IBWY-3GIZdxgBGBHHtwXI",
       "coverThumbnailData": "JJJeFF--JQzQJF--uQe-dF--e0FJF--ZKPdeJF--FK-JJF--JJ-JF---FJJJF---",
       "description": "Unleash your desire for 2-wheeled excitement. Make your cross \"super\"! Become a true champion. A new career mode will accompany you along the stages of your successes. Prove you are number one by starting from scratch and winning in the 450SX category. Over 100 riders, the highest number of bikers of the 450SX and 250SX classes that the series has ever seen, and finally also Ken Roczen. Everything is more super! Explore, improve and race with other 3 friends on beautiful islands with their fantastic landscapes in the new compound. You are the creator of your own fun. With the new track editor the gaming experience goes up a notch. Create your super tracks and share them online with the community. Customize bikes and riders with over 100 official brands!",
       "gameId": "a62130f4b41b4878a00f8ec444df6b01rcp1",
@@ -491,7 +505,7 @@
       "timestampB": 1611820800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/G7Xlh-AwB5zX3PEzIlMJRPe11z1AWKGpOgYZZK966bBOOnBU2k6nGrDZeiJp4bEFO8zEQ7QjxBul-A33PygIwMkDkY8j1agi1tMlY_PWTtSUimsVB0e83BlfN1E",
+      "coverImageUrl": "https://lh3.googleusercontent.com/999WSXUJPTzqVaYWlv7K23mQ6Gi_Q33ycfH-GwLiU4sT96D4c3JJ6r5wo4A2BknIduph9Mw5c6qpAyAnugIzRmiovenawhPmcq3sUfTSUjWYSxzRxvf8oHTUPV8",
       "coverThumbnailData": "izzzzzzz4KyyyKzz-K0Kz-zzK-yFyKzz-zK--zzz-z0eeezzzz-4KuuzzzzzzGKz",
       "description": "Rise to fame in Madden NFL 21.  \n\nMadden NFL 21 delivers new features and modes including:\n\nFace of the Franchise: Rise to Fame: Rise to fame and become immortalized .\n\nTake Control: Master innovative running enhancements and live playbooks.\n\nX-Factor 2.0: New X-Factor abilities.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "0e6c703afde840148204847447b9c21drcp1",
@@ -501,7 +515,7 @@
       "skuId": "7f7cf21388134e2d9218968af61ab7dap",
       "slug": "madden-nfl-21",
       "storeName": "Madden NFL 21",
-      "timestampA": 1598511600,
+      "timestampA": 1598515200,
       "timestampB": 1611820800
     },
     {
@@ -645,7 +659,7 @@
       "timestampB": 1607500800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/fdYGe3RBaLn7EXwKkycChjfh5S9HxukUhDN1m82eMIvf6ovaRaZDbFva6JIgnleX3WEKpj5E8WCmZsLdpIBYP4M57rrjY69SDdKwDRqtWLB6T4LmIoxHhE1VPQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/1n-5Q2kBpMh5bf8ef_74nBvCDR7w0EqP_koffCheEABCNs1nDCA0IDPOIKi5v-9ttSC48f5bEOuvJEQUsAGWYrNe4Rcv1k6dn6ZMkd5BXQoiJrYLm3vpMjG44Q",
       "coverThumbnailData": "EEEEKEAEEEePLEEEEE4-KEEAEEK-P-EAEE--K-EAEE----EEEEE--0EAE9A---E9",
       "description": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.",
       "gameId": "49697e672bc34e7d8a5f73f78cb580d0rcp1",
@@ -729,7 +743,7 @@
       "timestampB": 1607414400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/s8X-0BCYqwybicQDTu43tvqV5BCXaDJ_AwLOAEmIT5jmsrSuPy9rUCNh-nOmpNVeKRFNFOdCVs6ulxOuOaH7UA0Q5Zo2hlvpZ7yZKymvefrj56uFML4M64t0vJYf",
+      "coverImageUrl": "https://lh3.googleusercontent.com/zH9Pi3IM9tG61SBWMr4Fwf-hcU9uanEPXgb1ah6gb9x80z25qlaGzNJasCmh8E_2gL93UlQkLDqid76KXGJ05P-WpWPODyroIVtZEK4NG85QO_D5yvQrchv4ThwG",
       "coverThumbnailData": "-JF--FKKK3FA9J3K-KOKQKdKK3KJd_d-GK_JjdK4JJKjJdK--JJKKK4J-KKJJKKJ",
       "description": "Figment is an action-adventure game that invites you to explore a unique surreal universe filled with music, humor and multi layered narrative. Join Dusty and his ever-optimistic friend, Piper, on an adventure through the different sides of the mind seeking to restore the courage that's been lost.",
       "gameId": "7183914d07034cb1bbb8a511779bc1efrcp1",
@@ -911,7 +925,7 @@
       "timestampB": 1606204800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/_wWfYee6xWAGpZalpLi-aCJyF-pH_jWUWeI5cQq01cU_zuXkjLoJLU_4NcATwL0j12-HYVSLPjM8xdZnLTSQYyBhJooP1sFWSnmLAnUtZzzDRVm1y4Xb52VjtQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/Dm72L1KeJjbNsEWSmqdYYP75rPXrU7tqU9Jwh8-sHPDERzjK1v3RHFTr3bywQBgrZzlb7tGe-pokH1Jn4gpIRFqytbARgi6KhaVaL9FPzPvCX1Z95uDQfPSSZA",
       "coverThumbnailData": "J-zzzz--eF-2eFFGfKKMFFFFeKF_J_JJKLLF_FK_aLKx-JJdae_0KGFKJGK-GGFz",
       "description": "Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Welcome to the Resistance. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities.Take your recruits online and team up with your friends as you complete missions and challenging endgame content.",
       "gameId": "deb490c166544813bf2ab73f4c6e2aa0rcp1",
@@ -1163,7 +1177,7 @@
       "timestampB": 1601535600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/1uw3cZMLlj-Gj4WdQ78FN4NoR7HSRJQPun5ItpuOW0YvlGu673BK7aahebQjV42DOYGogaVCYBXkKJxqmlzU-M4wlVErevP7LeP3HW5r390d4HofjPlK0ZvSjX11",
+      "coverImageUrl": "https://lh3.googleusercontent.com/IcaryptaZK_bXJmDRk4pmVEMj2tcYW5FrFBweCPjkyoF8AFzqiSZ4ZHQd8HuzFLbmtLmGr2slX9DDfW5dV0bjH7VqGy-OU8ZftGv0wkr6Jr7-wbn4D6Ecxr4bx3I",
       "coverThumbnailData": "--KKFJ----KKFLF--JK4-LKK-JKKFKKK-FKKKLK--KL--LKK-KK-0KK---Q--fK-",
       "description": "Death Is Not an Escape. \n\n Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught, tortured and killed. \n\n Survivors play in third-person and have the advantage of better situational awareness. The Killer plays in first-person and is more focused on their prey. \n\n The Survivors' goal in each encounter is to escape the Killing Ground without getting caught by the Killer - something that sounds easier than it is, especially when the environment changes every time you play.",
       "gameId": "b67e43f2b05f4ba7acc56a4b222568aarcp1",
@@ -1275,7 +1289,7 @@
       "timestampB": 1600182000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/wgtnuPlh2PUDNqIivPFoRZeunbsdqX2aqPTeVSsKFZrkm7W_d_mGkA5UlKk_KbwCYyoToE2CGK1jqKoH20DNuIm7ip9m00dVfz60qFmKaR5n55Asa2RJkUvg3bJu",
+      "coverImageUrl": "https://lh3.googleusercontent.com/fAObWujO8eFinD-l_fLp5F6xfr1khztayiHiX43i2pVwSRuKUfR8wcQIfjfwNJSDBakmmEUbnLZZUZr6uIykk0TohPDdsjVHT7g5sxJY19tnTyEaR7Uppm_BWTmz",
       "coverThumbnailData": "zzzzzzfzzzzz1z4zzzzzzzezZ-2zzzzzzzzzzeazzzzzezvzzzzzzzzzzzzz2zzz",
       "description": "NBA 2K21 is the latest title in the world-renowned, best-selling NBA 2K series, delivering an industry-leading sports video game experience. With extensive improvements upon its best-in-class graphics and gameplay, competitive and community online features, and deep, varied game modes, NBA 2K21 offers one-of-a-kind immersion into all facets of NBA basketball and culture - where Everything is Game.\nSee MyTEAM Pack Drop Rates below.",
       "gameId": "b0a2ab7cdc194582bc4d111c07c2e30drcp1",
@@ -1317,7 +1331,7 @@
       "timestampB": 1599030000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/E2DOLW7Ex7v2TD9cRGFTGlELZZ2qY-BvEmERENd-mn7eIT_eFQlzzA7zMP-ZfF67Si8rztXULjLZoCOWgs3snL3hM5f2NLr-0gR1q-Fdg6D-iYtgLZDAIWW6tw7I",
+      "coverImageUrl": "https://lh3.googleusercontent.com/IvRZnaPaYjl-7vrDx4ZSK43TyKpry_ugRJYLl6E83EnYWTxjvDsNkWf89NsBRo_b_Yq1tCWJrUWtKbZiOKQy1scvcEN6-ZJj4gOVjhq6Uq5YumbcVgRjtf-BlCcr",
       "coverThumbnailData": "---KKKKK----KKKK----K22-----KKF---------------------------------",
       "description": "State Share\nTo play Hitman game states that are shared with you, claim or buy the relevant bundle or add-on below. Ask the original player which content the game state uses.\n\nExperience a globetrotting adventure as Agent 47 and travel to exotic sandbox locations that are meticulously crafted and packed full of creative opportunities.\n\nWhen you purchase HITMAN 1, HITMAN 2 or HITMAN 3 on Stadia, you’ll play them seamlessly within HITMAN: World of Assassination.",
       "gameId": "990ec302c2cd4ba7817cedcf633ab20frcp1",
@@ -1653,7 +1667,7 @@
       "timestampB": 1592924400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/q7QiWDT-YfeLrKOCkE1o-DVNSq5vgGgC_b7aUB1YaXJX6EoUecUbONy4991WF-bkiN9zQBATqxEslwNwcf5U7DeHYDtmiw8P2Jo7EfQGMcU8He61kJC4_HbujtTi",
+      "coverImageUrl": "https://lh3.googleusercontent.com/ApiECPY3EzpNKqoU8zPAcwdikAeixeeF4HVoPdvdwN5c0b6PKEFRhbnbWjtnGZdj9bAeRMyIz4QBbLhPom0FiJ45E_m0lBEhn2ny5KBfwfL7AnQFxzN0vrDH2rjD",
       "coverThumbnailData": "KejzjeeKKLeeeeLK3PeKPeLKKKP4-KK-KKK-0KKK-4K0KK----K--K---K------",
       "description": "The fantasy role-playing series, The Elder Scrolls, goes online – no game subscription required. Embark upon quests across Tamriel and engage in massive player versus player battles. Experience this multiplayer role-playing game on your own or with your friends, guild mates, and thousands of alliance members. The choices are yours in the world of The Elder Scrolls Online: Tamriel Unlimited.",
       "gameId": "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
@@ -1709,7 +1723,7 @@
       "timestampB": 1590994800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/vx_j9O-sT2rjqYNAgYTtn8l5L-e_1fRZWuODRi_gusHHf6p6-vTdv7YEE461-iMvgliZYdO3Emfp75pJxCf7E_PdX9lFW77Xmaq5TXUrt2rT2wteQ-JXFfInvgs",
+      "coverImageUrl": "https://lh3.googleusercontent.com/BdAGCunnJfS1rO1ba4DcfHsxiZOI8ivB27f51XEdS7X-9ypyDDbUfK1hz_3rFMIMn-E3_hRMwSAsK9AbFAPwtJt4HHScLqOxFrTHwF5AAvTSU1DI-2byX1UYFOE",
       "coverThumbnailData": "4--10--34jFM1Fe3AeG21GQ1fKGK-Gz4L5WLLGQKK6e12veKK-KKLJKKF0FGJ---",
       "description": "Generations of Power Rangers collide across the multiverse’s 25 year history. Experience authentic, but reimagined Power Rangers gameplay. This easy to learn, but hard to master fighting game is designed to welcome players of all skill levels.",
       "gameId": "bbb1a143aa3449a5a1f236a05c305c9frcp1",
@@ -1933,7 +1947,7 @@
       "timestampB": 1584716400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/2aAZyBcjywAYExGbErxuxBsC1F_vQBVOIBwMyX6wYB82GYPfQsp-m8IMTzYVylXGTeK3BOlvEZpUiWwSQhBfxLroCYYQL-vpYfYYWxWiTE2GHExkQhGbtQv0bQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/1YdUjVfa8tCYF39nP05C_zN4ptKNrYLcmOrE8se4ULU2ts5ivIoIyOy3fKNz1mN6NNR8SbdrX69jDbee8E7p_99qgM5UJeU9JZjlyhJuqEMQOKOnC0Dqqst14w",
       "coverThumbnailData": "e-euuKKeu-eKLKKKz-efzLKez-KjeLKze0-PP-KPKK-zKKG4-0KeK0-0--KK----",
       "description": "HISTORY WILL REMEMBER. In The Division 2, the fate of the free world is on the line. Lead a team of elite agents into a post-pandemic Washington DC to restore order and prevent the collapse of the city. The Division 2 is an online, action shooter RPG experience, where exploration and player-progression are essential. Liberate Washington DC – Save a country on the brink of collapse as you explore an open, dynamic and hostile world. Stronger with your team – Specialize and fight together with your friends in online co-op or against others in competitive adversial PVP mode. Genre-defining endgame – Choose a unique class specialization to take on the toughest challenges with friends.",
       "gameId": "d43cd46c81734ca48e1a615310d0237crcp1",
@@ -2045,7 +2059,7 @@
       "timestampB": 1580828400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/dGITIdRlw9ulOvCnSmEKHDoRF6dDWBHiqx-tw1p7MWD8ho-gUDuEd-4K3eBk4dGIjzLBvPLcNLEGY1KFC8BClyZiMLG8htO4iqLNWsMODvsApeJtJravwKdgrA2w",
+      "coverImageUrl": "https://lh3.googleusercontent.com/aEx9MFwdSan1gDWtRsYp5pJYDsXHMs9NwzWIrc5COePbDaAujRPCAneHszoczWq0G2VwpdNiRJK81K0KVCURkKs2B_LOzNpTYP0ap0rYPYkzUSgRhvpU7BUGaA",
       "coverThumbnailData": "eydd_dddKduKfeddKedKe4dtedzKzdzeLezKJddeJdK0uudKJKeKedJKJJdKdeKJ",
       "description": "Experience a military shooter set in a diverse &amp; hostile open world that you can play solo or up to four-player co-op. FACE YOUR TOUGHEST ENEMIES With your own playstyle, take down the Wolves, ex-brothers-in-arms gone rogue and their leader Cole D. Walker. DISCOVER STADIA EXCLUSIVE FEATURE Enjoy a totally new social experience with Stream Connect, providing a real time view into another player’s game as it’s happening, so you can not only watch but interact with them instantly. Upgrade to the Gold Edition or Ultimate Edition to get the most out of your experience including the Year 1 Pass and more.",
       "gameId": "11c9ece5b3a045908d77cf2b66adb010rcp1",
@@ -2055,7 +2069,7 @@
       "skuId": "06e101d56a03472bb6c204aee96187d7",
       "slug": "ghost-recon-breakpoint",
       "storeName": "Tom Clancy's Ghost Recon Breakpoint",
-      "timestampA": 1569942000,
+      "timestampA": 1569916800,
       "timestampB": 1576681200
     },
     {
@@ -2269,7 +2283,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/tvt-gFRSrbUHQDOvoBdnF89dz2gmrpn2FJ-oKhNNZwlNbhxtTYccw3SBxRzNSnorZPmzNiNHN57ReXL_OuA4ref2yRTUNsBlhUp8jGUDwuGpgzex88En9IaK_b0",
+      "coverImageUrl": "https://lh3.googleusercontent.com/TO8Jgi8hFKQSgyXZWjq5iAnx4n5FGwzPJEz_qKI-KuYPJeogBhtcQomSYtXFrGjd9-8TadNAGawUooElJl3ytptZ_786VUI9o-6QX12PYuv9XpcjkzNLZcMm5Mw",
       "coverThumbnailData": "04KK4----40KK0----4KKK3---0KKKJ---3KKKK---JKiOK3--JKeKKJ--JKKKKJ",
       "description": "Dive into the world of Destiny 2 to explore the mysteries of the solar system and experience responsive first-person shooter combat.\n\nAn Immersive Story\nYou are a Guardian, defender of the Last City of humanity in a solar system under siege by infamous villains. Look to the stars and stand against the darkness. Your legend begins now.\n\nGuardian Classes\nChoose from the armored Titan, mystic Warlock, or swift Hunter.\n\nCooperative and Competitive Multiplayer\nPlay with or against your friends and other Guardians in various PvE and PvP game modes.\n\nExotic Weapons and Armor\nThousands of weapons, millions of options. Discover new gear combinations and define your own personal style. The hunt for the perfect arsenal begins.",
       "gameId": "20e792017ab34ad89b70dc17a5c72d68rcp1",
