@@ -1,7 +1,21 @@
 {
   "games": [
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/xRebvGlvPiXyJ30y19kwxD_PLeKCfsXQU2ZHTHhVFX1W4hi6Xb_qwMlE8FKZYCU2Z0hKaJnP-5nbKPkghoC90ReMkFufuwB29vqclPTgG8RxDi2jePjzrcFLzVV4",
+      "coverImageUrl": "https://lh3.googleusercontent.com/Xnn-_Zxhz7WGqWtQPEEzMcOxdfccXDPDtGmeVcJ-dmN0zzWO9RgjNXLBLUkGDJRlVnDrOW-Q1gFmNDHYxS_UcfsDbcBksYPsagfP5YVc3bg3TX9lnybWOOTc_W4",
+      "coverThumbnailData": "K-K-----d-K-----eue-----ee-Fz-e-eK-KKF--KKaK-----K------KF------",
+      "description": "From the team that brought you the Yakuza series comes Judgment, a gritty tale of disgraced attorney Takayuki Yagami in his quest for redemption. Haunted by his past, he takes up arms as a private detective, clawing his way through Kamurocho’s underground crime network to investigate a string of grisly murders. Track suspects, discover clues, and bring evidence to court - but be careful, there are dark characters at every turn. Take advantage of two unique battle styles to take down adversaries in electrifying encounters. Packed with Hollywood-worthy combat sequences and cinematic twists and turns, this mystery will surely keep you on your toes.",
+      "gameId": "3b8cebf1104f4705b8e8d1994429ec4crcp1",
+      "inStadiaPro": false,
+      "inUbisoftPlus": false,
+      "name": "Judgment",
+      "skuId": "c42a74b39a05482e9043ba235f035268p",
+      "slug": "judgment",
+      "storeName": "Judgment",
+      "timestampA": 1544688000,
+      "timestampB": 1619161200
+    },
+    {
+      "coverImageUrl": "https://lh3.googleusercontent.com/reMTbXnD4-0cn5YltLx5nbNPri4IKbrqZEXbof18WRz04V1P4u-7mc7in23_p_a0AhvzD1SKtbaTC4frT_zYEAMabhNk7yA9G4e6rkfllQWKBYR7M8qVvUEaj_Ki",
       "coverThumbnailData": "LGKKGGGLLKeGaLGGLGGGGGG-0003L-L----QLLL-0--eKK----feKJG-000e0KG0",
       "description": "Delouse your room with sage and pack up your travel-sized ouija board, it’s time to re-enter Twin Lakes - America’s 34th most haunted city. Join Detective McQueen as he puzzles his way through 6 chilling cases, risking life and pixelated limb to solve the macabre mysteries that plague the poor town.",
       "gameId": "4e9c4e089aa5410cbffb3c1869d68925rcp1",
@@ -43,7 +57,7 @@
       "timestampB": 1617955200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/WIf4w2F9gt8KOXBCAU7O0Co7xIlzokR-Yx9xWA9fnLS7w4lQSmnu0AtLfwCNNzIq3dwjBk2AVLHsvJ5MEvZwxKeYOwUkDtsMOeZBP_gYXPXSdkh2OKAn_JaZpBDP",
+      "coverImageUrl": "https://lh3.googleusercontent.com/xXD_UbSiMvOS-LSUWZXdFAJCU0BzaKqnlFg9J05smawkVcqaPIRJ0LVkMqaoHpFx12PCR0CdYXLfuxXPZVO74Pt6jrbzPxPpZ9o-8rPjdcnBYPmNx7oYlvbHqq0t",
       "coverThumbnailData": "--zzz-----FKKK--FFFe----FFFttFF--FF-FFF-FFF-QFF--FF-9FF---V-KFF-",
       "description": "Grab your trench coat, tune your sixth sense and join the Darkside Division as they investigate the outright bizarre, the downright dangerous and the mildly confusing cases of Twin Lakes. Flesh-hungry tentacles, mafian zombies, and the occasional missing sock are no match for The Darkside Detective.",
       "gameId": "b465998ccc1c48aaa2fb74f331ebbdd7rcp1",
@@ -155,7 +169,7 @@
       "timestampB": 1617174000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/g1JTYnLZu2xLc8MNQ7lXJtsKPyVJy7pX8RYQjv03lU8aB80MX0hGsmMn5jZL1i98xZ_CmICPKnj8V1VCyLvTGh-xx3kWQf_JTBYy2qkrbIbs7ZJ1Z3iL3mOyGS0",
+      "coverImageUrl": "https://lh3.googleusercontent.com/nhypsJhticIvEmo4S0rQ9rW1iuyWSl31PEEHBxCH3ir5poNzt8vl0LKwnfDl7rEjIyvSzGcLiWo6eV6BKRRhROtkmY7Ct7V3zB0bv40HaRwaTRfAoAGHmgTU48k",
       "coverThumbnailData": "KJJJJ5LLJKJP-zePLPz-MfPPPPf0PePKLK_KKKKKK0J5zK-0K-----JK---34---",
       "description": "A groundbreaking role playing game. Become a hero or an absolute disaster.",
       "gameId": "01082780d6f4421c9635b22021f05ff5rcp1",
@@ -197,7 +211,7 @@
       "timestampB": 1617091200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/FravGI4Dr9SCJjiUBMZfvSGNjHfY8P8JYZQmYONWywC9U7awzvyG-5AoQK90nN77llbA1D7-rMWplppCX-Uh7BhW2trR-UCOEbtPZ6nfen4jEtBOfMroHyNUGA",
+      "coverImageUrl": "https://lh3.googleusercontent.com/Oh4k32kar_2NuHs71nr5Mb7r5cu7TGKTAT3wDjQNeXYnfoInhvjSsPN5l-_AQOKhST3daeYLalsxIdwW3oO27GYYRAlAhWPPP8-1yfJhA2fuq5oKgQrmpBnxOg",
       "coverThumbnailData": "tu_ZFFVJtd_I_FZd_zK_IIMxeMfuQMKLQ1GLzAAue10fzeHF3Kj4eeKF4OOOO83-",
       "description": "In Kaze and the Wild Masks, you journey through the Crystal Islands in 90’s classics platformer style. Play as Kaze and save your friend Hogo from a curse that spread chaos around the islands. Face enraged living vegetables by invoking the powers of the Wild Masks. Pounce ferociously like a tiger, soar through the sky like an eagle, sprint fiercely like a lizard and rule the sea like a shark.\n\nFeatures\nUnleash the skills of the Wild Masks to get powers from the tiger, eagle, lizard and shark\nUncover the secrets of the Crystal Islands in 30+ levels with over 50 bonus levels\nRelive your childhood memories of classic platformers with high quality frame by frame pixel art\nPave your way through a satisfyingly smooth, but challenging platformer",
       "gameId": "46f42ce202a6460d897fb43f43e20846rcp1",
@@ -253,7 +267,7 @@
       "timestampB": 1616050800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/LSYoPBHkW__kY6RT10HlxanUbEuo-IOeY6OF_REnzzjVVIv_6ZvW09Is0d-NAG77j-dR_VlrWjbx8WFRosu2UXSKCgJIrbxD9jV5YQmbfSmKT0QuS0okEDF-BQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/xrqa0nmB63UBHsDgabtxUfcHZClKGFMSV2Fc5jtFfhWzBG6dbTlwmA_hPYIr_R-r8NWJRte9pckfOfipMmN8M00cxFh0HoPhSzo8ya5KU7mCLgqR-0FhW_Xx_A",
       "coverThumbnailData": "KKzzzzzze----zLzK--L-KKz-F_FFzPzz-aJ-K9zuKF---zzuzF_G-zzbbzzzzzz",
       "description": "Powered by Frostbite™, win as one in EA SPORTS™ FIFA 21 with new ways to team up and express yourself on the street and in the stadium:\n•  Enjoy even bigger victories together in VOLTA FOOTBALL SQUADS and FIFA Ultimate Team™ Co-Op.\n•  Manage every moment in FIFA 21 Career Mode with new innovations that create additional depth in matches, transfers and training.\n•  Experience unrivaled authenticity that gives you the most true-to-life experience of The World’s Game.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "2c4539adc1e641c0bb2cd0e4032eec75rcp1",
@@ -267,7 +281,7 @@
       "timestampB": 1615964400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/IbgDmjdBQy29cjbGj4nPKMQ5hK1YjDHRiqrqsehdP8A7rCODjG81Y9Ajq8XZLRB_rnr1yidrS0m0RmlI6rrlKB2RWhhl62oyAtxdvH6e35Kl7uW-vpC8P8NZmTU",
+      "coverImageUrl": "https://lh3.googleusercontent.com/x_zzvi2ksi4AFlQosPRTXwyd4PklmR4OzkMAGjJ8R3rZGtClOhkrgHljDBVrjTMz1enEV0AKfY54KwAgazSle_GNVPrsrv7k3nshIS646_05xfG7vSUR85as6v4",
       "coverThumbnailData": "uutuuuyzuuuduKzyfyyfyKLyzt_zyKzfzzuz4KKPzzee-KeKzyueKLfKyzyu-KLK",
       "description": "The Definitive Edition includes all the content from the original release of the acclaimed DRAGON QUEST XI, and adds extra character-specific scenarios, the choice of playing with the original soundtrack or a grand orchestral version of the music, the ability to switch between 2D and 3D graphic modes, a Japanese voice-acting option, and much more!\nEmbark upon an epic adventure as The Luminary: the chosen one in a world that vows to hunt him down. The Luminary and his unique band of loyal companions work together to survive an onslaught of ne’er-do-wells and overthrow the dark forces that plot to plunge the world of Erdrea into chaos. Explore the massive world of DRAGON QUEST and awaken your power in this can't-miss adventure!",
       "gameId": "6cf458a458cd4b2e8161c740c4844621rcp1",
@@ -277,8 +291,8 @@
       "skuId": "60c01d0c87b64fa0a6bf5cca0bb079e7p",
       "slug": "dragon-quest-xi-s-echoes-of-an-elusive-age",
       "storeName": "DRAGON QUEST XI S: Echoes of an Elusive Age",
-      "timestampA": 1501311600,
-      "timestampB": 1615878000
+      "timestampA": 1501315200,
+      "timestampB": 1615881600
     },
     {
       "coverImageUrl": "https://lh3.googleusercontent.com/V_NqR1T6xcdmi5ggg1xTz1BgqQkK1gTeL4VVI2HsWt6SEWneKVvI4Y597ZXnWxN58lkWXZNvnzRINkd_X5PLFLOOME_aTv7mMdqt_Hi-jXURvlhdzbGWnfAMW2sv",
@@ -519,7 +533,7 @@
       "timestampB": 1611820800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/999WSXUJPTzqVaYWlv7K23mQ6Gi_Q33ycfH-GwLiU4sT96D4c3JJ6r5wo4A2BknIduph9Mw5c6qpAyAnugIzRmiovenawhPmcq3sUfTSUjWYSxzRxvf8oHTUPV8",
+      "coverImageUrl": "https://lh3.googleusercontent.com/CW4y5GuZvzv-tKl0CcMFZT5OD8YMUQqtswS79ByhY3C0os46_uJErX2IvnnGezWKvYdDR2bLn10ACf-xMO5UZ6oVky6yx0hXHZaio97I5EY7ZYp28Xlw6LUJ9L8",
       "coverThumbnailData": "izzzzzzz4KyyyKzz-K0Kz-zzK-yFyKzz-zK--zzz-z0eeezzzz-4KuuzzzzzzGKz",
       "description": "Rise to fame in Madden NFL 21.  \n\nMadden NFL 21 delivers new features and modes including:\n\nFace of the Franchise: Rise to Fame: Rise to fame and become immortalized .\n\nTake Control: Master innovative running enhancements and live playbooks.\n\nX-Factor 2.0: New X-Factor abilities.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "0e6c703afde840148204847447b9c21drcp1",
@@ -631,7 +645,7 @@
       "timestampB": 1608019200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/sweH831a57BhWzeZFOxqpNgEZanCJDHn_b6L3jsMXAkDGQuMO_NO2MR8rnyqMxwRpnLbQ41bLfytWEW9C6-y1KPHh27IUFAOX_mywWak0ehgCrhaCbBZ26dcNAU",
+      "coverImageUrl": "https://lh3.googleusercontent.com/jEYqsjhHt3lR1iBqaBoTqMAgA6yFBW8u9-i0PZeTOFv7azMy34dPYCWgiPgz3Ey2ChTUc4Ravov19_TgKU1nMIb-2fdlOHuyDMhBtSyTW_KaCRXJpUG6I1lkcZw",
       "coverThumbnailData": "4KKKKKK--KK3-eK00K-ezLK40K0eePP3-54KK-4K-0LP-4-K-0K00KK0-----K40",
       "description": "London, 1868. In the heart of the Industrial Revolution, lead your underworld organization and grow your influence to fight those who exploit the less privileged in the name of progress.As Jacob Frye, a young and reckless Assassin, use your skills to help those trampled by the march of progress. From freeing exploited children used as slave labour in factories, to stealing precious assets from enemy boats, you will stop at nothing to bring justice back to London’s streets. To reclaim London for the people, you will need an army. As a gang leader, strengthen your stronghold and rally rival gang members to your cause, in order to take back the capital from the Templars’ hold.",
       "gameId": "88a2945345f744519c5148ddd54f26d1rcp1",
@@ -641,7 +655,7 @@
       "skuId": "8aa42ef528804d0ba75608240a6c0289p",
       "slug": "assassins-creed-syndicate",
       "storeName": "Assassin's Creed Syndicate",
-      "timestampA": 1445583600,
+      "timestampA": 1445500800,
       "timestampB": 1608019200
     },
     {
@@ -827,7 +841,7 @@
       "timestampB": 1606982400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/dQxMc6flA8lrJETZBcKUDqnzw4I1Da2g7mQRHjbpYyuoe8-koQ1IyKLCCPMDjSrv7Fl0Cq3X5hBXBGgERx9DuBzYE2VEB6Lmz3XCKBxQVWa8BrMK0ePB61Aad5Q",
+      "coverImageUrl": "https://lh3.googleusercontent.com/HU6uaX751GobhxFBp5nUsjnT11TFcTXK-a2Q0OC8HHF2au1JARG5YYDTc6Hqg2annEbUtUB3RcUG0M9uZBhydWqqJq4zDhF4Pw3GR8lMASENg4q3e1o2kEMVUUA",
       "coverThumbnailData": "_ieddKeyKPetP5esK_eeKKKuzKzKt0eeKeejeKyy-dKejKLe3_j9eeeK3Keee_JK",
       "description": "Immortals Fenyx Rising™ brings grand mythological adventure to life.\nPlay as Fenyx, a new, winged demigod on a quest to save the Greek gods. The fate of the world is at stake – you are the gods’ last hope.\nWield the powers of the gods, like Achilles' sword and Daidalos' wings, to battle powerful enemies and solve ancient puzzles.\nFight iconic mythological beasts like Cyclops and Medusa in dynamic combat in the air and on the ground.\nUse your skills and diverse weapons, including self-guided arrows, telekinesis, and more, for devastating damage.\nDiscover a stylized open world across seven unique regions, each inspired by the gods.",
       "gameId": "161f276db10947a199cd0260ed4dc248rcp1",
@@ -939,7 +953,7 @@
       "timestampB": 1606204800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/o8EKZiCqNcrAnKuwBojZJBecGfirIramDy_g3iqzV6c-YWI8TSJCXtkqL1KZo7i-wj1qUawFTfNdm9xXGUxrnYOqeO1orD4TG0gIu3NVJ4Pcih9TfJ3VJvRvBQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/yUaRpB_TXjZ_N_pzFCZv7_FWpUSU3oS-JRfLjZnhds0dlu0ViS3_4m--5dOsmWgqbhXgX1gw2urg0oHsXtqUgo8QsI1DWzNqI50sIaHh7fJPEVZSLlVDJlPxJA",
       "coverThumbnailData": "J-zzzz--eF-2eFFGfKKMFFFFeKF_J_JJKLLF_FK_aLKx-JJdae_0KGFKJGK-GGFz",
       "description": "Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Welcome to the Resistance. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities.Take your recruits online and team up with your friends as you complete missions and challenging endgame content.",
       "gameId": "deb490c166544813bf2ab73f4c6e2aa0rcp1",
@@ -1009,7 +1023,7 @@
       "timestampB": 1605168000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/NHOKbAU6R_M_5JaUEQt-QLoIt-2ro3U8cdL3oQdBMFCKjjA0z-m3ydoa2EPNNnI0P3AbMoMJyKgKgwVfh26ve3coqFUM8_r_HS4ylIk-ChkbZLsf-KHWgZelCsl-",
+      "coverImageUrl": "https://lh3.googleusercontent.com/WVOTvthj4ZcdLyMYZTPnIw1-lvROoJ_LVqdKRUWv_ouLDrxaPxHhS4tyZx8JlzckHnepl8oGJvd3H4Du1jPZX7g8AymeCJ3LBzgQWW9nmwiS7Pt2E2ajOVg5IZud",
       "coverThumbnailData": "eeyzzzzzezyzz-zzzeKzzKKzezzzzKezeeeee0-zeeezz-GzeeeKy0-K_eeKKeKu",
       "description": "Become Eivor, a legendary Viking raider on a quest for glory. Explore England's Dark Ages as you raid your enemies, grow your settlement, and build your political power. Lead epic Viking raids against Saxon troops and fortresses. Dual-wield powerful weapons and relive the visceral fighting style of the Vikings. Challenge yourself with the most varied collection of deadly enemies ever found in Assassin's Creed. Shape the growth of your character with every choice and carve your path to glory. Explore a Dark Age open world, from the shores of Norway to the kingdoms of England. Personalize your experience by growing your clan's settlement.",
       "gameId": "377f50584071472096bcda89b0839bc3rcp1",
@@ -1051,9 +1065,9 @@
       "timestampB": 1604588400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/pWpjJMOBrsJ3jnelmHn-Uo0Bl3Zrhc7Vsz2ZLTNadHIFaSTYfnzf43KbzR4sstzi79Pt_rqEEgbZt0BEfZt0ork5mgP4DSUvjXdXPScCySduYn_H4QvwcSK_Ma77",
+      "coverImageUrl": "https://lh3.googleusercontent.com/dd0WfFg9b1t7-SaDkjpMGOXsPA7pvoWre5IU9qI_yElHcpwHKN5DM8DWjZ1X31PbzDhWQmxUxGHf0HXAXiEgTQUitZoz6h-AobrL08cr04OwpCXyYGZyRviGgP1r",
       "coverThumbnailData": "uuuzueutzzzvyyyyKzzzzPyzPPKedKe-eePKeJe-KfeKKKfK4LjKKKKPf4LKKKaL",
-      "description": "Dive into a transformed vibrant post apocalyptic Hope County, Montana, 17 years after a global nuclear catastrophe. Join fellow survivors and lead the fight against the dangerous new threat the Highwaymen, and their ruthless leaders The Twins, as they seek to take over the last remaining resources. FIGHT FOR SURVIVAL IN A POST-APOCALYPTIC WORLD Take up arms on your own or with a friend in two player co-op in an unpredicatable and transformed world. COLLIDE AGAINST TWO ALL NEW VILLAINS Recruit an eclectic cast of Guns and Fangs for Hire and form alliances to fight by your side against the Highwaymen's unruly leaders The Twins BUILD UP YOUR HOMEBASE AND THE SURVIVORS Recruit Specialists to upgrade your homebase, who will help unlock all new features including crafting weapons, gear and more.",
+      "description": "Dive into a transformed vibrant post apocalyptic Hope County, Montana, 17 years after a global nuclear catastrophe. Join fellow survivors and lead the fight against the dangerous new threat the Highwaymen, and their ruthless leaders The Twins, as they seek to take over the last remaining resources. \nFIGHT FOR SURVIVAL IN A POST-APOCALYPTIC WORLD\n Take up arms on your own or with a friend in two player co-op in an unpredicatable and transformed world. \nCOLLIDE AGAINST TWO ALL NEW VILLAINS\n  Recruit an eclectic cast of Guns and Fangs for Hire and form alliances to fight by your side against the Highwaymen's unruly leaders The Twins \nBUILD UP YOUR HOMEBASE AND THE SURVIVORS\n  Recruit Specialists to upgrade your homebase, who will help unlock all new features including crafting weapons, gear and more.",
       "gameId": "a2a4ff75e249404a975db7ae5f77e536rcp1",
       "inStadiaPro": false,
       "inUbisoftPlus": true,
@@ -1065,9 +1079,9 @@
       "timestampB": 1604390400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/82CBoD0fyeXrnD9ZyKkKDMtSgQoBZvE4M_Otj6iji4Kod9D0X2BAf7jyB3c4lq4BM6Ncwe7tyxZq84Odbw8LZTHwn3IdqfkSMKcNFDbgDw6RLzQQxbKsVESM4rwc",
+      "coverImageUrl": "https://lh3.googleusercontent.com/d81uNC2hIyk3MUlzx5PLI_CXMXuXZqU4G02uj3_Cs08QgQKPO9Ob2vu7AuldzeGqv7A2ZyMBLUIjI0cZ_ilQwacEBIxLUiAZUWROC_Lji4lRhkUcc2-OsQq8hAyF",
       "coverThumbnailData": "eydzedJeuyudzeeeKKeedOPKLLKKfPeK---PeeL0KKPFeKK---L-KK-4-------K",
-      "description": "Far Cry comes to America in the latest installment of the award-winning franchise. Welcome to Hope County, Montana, land of the free and the brave but also home to a fanatical doomsday cult known as the Project at Eden’s Gate. Stand up to cult leader Joseph Seed, and his siblings, the Heralds, to spark the fires of resistance and liberate the besieged community. FIGHT AGAINST A DEADLY CULT Free Hope County in solo or two-player co-op. Recruit Guns and Fangs for hire to help defeat the cult. A WORLD THAT HITS BACK Wreak havoc on the cult and its members but beware of the wrath of Joseph Seed and his followers. CARVE YOUR OWN PATH Build your character and choose your adventure in the largest customizable Far Cry game ever!",
+      "description": "Far Cry comes to America in the latest installment of the award-winning franchise. \nWelcome to Hope County, Montana, land of the free and the brave but also home to a fanatical doomsday cult known as the Project at Eden’s Gate. Stand up to cult leader Joseph Seed, and his siblings, the Heralds, to spark the fires of resistance and liberate the besieged community. \nFIGHT AGAINST A DEADLY CULT \nFree Hope County in solo or two-player co-op. Recruit Guns and Fangs for hire to help defeat the cult. \nA WORLD THAT HITS BACK\nWreak havoc on the cult and its members but beware of the wrath of Joseph Seed and his followers. \nCARVE YOUR OWN PATH \nBuild your character and choose your adventure in the largest customizable Far Cry game ever!",
       "gameId": "7d9beb13648d44839b9aeea7555c37c0rcp1",
       "inStadiaPro": false,
       "inUbisoftPlus": true,
@@ -1075,7 +1089,7 @@
       "skuId": "b446084511c54da8a9b3381be38255c7p",
       "slug": "far-cry-5",
       "storeName": "Far Cry 5",
-      "timestampA": 1522134000,
+      "timestampA": 1522051200,
       "timestampB": 1604390400
     },
     {
@@ -1219,7 +1233,7 @@
       "timestampB": 1601362800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/m-tRxo91-GKnMrFFWKrnnNS37KCgJexrIi-mCtNl8gMv8zTmxiWaU9q9MHP1znJnZmXKveVAFMth8rTQ20B0QUjPdOvB7lJxdSQgut7IW9B9kjMUBGQW6S1302c",
+      "coverImageUrl": "https://lh3.googleusercontent.com/EvDm1zFzSF5XzXyMA9NSijhkWMDZf223Xa3LzfpNHiDwpYOliznjumIH5v7ROcp2fCje23osdATzc3ohVgzMGKGRTcy_MSwzXSHT-ynOBhqNdRH3SwMeoP2oNWs",
       "coverThumbnailData": "LPPLLePKKLPK4KLKPPPK4PQePKfQKLKLLL5jQP445Q6-jQ55PLLQQQQP445L444K",
       "description": "Serious Sam 4 reignites the classic FPS series in a high-powered prequel loaded with an explosive arsenal, intergalactic carnage, and perfectly timed one-liners.",
       "gameId": "b3bd32ef05444a189dcdc88f8e85d7f2rcp1",
@@ -1331,7 +1345,7 @@
       "timestampB": 1599030000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/XPgjWmfQ98VpwwPaYDBC5IN-F7UU3-m9f7JzABCA97Ln6BSTHXLRJOJWrkpppwbK9Hhg9GXu4nGPAzTuzKQVBu_LKGgo1Anp3xxrl1XdCqR25N1RzE5kVEt5Gag",
+      "coverImageUrl": "https://lh3.googleusercontent.com/zvNaM8DU4K-iwx6tPWVvU9653IQyFse1Qhy8XtdhGbZafmQpw67TPqfwKDUKFIUtLr3RuB3gdt5KnlgrroaKDxtDgQCpO6fWsySr5E3KO8H8uRWK7wwkxeQqpu8",
       "coverThumbnailData": "zuuetuzzuuMKKKeeuKeKKeeuedeeKPee--eefeeeKKZyzuK44K-KK----KK0----",
       "description": "Marvel’s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay*. Assemble into a team of up to four players online, master extraordinary abilities, customize a growing roster of Heroes, and defend the Earth from escalating threats.\n\n* Free Square Enix Members account required.",
       "gameId": "232ff8abc7f74421a477e9e09dbf487drcp1",
@@ -1345,7 +1359,7 @@
       "timestampB": 1599030000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/6cjWLY_A5XkB5jcM6CkeOny9SaDYP8psTtGzqgKn9WuiX7q9NKbufAgr11Vk5xYVGV2y6Bo51uWiy3W4zG1_SiPoSG7GTO582q75mDMwTbn0N4qUDdve9lHPrvai",
+      "coverImageUrl": "https://lh3.googleusercontent.com/F7dVICCNN3pNs5XOQokNdN28ZaaOaqAJ1xnAxT19c7v0TAxiBJR3gJpFvIDGvCjnVLH71Hfsh_vGBRqFtH5XR5B0BjFyUZ3rbyBW9C7EmZ6H2oFy8URRitwXysEP",
       "coverThumbnailData": "---KKKKK----KKKK----K22-----KKF---------------------------------",
       "description": "State Share\nTo play Hitman game states that are shared with you, claim or buy the relevant bundle or add-on below. Ask the original player which content the game state uses.\n\nExperience a globetrotting adventure as Agent 47 and travel to exotic sandbox locations that are meticulously crafted and packed full of creative opportunities.\n\nWhen you purchase HITMAN 1, HITMAN 2 or HITMAN 3 on Stadia, you’ll play them seamlessly within HITMAN: World of Assassination.",
       "gameId": "990ec302c2cd4ba7817cedcf633ab20frcp1",
@@ -1401,7 +1415,7 @@
       "timestampB": 1598598000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Xzy-B51UuDVeaLmwiW2ferTF2PfSo36MZxIQm4KELkJ88zVkpBMX9Vyy37IiFvsnJVdh_f1Hto8aUFl8dfTD8RuFVB0HnrWCQJIWK7Wx1g4k6rVHz6YcOejw568",
+      "coverImageUrl": "https://lh3.googleusercontent.com/ylciJvdCXWSWx6iyUHisEDZxvgCXSiFPyx7-7FRsVhADjpDYjTi17-PxXmWw4i9UCDNLJ4aaxe-UL4jsnxQkLkDXWmR1ujG-scUGPb64bVsgFCMY4F8xQtCZIjM",
       "coverThumbnailData": "eeuuuuuyuuuyJiyyuyeiezyyuyezyzzyuuzzyzzyuijzzzzdedzeee_JJJJ_dJJJ",
       "description": "Spiritfarer is a cozy management game about dying. You play Stella, ferrymaster to the deceased, a Spiritfarer. Build a boat to explore the world, then befriend and care for spirits before finally releasing them into the afterlife. Farm, mine, fish, harvest, cook, and craft your way across mystical seas. Join the adventure as Daffodil the cat, in two-player cooperative play. Spend relaxing quality time with your spirit passengers, create lasting memories, and, ultimately, learn how to say goodbye to your cherished friends.",
       "gameId": "430bbe284fb7482c9afe8e877b119269rcp1",
@@ -1583,7 +1597,7 @@
       "timestampB": 1593932400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/bl_fPYy9RxPrjvwt6xgokIfB6rE01mpSFvKY17MjaT_plSBrpj1qoWSRzJ4TZeT926nkCRIjyL7qFyCeYGy9n644nK8slPSj6ozZJvEqJqnqtKyFOrUDzgfqf_Kt",
+      "coverImageUrl": "https://lh3.googleusercontent.com/5VAa9bGnU0Tf7tTa6KI22qGgqVrOVK9Wj__7bhHQmTz1zP-WElGUlciUa003A3N2VXsizpRSulRvU3nkSPBhuq1ztvzknoqdVtG2FBnX1v86iTfsWeke_4IP4oZZ",
       "coverThumbnailData": "KJhKOdJK4POSSiOKJKyiiOOOONhaFOSOJNiLFONJJdiFKihJKzeKFeiOKOeOOFdK",
       "description": "Crayta, the game-making game now comes with its unique Battle Pass system! Play from thousands of games, complete challenges generated by the game creators, gain XP and unlock awesome new content with our current battle pass: Alien Conspiracy!\nCrayta brings together players of all abilities and backgrounds to create and play multiplayer games with their families, friends, and the rest of the world.\nCreate and collaborate in real-time, then share your games instantly with the Crayta community. Powerful, flexible, accessible, fun – game creation is now a game in itself!",
       "gameId": "05f66a46027747a08b930ea70374ac7frcp1",
@@ -1639,7 +1653,7 @@
       "timestampB": 1593529200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/_NKe9_UnG-YIhEyPBm1kNg4HERm1vd8_XepekQY9JWDBbvxHU-QBg_b-9IbwYe3B_ejZj7PaRPUfoXy7EdTHjJw9j0u57gfwISSzNYMi-qGTN2sNNV8n5Gw4dxE",
+      "coverImageUrl": "https://lh3.googleusercontent.com/sCfItCPMxSXG0ITLHoTswfgeLqpmbB0txSGbbxCY7lkxs6nbNiiYmS4oUYGe7xoBAl_iItEH4fdgHzi7wGN5-hKoTjQ3SbxIJIrZyZYJcbYUjA3i6oVlMSFBq2c",
       "coverThumbnailData": "FFGGG_GFWWWQQXWGbb0GzfbaefaznHFfFGFGKFFGa_fe_aaavvvduHvvuuvuvuuu",
       "description": "Wave Break is a classic arcade-style skate tricking game, with a splash of water, guns and explosions - set in an 80s crime-filled Miami Vice themed world. Score massive points with massive combos, play with friends online, or enjoy the single player campaign mode.",
       "gameId": "3e7b24085e704c10ab03f93a19947c14rcp1",
@@ -1737,7 +1751,7 @@
       "timestampB": 1590994800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/BdAGCunnJfS1rO1ba4DcfHsxiZOI8ivB27f51XEdS7X-9ypyDDbUfK1hz_3rFMIMn-E3_hRMwSAsK9AbFAPwtJt4HHScLqOxFrTHwF5AAvTSU1DI-2byX1UYFOE",
+      "coverImageUrl": "https://lh3.googleusercontent.com/_2Hff8ePMW76poLZ4VUnKtry7J5Id-RpqD4uYpTe9w64NRQPwLvjAjB3FNoWuVVcv79o_CbutHFPY0xBU3NyOJKVaT_lgwxO3DL9Nz5OFXksABqh5_5i5U6VzLE",
       "coverThumbnailData": "4--10--34jFM1Fe3AeG21GQ1fKGK-Gz4L5WLLGQKK6e12veKK-KKLJKKF0FGJ---",
       "description": "Generations of Power Rangers collide across the multiverse’s 25 year history. Experience authentic, but reimagined Power Rangers gameplay. This easy to learn, but hard to master fighting game is designed to welcome players of all skill levels.",
       "gameId": "bbb1a143aa3449a5a1f236a05c305c9frcp1",
@@ -1779,7 +1793,7 @@
       "timestampB": 1590505200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/3W9l11-5mapYZeaLNd39BrOBhDjcWqAPTTJ317obCs5UdNcIceE9CTXI1IYh2jTc0kKDAAK2pTzebuFxdLPCcf3a-9W5mvtrypHmPeYlRmFGvIXHqreYYk1qQVI",
+      "coverImageUrl": "https://lh3.googleusercontent.com/8U_dkgukZ_2E1boBgBu3ip_yv5x4ksWflxThPvJNpdVQiv99of73cLxTGQ9YBKtBqguXqSPG3IrD4CaHdBViYLZchqMsMiV32cECc40GDelRQ_-Te7A1V5rm0co",
       "coverThumbnailData": "4K00KKK04Fz-jKP0F2zMKKQK0Q-MeZP001MKfAMK0LMQMQLK05PQ1PQKK0zj22KK",
       "description": "Stadia Early Access Disclaimer:\nEarly Access grants you access to a game that is still in development. It is an unfinished game, which means you may encounter playability issues (including the potential loss of saved progress) and changes without notice. Access to the game may be lost if development is not completed. We encourage you to visit the publisher's website for information about the game, and to visit our help center for more information about Early Access.Learn more about early access [https://support.google.com/stadia?p=early_access].\n\nEmbr is planning to stay in Early Access for 12 months. Muse Games and Curve Digital want to make sure the game launches in a state that we, and you, are happy with, and we don't want to rush this process. For full release, we are looking to add 2-3 times the amount of content as well as a number of additional game modes, we are aiming to add campaigns with a series of escalating missions and narrative threads. Progression wise, we want to flesh out tools and cosmetic customization. Asset wise, we aim to expand the asset set from residential to industrial. Further work includes localization beyond just English. Please‌ ‌head‌ ‌to‌ ‌our‌ ‌official‌ ‌site‌ ‌to‌ ‌join‌ ‌the‌ ‌discussions!‌ Community Site [https://discord.gg/embr] \n\nJoin Embr, THE Emergency Services Revolution, and become an Embr Respondr™ today! Fight fires and save lives while climbing the ladder of success, all within the comfort of flexible working hours. Embr's mission is simple; bring über firefighting to everyone, everywhere.\n\nAs an Embr Respondr™️ you'll answer clients' calls for help, and bring firefighting directly to their door! Break down doors, clear gas leaks and put out fires - no job is too much for an Embr Respondr™️.",
       "gameId": "d599576cddfc400f804b889460e84cb3rcp1",
@@ -1807,7 +1821,7 @@
       "timestampB": 1589295600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/rFVD3yE5NSMCuSr7Y3kX8S9aIOU6UifySb4pHGytQ8CI0AN8U7IPlXjWzZPQuPtM38PreEejcULnwB5K-TekxAf4JR9k8a2XZITh9jnDH1qctm5SU6Pas1sGVw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/wbRL911AO2BF5NnOt4G708MSRbK6liFSz5vSeX_UkUqBIlm3TietBjyhnYhJuqtOSG_BTNIi8mUICo7sfrhCQ4FPG7Gj5ARNZtDSr11zBfu_-UWLOC_SYOlFww",
       "coverThumbnailData": "-------------Je-----JKJF-11-JAAJ---e_KKJ--FJ_dKJ----_J-F---KJ--J",
       "description": "Hitler’s hordes are back for more in this spine-chilling shooter! Occult enemies, epic weapons and a new campaign for 1-4 players await, as you fight to save humankind from undead Armageddon!",
       "gameId": "cba537cccfe3470b8784f88660ea5f09rcp1",
@@ -1947,7 +1961,7 @@
       "timestampB": 1585119600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Fs8cmybX6TwA-sTi_uUPuKtTYZMk7n0WgtnffmMZ_volhmcHAGiwMgqEju-25qOLPTaj7355AiRqenIfvegmLOpveBtcrJQcj3fwrRScKjrBe2mKFR4xoBhSAgQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/NFCI61blhLCREN1HVpEUYsXnb2TOTEA5XK8KI1SWmXT3OV-zo_QnlaX5KyPauKM74hksMOnStcxfuxqs7oszgAt6U_81yP54sQAMhe6yIH6eywfU9O3N9-17rog",
       "coverThumbnailData": "-00ze450-40zzK4K-40yLL40K-5Q05K4000AQ5KKKK505KK-0L0-Q00040K045-4",
       "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons across dimensions and stop the final destruction of humanity. The only thing they fear... is you. Experience the ultimate combination of speed and power in DOOM Eternal - the next leap in push-forward, first-person combat. Armed with a shoulder-mounted flamethrower, retractable wrist-mounted blade, upgraded guns and mods and abilities, you're faster, stronger, and more versatile than ever. And enter BATTLEMODE, the new 2 versus 1 multiplayer experience where a fully-armed DOOM Slayer faces off against two player-controlled demons, fighting it out in a best-of-five round match of intense first-person combat.",
       "gameId": "632522c846a041ce801e47b96ba2e265rcp1",
