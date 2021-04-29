@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ba593716983f436ea49ae09a531d65b5rcp1",
+      "source": "/legend-of-keepers-career-of-a-dungeon-manager",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/3b8cebf1104f4705b8e8d1994429ec4crcp1",
       "source": "/judgment",
       "statusCode": 301

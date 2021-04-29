@@ -23,7 +23,17 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/TC8ZAkAiedhJa4M4G1i9mq_iQwjsKFTUFUnDTGH6VlwwfSguZDPDOpz5aVT_Wo9bpdK9WeqArmUgMVwgIDfkBG2kTwI6zAT-rVja6YPZF8t5KK4KaL4DgP2kTTc=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/xX2u7OA6x_5AShPuGLqLifcQUrLLXjQUr0l-dC5FIdb_af5Lu6qorHyc7-7HxDn8JcNbGE-i2c8KQ8JF0n7wIOxAd9NGoPcSf-EDprwfnTe63HYen9YVMslzZuo=s192-p-rp"
+        }
+      ],
+      "name": "Legend of Keepers: Career of a Dungeon Manager",
+      "url": "/legend-of-keepers-career-of-a-dungeon-manager"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/NEQInhl67zKsBUyiRadvlpCQgRPB0qetXYgdMXTrNCWiExNx6fsU_X1ums5K71tpDHFgMzPxlk-G54lgcAMtxTZmVDuVL-QjK2UelbW0iHhZmuJAw6AEqifFy8E=s192-p-rp"
         }
       ],
       "name": "Judgment",
@@ -143,7 +153,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/3QN8Rsye2iOL1CgXNGOryE41paekQVOwpDCUYD4apNjjeyjPiXDa35Q-n2gJQh-tZbOdzSk5pP-Q-5jPscRaHyoPmZMAffbO5bhgMnBfSlfcWUyuWf1oESeYbuo=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/gGgESlvgoBfOb1uX6QUyutRWz5dP4OAppC7hcnVLTnqQBmNTqGX4GLIRcJyG3ZLbafXpWsRurwr930vGelHE1xsOGcl_JnSG98L7FOzgxemh0MJqtU7CKgJQBME=s192-p-rp"
         }
       ],
       "name": "Disco Elysium - The Final Cut",
@@ -163,21 +173,11 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/CbZfZ4W2XvuUUclWs6EBLBjgtemDp6zZc1r46q3SHbVKPpgEiAEG0GQswhLpKl82iQyt-PFcYmg79mpS1ZrIK-eAQZ_8gNifDqx0opu205Llt4szXVIg1_U9dQ=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/17LCXHia1kXSaiQUWhLIulbrpiSP733W00TMow-DvMepmqgTT4jb_gYoDkp3gwkClwFx7lS2-oTx0_h-axhykd20bFW0UlgBZ3Bvyc_d7QONwFBu-ZcygnLUTA=s192-p-rp"
         }
       ],
       "name": "Trine 4: The Nightmare Prince",
       "url": "/trine-4-the-nightmare-prince"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/S1o2y51Leeif0FTVpSzF5afBNTQc96TJ9_nudBuyr3I2uRwj1JmpKd8Wt_G4asEYzBR1t_6tMLsviYwHxxuxpdlA1vcpUmBytgcJTumwn1bOBMk8xHf2C-bGKQ=s192-p-rp"
-        }
-      ],
-      "name": "Kaze and the Wild Masks",
-      "url": "/kaze-and-the-wild-masks"
     }
   ],
   "start_url": "/",
