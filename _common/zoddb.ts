@@ -260,7 +260,7 @@ export class Database<
         query.values?.length ? `\n${Deno.inspect(query.values)}` : ``
       }`,
     );
-    return this.connection.query(...query.args);
+    return (this.connection.query as any)(...query.args);
   }
 
   readonly tables: {

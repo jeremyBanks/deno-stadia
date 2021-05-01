@@ -86,7 +86,7 @@ class ChromeProfile {
     }>
   > {
     // TODO: open database read-only (not currently possible)
-    return [...(new sqlite.DB(`${this.path}/Cookies`).query(
+    return [...((new sqlite.DB(`${this.path}/Cookies`).query as any)(
       ...SQL`
       SELECT *, encrypted_value
       from cookies
