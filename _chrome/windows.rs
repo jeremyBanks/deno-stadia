@@ -1,17 +1,14 @@
 use {
+    bindings::Windows::Win32::{
+        Security::{CryptUnprotectData, CRYPTOAPI_BLOB, CRYPTPROTECT_PROMPTSTRUCT},
+        SystemServices::{LocalFree, FALSE, PWSTR},
+    },
     std::{
         convert::TryFrom,
+        ffi::c_void,
         io::{stdin, stdout, Read, Write},
         process::exit,
         slice,
-    },
-    winapi::{
-        ctypes::c_void,
-        um::{
-            dpapi::{CryptUnprotectData, CRYPTPROTECT_PROMPTSTRUCT},
-            winbase::LocalFree,
-            wincrypt::CRYPTOAPI_BLOB,
-        },
     },
 };
 
@@ -34,13 +31,13 @@ fn main() {
 
         if CryptUnprotectData(
             &mut input,
-            0 as *mut *mut u16,
+            0 as *mut PWSTR,
             0 as *mut CRYPTOAPI_BLOB,
             0 as *mut c_void,
             0 as *mut CRYPTPROTECT_PROMPTSTRUCT,
             0 as u32,
             &mut output,
-        ) != 0
+        ) != FALSE
         {
             cleartext = Ok(slice::from_raw_parts(
                 output.pbData,
@@ -54,7 +51,7 @@ fn main() {
             cleartext = Err("decryption failed")
         }
 
-        LocalFree(output.pbData as *mut c_void);
+        LocalFree(output.pbData as isize);
     }
 
     match cleartext {
