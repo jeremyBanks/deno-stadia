@@ -14,12 +14,12 @@ const printableAscii = z.string().regex(
   "printable ascii",
 );
 
-const TableName = printableAscii.min(1).max(64).regex(
+const TableName = z.string().min(1).max(64).regex(
   /^[a-z0-9\_\$]+$/i,
 );
 type TableName = z.output<typeof TableName>;
 
-const ColumnName = printableAscii.min(1).max(128).regex(
+const ColumnName = z.string().min(1).max(128).regex(
   /^[a-z0-9\_\$]+(\.[a-z0-9\_\$]+)*$/i,
 );
 type ColumnName = z.output<typeof ColumnName>;

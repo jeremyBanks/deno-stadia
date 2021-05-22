@@ -44,7 +44,7 @@ export const command = async (client: Client, flags: FlagArgs) => {
   try {
     // this is a huge import, so we put it here instead of ./deps since it's not
     // required for the library, only this command.
-    canvas ??= await import("https://deno.land/x/canvas@v1.0.4/mod.ts");
+    canvas ??= await import("https://deno.land/x/canvas@v1.1.4/mod.ts");
   } catch (error) {
     // this is bad but this is only for my use, so
     let { proxy, revoke } = Proxy.revocable({}, {});

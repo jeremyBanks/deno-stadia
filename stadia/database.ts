@@ -417,7 +417,7 @@ const tableDefinitions = (() => {
   const PlayerSearch = def({
     name: "PlayerSearch",
     cacheControl: "max-age=5529600",
-    keyType: GamertagPrefix.min(2),
+    keyType: GamertagPrefix,
     valueType: z.array(PlayerId),
     columns: {},
     seedKeys: seedKeys.PlayerSearch,

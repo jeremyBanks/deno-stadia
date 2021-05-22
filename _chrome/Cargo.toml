@@ -22,11 +22,6 @@ winapi = { version = "0.3.9", features = ["wincrypt", "dpapi", "impl-default"] }
 [dev-dependencies]
 wasm-bindgen-test = "0.3.19"
 
-[package.metadata.wasm-pack.profile.release]
-# Disabled because it crashes on something in the crypto code, and
-# our WASM size and performance are not a problem.
-wasm-opt = false
-
 [profile.release]
 lto = true
 opt-level = "s"

@@ -4,6 +4,21 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/0b14eb3560f94ed69375f6ca5b7491fercp1",
+      "source": "/hundred-days-winemaking-simulator",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/a997c2d05c1b4680b47e376367c187ecrcp1",
+      "source": "/street-power-football",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/c44439c4ee1741b383c93996985efddfrcp1",
+      "source": "/resident-evil-village",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/ba593716983f436ea49ae09a531d65b5rcp1",
       "source": "/legend-of-keepers-career-of-a-dungeon-manager",
       "statusCode": 301
