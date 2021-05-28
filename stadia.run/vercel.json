@@ -499,11 +499,6 @@
       "statusCode": 301
     },
     {
-      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2847419bbb5146ed877a308d9884f504rcp1",
-      "source": "/super-bomberman-r-online",
-      "statusCode": 301
-    },
-    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/232ff8abc7f74421a477e9e09dbf487drcp1",
       "source": "/marvels-avengers",
       "statusCode": 301
@@ -521,6 +516,11 @@
     {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/16330bd770134d85b5bef3cc6b1407ffrcp1",
       "source": "/gunsport",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/2847419bbb5146ed877a308d9884f504rcp1",
+      "source": "/super-bomberman-r-online",
       "statusCode": 301
     },
     {
