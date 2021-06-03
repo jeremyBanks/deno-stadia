@@ -23,6 +23,16 @@
       "icons": [
         {
           "sizes": "192x192",
+          "src": "https://lh3.googleusercontent.com/oY6OJ0baqi2J9_c0ACGfdIXbhcgRQIUywXa8NsN8RuZcsMZS6y5IJtwibg5elbnqLLMWry6hE_0IIcW4h2Q0OgwmG2E90YZEntf7M1JB74M-ho0MwFXVjJbYoMU=s192-p-rp"
+        }
+      ],
+      "name": "Blue Fire",
+      "url": "/blue-fire"
+    },
+    {
+      "icons": [
+        {
+          "sizes": "192x192",
           "src": "https://lh3.googleusercontent.com/xwTjiuD2EwZtvyOHRCMSD2QCV1Mf5-1NKyV3QGnyP4b28WtiIgMUTQmqSRJUC9QlPhP8nq_Vxx-_DCM75IZNv6X7TwytX3g9crq-2dO6JAxr1sSrJ5oR08DrGcHo=s192-p-rp"
         }
       ],
@@ -113,7 +123,7 @@
       "icons": [
         {
           "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/wbJIrT2ewJguaJfQCJpp85rB48mSlytJlmcndnIwkypGHOPhtxIrbji5luNRW8ybU3IGt87rjgW0MHIMGV8nX42RGgz0GZOcRZKzqUVqI3jk-fc_T0BOH64nBio=s192-p-rp"
+          "src": "https://lh3.googleusercontent.com/aqU7I_HgjauzRYGfSrJTGrT8ipzxdCDM7RzY3MPTGEw5nY73uQjE34AgIXnGqphcL8Id5JF_3FQgu7NI9RNrAqD7ovMKVeWzJQgSuAzc-BaTbxv_q7fggwbF8Ek=s192-p-rp"
         }
       ],
       "name": "OUTRIDERS",
@@ -168,16 +178,6 @@
       ],
       "name": "Ys VIII: Lacrimosa of DANA",
       "url": "/ys-viii-lacrimosa-of-dana"
-    },
-    {
-      "icons": [
-        {
-          "sizes": "192x192",
-          "src": "https://lh3.googleusercontent.com/CJljsIVNkQJjLjFQqQB1QBshWUV0tNZuvEHym_CamROGGKC7P8pFQJNbq90bFfon-hJUFxodySq7vqMUNgcBTVTAaaKfcVoK8MXPnsmmQFiUa6qyjTcQH9xMJA=s192-p-rp"
-        }
-      ],
-      "name": "Nanotale - Typing Chronicles",
-      "url": "/nanotale-typing-chronicles"
     }
   ],
   "start_url": "/",

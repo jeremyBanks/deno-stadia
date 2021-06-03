@@ -1,6 +1,20 @@
 {
   "games": [
     {
+      "coverImageUrl": "https://lh3.googleusercontent.com/oY6OJ0baqi2J9_c0ACGfdIXbhcgRQIUywXa8NsN8RuZcsMZS6y5IJtwibg5elbnqLLMWry6hE_0IIcW4h2Q0OgwmG2E90YZEntf7M1JB74M-ho0MwFXVjJbYoMU",
+      "coverThumbnailData": "KK-KF---FKJKK-0-K-KKKFK-FKKKKKKKKKKeKKK--KKKKKeJ--KeKKKK-KKKKKKK",
+      "description": "A Dark World Awaits - Travel through the perished world of Penumbra to explore unique areas filled with diverse enemies, sharp 3D platforming challenges, quests, collectibles, and more. \n Embark on an extraordinary journey through the desolated kingdom of Penumbra and discover the hidden secrets of this long-forgotten land. Explore mystical temples, encounter survivors and take on strange quests to collect valuable items. Along your adventure, slash your way through daunting adversaries, roam across mysterious and abandoned regions, leap through deadly traps and ultimately master the art of movement.",
+      "gameId": "e9c4d2fc77424c34b0cd570bd761aab0rcp1",
+      "inStadiaPro": true,
+      "inUbisoftPlus": false,
+      "name": "Blue Fire",
+      "skuId": "f368b1f436404e55bd96d733652d75a7p",
+      "slug": "blue-fire",
+      "storeName": "Blue Fire",
+      "timestampA": 1612425600,
+      "timestampB": 1622534400
+    },
+    {
       "coverImageUrl": "https://lh3.googleusercontent.com/xwTjiuD2EwZtvyOHRCMSD2QCV1Mf5-1NKyV3QGnyP4b28WtiIgMUTQmqSRJUC9QlPhP8nq_Vxx-_DCM75IZNv6X7TwytX3g9crq-2dO6JAxr1sSrJ5oR08DrGcHo",
       "coverThumbnailData": "LffffbfIMzzfMHHHHXHHHHGKHHGHHz0GGGHHGzeHGGGGGGHGGGGcGGGGGGG0GGGG",
       "description": "In Hundred Days you will have complete control of a new Winery. First choose which vines to grow, learn how to grow them and when to harvest. Then following the entire winemaking process deciding on the type of wine you want to produce or the market requires. You will also have to sell the wine produced to allow your company to expand. As in reality, every choice made, from the vineyard to the sales, will be able to influence the wine produced both in quantity and quality. A quality wine will increase the reputation of your company worldwide, it may have come at a higher price and will allow you to grow better and faster.",
@@ -127,7 +141,7 @@
       "timestampB": 1617868800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/wbJIrT2ewJguaJfQCJpp85rB48mSlytJlmcndnIwkypGHOPhtxIrbji5luNRW8ybU3IGt87rjgW0MHIMGV8nX42RGgz0GZOcRZKzqUVqI3jk-fc_T0BOH64nBio",
+      "coverImageUrl": "https://lh3.googleusercontent.com/aqU7I_HgjauzRYGfSrJTGrT8ipzxdCDM7RzY3MPTGEw5nY73uQjE34AgIXnGqphcL8Id5JF_3FQgu7NI9RNrAqD7ovMKVeWzJQgSuAzc-BaTbxv_q7fggwbF8Ek",
       "coverThumbnailData": "GGLQfMGGHGLfjQLGGHGjafLGGLMG_ML__GMffLLGGGLfLG0G--HLLH0--G-0G000",
       "description": "OUTRIDERS is a 1-3 player co-op RPG shooter set in an original, dark and desperate sci-fi universe.\nAs mankind bleeds out in the trenches of Enoch, you’ll create your own Outrider and embark on a journey across the hostile planet.\nCombining intense gunplay with violent powers and an arsenal of increasingly twisted weaponry and gear-sets, OUTRIDERS offers countless hours of gameplay from one of the finest shooter developers in the industry – People Can Fly.",
       "gameId": "ad1e34961f2148568d215a8101df7693rcp1",
@@ -145,7 +159,7 @@
       "coverThumbnailData": "eeee__KKezKeee0KzKaJfejKKeA00KfeeK-QAKLFKF5z5QjKzeezeKeKzeezaeGe",
       "description": "Rean Schwarzer, a military student turned war hero, finds himself at the center of a dark plot that threatens to upheave the foundations of his homeland. To face the oncoming storm, he must prepare a new generation of heroes as an instructor at the newly-formed branch campus and guide them toward an unknown future...",
       "gameId": "5de3aed0b1b4439887e1cb4458f9cec8rcp1",
-      "inStadiaPro": false,
+      "inStadiaPro": true,
       "inUbisoftPlus": false,
       "name": "The Legend of Heroes: Trails of Cold Steel III",
       "skuId": "692590363fe44ae9bbf8eb28c171a9afp",
@@ -225,7 +239,7 @@
       "timestampB": 1617174000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/JtIgbSfzmD1OOxXeuesSSLSxhMDdhFBTJQAzvD4v2g-FGtMNPlZNmew4dgis8lDrK1TodtZgv9P_iqA0Y1fxB1wGwZ2nXxpSciHv6onc_BCVNUuerX0wz5PwykM",
+      "coverImageUrl": "https://lh3.googleusercontent.com/C_laupfmtUOLWNVQKq18A9CJAZ4qyU34S0u71lS8fS9g6Vt8mM5SNwVQ5eNzqYuKVMZcVk8Ve6D5MyiwqK63jZGsXGGTPNcVYeXaeaHGvGw1dmyarWhn1QUEnPk",
       "coverThumbnailData": "KJJJJ5LLJKJP-zePLPz-MfPPPPf0PePKLK_KKKKKK0J5zK-0K-----JK---34---",
       "description": "A groundbreaking role playing game. Become a hero or an absolute disaster.",
       "gameId": "01082780d6f4421c9635b22021f05ff5rcp1",
@@ -281,7 +295,7 @@
       "timestampB": 1616716800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/0ZHVD3Is_-6eo6URynDbJ2JBE5Ys5ZaVqxEtu0PkxxrRZZdAy-ceri2_Wxe6T9wWEfveXkZfiyvYtjcr---Fm3E8b5RNOJpFRUxq5M73Zd6qHQrGMk3x5NX9B910",
+      "coverImageUrl": "https://lh3.googleusercontent.com/DyuN8gw26Y2aAVL3P4a2WaUZe_ABIC_G-Xk3-ioJG-VPJxGbdj--i75d_HDwpFeBbnNXTI_xIyXFIQXSbZ9h4AxmFh9PyxLinSFw0rR0yScjZkpP0mwdDpgQDE_Z",
       "coverThumbnailData": "AAUAMzQYYzKUEzz-fzuIU-z-eLLePUEE516--jQQ5---0f9Q54QK-PPP5I45P559",
       "description": "Let Loose in DIRT 5 -  the boldest off-road racing experience ever, with a star-studded Career, four-player split-screen, innovative online modes, livery editor and more. Blaze a trail on global tracks, covering gravel, ice, snow and sand, with cars ranging from rally icons, to trucks, to GT heroes.",
       "gameId": "ed81a01114044edcacfa52656b259d41rcp1",
@@ -323,7 +337,7 @@
       "timestampB": 1616050800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/bM33OmzrNdREQBNnV8ykWY5CprTjyUezIvZ10sjzDfB6J9Rxnngg6X1VppTPEiChRERa9dyRIQ9_bD24-HmS6B-Vi6-p3mteWEE2PfVW7grGoaazyoTewGP58A",
+      "coverImageUrl": "https://lh3.googleusercontent.com/8mSMlFc6Dvhbi8fl309YWyMjBj3x1VF-pzrQGtqbCeyKNiSF6xRi98LRvllPqW5hjMPTWKb966DqNB2oswumH-WhSQ44Jh5ZzZAao9hQeYRxuCtQ2X8EIOIiEw",
       "coverThumbnailData": "KKzzzzzze----zLzK--L-KKz-F_FFzPzz-aJ-K9zuKF---zzuzF_G-zzbbzzzzzz",
       "description": "Powered by Frostbite™, win as one in EA SPORTS™ FIFA 21 with new ways to team up and express yourself on the street and in the stadium:\n•  Enjoy even bigger victories together in VOLTA FOOTBALL SQUADS and FIFA Ultimate Team™ Co-Op.\n•  Manage every moment in FIFA 21 Career Mode with new innovations that create additional depth in matches, transfers and training.\n•  Experience unrivaled authenticity that gives you the most true-to-life experience of The World’s Game.\n\nThis game includes optional purchase of virtual currency that can be used to acquire a random selection of virtual in-game items through “packs”. EA displays pack probabilities in-game. See ‘Loot box drop rates’ below for information on how probabilities are calculated.",
       "gameId": "2c4539adc1e641c0bb2cd0e4032eec75rcp1",
@@ -351,7 +365,7 @@
       "timestampB": 1615881600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/3TuKRe-V8yLdtdQzrFlpA1nCrjI0vSUMFa_Dqa5flmd2Xxn_DgaOQ_slb6qR5qQoww9RhR-oIBxAdUTE2pT0e2F8kwaK7GzWghTUdrdV6JsS--_QPVv0xK3B_x0l",
+      "coverImageUrl": "https://lh3.googleusercontent.com/7-zLplxAbK00N_j-Ju2uttTxYG7h0oAlQFOtVbFgzKsjOF2RsX6KiQulryAiZzAEYQOhkEpSi5Z43CCzLIyH3IeWldlTt0hS6WeMywC5bto3cVOuWwojDpm1VSfo",
       "coverThumbnailData": "JJJeFF--JQzQJF--uQe-dF--e0FJF--ZKPdeJF--FK-JJF--JJ-JF---FJJJF---",
       "description": "Unleash your desire for 2-wheeled excitement. Make your cross \"super\"! Become a true champion. A new career mode will accompany you along the stages of your successes. Prove you are number one by starting from scratch and winning in the 450SX category. Over 100 riders, the highest number of bikers of the 450SX and 250SX classes that the series has ever seen, and finally also Ken Roczen. Everything is more super! Explore, improve and race with other 3 friends on beautiful islands with their fantastic landscapes in the new compound. You are the creator of your own fun. With the new track editor the gaming experience goes up a notch. Create your super tracks and share them online with the community. Customize bikes and riders with over 100 official brands!",
       "gameId": "a62130f4b41b4878a00f8ec444df6b01rcp1",
@@ -533,7 +547,7 @@
       "timestampB": 1612857600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/fmM6eapU5hoNUHlFyZU7-YJFkl7Rsizw308eU175xHTHejOgpk9ImTTkESCME-4mRERY793GoP8ypwZZV8GGltIFRsNgvtFNWzB0Nqx_wNGZfKxHYDgdyJQGMG_k",
+      "coverImageUrl": "https://lh3.googleusercontent.com/9FBKEJJTRVQlYd_xMGeMwlYnheMGMsDs-ISvnxb9KjtaCLjYaGgTvcn--6w8k06Op-q0EMjORK-qS4Q_tUqyZhuu_efhhXbfQmjcZDKq5br-8eT-XUQfNi6b7pPT",
       "coverThumbnailData": "JZZZddd_ZZcdzKzKZcdcKKLtZUssztttLjsePQeeM0ePPeKL0MPzjPKzKK_Ody_j",
       "description": "Epistory is an atmospheric adventure typing game that tells the story of a writer lacking inspiration who asks her muse to help write her latest book. In Epistory you play the muse, a fictional character in a world where everything is untold. Your adventure begins on a blank page, but the world will soon become larger and livelier as you gather inspiration, solve its mysteries and defeat its enemies.  As you progress and explore the fantasy origami world, the story literally unfolds in the writer’s mind and the mysteries of the magic power of the words are revealed.",
       "gameId": "cddb29b222924d11b2bf03a82fee477arcp1",
@@ -547,7 +561,7 @@
       "timestampB": 1612252800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/BZmH97cLU2fzw2CQoX3iR1QHwIv2ppOAYmAb67joIcnD1V2aMG30-DXl7gI29f54DaTyqC-28qjbyVUbcKrCwBf9QpKWceBxDLRyndqcG7fYn2yeqfcAdQG8ng",
+      "coverImageUrl": "https://lh3.googleusercontent.com/rQ5jwbibeo1SyPIb-qiVD0MngKvVUfmTzHiekLuW90UQTaboDZ5pZQegii0tV-DrRnWdl67S0sfEz58NENeeItRMp3j1iILoMV6MY5BQSOKLWBsHQWvNBCmWvg",
       "coverThumbnailData": "---04PJ----0J4e0-0504PP-yeeu5454-4455P44-0455P54045LL05L04LLL4PL",
       "description": "You Are The Last Hope For Humanity\nThe gods’ torturous rule over humanity has lasted for millennia. They demand to be served with blind worship by every man, woman and child. To those who don't submit to the gods’ will; a slow and merciless death awaits.\nExperience the brutal trials of a venturous band of warriors in their desperate plight to sever the gods’ callous grip on humanity. Every man and woman who can muster a blade, having suffered the brutality of the gods’ reign for too long, will be called upon to form your clan of 8 Celtic survivors and rise up to take on the legions of horrific beasts and minions that dwell in each of the gods’ hellish realms.\nA personal tale emerges with every decision made. Succeed and see legends born. Fail, and watch lives turn to dust.",
       "gameId": "f001c122cb70445d8a247d5b6f6334cbrcp1",
@@ -649,7 +663,7 @@
       "coverThumbnailData": "--------AA-A4---zKKK4-4------L4--4---K0------Qj-----KQj---00KKQ-",
       "description": "Sit on the throne as a benevolent (or malevolent) medieval monarch of the modern age and swipe your royal controller either left or right to impose your will upon the kingdom. Survive the seemingly never-ending gauntlet of requests from your advisors, peasants, allies, and enemies while maintaining balance between the influential factions of your kingdom. But beware; each decision you make might have implications and unfortunate consequences down the road that could put your reign and family’s dynasty at risk!",
       "gameId": "2677ffb357f946e29b4e86a9f18ea55frcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "Reigns",
       "skuId": "0b415b02e06f452f8be948daf77787c1p",
@@ -883,7 +897,7 @@
       "timestampB": 1606982400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/HV0JglOuhRg8nFQ7wN7CFK1rsO2fq3HaOGtPUc3TKWqwA1HSMXGev9JkpmEuvmUFFYVCUGA1gzjs33RO-4Kgl-cnaTo224Apz_cVX8k8I3FN8KkVv8OPGrCTjag",
+      "coverImageUrl": "https://lh3.googleusercontent.com/FCRuqhkR0dEuvWMjWHXwVEnRjsLmaXWX1YfXbI3H13nxOrrb0lf4zwbsUlT-ZSVFA8NS8i_WwvhAeVaaov62QGUTydO8lWzgCeLO_FZ--WbMHbjVLEwFKUV-2SQ",
       "coverThumbnailData": "JJeccvcZcJPszczJsxcKMfcdJcc5MejicZddZZdJwuKL-K5JJVZeeeKZZdJOdePZ",
       "description": "Fight your friends and team up to beat your enemies in chaotic eight player shot-curving combat.\n\nOutcasters is a frantic, fast-paced and competitive game from Splash Damage.\n\nBattle your way across vibrant, colorful vinyl arenas and curve your shots to creatively defeat your opponents.\n\n With customizable Outcasters and all sorts of power-ups this is a chaotically fun multiplayer brawler that gives a hook-shot an all new meaning.",
       "gameId": "8533fb04b9174c3f8dce10a2fec7b062rcp1",
@@ -897,7 +911,7 @@
       "timestampB": 1606982400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Kbnx_GfmC2zadZpsYw8A5JpRS9q9-S978g1SrNuvfe69ZSi_gvs0JzxlaW07R99mA3dU9x-_D6lwsjvedHAVum1eJFnTxnU4gnYdS3m97gdC6rEWIJ9oKcBHzFw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/dTBbYs7E3a3gDDP03fvfPEegTmp1dggkyA5DgkwkN5Cc8voC16cMgySOVzLGcL38_2L-tPvjfwcRFID9LSsVRnr8VA6OLs0AqLw33vixA80NK6N2NLD--yEu7TA",
       "coverThumbnailData": "_ieddKeyKPetP5esK_eeKKKuzKzKt0eeKeejeKyy-dKejKLe3_j9eeeK3Keee_JK",
       "description": "Immortals Fenyx Rising™ brings grand mythological adventure to life.\nPlay as Fenyx, a new, winged demigod on a quest to save the Greek gods. The fate of the world is at stake – you are the gods’ last hope.\nWield the powers of the gods, like Achilles' sword and Daidalos' wings, to battle powerful enemies and solve ancient puzzles.\nFight iconic mythological beasts like Cyclops and Medusa in dynamic combat in the air and on the ground.\nUse your skills and diverse weapons, including self-guided arrows, telekinesis, and more, for devastating damage.\nDiscover a stylized open world across seven unique regions, each inspired by the gods.",
       "gameId": "161f276db10947a199cd0260ed4dc248rcp1",
@@ -939,7 +953,7 @@
       "timestampB": 1606834800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/pBbO1CcV7XBEVafyFRU2mxY65L3zjUilPCzkMUQ9GGdQhAHXRbhUq72eHjN2D7VmRgmVO3Kyshi2nFHG2pth-r3ST1WAchlvAJDCwR548xz69SzA5aZ8I0XCTA",
+      "coverImageUrl": "https://lh3.googleusercontent.com/XU42dP_t_lFXs6ZRCcqZgd8oG7jKBeUCaj3dPsh7UJkHzVEOulTbsC5OyIxv_aP8GgB6_SzTBudPefg7KpekT3bETiyMBKfHmKxUer9eosBE68GsKiuWpBq97g",
       "coverThumbnailData": "ZZJJFJF-cfcZZJe-tfJcccZ-JL-tcJc-ddxytJcF_zdJxxcKJjJdzcd-JJJJcJ50",
       "description": "Hello Neighbor Multiplayer. Secret Neighbor is a Multiplayer Social Horror Game where a group of intruders try to rescue their friend from the Neighbor's creepy basement. Only problem is one of the intruders is the Neighbor in disguise.",
       "gameId": "8f8d583a2ae843e0b31fa653cea5d27drcp1",
@@ -971,7 +985,7 @@
       "coverThumbnailData": "--FK_J---K-__K---0JddKJ---JeJdJ---_KKJJKJKKKee-K---JeeJK--KK-KK-",
       "description": "Chronos: Before the Ashes is an atmospheric RPG that chronicles a hero’s lifelong quest to save their homeland from a great evil.  Grow wiser, stronger and more powerful as you explore the depths of the mysterious labyrinth. But beware, the labyrinth takes a heavy toll – each time your hero dies, they lose a year of their life!",
       "gameId": "3f94b62fa50c4202be10472947478f8frcp1",
-      "inStadiaPro": false,
+      "inStadiaPro": true,
       "inUbisoftPlus": false,
       "name": "Chronos: Before the Ashes",
       "skuId": "c3fcca2c75614bf6b634bedc2f766003p",
@@ -1009,7 +1023,7 @@
       "timestampB": 1606204800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/ZuIlI-CUC6gwkg9OcGcTCEfeCAYKm673LgaN05uvWaBlGOBjILZ02D6srFHkAhiMOu_y6GrYSmYW7GQrvp7gzZhzlRlCqMOYiVQsSKUC6GYeCjr9JdN3YmvMyA",
+      "coverImageUrl": "https://lh3.googleusercontent.com/fovZOwxy2ggvWw0VmKrYvaPYUU2Aob49rbWVNFA1wGgA56Pz4r-oi7HMpP6IdDHBJeByTjVeSdbEpgBRdqMHcEX24JpxjoUKX99nEEtW2NTk4HkbstePQXeDkw",
       "coverThumbnailData": "J-zzzz--eF-2eFFGfKKMFFFFeKF_J_JJKLLF_FK_aLKx-JJdae_0KGFKJGK-GGFz",
       "description": "Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Welcome to the Resistance. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities.Take your recruits online and team up with your friends as you complete missions and challenging endgame content.",
       "gameId": "deb490c166544813bf2ab73f4c6e2aa0rcp1",
@@ -1041,7 +1055,7 @@
       "coverThumbnailData": "FttttttF-F9QAQFFFFFFFFKFF0FUUFGFF0FPU-GFF0F4UFGF-0-4UFFFGHFG_GGF",
       "description": "Prove your mettle in the world’s biggest simultaneous multiplayer PAC-MAN experience! Jump into 64-player games and show everyone who's the leader of the PAC! Invade other players' mazes, eat their dots and power ups - even other players! - and dominate the mazes! But watch out: viewers can vote on power-ups that can cause you - or your opponents! - to stumble on the field and be eliminated from battle! Invade, defend, and rack up high scores across a field of 64 interconnected mazes. Take advantage of brand-new power-ups, spy on neighboring boards, and much more! Spectator interactivity means even viewers are part of all the thrilling action! And customize your PAC-MAN and your home maze with fun skins to show off unique looks!",
       "gameId": "9affbc684aeb422086bfb5d0c8bf2f55rcp1",
-      "inStadiaPro": true,
+      "inStadiaPro": false,
       "inUbisoftPlus": false,
       "name": "PAC-MAN Mega Tunnel Battle",
       "skuId": "9a25de2639254575abb6f2d58d5c57e5",
@@ -1056,7 +1070,7 @@
       "description": "Experience one of America’s hottest gameshows at home now! Customize your character, challenge your friends, family, and even other players online for a chance to bring the big prize home. Play four exciting game modes: Classic mode features the authentic Family Feud® experience. Choose a difficulty and take on an AI team just as determined as you are! Party Battle lets you get into teams with your family and friends as you battle each other in local multiplayer. Couch vs. Couch brings the experience online! Play against others across the world. The Live Show feature allows you to broadcast your game and play with your viewers!",
       "gameId": "5ba98de70c8c4b64bf56ca9009d60e62rcp1",
       "inStadiaPro": false,
-      "inUbisoftPlus": true,
+      "inUbisoftPlus": false,
       "name": "Family Feud",
       "skuId": "3af579475c334c62985ac80b3dfed0bap",
       "slug": "family-feud",
@@ -1079,7 +1093,7 @@
       "timestampB": 1605168000
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/b2CPLfAgMUUQOV6fZP-_2-pnO7xYQfz4qHA33U3LIJwGe4V6dTqxyLisN8QA0ldkBgqFgFRFJeXbocU-kq7NTUJQmJvqpznM96oaH2k662p174GUiFC2rA7XT1DZ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/oq60EHc0c0OQ5eKoYW4FYvN9dBB75aFV-1e_5Gm6B2gJ5PnD2trQjMqbnOL96AFE-BoXsCABfTaesUIv3CCBDIwOkSIRfvYREDFxTaTEnP0u-n7ddpq5ARgDT6-K",
       "coverThumbnailData": "eeyzzzzzezyzz-zzzeKzzKKzezzzzKezeeeee0-zeeezz-GzeeeKy0-K_eeKKeKu",
       "description": "Become Eivor, a legendary Viking raider on a quest for glory. Explore England's Dark Ages as you raid your enemies, grow your settlement, and build your political power. Lead epic Viking raids against Saxon troops and fortresses. Dual-wield powerful weapons and relive the visceral fighting style of the Vikings. Challenge yourself with the most varied collection of deadly enemies ever found in Assassin's Creed. Shape the growth of your character with every choice and carve your path to glory. Explore a Dark Age open world, from the shores of Norway to the kingdoms of England. Personalize your experience by growing your clan's settlement.",
       "gameId": "377f50584071472096bcda89b0839bc3rcp1",
@@ -1261,7 +1275,7 @@
       "timestampB": 1601535600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/Fe7CBiB4VtRb4Y5padSbmeJKv656UPNa01TrSWe6g8eGS36GHNYxPOXq0wUcgp0E1ceu8KUzZmH4t5vk5fBhcUuAYUYuCxbcivd_cDTVZoWrlfKO6Y9pc4h-4Djz",
+      "coverImageUrl": "https://lh3.googleusercontent.com/i2HhdDTk-5NTDvemqpSqQpClWCxmEdf1CtptEw5A52zGEYPRJrqpSHkXcBHAiWil4VnCf9OsjM0puiYYoILW2k1IXSN_xQo2ysAPY4yxJNMwN5z5-L-kqmkqNg7l",
       "coverThumbnailData": "--KKFJ----KKFLF--JK4-LKK-JKKFKKK-FKKKLK--KL--LKK-KK-0KK---Q--fK-",
       "description": "Death Is Not an Escape. \n\n Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught, tortured and killed. \n\n Survivors play in third-person and have the advantage of better situational awareness. The Killer plays in first-person and is more focused on their prey. \n\n The Survivors' goal in each encounter is to escape the Killing Ground without getting caught by the Killer - something that sounds easier than it is, especially when the environment changes every time you play.",
       "gameId": "b67e43f2b05f4ba7acc56a4b222568aarcp1",
@@ -1345,7 +1359,7 @@
       "timestampB": 1600498800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/sxh_ve5doO_oZDY4LBVowkAT4jzyeUx88fXrtyWqaXacovjBxkZrxK82k4wEW-w8TRCV2_Ifdb4IKqfEUkc73nHZEYp6B-MVZdfLRWgFN7Ze1DcfekvaetSQ5g",
+      "coverImageUrl": "https://lh3.googleusercontent.com/qRdiX3npZtJuSZo6m7Fww9C6Ye71gjyC528d3k9lWlIvxddUbPU0LarTaENhRqPOZiTen5k1nws0a-Pkqx6p0Lk3aHbMnXCA1xpgTz0-yIUbTAocCEynHu-jpw",
       "coverThumbnailData": "016LzA910P6z2A610Le2EA61016EjAA5116-5jA10166Az6101M66A6101666661",
       "description": "One of the most iconic classic games which we all grew to know and love! UNO makes its return with an assortment of exciting new features such as added video chat support and an all new theme system which adds more fun!\nMatch cards either by matching color or value and play action cards to change things up. Race against others to empty your hand before everyone else in either Classic play or customize your experience with a variety of House Rules and match settings to ensure you and your friends never play the same game twice! Also, get ready to shake things up with new branded themes introducing never-before-seen Theme Cards that really change the way you play the game!",
       "gameId": "1694aaa3968344228424092f180a3e0ercp1",
@@ -1387,7 +1401,7 @@
       "timestampB": 1599202800
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/ndEWR1r0f6NwuS7bf-9RPG-Ik3BoHoJ7aqyzGLtivpYXQ4BflHAG7mUdnNG1j6-qP9iOLeTzU5nbVChS_C-RhleL21dkXeS2XsZDIogyGAaQVuIiewfdCh2sWDs",
+      "coverImageUrl": "https://lh3.googleusercontent.com/OTYiD_zQhuoUqJBpYaHk0jnakl3ZPpG3ACV5GOlQ64zNB7kDfSA42CpTRaNnZZZFSTzASl2iEhQ9vrf2b-gXmQgQUbbUMzNh4baQ9LTqnaBiR2tqCs8EloR7464",
       "coverThumbnailData": "zuuetuzzuuMKKKeeuKeKKeeuedeeKPee--eefeeeKKZyzuK44K-KK----KK0----",
       "description": "Marvel’s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay*. Assemble into a team of up to four players online, master extraordinary abilities, customize a growing roster of Heroes, and defend the Earth from escalating threats.\n\n* Free Square Enix Members account required.",
       "gameId": "232ff8abc7f74421a477e9e09dbf487drcp1",
@@ -1611,7 +1625,7 @@
       "timestampB": 1594825200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/WbOkL29VFFgSyCxS61tOqe0uOSsQUmr3bTo5OZR-nu8iCTP-75USgCq1HpQZFMyrvWJDEyRAEPRrdjg6HdHEmGevzsZClbaV3hKN_U92rAeK085lvpA67dQeXcw",
+      "coverImageUrl": "https://lh3.googleusercontent.com/LjuBP_PdR8r71gHfjAAa1K8Fb6JcPesce5tm16GbNdmn4MAdU1nOY9c9YGuYl8epaj9b-j708ISYoWZE5JN-kIuoPmwUtK-eR7hH7zC8p--TCmf1NGHY3zQhxLs",
       "coverThumbnailData": "_vvvffzu_vvvzvvz_vvfKvffavvjqvufajvzuvuQKazfeuffK__zavffFK_jjffF",
       "description": "Stadia Early Access Disclaimer:\nEarly Access grants you access to a game that is still in development. It is an unfinished game, which means you may encounter playability issues (including the potential loss of saved progress) and changes without notice. Access to the game may be lost if development is not completed. We encourage you to visit the publisher's website for information about the game, and to visit our help center for more information about Early Access.Learn more about early access [https://support.google.com/stadia?p=early_access].\n\nWe wanted to give you access to the game as soon as possible. We plan to update the game with additional content in a two month interval. The full game will be released in the second half of 2021 with a playtime of 3-4 hours. Microphone is currently not supported on mobile! Please‌ ‌head‌ ‌to‌ ‌our‌ ‌official‌ ‌site‌ ‌to‌ ‌join‌ ‌the‌ ‌discussions!‌ Community Site [https://discord.gg/BmdxDDj]Experience a 2D platformer with a very unique mechanic: change the world with your voice! One Hand Clapping lets you discover the power that rests within your vocal cords while solving unique puzzles that will require rhythm and a good ear. You must build confidence in your singing voice and explore several different mechanics to overcome harmonic and pitch-focused challenges. Don’t be afraid of hitting the wrong notes, it is all about taking risks and learning from your mistakes. Find out how far your voice can take you! - Please be aware, that this game is still in early development and new features and levels will be added in future updates.",
       "gameId": "76309b9f2f294b07b410e8b6aa879273rcp1",
@@ -1751,7 +1765,7 @@
       "timestampB": 1592924400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/fmO7rgginiRw0XH5UE4NSghvLxJ_Ey6_WHozxZidpII2HBZXR_ivnqCBuNtQQvKAEf4dxHR07SodeyA3J_c9sDTxcAt_YfY7sCgAwqRAxPzbkTUG_lduamoJItwq",
+      "coverImageUrl": "https://lh3.googleusercontent.com/-pphAEfrOc9byVw6tmr8mNEIZo5YwxAIG6-lBCKvCbgvUlRRhiOAq427Iu6TU-GTNiOf34-trCK5XOGhaw0BmKLQRKM-K5nq8EPL7PMdC1N8EDJiyWuT0aYRJDYg",
       "coverThumbnailData": "KejzjeeKKLeeeeLK3PeKPeLKKKP4-KK-KKK-0KKK-4K0KK----K--K---K------",
       "description": "The fantasy role-playing series, The Elder Scrolls, goes online – no game subscription required. Embark upon quests across Tamriel and engage in massive player versus player battles. Experience this multiplayer role-playing game on your own or with your friends, guild mates, and thousands of alliance members. The choices are yours in the world of The Elder Scrolls Online: Tamriel Unlimited.",
       "gameId": "b17f16d4a4f94c0a85e07f54dbdedbb6rcp1",
@@ -1761,7 +1775,7 @@
       "skuId": "2a598d522e4f4f9d818d08fe582d17e3",
       "slug": "the-elder-scrolls-online",
       "storeName": "The Elder Scrolls Online: Tamriel Unlimited",
-      "timestampA": 1396594800,
+      "timestampA": 1396512000,
       "timestampB": 1592377200
     },
     {
@@ -1965,7 +1979,7 @@
       "coverThumbnailData": "----KKec----e8eJ----F1KJ------Ke-----FK------42K-----5fK--------",
       "description": "Experience all the thrills of the more-complete-than-ever Managerial Career mode and decide whether to join a 2020 season team or join a totally brand new team. Discover more realistic physics, improved graphics, new 3D models for the riders and face scans of official team managers, plus new animations. You will also have to learn how to manage the wear of tyres. Customize bikes and suits! Find the best combination of sponsor and livery, and choose colours and materials. Coordinate everything with your suit to win in style! Compete with legendary riders! New historic content and a new gaming mode await you to let you relive MotoGP™ history.",
       "gameId": "e465c4086aff4884990933d9f119f5f5rcp1",
-      "inStadiaPro": false,
+      "inStadiaPro": true,
       "inUbisoftPlus": false,
       "name": "MotoGP 20",
       "skuId": "b0c60f8483be419eb2335a79a0783cc5",
@@ -1989,7 +2003,7 @@
       "timestampB": 1585753200
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/8u7KJyz-qQhh_ZHLxm0HqeAX8-gBbBH7PgfYVPcu9gaoHeAoSXoyfQaoeVkF2iemW5BDpXRycyHtyVjkKOcICklsuqGVWo_13E4klCsAQozBW1CmWOr7RTCMog",
+      "coverImageUrl": "https://lh3.googleusercontent.com/0i-37nl_IR08nhIGXUY96XVzwHCvF-k8NifeY92Xi8e9rXLx-TGUu6Jkqy6CSlVtAIJTjgpSl62QAODbLd6eNVhHTGcLBJw13xF6fo4DS_jyF5-FLDV_4maPcw",
       "coverThumbnailData": "JJzeKzcK-JcKzzKJ-J0zzzJJ-O--e4J--K-LeKK---KjjK4--POKUK5--4JKUK9-",
       "description": "Interact with the words inscribed in the pages of a young girl’s diary to solve challenging puzzles, tackle unique platforming segments and discover an emotional tale set across the vibrant world of Estoria in Lost Words: Beyond the Page. Personal diary entries belonging to a young girl named Izzy will unfold as you explore a fantasy land where words hold immense power. Featuring an immersive story crafted by renowned games writer Rhianna Pratchett, Lost Words: Beyond the Page will mesmerize players with its unique blend of gameplay mechanics and striking watercolor aesthetic. Driven by the player’s curiosity, the world of Estoria and the power it holds will serve as the engine that will propel Izzy through this deeply personal narrative, resulting in a truly memorable experience.",
       "gameId": "d334bea27ee64ef5a3a9bb14b1d6a88ercp1",
@@ -2143,7 +2157,7 @@
       "timestampB": 1580828400
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/om5eps7-2FEmEbYFsT8en4Y-7DiO9DpmGhkomJiOlRc4C120_xAqcq7ViG8k8V9EFLKfANe-xuU-lp9yExNGmd1DCWwZQrNmvkGpamg9zVkRBGW1sN425ySXDg",
+      "coverImageUrl": "https://lh3.googleusercontent.com/LnMcRspiVQTZTLVfyZa3YKqfKhdskSL1nsOWkskX91F37XmEPSeFP7GFWYre6_qjP_ghsfSxlOrCucKbtny-sXcaiB5_zijpQId8WcnuM1TrS29-gkEVcX88wA",
       "coverThumbnailData": "eydd_dddKduKfeddKedKe4dtedzKzdzeLezKJddeJdK0uudKJKeKedJKJJdKdeKJ",
       "description": "Experience a military shooter set in a diverse &amp; hostile open world that you can play solo or up to four-player co-op. FACE YOUR TOUGHEST ENEMIES With your own playstyle, take down the Wolves, ex-brothers-in-arms gone rogue and their leader Cole D. Walker. DISCOVER STADIA EXCLUSIVE FEATURE Enjoy a totally new social experience with Stream Connect, providing a real time view into another player’s game as it’s happening, so you can not only watch but interact with them instantly. Upgrade to the Gold Edition or Ultimate Edition to get the most out of your experience including the Year 1 Pass and more.",
       "gameId": "11c9ece5b3a045908d77cf2b66adb010rcp1",
@@ -2269,7 +2283,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/7_n1DkDdG1uUN55YdNGN5hyvjGkZ3LazWgFylX2XW-mdx02_kxfplLzFoqMWFka4bO111k-K2Gn9G0h3a3JLuZrUsYWeKCqxo_zr9SEudIMYsovYNbo7iyS6DwQ",
+      "coverImageUrl": "https://lh3.googleusercontent.com/enbASVZnF-P0woRPs88tHCFc90yAXUoVW5OE4V1HPKIVFghkoet2lFCuf5FojUsWAOEkE0Lyfy33IzAV8cliLkVmV35vDM5sz-S5AeCIA0JtKpcU22NqexQ6nPs",
       "coverThumbnailData": "555L-5Q9PPPP0PPQQjj4fQQ5jj5zzUjAUjjQjejQQQQLLQQj4PP0-PQQ45P5KPPP",
       "description": "Description: This is SAMURAI SHODOWN’s main game.  SAMURAI SHODOWN has enjoyed worldwide success as a blade-wielding fighting game series since its first release in 1993.  11 years have passed since the last series installment, and it is now time for SAMURAI SHODOWN to return in a brand-new game featuring high-end visuals and gameplay!  Faithfully reproducing the game mechanics and atmosphere that contributed to the success of the series, SAMURAI SHODOWN includes a revolutionary feature that learns players’ game actions and patterns in order to create CPU-controlled “ghost” characters.  With its story set one year before the very first installment, warriors and combatants from various backgrounds and with their own goals are about to battle to fulfill their destinies!",
       "gameId": "120348c2707740b99b509fad49a2f45drcp1",
@@ -2367,7 +2381,7 @@
       "timestampB": 1574175600
     },
     {
-      "coverImageUrl": "https://lh3.googleusercontent.com/HFoFjkl81bbFtKmO6dBG0mCLtVS0TcXxQ4AmjofUqQFPpTzjRol5D50DmutUPQa278jW-p9doxCoobDzevOF_3XuZvdLHBxw2mm2f3qrK6cPBQXF3Twyj6OzSj6G",
+      "coverImageUrl": "https://lh3.googleusercontent.com/TkNfkN8upNNNUMmx9Y7Evb6BkCXuV3ydC1chzZJDmMQSgaP-XmoqcdAFUlAXiua8XQtK0C_foe1uN_ExYfb8Z2DKrsypuCROlf3WymDxWbuYaowUqLSZCCoD57rG",
       "coverThumbnailData": "--000-----0MGK-J--KGGKJ--GGGGKJ--KK0KKJJ--GFKJJJ--JJKJJJ--FJKJJJ",
       "description": "Dive into the world of Destiny 2 to explore the mysteries of the solar system and experience responsive first-person shooter combat.\n\nAn Immersive Story\nYou are a Guardian, defender of the Last City of humanity in a solar system under siege by infamous villains. Look to the stars and stand against the darkness. Your legend begins now.\n\nGuardian Classes\nChoose from the armored Titan, mystic Warlock, or swift Hunter.\n\nCooperative and Competitive Multiplayer\nPlay with or against your friends and other Guardians in various PvE and PvP game modes.\n\nExotic Weapons and Armor\nThousands of weapons, millions of options. Discover new gear combinations and define your own personal style. The hunt for the perfect arsenal begins.",
       "gameId": "20e792017ab34ad89b70dc17a5c72d68rcp1",

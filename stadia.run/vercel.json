@@ -4,6 +4,11 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e9c4d2fc77424c34b0cd570bd761aab0rcp1",
+      "source": "/blue-fire",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/0b14eb3560f94ed69375f6ca5b7491fercp1",
       "source": "/hundred-days-winemaking-simulator",
       "statusCode": 301
