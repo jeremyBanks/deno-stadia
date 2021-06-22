@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
+#!/usr/bin/env -S deno run --allow-run --allow-read --allow-write --no-check
 /** Rebuilds generated code. */
 import { blake3, brotli } from "./deps.ts";
 

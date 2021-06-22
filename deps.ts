@@ -17,7 +17,7 @@ export * as path from "https://deno.land/std/path/mod.ts";
 export * as brotli from "https://deno.land/x/brotli/mod.ts";
 export * as sqlite from "https://deno.land/x/sqlite/mod.ts";
 
-export * as z from "https://deno.land/x/zod/mod.ts";
-export * as zod from "https://deno.land/x/zod/mod.ts";
+export * as z from "https://deno.land/x/zod@v3.0.0/mod.ts";
+export * as zod from "https://deno.land/x/zod@v3.0.0/mod.ts";
 
 export * as typing from "./_common/utility_types/mod.ts";

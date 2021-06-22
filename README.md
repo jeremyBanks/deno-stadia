@@ -16,8 +16,9 @@ Google Stadia account.
 **⚠️ Until its 1.0 release, this tool is incomplete and unsupported. Features
 may not be implemented, or may not function as described. Come back later. ⚠️**
 
-To use this tool you'll need to install [Deno, a secure runtime for TypeScript
-and JavaScript](https://deno.land/). On Linux, you may do so by running:
+To use this tool you'll need to install
+[Deno, a secure runtime for TypeScript and JavaScript](https://deno.land/). On
+Linux, you may do so by running:
 
 ```
 $ curl -fsSL https://deno.land/x/install/install.sh | sh
@@ -38,48 +39,19 @@ $ stadia
 ```
 
 ```
-Unofficial Stadia CLI
+<--- Last few GCs --->
 
-USAGE:
+[12195:0x391400000000]    82564 ms: Scavenge 1373.2 (1436.4) -> 1369.1 (1438.9) MB, 4.8 / 0.0 ms  (average mu = 0.929, current mu = 0.640) allocation failure 
+[12195:0x391400000000]    82723 ms: Scavenge 1375.1 (1438.9) -> 1370.8 (1439.4) MB, 7.3 / 0.0 ms  (average mu = 0.929, current mu = 0.640) allocation failure 
+[12195:0x391400000000]    82897 ms: Scavenge 1376.9 (1439.4) -> 1372.6 (1457.1) MB, 8.6 / 0.0 ms  (average mu = 0.929, current mu = 0.640) allocation failure 
 
-    stadia [<authentication>] <command> [<arguments>...]
 
-AUTHENTICATION:
+<--- JS stacktrace --->
 
-    You must authenticate with Google Stadia in one of the following ways:
 
-    (1) If using Google Chrome on Windows 10 and running this command within
-        Windows Subsystem for Linux, it will detect any Chrome Profiles that are
-        synced with a Google account and load their authentication cookies
-        automatically. If there are multiple synced profiles, you will be
-        prompted to pick one, or you may specify it with the
-        --google-email=<email> parameter.
-
-    (2) The --google-cookie=<cookies> parameter may be set to a header-style
-        semicolon-delimited Cookie string that will be used to authenticate with
-        Google. This should contain the Google authentication cookies "SID",
-        "SSID", and "HSID".
-
-    (3) --offline will disable all authentication and network
-        operations. Operations that require data that isn't already saved
-        locally will fail.
-
-COMMANDS:
-
-    stadia auth
-
-        Prints information about the authenticated user.
-
-    stadia fetch [--json] <stadia_url>
-
-        Fetches a Stadia URL and displays our internal representation of the
-        response. The default output is meant for humans. The [--json] flag
-        adds more detail for machines.
-
-        stadia rpc method_id [...json_args]
-
-        stadia captures
-
+#
+# Fatal javascript OOM in Reached heap limit
+#
 ```
 
 ## Disclaimer
@@ -95,8 +67,8 @@ Copyright Jeremy Banks and
 
 Licensed under either of
 
- * [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
- * [MIT license](http://opensource.org/licenses/MIT)
+- [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+- [MIT license](http://opensource.org/licenses/MIT)
 
 at your option.
 
