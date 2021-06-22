@@ -4,6 +4,16 @@
   },
   "redirects": [
     {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e85d550899de407e996a8a2d9dfbc7efrcp1",
+      "source": "/hello-engineer",
+      "statusCode": 301
+    },
+    {
+      "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/b5b149105b1e4a38b1c43484d2d4dc22rcp1",
+      "source": "/olympic-games-tokyo-2020-the-official-video-game",
+      "statusCode": 301
+    },
+    {
       "destination": "https://stadia.google.com/setup?redirect_to=https://stadia.google.com/player/e9c4d2fc77424c34b0cd570bd761aab0rcp1",
       "source": "/blue-fire",
       "statusCode": 301
