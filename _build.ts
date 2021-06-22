@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-write
 /** Rebuilds generated code. */
-import { brotli, Sha3d256 } from "./deps.ts";
+import { blake3, brotli } from "./deps.ts";
 
 const main = async () => {
   if (new URL(import.meta.url).protocol === "file:") {
@@ -226,7 +226,7 @@ const inlineBytes = async (
 
   const lines = [];
 
-  const hash = new Sha3d256().update(originalBytes).toString("hex");
+  const hash = await blake3(originalBytes);
   const size = originalBytes.length.toString().padStart(
     Math.ceil(originalBytes.length.toString().length / 3) * 3,
   ).replace(/...\B/g, "$&_").trim();

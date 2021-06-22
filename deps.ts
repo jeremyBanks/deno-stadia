@@ -5,7 +5,7 @@ export type {
   ArgParsingOptions as FlagOpts,
   Args as FlagArgs,
 } from "https://deno.land/std/flags/mod.ts";
-export { Sha3_256 as Sha3d256 } from "https://deno.land/std/hash/sha3.ts";
+export { blake3 } from "https://cdn.jsdelivr.net/npm/hash-wasm@4.7.0/dist/index.esm.js";
 export {
   BufReader,
   BufWriter,
